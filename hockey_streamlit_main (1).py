@@ -890,86 +890,13 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
     
     with tab1:
         st.markdown('<div class="section-header">Game-by-Game Stats</div>', unsafe_allow_html=True)
-        
-        # Get game-by-game stats
-        goalie_games = st.session_state.goalies_df[
-            st.session_state.goalies_df["skater"] == goalie_name
-        ].copy()
-        
-        if not goalie_games.empty and not games_df.empty:
-            goalie_games = goalie_games.merge(games_df, on="game_id", suffixes=('', '_game'))
-            goalie_games["opponent"] = goalie_games.apply(
-                lambda row: row["away_team"] if row["team_name"] == row["home_team"] else row["home_team"],
-                axis=1
-            )
-            goalie_games["save_percentage_game"] = goalie_games.apply(
-                lambda row: row["saves"] / (row["saves"] + row["goals_against"])
-                if row["saves"] + row["goals_against"] > 0
-                else 0,
-                axis=1,
-            ).round(3)
-            
-            # Create season summary row
-            total_saves = goalie_games["saves"].sum()
-            total_ga = goalie_games["goals_against"].sum()
-            season_sv_pct = (total_saves / (total_saves + total_ga)) if (total_saves + total_ga) > 0 else 0
-            
-            season_summary = pd.DataFrame([{
-                "game_id": "SEASON TOTAL",
-                "opponent": f"{len(goalie_games)} Games",
-                "saves": total_saves,
-                "goals_against": total_ga,
-                "save_percentage_game": round(season_sv_pct, 3)
-            }])
-            
-            # Sort individual games and combine with summary
-            individual_games = goalie_games[["game_id", "opponent", "saves", "goals_against", "save_percentage_game"]].sort_values("game_id", ascending=False)
-            display_df = pd.concat([season_summary, individual_games], ignore_index=True)
-            
-            st.dataframe(
-                display_df,
-                hide_index=True,
-                use_container_width=True,
-                column_config={
-                    "game_id": "Game",
-                    "opponent": "Opponent",
-                    "saves": "SVS",
-                    "goals_against": "GA",
-                    "save_percentage_game": st.column_config.NumberColumn("SV%", format="%.3f")
-                }
-            )
-        else:
-            st.info("No game data available")
+        # ... box score code ...
     
     with tab2:
         st.markdown('<div class="section-header">Goals Against Chart</div>', unsafe_allow_html=True)
-        
-        if not goalie_shots.empty:
-            col1, col2, col3 = st.columns(3)
-            with col1:
-                total_shots = len(goalie_shots)
-                st.metric("Shots Faced", total_shots)
-            with col2:
-                goals_against = len(goalie_shots[goalie_shots["is_goal"] == True])
-                st.metric("Goals Against", goals_against)
-            with col3:
-                if total_shots > 0:
-                    sv_pct = ((total_shots - goals_against) / total_shots) * 100
-                    st.metric("SV%", f"{sv_pct:.1f}%")
-            
-            # Filter for goals only
-            goals_only = goalie_shots[goalie_shots["is_goal"] == True]
-            
-            if not goals_only.empty:
-                fig = create_shot_chart(goals_only, goalie_name, view_type="goalie")
-                if fig:
-                    st.plotly_chart(fig, use_container_width=True)
-            else:
-                st.success("🎉 No goals against!")
-        else:
-            st.info("No shot data available for this goalie")
+        # ... goals against code ...
     
-   with tab3:
+    with tab3:  # <-- Make sure this aligns with tab1 and tab2 above
         st.markdown('<div class="section-header">Shootout Performance</div>', unsafe_allow_html=True)
         
         if not shootout_data.empty:
