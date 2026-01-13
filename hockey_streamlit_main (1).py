@@ -409,15 +409,36 @@ def load_shootout_data():
         if not shootout_files:
             return pd.DataFrame()
         
-        df = pd.read_csv(shootout_files[0])
-        df.columns = [c.lower() for c in df.columns]
-        df = df.dropna(axis=1, how="all")
+        # Read CSV with proper encoding
+        df = pd.read_csv(shootout_files[0], encoding='cp1252')
+        
+        # Normalize column names
+        df.columns = df.columns.str.strip().str.lower()
+        
+        # Rename columns to match expected format
+        column_mapping = {
+            'where player shot from on ice': 'shot_location_ice',
+            'where the shot went on goal': 'shot_location_goal',
+            'what move they made': 'move_type',
+            'goalie (don\'t worry about this)': 'goalie',
+            'date': 'date'
+        }
+        
+        df = df.rename(columns=column_mapping)
+        
+        # Clean up data
         df["player"] = df["player"].fillna("").astype(str).str.strip()
-        df["goalie"] = df["goalie"].fillna("").astype(str).str.strip()
+        df["team"] = df.get("team", pd.Series([""] * len(df))).fillna("").astype(str).str.strip()
+        
+        # Remove rows with empty player names or "idle"
         df = df[df["player"].notna() & (df["player"] != "") & (df["player"].str.lower() != "idle")].copy()
-        df["goalie"] = df["goalie"].replace(["", "idle"], "Unknown")
+        
+        # Clean goal column
         df["goal"] = df["goal"].fillna("No")
-        df["goal"] = df["goal"].apply(lambda x: "Yes" if str(x).strip().lower() == "yes" else "No")
+        df["goal"] = df["goal"].apply(lambda x: "Yes" if str(x).strip().lower() in ["yes", "y", "goal"] else "No")
+        
+        # Drop rows where all important columns are NaN
+        df = df.dropna(subset=['player', 'goal'], how='all')
         
         return df
     except Exception as e:
@@ -683,16 +704,28 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
             )
             player_games["points"] = player_games["goals"] + player_games["assists"]
             
-            # Sort by game_id and add sequential game number
-            player_games = player_games.sort_values("game_id", ascending=False)
-            player_games["game_number"] = range(len(player_games), 0, -1)
+            # Create season summary row
+            season_summary = pd.DataFrame([{
+                "game_id": "SEASON TOTAL",
+                "opponent": f"{len(player_games)} Games",
+                "goals": player_games["goals"].sum(),
+                "assists": player_games["assists"].sum(),
+                "points": player_games["points"].sum(),
+                "plus_minus": player_games["plus_minus"].sum(),
+                "penalty_minutes": player_games["penalty_minutes"].sum(),
+                "shots": player_games["shots"].sum()
+            }])
+            
+            # Sort individual games and combine with summary
+            individual_games = player_games[["game_id", "opponent", "goals", "assists", "points", "plus_minus", "penalty_minutes", "shots"]].sort_values("game_id", ascending=False)
+            display_df = pd.concat([season_summary, individual_games], ignore_index=True)
             
             st.dataframe(
-                player_games[["game_number", "opponent", "goals", "assists", "points", "plus_minus", "penalty_minutes", "shots"]],
+                display_df,
                 hide_index=True,
                 use_container_width=True,
                 column_config={
-                    "game_number": "Game",
+                    "game_id": "Game",
                     "opponent": "Opponent",
                     "goals": "G",
                     "assists": "A",
@@ -748,10 +781,54 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
                 with col3:
                     st.metric("Success Rate", f"{success_rate:.1f}%")
                 
-                st.markdown("**Shot Locations:**")
-                if "where_shot" in player_shootout.columns:
-                    locations = player_shootout["where_shot"].value_counts()
-                    st.write(locations.to_dict())
+                st.markdown("---")
+                
+                # Display shootout details
+                col1, col2 = st.columns(2)
+                
+                with col1:
+                    st.markdown("**Shot Locations (Ice):**")
+                    if "shot_location_ice" in player_shootout.columns:
+                        locations = player_shootout["shot_location_ice"].value_counts()
+                        for loc, count in locations.items():
+                            if pd.notna(loc) and str(loc).lower() not in ['nan', 'n/a', '']:
+                                st.write(f"• {loc}: {count}")
+                    
+                    st.markdown("**Move Types:**")
+                    if "move_type" in player_shootout.columns:
+                        moves = player_shootout["move_type"].value_counts()
+                        for move, count in moves.items():
+                            if pd.notna(move) and str(move).lower() not in ['nan', 'n/a', '']:
+                                st.write(f"• {move}: {count}")
+                
+                with col2:
+                    st.markdown("**Shot Locations (Goal):**")
+                    if "shot_location_goal" in player_shootout.columns:
+                        goal_locs = player_shootout["shot_location_goal"].value_counts()
+                        for loc, count in goal_locs.items():
+                            if pd.notna(loc) and str(loc).lower() not in ['nan', 'n/a', '']:
+                                st.write(f"• {loc}: {count}")
+                
+                # Show recent attempts
+                st.markdown("---")
+                st.markdown("**Recent Attempts:**")
+                display_cols = ['date', 'shot_location_ice', 'shot_location_goal', 'move_type', 'goal']
+                available_cols = [col for col in display_cols if col in player_shootout.columns]
+                
+                if available_cols:
+                    recent = player_shootout[available_cols].head(10)
+                    st.dataframe(
+                        recent,
+                        hide_index=True,
+                        use_container_width=True,
+                        column_config={
+                            'date': 'Date',
+                            'shot_location_ice': 'Shot From',
+                            'shot_location_goal': 'Shot To',
+                            'move_type': 'Move',
+                            'goal': 'Result'
+                        }
+                    )
             else:
                 st.info("No shootout data available for this player")
         else:
@@ -832,16 +909,29 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                 axis=1,
             ).round(3)
             
-            # Sort by game_id and add sequential game number
-            goalie_games = goalie_games.sort_values("game_id", ascending=False)
-            goalie_games["game_number"] = range(len(goalie_games), 0, -1)
+            # Create season summary row
+            total_saves = goalie_games["saves"].sum()
+            total_ga = goalie_games["goals_against"].sum()
+            season_sv_pct = (total_saves / (total_saves + total_ga)) if (total_saves + total_ga) > 0 else 0
+            
+            season_summary = pd.DataFrame([{
+                "game_id": "SEASON TOTAL",
+                "opponent": f"{len(goalie_games)} Games",
+                "saves": total_saves,
+                "goals_against": total_ga,
+                "save_percentage_game": round(season_sv_pct, 3)
+            }])
+            
+            # Sort individual games and combine with summary
+            individual_games = goalie_games[["game_id", "opponent", "saves", "goals_against", "save_percentage_game"]].sort_values("game_id", ascending=False)
+            display_df = pd.concat([season_summary, individual_games], ignore_index=True)
             
             st.dataframe(
-                goalie_games[["game_number", "opponent", "saves", "goals_against", "save_percentage_game"]],
+                display_df,
                 hide_index=True,
                 use_container_width=True,
                 column_config={
-                    "game_number": "Game",
+                    "game_id": "Game",
                     "opponent": "Opponent",
                     "saves": "SVS",
                     "goals_against": "GA",
@@ -879,11 +969,16 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
         else:
             st.info("No shot data available for this goalie")
     
-    with tab3:
+   with tab3:
         st.markdown('<div class="section-header">Shootout Performance</div>', unsafe_allow_html=True)
         
         if not shootout_data.empty:
-            goalie_shootout = shootout_data[shootout_data["goalie"] == goalie_name]
+            # For goalies, we need to check the "goalie" column if it exists
+            # Otherwise we can't match goalies to shootout data
+            if "goalie" in shootout_data.columns:
+                goalie_shootout = shootout_data[shootout_data["goalie"] == goalie_name]
+            else:
+                goalie_shootout = pd.DataFrame()
             
             if not goalie_shootout.empty:
                 shots_faced = len(goalie_shootout)
@@ -897,6 +992,19 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                     st.metric("Goals Against", goals_against)
                 with col3:
                     st.metric("Save %", f"{save_pct:.1f}%")
+                
+                st.markdown("---")
+                
+                # Display breakdown by shooter
+                st.markdown("**Goals Against by Shooter:**")
+                if "player" in goalie_shootout.columns:
+                    goals_df = goalie_shootout[goalie_shootout["goal"] == "Yes"]
+                    if not goals_df.empty:
+                        shooter_goals = goals_df["player"].value_counts()
+                        for shooter, count in shooter_goals.items():
+                            st.write(f"• {shooter}: {count}")
+                    else:
+                        st.success("No goals allowed!")
             else:
                 st.info("No shootout data available for this goalie")
         else:
@@ -989,11 +1097,11 @@ def main():
         st.warning("⚠️ No Syracuse Crunch data found. Please ensure CSV files are in the 'assets' folder.")
         st.info("""
         **Expected folder structure:**
-```
+        ```
         assets/
         ├── ahl_boxscore_*.csv
         └── ahl_shots_*.csv
-```
+        ```
         """)
         return
     
@@ -1006,6 +1114,9 @@ def main():
     
     st.markdown("---")
     
+    # ========================================================================
+    # PLAYERS VIEW
+    # ========================================================================
     # ========================================================================
     # PLAYERS VIEW
     # ========================================================================
@@ -1114,6 +1225,8 @@ def main():
                     st.session_state.shootout_df,
                     st.session_state.games_df
                 )
+            else:
+                st.info("Select a player from the roster")
     
     # ========================================================================
     # GOALIES VIEW
@@ -1127,49 +1240,52 @@ def main():
         goalie_stats = goalie_stats.sort_values("save_percentage", ascending=False)
         goalie_list = goalie_stats["skater"].tolist()
         
-        # Dropdown for goalie selection
-        goalie_options = [f"{row['skater']} - SV% {row['save_percentage']:.3f}" 
-                         for _, row in goalie_stats.iterrows()]
+        # Create two columns: goalie list and goalie card
+        col1, col2 = st.columns([1, 3])
         
-        # Initialize selected goalie
-        if 'selected_goalie' not in st.session_state:
-            st.session_state.selected_goalie = goalie_list[0] if goalie_list else None
+        with col1:
+            st.markdown("### 🥅 Goalies")
+            
+            # Display goalie selection buttons
+            if 'selected_goalie' not in st.session_state:
+                st.session_state.selected_goalie = goalie_list[0] if goalie_list else None
+            
+            for goalie_name in goalie_list:
+                goalie_row = goalie_stats[goalie_stats["skater"] == goalie_name].iloc[0]
+                
+                # Button styling based on selection
+                button_type = "primary" if st.session_state.selected_goalie == goalie_name else "secondary"
+                
+                # Create button with goalie stats preview
+                if st.button(
+                    f"{goalie_name}\nSV% {goalie_row['save_percentage']:.3f}",
+                    key=f"goalie_{goalie_name}",
+                    use_container_width=True,
+                    type=button_type
+                ):
+                    st.session_state.selected_goalie = goalie_name
+                    st.rerun()
         
-        # Find current index
-        try:
-            current_idx = goalie_list.index(st.session_state.selected_goalie)
-        except (ValueError, AttributeError):
-            current_idx = 0
-            st.session_state.selected_goalie = goalie_list[0] if goalie_list else None
-        
-        if st.session_state.selected_goalie:
-            selected_option = st.selectbox(
-                "Select Goalie:",
-                options=goalie_options,
-                index=current_idx,
-                key="goalie_select"
-            )
-            
-            # Extract goalie name from selection
-            selected_goalie = goalie_list[goalie_options.index(selected_option)]
-            st.session_state.selected_goalie = selected_goalie
-            
-            # Get selected goalie stats
-            goalie_row = goalie_stats[goalie_stats["skater"] == selected_goalie].iloc[0]
-            
-            # Get goalie-specific data
-            goalie_shots = st.session_state.shots_df_goalies[
-                st.session_state.shots_df_goalies["goalie"] == selected_goalie
-            ].copy() if not st.session_state.shots_df_goalies.empty else pd.DataFrame()
-            
-            # Render card
-            render_goalie_card(
-                selected_goalie,
-                goalie_row,
-                goalie_shots,
-                st.session_state.shootout_df,
-                st.session_state.games_df
-            )
+        with col2:
+            if st.session_state.selected_goalie and st.session_state.selected_goalie in goalie_list:
+                # Get selected goalie stats
+                goalie_row = goalie_stats[goalie_stats["skater"] == st.session_state.selected_goalie].iloc[0]
+                
+                # Get goalie-specific data
+                goalie_shots = st.session_state.shots_df_goalies[
+                    st.session_state.shots_df_goalies["goalie"] == st.session_state.selected_goalie
+                ].copy() if not st.session_state.shots_df_goalies.empty else pd.DataFrame()
+                
+                # Render card
+                render_goalie_card(
+                    st.session_state.selected_goalie,
+                    goalie_row,
+                    goalie_shots,
+                    st.session_state.shootout_df,
+                    st.session_state.games_df
+                )
+            else:
+                st.info("Select a goalie from the list")
 
 if __name__ == "__main__":
     main()
