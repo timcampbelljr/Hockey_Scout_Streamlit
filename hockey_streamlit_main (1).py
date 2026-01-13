@@ -955,7 +955,7 @@ def main():
             st.rerun()
     
     # Load data with progress
-    if 'data_loaded' not in st.session_state:
+  if 'data_loaded' not in st.session_state:
         status_placeholder = st.empty()
         progress_bar = st.progress(0)
         
@@ -968,20 +968,35 @@ def main():
             progress_bar.progress(50)
             
             faceoff_df = load_faceoff_data()
-progress_bar.progress(75)
-
-shootout_df = load_shootout_data()  # <-- Add this line
-progress_bar.progress(100)
-
-# Store in session state
-st.session_state.players_df = players_df
-st.session_state.goalies_df = goalies_df
-st.session_state.games_df = games_df
-st.session_state.shots_df = shots_df
-st.session_state.shots_df_goalies = shots_df_goalies
-st.session_state.faceoff_df = faceoff_df
-st.session_state.shootout_df = shootout_df
-st.session_state.data_loaded = True
+            progress_bar.progress(75)
+            
+            shootout_df = load_shootout_data()
+            progress_bar.progress(100)
+            
+            # Store in session state
+            st.session_state.players_df = players_df
+            st.session_state.goalies_df = goalies_df
+            st.session_state.games_df = games_df
+            st.session_state.shots_df = shots_df
+            st.session_state.shots_df_goalies = shots_df_goalies
+            st.session_state.faceoff_df = faceoff_df
+            st.session_state.shootout_df = shootout_df
+            st.session_state.data_loaded = True
+            
+            # Show what was loaded
+            status_placeholder.success(
+                f"✅ Loaded: {len(games_df)} games, "
+                f"{len(players_df['skater'].unique()) if not players_df.empty else 0} players, "
+                f"{len(goalies_df['skater'].unique()) if not goalies_df.empty else 0} goalies"
+            )
+            progress_bar.empty()
+            
+        except Exception as e:
+            st.error(f"❌ Error loading data: {e}")
+            logging.exception("Data loading error")
+            status_placeholder.empty()
+            progress_bar.empty()
+            return
             
             # Show what was loaded
             status_placeholder.success(
@@ -1040,7 +1055,8 @@ st.session_state.data_loaded = True
     view_mode = st.radio("", ["👥 Players", "🥅 Goalies"], horizontal=True, label_visibility="collapsed")
     
     st.markdown("---")
-
+    
+ 
     # ========================================================================
     # PLAYERS VIEW
     # ========================================================================
@@ -1152,10 +1168,10 @@ st.session_state.data_loaded = True
             else:
                 st.info("Select a player from the roster")
     
-    # ========================================================================
+ # ========================================================================
     # GOALIES VIEW
     # ========================================================================
-        else:
+    else:
         if goalie_stats.empty:
             st.info("No goalie data available for Syracuse Crunch")
             return
