@@ -968,20 +968,20 @@ def main():
             progress_bar.progress(50)
             
             faceoff_df = load_faceoff_data()
-            progress_bar.progress(75)
-            
-            shootout_df = load_shootout_data()
-            progress_bar.progress(100)
-            
-            # Store in session state
-            st.session_state.players_df = players_df
-            st.session_state.goalies_df = goalies_df
-            st.session_state.games_df = games_df
-            st.session_state.shots_df = shots_df
-            st.session_state.shots_df_goalies = shots_df_goalies
-            st.session_state.faceoff_df = faceoff_df
-            st.session_state.shootout_df = shootout_df
-            st.session_state.data_loaded = True
+progress_bar.progress(75)
+
+shootout_df = load_shootout_data()  # <-- Add this line
+progress_bar.progress(100)
+
+# Store in session state
+st.session_state.players_df = players_df
+st.session_state.goalies_df = goalies_df
+st.session_state.games_df = games_df
+st.session_state.shots_df = shots_df
+st.session_state.shots_df_goalies = shots_df_goalies
+st.session_state.faceoff_df = faceoff_df
+st.session_state.shootout_df = shootout_df
+st.session_state.data_loaded = True
             
             # Show what was loaded
             status_placeholder.success(
@@ -1040,10 +1040,7 @@ def main():
     view_mode = st.radio("", ["👥 Players", "🥅 Goalies"], horizontal=True, label_visibility="collapsed")
     
     st.markdown("---")
-    
-    # ========================================================================
-    # PLAYERS VIEW
-    # ========================================================================
+
     # ========================================================================
     # PLAYERS VIEW
     # ========================================================================
