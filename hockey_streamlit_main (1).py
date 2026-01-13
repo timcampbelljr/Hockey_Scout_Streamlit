@@ -683,17 +683,16 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
             )
             player_games["points"] = player_games["goals"] + player_games["assists"]
             
-            
-            # Sort individual games and combine with summary
-            individual_games = player_games[["game_id", "opponent", "goals", "assists", "points", "plus_minus", "penalty_minutes", "shots"]].sort_values("game_id", ascending=False)
-            display_df = pd.concat([season_summary, individual_games], ignore_index=True)
+            # Sort by game_id and add sequential game number
+            player_games = player_games.sort_values("game_id", ascending=False)
+            player_games["game_number"] = range(len(player_games), 0, -1)
             
             st.dataframe(
-                display_df,
+                player_games[["game_number", "opponent", "goals", "assists", "points", "plus_minus", "penalty_minutes", "shots"]],
                 hide_index=True,
                 use_container_width=True,
                 column_config={
-                    "game_id": "Game",
+                    "game_number": "Game",
                     "opponent": "Opponent",
                     "goals": "G",
                     "assists": "A",
@@ -833,22 +832,16 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                 axis=1,
             ).round(3)
             
-            # Create season summary row
-            total_saves = goalie_games["saves"].sum()
-            total_ga = goalie_games["goals_against"].sum()
-            season_sv_pct = (total_saves / (total_saves + total_ga)) if (total_saves + total_ga) > 0 else 0
-            
-            
-            # Sort individual games and combine with summary
-            individual_games = goalie_games[["game_id", "opponent", "saves", "goals_against", "save_percentage_game"]].sort_values("game_id", ascending=False)
-            display_df = pd.concat([season_summary, individual_games], ignore_index=True)
+            # Sort by game_id and add sequential game number
+            goalie_games = goalie_games.sort_values("game_id", ascending=False)
+            goalie_games["game_number"] = range(len(goalie_games), 0, -1)
             
             st.dataframe(
-                display_df,
+                goalie_games[["game_number", "opponent", "saves", "goals_against", "save_percentage_game"]],
                 hide_index=True,
                 use_container_width=True,
                 column_config={
-                    "game_id": "Game",
+                    "game_number": "Game",
                     "opponent": "Opponent",
                     "saves": "SVS",
                     "goals_against": "GA",
@@ -996,11 +989,11 @@ def main():
         st.warning("⚠️ No Syracuse Crunch data found. Please ensure CSV files are in the 'assets' folder.")
         st.info("""
         **Expected folder structure:**
-        ```
+```
         assets/
         ├── ahl_boxscore_*.csv
         └── ahl_shots_*.csv
-        ```
+```
         """)
         return
     
@@ -1013,9 +1006,6 @@ def main():
     
     st.markdown("---")
     
-    # ========================================================================
-    # PLAYERS VIEW
-    # ========================================================================
     # ========================================================================
     # PLAYERS VIEW
     # ========================================================================
@@ -1124,13 +1114,8 @@ def main():
                     st.session_state.shootout_df,
                     st.session_state.games_df
                 )
-            else:
-                st.info("Select a player from the roster")
     
     # ========================================================================
-    # GOALIES VIEW
-    # ========================================================================
-   # ========================================================================
     # GOALIES VIEW
     # ========================================================================
     else:
@@ -1185,8 +1170,6 @@ def main():
                 st.session_state.shootout_df,
                 st.session_state.games_df
             )
-            else:
-                st.info("Select a goalie from the list")
 
 if __name__ == "__main__":
     main()
