@@ -683,17 +683,6 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
             )
             player_games["points"] = player_games["goals"] + player_games["assists"]
             
-            # Create season summary row
-            season_summary = pd.DataFrame([{
-                "game_id": "SEASON TOTAL",
-                "opponent": f"{len(player_games)} Games",
-                "goals": player_games["goals"].sum(),
-                "assists": player_games["assists"].sum(),
-                "points": player_games["points"].sum(),
-                "plus_minus": player_games["plus_minus"].sum(),
-                "penalty_minutes": player_games["penalty_minutes"].sum(),
-                "shots": player_games["shots"].sum()
-            }])
             
             # Sort individual games and combine with summary
             individual_games = player_games[["game_id", "opponent", "goals", "assists", "points", "plus_minus", "penalty_minutes", "shots"]].sort_values("game_id", ascending=False)
@@ -849,13 +838,6 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
             total_ga = goalie_games["goals_against"].sum()
             season_sv_pct = (total_saves / (total_saves + total_ga)) if (total_saves + total_ga) > 0 else 0
             
-            season_summary = pd.DataFrame([{
-                "game_id": "SEASON TOTAL",
-                "opponent": f"{len(goalie_games)} Games",
-                "saves": total_saves,
-                "goals_against": total_ga,
-                "save_percentage_game": round(season_sv_pct, 3)
-            }])
             
             # Sort individual games and combine with summary
             individual_games = goalie_games[["game_id", "opponent", "saves", "goals_against", "save_percentage_game"]].sort_values("game_id", ascending=False)
@@ -1034,63 +1016,108 @@ def main():
     # ========================================================================
     # PLAYERS VIEW
     # ========================================================================
+    # ========================================================================
+    # PLAYERS VIEW
+    # ========================================================================
     if view_mode == "👥 Players":
         if player_stats.empty:
             st.info("No player data available for Syracuse Crunch")
             return
         
-        # Sort players by points for the dropdown
-        player_stats = player_stats.sort_values("points", ascending=False)
-        player_list = player_stats["skater"].tolist()
+        # Categorize players by position
+        forwards = player_stats[player_stats['pos'].isin(['C', 'LW', 'RW'])].sort_values("points", ascending=False)
+        defensemen = player_stats[player_stats['pos'] == 'D'].sort_values("points", ascending=False)
         
-        # Create two columns: player list and player card
-        col1, col2 = st.columns([1, 3])
+        # Position tabs
+        pos_tab1, pos_tab2 = st.tabs(["⚡ Forwards", "🛡️ Defensemen"])
         
-        with col1:
-            st.markdown("### 📋 Roster")
-            
-            # Add search filter
-            search_query = st.text_input("🔍 Search", placeholder="Filter players...", label_visibility="collapsed")
-            
-            # Filter players based on search
-            if search_query:
-                filtered_players = [p for p in player_list if search_query.lower() in p.lower()]
+        with pos_tab1:
+            if forwards.empty:
+                st.info("No forwards available")
             else:
-                filtered_players = player_list
-            
-            # Display player selection buttons
-            if 'selected_player' not in st.session_state:
-                st.session_state.selected_player = filtered_players[0] if filtered_players else None
-            
-            for player_name in filtered_players:
-                player_row = player_stats[player_stats["skater"] == player_name].iloc[0]
+                # Dropdown for forward selection
+                forward_options = [f"{row['skater']} ({row['pos']}) - {row['points']} PTS" 
+                                 for _, row in forwards.iterrows()]
+                forward_names = forwards['skater'].tolist()
                 
-                # Button styling based on selection
-                button_type = "primary" if st.session_state.selected_player == player_name else "secondary"
+                # Initialize selected forward
+                if 'selected_forward' not in st.session_state:
+                    st.session_state.selected_forward = forward_names[0]
                 
-                # Create button with player stats preview
-                if st.button(
-                    f"{player_name}\n{player_row['pos']} • {player_row['points']} PTS",
-                    key=f"player_{player_name}",
-                    use_container_width=True,
-                    type=button_type
-                ):
-                    st.session_state.selected_player = player_name
-                    st.rerun()
-        
-        with col2:
-            if st.session_state.selected_player and st.session_state.selected_player in player_list:
-                # Get selected player stats
-                player_row = player_stats[player_stats["skater"] == st.session_state.selected_player].iloc[0]
+                # Find current index
+                try:
+                    current_idx = forward_names.index(st.session_state.selected_forward)
+                except ValueError:
+                    current_idx = 0
+                    st.session_state.selected_forward = forward_names[0]
                 
-                # Get player-specific data
+                selected_option = st.selectbox(
+                    "Select Forward:",
+                    options=forward_options,
+                    index=current_idx,
+                    key="forward_select"
+                )
+                
+                # Extract player name from selection
+                selected_forward = forward_names[forward_options.index(selected_option)]
+                st.session_state.selected_forward = selected_forward
+                
+                # Get player data
+                player_row = forwards[forwards["skater"] == selected_forward].iloc[0]
                 player_shots = st.session_state.shots_df[
-                    st.session_state.shots_df["shooter"] == st.session_state.selected_player
+                    st.session_state.shots_df["shooter"] == selected_forward
                 ].copy() if not st.session_state.shots_df.empty else pd.DataFrame()
                 
                 # Render card
                 render_player_card(
-                    st.session_state.selected_player, 
+                    selected_forward, 
+                    player_row, 
+                    player_shots, 
+                    st.session_state.faceoff_df,
+                    st.session_state.shootout_df,
+                    st.session_state.games_df
+                )
+        
+        with pos_tab2:
+            if defensemen.empty:
+                st.info("No defensemen available")
+            else:
+                # Dropdown for defenseman selection
+                defense_options = [f"{row['skater']} - {row['points']} PTS" 
+                                 for _, row in defensemen.iterrows()]
+                defense_names = defensemen['skater'].tolist()
+                
+                # Initialize selected defenseman
+                if 'selected_defenseman' not in st.session_state:
+                    st.session_state.selected_defenseman = defense_names[0]
+                
+                # Find current index
+                try:
+                    current_idx = defense_names.index(st.session_state.selected_defenseman)
+                except ValueError:
+                    current_idx = 0
+                    st.session_state.selected_defenseman = defense_names[0]
+                
+                selected_option = st.selectbox(
+                    "Select Defenseman:",
+                    options=defense_options,
+                    index=current_idx,
+                    key="defense_select"
+                )
+                
+                # Extract player name from selection
+                selected_defenseman = defense_names[defense_options.index(selected_option)]
+                st.session_state.selected_defenseman = selected_defenseman
+                
+                # Get player data
+                player_row = defensemen[defensemen["skater"] == selected_defenseman].iloc[0]
+                player_shots = st.session_state.shots_df[
+                    st.session_state.shots_df["shooter"] == selected_defenseman
+                ].copy() if not st.session_state.shots_df.empty else pd.DataFrame()
+                
+                # Render card
+                render_player_card(
+                    selected_defenseman, 
                     player_row, 
                     player_shots, 
                     st.session_state.faceoff_df,
@@ -1103,6 +1130,9 @@ def main():
     # ========================================================================
     # GOALIES VIEW
     # ========================================================================
+   # ========================================================================
+    # GOALIES VIEW
+    # ========================================================================
     else:
         if goalie_stats.empty:
             st.info("No goalie data available for Syracuse Crunch")
@@ -1112,50 +1142,49 @@ def main():
         goalie_stats = goalie_stats.sort_values("save_percentage", ascending=False)
         goalie_list = goalie_stats["skater"].tolist()
         
-        # Create two columns: goalie list and goalie card
-        col1, col2 = st.columns([1, 3])
+        # Dropdown for goalie selection
+        goalie_options = [f"{row['skater']} - SV% {row['save_percentage']:.3f}" 
+                         for _, row in goalie_stats.iterrows()]
         
-        with col1:
-            st.markdown("### 🥅 Goalies")
-            
-            # Display goalie selection buttons
-            if 'selected_goalie' not in st.session_state:
-                st.session_state.selected_goalie = goalie_list[0] if goalie_list else None
-            
-            for goalie_name in goalie_list:
-                goalie_row = goalie_stats[goalie_stats["skater"] == goalie_name].iloc[0]
-                
-                # Button styling based on selection
-                button_type = "primary" if st.session_state.selected_goalie == goalie_name else "secondary"
-                
-                # Create button with goalie stats preview
-                if st.button(
-                    f"{goalie_name}\nSV% {goalie_row['save_percentage']:.3f}",
-                    key=f"goalie_{goalie_name}",
-                    use_container_width=True,
-                    type=button_type
-                ):
-                    st.session_state.selected_goalie = goalie_name
-                    st.rerun()
+        # Initialize selected goalie
+        if 'selected_goalie' not in st.session_state:
+            st.session_state.selected_goalie = goalie_list[0] if goalie_list else None
         
-        with col2:
-            if st.session_state.selected_goalie and st.session_state.selected_goalie in goalie_list:
-                # Get selected goalie stats
-                goalie_row = goalie_stats[goalie_stats["skater"] == st.session_state.selected_goalie].iloc[0]
-                
-                # Get goalie-specific data
-                goalie_shots = st.session_state.shots_df_goalies[
-                    st.session_state.shots_df_goalies["goalie"] == st.session_state.selected_goalie
-                ].copy() if not st.session_state.shots_df_goalies.empty else pd.DataFrame()
-                
-                # Render card
-                render_goalie_card(
-                    st.session_state.selected_goalie,
-                    goalie_row,
-                    goalie_shots,
-                    st.session_state.shootout_df,
-                    st.session_state.games_df
-                )
+        # Find current index
+        try:
+            current_idx = goalie_list.index(st.session_state.selected_goalie)
+        except (ValueError, AttributeError):
+            current_idx = 0
+            st.session_state.selected_goalie = goalie_list[0] if goalie_list else None
+        
+        if st.session_state.selected_goalie:
+            selected_option = st.selectbox(
+                "Select Goalie:",
+                options=goalie_options,
+                index=current_idx,
+                key="goalie_select"
+            )
+            
+            # Extract goalie name from selection
+            selected_goalie = goalie_list[goalie_options.index(selected_option)]
+            st.session_state.selected_goalie = selected_goalie
+            
+            # Get selected goalie stats
+            goalie_row = goalie_stats[goalie_stats["skater"] == selected_goalie].iloc[0]
+            
+            # Get goalie-specific data
+            goalie_shots = st.session_state.shots_df_goalies[
+                st.session_state.shots_df_goalies["goalie"] == selected_goalie
+            ].copy() if not st.session_state.shots_df_goalies.empty else pd.DataFrame()
+            
+            # Render card
+            render_goalie_card(
+                selected_goalie,
+                goalie_row,
+                goalie_shots,
+                st.session_state.shootout_df,
+                st.session_state.games_df
+            )
             else:
                 st.info("Select a goalie from the list")
 
