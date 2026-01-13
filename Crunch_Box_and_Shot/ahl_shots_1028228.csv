@@ -1,0 +1,59 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028228,shot,1,1:34,9523,Xavier,Simoneau,415,9096,Ryan,Fanti,False,Quality on net,Wrist,134,122
+1028228,shot,1,2:22,8922,Simon,Lundmark,324,7179,Kaapo,Kähkönen,False,Non quality on net,Wrist,99,292
+1028228,shot,1,4:43,9202,Conor,Geekie,324,7179,Kaapo,Kähkönen,False,Quality on net,Wrist,507,105
+1028228,shot,1,5:01,4819,Alex,Belzile,415,9096,Ryan,Fanti,True,Quality goal,Slap,117,101
+1028228,goal,1,5:01,4819,Alex,Belzile,,,,,,,,117,101
+1028228,shot,1,6:38,9182,Joshua,Roy,415,9096,Ryan,Fanti,False,Quality on net,Wrist,64,135
+1028228,shot,1,8:40,10148,Dylan,Duke,324,7179,Kaapo,Kähkönen,False,Quality on net,Wrist,525,196
+1028228,shot,1,9:00,10036,David,Reinbacher,415,9096,Ryan,Fanti,False,Non quality on net,Wrist,94,68
+1028228,shot,1,9:33,5889,Josiah,Didier,415,9096,Ryan,Fanti,False,Non quality on net,Slap,198,54
+1028228,shot,1,11:15,9823,Ethan,Samson,324,7179,Kaapo,Kähkönen,False,Non quality on net,Wrist,547,253
+1028228,shot,1,11:25,10607,Ethan,Gauthier,324,7179,Kaapo,Kähkönen,False,Non quality on net,Wrist,561,238
+1028228,shot,1,11:35,10148,Dylan,Duke,324,7179,Kaapo,Kähkönen,False,Quality on net,Wrist,551,143
+1028228,shot,1,11:39,10139,Florian,Xhekaj,415,9096,Ryan,Fanti,False,Non quality on net,Default,270,106
+1028228,shot,1,13:10,10835,Wojciech,Stachowiak,324,7179,Kaapo,Kähkönen,False,Non quality on net,Wrist,557,173
+1028228,shot,1,13:29,9823,Ethan,Samson,324,7179,Kaapo,Kähkönen,True,Non quality goal,Wrist,414,219
+1028228,goal,1,13:29,9823,Ethan,Samson,,,,,,,,414,219
+1028228,shot,1,15:28,10601,Tyler,Thorpe,415,9096,Ryan,Fanti,False,Quality on net,Tip,76,133
+1028228,shot,1,16:44,8553,Mitchell,Chaffee,324,7179,Kaapo,Kähkönen,False,Non quality on net,Wrist,536,248
+1028228,shot,1,17:34,5927,Laurent,Dauphin,415,9096,Ryan,Fanti,False,Non quality on net,Wrist,207,109
+1028228,shot,1,19:14,10036,David,Reinbacher,415,9096,Ryan,Fanti,False,Non quality on net,Slap,201,104
+1028228,shot,1,19:50,4819,Alex,Belzile,415,9096,Ryan,Fanti,True,Non quality goal,Slap,141,251
+1028228,goal,1,19:50,4819,Alex,Belzile,,,,,,,,141,251
+1028228,shot,2,0:15,10139,Florian,Xhekaj,415,9096,Ryan,Fanti,True,Quality goal,Wrist,131,77
+1028228,goal,2,0:15,10139,Florian,Xhekaj,,,,,,,,131,77
+1028228,shot,2,1:32,7274,Tobie,Bisson,415,9096,Ryan,Fanti,False,Quality on net,Wrist,524,105
+1028228,shot,2,2:16,10148,Dylan,Duke,324,7179,Kaapo,Kähkönen,False,Non quality on net,Wrist,510,21
+1028228,shot,2,2:55,5927,Laurent,Dauphin,415,9096,Ryan,Fanti,False,Quality on net,Snap,77,185
+1028228,shot,2,4:26,10835,Wojciech,Stachowiak,324,7179,Kaapo,Kähkönen,False,Non quality on net,Wrist,486,54
+1028228,shot,2,4:39,10835,Wojciech,Stachowiak,324,7179,Kaapo,Kähkönen,False,Non quality on net,Wrist,389,129
+1028228,shot,2,5:17,4666,Jarred,Tinordi,324,7179,Kaapo,Kähkönen,False,Non quality on net,Wrist,435,49
+1028228,shot,2,5:58,7274,Tobie,Bisson,415,9096,Ryan,Fanti,False,Quality on net,Slap,97,200
+1028228,shot,2,6:21,9744,Chris,Harpur,324,7179,Kaapo,Kähkönen,False,Non quality on net,Default,393,169
+1028228,shot,2,8:13,8553,Mitchell,Chaffee,324,7179,Kaapo,Kähkönen,False,Non quality on net,Wrist,542,98
+1028228,shot,2,9:48,9823,Ethan,Samson,324,7179,Kaapo,Kähkönen,False,Non quality on net,Slap,381,201
+1028228,shot,2,9:57,9823,Ethan,Samson,324,7179,Kaapo,Kähkönen,False,Non quality on net,Wrist,392,263
+1028228,shot,2,11:22,8553,Mitchell,Chaffee,324,7179,Kaapo,Kähkönen,False,Quality on net,Snap,499,157
+1028228,shot,2,12:46,9182,Joshua,Roy,415,9096,Ryan,Fanti,False,Non quality on net,Wrist,98,249
+1028228,shot,2,14:00,9182,Joshua,Roy,415,9096,Ryan,Fanti,True,Quality goal,Tip,46,162
+1028228,goal,2,14:00,9182,Joshua,Roy,,,,,,,,46,162
+1028228,shot,2,15:16,9563,Nick,Abruzzese,324,7179,Kaapo,Kähkönen,False,Non quality on net,Wrist,554,81
+1028228,shot,2,15:27,8884,Matteo,Pietroniro,324,7179,Kaapo,Kähkönen,False,Non quality on net,Wrist,476,60
+1028228,shot,2,16:52,10607,Ethan,Gauthier,324,7179,Kaapo,Kähkönen,False,Quality on net,Wrist,535,149
+1028228,shot,2,19:14,10835,Wojciech,Stachowiak,324,7179,Kaapo,Kähkönen,False,Non quality on net,Wrist,487,40
+1028228,shot,3,0:19,4819,Alex,Belzile,415,9096,Ryan,Fanti,False,Quality on net,Wrist,123,134
+1028228,shot,3,2:31,5889,Josiah,Didier,415,9096,Ryan,Fanti,False,Non quality on net,Wrist,198,25
+1028228,shot,3,3:33,8884,Matteo,Pietroniro,324,7179,Kaapo,Kähkönen,False,Non quality on net,Slap,408,87
+1028228,shot,3,6:31,9901,Gabriel,Szturc,324,7179,Kaapo,Kähkönen,False,Non quality on net,Tip,345,183
+1028228,shot,3,8:32,8553,Mitchell,Chaffee,324,7179,Kaapo,Kähkönen,False,Non quality on net,Wrist,513,278
+1028228,shot,3,10:45,9901,Gabriel,Szturc,324,7179,Kaapo,Kähkönen,False,Non quality on net,Wrist,532,41
+1028228,shot,3,12:56,10566,Lucas,Mercuri,324,7179,Kaapo,Kähkönen,False,Non quality on net,Tip,344,125
+1028228,shot,3,13:47,10149,Luke,Tuch,415,9096,Ryan,Fanti,False,Non quality on net,Wrist,163,263
+1028228,shot,3,16:03,10148,Dylan,Duke,324,7179,Kaapo,Kähkönen,True,Quality goal,Tip,543,127
+1028228,goal,3,16:03,10148,Dylan,Duke,,,,,,,,543,127
+1028228,shot,3,16:27,8744,Jakob,Pelletier,324,7179,Kaapo,Kähkönen,False,Non quality on net,Slap,442,231
+1028228,shot,3,17:26,8744,Jakob,Pelletier,324,7179,Kaapo,Kähkönen,False,Quality on net,Wrist,556,169
+1028228,shot,3,17:43,10148,Dylan,Duke,324,7179,Kaapo,Kähkönen,False,Quality on net,Backhand,546,164
+1028228,shot,3,19:25,9563,Nick,Abruzzese,324,7179,Kaapo,Kähkönen,False,Quality on net,Wrist,538,164
+1028228,shot,3,19:33,9563,Nick,Abruzzese,324,7179,Kaapo,Kähkönen,False,Non quality on net,Wrist,548,237

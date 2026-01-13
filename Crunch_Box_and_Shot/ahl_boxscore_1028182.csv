@@ -1,0 +1,41 @@
+a,g,ga,game_id,is_goalie,mins,number,pim,plus_minus,pos,shots,skater,svs,team_id,team_name,team_side
+0,0,,1028182,0,0:00,4,2,-3,D,1,Casey Fitzgerald,,307,Hartford Wolf Pack,home
+0,0,,1028182,0,0:00,6,0,-1,C,0,Gavin Hain,,307,Hartford Wolf Pack,home
+0,0,,1028182,0,0:00,9,2,-1,F,2,Brett Berard,,307,Hartford Wolf Pack,home
+0,1,,1028182,0,0:00,10,0,0,F,2,Adam Sýkora,,307,Hartford Wolf Pack,home
+0,0,,1028182,0,0:00,11,0,0,F,0,Carey Terrance,,307,Hartford Wolf Pack,home
+1,0,,1028182,0,0:00,14,5,-1,D,0,Connor Mackey,,307,Hartford Wolf Pack,home
+1,0,,1028182,0,0:00,18,0,-2,F,0,Bryce McConnell-Barker,,307,Hartford Wolf Pack,home
+0,0,,1028182,0,0:00,19,0,-1,F,0,Brendan Brisson,,307,Hartford Wolf Pack,home
+1,1,,1028182,0,0:00,21,0,-1,F,2,Anton Blidh,,307,Hartford Wolf Pack,home
+0,0,,1028182,0,0:00,23,0,-1,F,1,Kalle Väisänen,,307,Hartford Wolf Pack,home
+0,0,,1028182,0,0:00,25,0,-2,D,0,Blake Hillman,,307,Hartford Wolf Pack,home
+0,0,,1028182,0,0:00,28,2,-1,F,1,Dylan Roobroeck,,307,Hartford Wolf Pack,home
+0,0,,1028182,0,0:00,38,0,1,D,1,Jackson Dorrington,,307,Hartford Wolf Pack,home
+0,1,,1028182,0,0:00,42,14,0,F,2,Jaroslav Chmelar,,307,Hartford Wolf Pack,home
+1,0,,1028182,0,0:00,51,2,1,D,3,Derrick Pouliot,,307,Hartford Wolf Pack,home
+0,0,,1028182,0,0:00,58,2,-2,D,0,Brandon Scanlin,,307,Hartford Wolf Pack,home
+1,0,,1028182,0,0:00,64,0,0,F,1,Trey Fix-Wolansky,,307,Hartford Wolf Pack,home
+0,0,,1028182,0,0:00,85,0,-1,LW,1,Daniel Walcott,,307,Hartford Wolf Pack,home
+0,0,0,1028182,1,,30,0,0,G,,Spencer Martin,0,307,Hartford Wolf Pack,home
+0,0,4,1028182,1,56:47,31,0,0,G,,Dylan Garand,25,307,Hartford Wolf Pack,home
+0,0,,1028182,0,0:00,7,0,0,D,1,Simon Lundmark,,324,Syracuse Crunch,away
+0,0,,1028182,0,0:00,8,2,2,D,0,Tommy Miller,,324,Syracuse Crunch,away
+0,0,,1028182,0,0:00,9,2,1,C,0,Wojciech Stachowiak,,324,Syracuse Crunch,away
+1,1,,1028182,0,0:00,11,0,2,C,2,Lucas Mercuri,,324,Syracuse Crunch,away
+0,1,,1028182,0,0:00,13,4,1,LW,2,Brendan Furry,,324,Syracuse Crunch,away
+0,0,,1028182,0,0:00,14,0,-1,RW,2,Tristan Allard,,324,Syracuse Crunch,away
+0,0,,1028182,0,0:00,16,0,2,D,0,Steven Santini,,324,Syracuse Crunch,away
+0,1,,1028182,0,0:00,21,19,-1,RW,2,Mitchell Chaffee,,324,Syracuse Crunch,away
+1,0,,1028182,0,0:00,23,0,0,D,1,Maxim Groshev,,324,Syracuse Crunch,away
+0,1,,1028182,0,0:00,25,0,1,LW,2,Dylan Duke,,324,Syracuse Crunch,away
+0,0,,1028182,0,0:00,28,2,0,D,2,Jarred Tinordi,,324,Syracuse Crunch,away
+0,1,,1028182,0,0:00,49,0,3,RW,1,Scott Sabourin,,324,Syracuse Crunch,away
+0,0,,1028182,0,0:00,61,0,1,RW,0,Boris Katchouk,,324,Syracuse Crunch,away
+1,0,,1028182,0,0:00,75,0,3,D,5,Matteo Pietroniro,,324,Syracuse Crunch,away
+0,0,,1028182,0,0:00,79,0,0,LW,3,Ethan Gauthier,,324,Syracuse Crunch,away
+1,0,,1028182,0,0:00,80,0,1,LW,0,Nick Abruzzese,,324,Syracuse Crunch,away
+0,0,,1028182,0,0:00,94,0,0,C,5,Conor Geekie,,324,Syracuse Crunch,away
+0,0,,1028182,0,0:00,95,0,-1,C,2,Gabriel Szturc,,324,Syracuse Crunch,away
+1,0,3,1028182,1,59:31,31,0,0,G,,Brandon Halverson,14,324,Syracuse Crunch,away
+0,0,0,1028182,1,,59,0,0,G,,Ryan Fanti,0,324,Syracuse Crunch,away

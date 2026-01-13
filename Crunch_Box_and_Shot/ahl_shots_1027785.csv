@@ -1,0 +1,63 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1027785,shot,1,3:04,7024,Louie,Belpedio,319,6535,Brandon,Halverson,False,Non quality on net,Snap,201,81
+1027785,shot,1,5:10,9972,Ivan,Miroshnichenko,319,6535,Brandon,Halverson,False,Quality on net,Snap,130,225
+1027785,shot,1,6:45,9034,Declan,Carlile,324,9103,Clay,Stevenson,False,Quality on net,Snap,480,104
+1027785,shot,1,7:22,8744,Jakob,Pelletier,324,9103,Clay,Stevenson,False,Quality on net,Tip,525,167
+1027785,shot,1,7:31,8744,Jakob,Pelletier,324,9103,Clay,Stevenson,False,Quality on net,Snap,531,128
+1027785,shot,1,7:37,8744,Jakob,Pelletier,324,9103,Clay,Stevenson,False,Quality on net,Snap,515,160
+1027785,shot,1,7:47,6779,Boris,Katchouk,324,9103,Clay,Stevenson,False,Quality on net,Wrist,489,219
+1027785,shot,1,8:36,9896,Maxim,Groshev,324,9103,Clay,Stevenson,False,Non quality on net,Wrist,453,194
+1027785,shot,1,9:04,9698,Grant,Cruikshank,319,6535,Brandon,Halverson,False,Non quality on net,Wrist,76,254
+1027785,shot,1,9:35,9693,Brendan,Furry,324,9103,Clay,Stevenson,False,Quality on net,Backhand,520,103
+1027785,shot,1,11:30,10573,David,Gucciardi,319,6535,Brandon,Halverson,False,Non quality on net,Slap,185,248
+1027785,shot,1,13:04,4910,Scott,Sabourin,324,9103,Clay,Stevenson,False,Quality on net,Snap,541,166
+1027785,shot,1,13:59,9972,Ivan,Miroshnichenko,319,6535,Brandon,Halverson,False,Quality on net,Snap,138,160
+1027785,shot,1,14:07,7285,Sheldon,Rempal,319,6535,Brandon,Halverson,False,Non quality on net,Wrist,87,220
+1027785,shot,1,14:58,8057,Charle-Edouard,D’Astous,324,9103,Clay,Stevenson,False,Quality on net,Snap,473,160
+1027785,shot,1,18:08,7285,Sheldon,Rempal,319,6535,Brandon,Halverson,False,Quality on net,Snap,86,153
+1027785,shot,2,0:28,9112,Ethen,Frank,319,6535,Brandon,Halverson,True,Quality goal,Default,59,159
+1027785,goal,2,0:28,9112,Ethen,Frank,,,,,,,,59,159
+1027785,shot,2,1:50,9754,Tristan,Allard,324,9103,Clay,Stevenson,False,Quality on net,Snap,532,190
+1027785,shot,2,3:13,7584,Matt,Strome,319,6535,Brandon,Halverson,False,Non quality on net,Snap,92,233
+1027785,shot,2,3:42,10835,Wojciech,Stachowiak,324,9103,Clay,Stevenson,False,Non quality on net,Tip,344,165
+1027785,shot,2,4:29,9112,Ethen,Frank,319,6535,Brandon,Halverson,True,Non quality goal,Default,159,87
+1027785,goal,2,4:29,9112,Ethen,Frank,,,,,,,,159,87
+1027785,shot,2,4:57,7285,Sheldon,Rempal,319,6535,Brandon,Halverson,False,Non quality on net,Wrist,34,185
+1027785,shot,2,6:16,8744,Jakob,Pelletier,324,9103,Clay,Stevenson,True,Quality goal,Default,500,117
+1027785,goal,2,6:16,8744,Jakob,Pelletier,,,,,,,,500,117
+1027785,shot,2,6:39,7285,Sheldon,Rempal,319,6535,Brandon,Halverson,False,Quality on net,Backhand,66,169
+1027785,shot,2,8:11,10148,Dylan,Duke,324,9103,Clay,Stevenson,False,Quality on net,Snap,499,218
+1027785,shot,2,8:35,8744,Jakob,Pelletier,324,9103,Clay,Stevenson,False,Non quality on net,Snap,417,247
+1027785,shot,2,9:11,10644,Ilya,Protas,319,6535,Brandon,Halverson,False,Non quality on net,Tip,42,130
+1027785,shot,2,10:05,9901,Gabriel,Szturc,324,9103,Clay,Stevenson,False,Quality on net,Backhand,543,120
+1027785,shot,2,10:16,8744,Jakob,Pelletier,324,9103,Clay,Stevenson,False,Non quality on net,Snap,525,219
+1027785,shot,2,10:45,8057,Charle-Edouard,D’Astous,324,9103,Clay,Stevenson,False,Non quality on net,Wrist,513,224
+1027785,shot,2,12:06,10903,Dominic,James,324,9103,Clay,Stevenson,True,Quality goal,Default,476,189
+1027785,goal,2,12:06,10903,Dominic,James,,,,,,,,476,189
+1027785,shot,2,13:22,9901,Gabriel,Szturc,324,9103,Clay,Stevenson,False,Quality on net,Wrist,519,126
+1027785,shot,2,14:00,6779,Boris,Katchouk,324,9103,Clay,Stevenson,False,Quality on net,Backhand,537,130
+1027785,shot,2,14:27,8057,Charle-Edouard,D’Astous,324,9103,Clay,Stevenson,False,Quality on net,Wrist,532,152
+1027785,shot,2,15:14,9749,Roman,Schmidt,324,9103,Clay,Stevenson,False,Non quality on net,Snap,423,96
+1027785,shot,2,19:27,8598,Graeme,Clarke,319,6535,Brandon,Halverson,False,Non quality on net,Snap,160,19
+1027785,shot,2,19:49,4910,Scott,Sabourin,324,9103,Clay,Stevenson,False,Non quality on net,Wrist,483,240
+1027785,shot,3,0:25,8744,Jakob,Pelletier,324,9103,Clay,Stevenson,False,Non quality on net,Snap,432,42
+1027785,shot,3,1:02,9749,Roman,Schmidt,324,9103,Clay,Stevenson,False,Non quality on net,Slap,400,81
+1027785,shot,3,1:48,9901,Gabriel,Szturc,324,9103,Clay,Stevenson,False,Non quality on net,Tip,391,220
+1027785,shot,3,4:05,10148,Dylan,Duke,324,9103,Clay,Stevenson,False,Quality on net,Wrist,523,177
+1027785,shot,3,4:32,6522,Steven,Santini,324,9103,Clay,Stevenson,False,Non quality on net,Slap,416,252
+1027785,shot,3,4:41,8057,Charle-Edouard,D’Astous,324,9103,Clay,Stevenson,False,Quality on net,Snap,459,159
+1027785,shot,3,5:09,10903,Dominic,James,324,9103,Clay,Stevenson,False,Quality on net,Tip,534,157
+1027785,shot,3,5:20,6779,Boris,Katchouk,324,9103,Clay,Stevenson,False,Non quality on net,Snap,532,100
+1027785,shot,3,6:32,10148,Dylan,Duke,324,9103,Clay,Stevenson,False,Non quality on net,Slap,436,132
+1027785,shot,3,6:37,9896,Maxim,Groshev,324,9103,Clay,Stevenson,False,Quality on net,Wrist,483,79
+1027785,shot,3,9:30,8057,Charle-Edouard,D’Astous,324,9103,Clay,Stevenson,True,Quality goal,Default,496,75
+1027785,goal,3,9:30,8057,Charle-Edouard,D’Astous,,,,,,,,496,75
+1027785,shot,3,10:53,8744,Jakob,Pelletier,324,9103,Clay,Stevenson,True,Quality goal,Default,470,170
+1027785,goal,3,10:53,8744,Jakob,Pelletier,,,,,,,,470,170
+1027785,shot,3,11:19,4910,Scott,Sabourin,324,9103,Clay,Stevenson,False,Quality on net,Snap,503,139
+1027785,shot,3,11:21,10148,Dylan,Duke,324,9103,Clay,Stevenson,False,Quality on net,Wrist,529,144
+1027785,shot,3,15:59,10572,Ryan,Chesley,319,6535,Brandon,Halverson,False,Non quality on net,Snap,207,100
+1027785,shot,3,17:49,9356,Henrik,Rybinski,319,6535,Brandon,Halverson,False,Quality on net,Tip,63,153
+1027785,shot,3,19:29,9901,Gabriel,Szturc,324,9103,Clay,Stevenson,True,Non quality goal,Default,224,166
+1027785,goal,3,19:29,9901,Gabriel,Szturc,,,,,,,,224,166
+1027785,shot,3,19:58,10566,Lucas,Mercuri,324,9103,Clay,Stevenson,False,Non quality on net,Slap,337,271

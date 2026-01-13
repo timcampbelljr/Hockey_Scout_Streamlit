@@ -1,0 +1,41 @@
+a,g,ga,game_id,is_goalie,mins,number,pim,plus_minus,pos,shots,skater,svs,team_id,team_name,team_side
+0,0,,1028071,0,0:00,3,0,-1,D,0,Helge Grans,,313,Lehigh Valley Phantoms,home
+0,0,,1028071,0,0:00,4,0,0,D,1,Ty Murchison,,313,Lehigh Valley Phantoms,home
+0,0,,1028071,0,0:00,5,0,0,D,1,Ethan Samson,,313,Lehigh Valley Phantoms,home
+1,0,,1028071,0,0:00,12,0,-1,F,1,Devin Kaplan,,313,Lehigh Valley Phantoms,home
+1,1,,1028071,0,0:00,15,0,0,D,2,Christian Kyrou,,313,Lehigh Valley Phantoms,home
+0,0,,1028071,0,0:00,17,2,0,LW,2,Garrett Wilson,,313,Lehigh Valley Phantoms,home
+0,0,,1028071,0,0:00,19,2,0,D,0,Hunter McDonald,,313,Lehigh Valley Phantoms,home
+1,0,,1028071,0,0:00,21,2,0,F,7,Alex Bump,,313,Lehigh Valley Phantoms,home
+0,0,,1028071,0,0:00,22,0,0,F,0,Tucker Robertson,,313,Lehigh Valley Phantoms,home
+0,0,,1028071,0,0:00,23,0,0,F,2,Karsen Dorwart,,313,Lehigh Valley Phantoms,home
+0,1,,1028071,0,0:00,25,0,-1,C,3,Lane Pederson,,313,Lehigh Valley Phantoms,home
+1,0,,1028071,0,0:00,37,0,-1,D,1,Adam Ginning,,313,Lehigh Valley Phantoms,home
+1,0,,1028071,0,0:00,52,4,-1,F,2,Denver Barkey,,313,Lehigh Valley Phantoms,home
+1,0,,1028071,0,0:00,56,0,0,F,0,Jacob Gaucher,,313,Lehigh Valley Phantoms,home
+0,0,,1028071,0,0:00,72,0,-1,F,1,Alexis Gendron,,313,Lehigh Valley Phantoms,home
+0,0,,1028071,0,0:00,74,2,0,C,4,Zayde Wisdom,,313,Lehigh Valley Phantoms,home
+2,1,,1028071,0,0:00,90,0,1,LW,6,Anthony Richard,,313,Lehigh Valley Phantoms,home
+0,1,,1028071,0,0:00,91,2,0,F,5,Carl Grundström,,313,Lehigh Valley Phantoms,home
+0,0,0,1028071,1,,35,0,0,G,,Aleksei Kolosov,0,313,Lehigh Valley Phantoms,home
+0,0,4,1028071,1,64:52,64,0,0,G,,Carson Bjarnason,28,313,Lehigh Valley Phantoms,home
+0,0,,1028071,0,0:00,2,2,1,D,1,Marc Del Gaizo,,415,Laval Rocket,away
+0,0,,1028071,0,0:00,4,2,0,D,1,Tobie Bisson,,415,Laval Rocket,away
+0,0,,1028071,0,0:00,5,0,1,D,1,Nate Clurman,,415,Laval Rocket,away
+0,0,,1028071,0,0:00,6,0,0,RW,0,Tyler Thorpe,,415,Laval Rocket,away
+2,0,,1028071,0,0:00,10,0,1,LW,3,Joshua Roy,,415,Laval Rocket,away
+1,0,,1028071,0,0:00,15,0,-1,F,2,Sean Farrell,,415,Laval Rocket,away
+0,0,,1028071,0,0:00,17,0,0,LW,0,Luke Tuch,,415,Laval Rocket,away
+0,2,,1028071,0,0:00,19,0,2,LW,3,Samuel Blais,,415,Laval Rocket,away
+0,2,,1028071,0,0:00,22,0,0,F,2,Alex Belzile,,415,Laval Rocket,away
+0,0,,1028071,0,0:00,26,0,0,F,0,Will Dineen,,415,Laval Rocket,away
+1,0,,1028071,0,0:00,27,0,0,F,2,Laurent Dauphin,,415,Laval Rocket,away
+0,0,,1028071,0,0:00,42,0,1,LW,1,Lucas Condotta,,415,Laval Rocket,away
+0,0,,1028071,0,0:00,44,4,-1,D,0,Josiah Didier,,415,Laval Rocket,away
+0,0,,1028071,0,0:00,48,0,0,RW,3,Filip Mešár,,415,Laval Rocket,away
+0,0,,1028071,0,0:00,62,0,1,F,5,Owen Beck,,415,Laval Rocket,away
+1,0,,1028071,0,0:00,64,0,0,D,3,David Reinbacher,,415,Laval Rocket,away
+1,0,,1028071,0,0:00,81,4,1,C,1,Xavier Simoneau,,415,Laval Rocket,away
+1,0,,1028071,0,0:00,84,0,0,D,4,William Trudeau,,415,Laval Rocket,away
+0,0,4,1028071,1,64:15,1,0,0,G,,Jacob Fowler,34,415,Laval Rocket,away
+0,0,0,1028071,1,,34,0,0,G,,Kaapo Kähkönen,0,415,Laval Rocket,away

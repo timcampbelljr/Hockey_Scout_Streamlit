@@ -1,0 +1,54 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028032,shot,1,5:00,9896,Maxim,Groshev,324,6924,Parker,Gahagen,False,Non quality on net,Default,203,264
+1028032,shot,1,5:51,9091,Marc,Gatcomb,317,6535,Brandon,Halverson,False,Quality on net,Default,503,137
+1028032,shot,1,5:52,9091,Marc,Gatcomb,317,6535,Brandon,Halverson,False,Quality on net,Default,549,125
+1028032,shot,1,6:43,9953,Calle,Odelius,317,6535,Brandon,Halverson,False,Non quality on net,Default,399,26
+1028032,shot,1,6:54,10564,Cam,Berg,317,6535,Brandon,Halverson,True,Quality goal,Default,524,165
+1028032,goal,1,6:54,10564,Cam,Berg,,,,,,,,524,165
+1028032,shot,1,7:19,9443,Matthew,Maggio,317,6535,Brandon,Halverson,False,Non quality on net,Default,525,281
+1028032,shot,1,7:27,10562,Joey,Larson,317,6535,Brandon,Halverson,False,Quality on net,Default,545,131
+1028032,shot,1,9:45,8549,Adam,Beckman,317,6535,Brandon,Halverson,False,Non quality on net,Default,422,35
+1028032,shot,1,10:18,9563,Nick,Abruzzese,324,6924,Parker,Gahagen,False,Quality on net,Default,129,120
+1028032,shot,1,12:16,6779,Boris,Katchouk,324,6924,Parker,Gahagen,False,Quality on net,Default,110,158
+1028032,shot,1,16:00,8553,Mitchell,Chaffee,324,6924,Parker,Gahagen,False,Quality on net,Default,63,185
+1028032,shot,1,17:16,4910,Scott,Sabourin,324,6924,Parker,Gahagen,True,Quality goal,Default,81,168
+1028032,goal,1,17:16,4910,Scott,Sabourin,,,,,,,,81,168
+1028032,shot,2,0:34,4910,Scott,Sabourin,324,6924,Parker,Gahagen,False,Non quality on net,Default,176,230
+1028032,shot,2,3:10,8922,Simon,Lundmark,324,6924,Parker,Gahagen,False,Non quality on net,Default,188,56
+1028032,shot,2,3:33,9443,Matthew,Maggio,317,6535,Brandon,Halverson,False,Non quality on net,Default,401,252
+1028032,shot,2,3:58,10562,Joey,Larson,317,6535,Brandon,Halverson,False,Quality on net,Default,530,161
+1028032,shot,2,4:39,2350,Chris,Terry,317,6535,Brandon,Halverson,False,Non quality on net,Default,456,221
+1028032,shot,2,4:59,7627,Hunter,Drew,317,6535,Brandon,Halverson,True,Quality goal,Default,487,179
+1028032,goal,2,4:59,7627,Hunter,Drew,,,,,,,,487,179
+1028032,shot,2,9:39,10148,Dylan,Duke,324,6924,Parker,Gahagen,True,Quality goal,Default,64,183
+1028032,goal,2,9:39,10148,Dylan,Duke,,,,,,,,64,183
+1028032,shot,2,10:26,10835,Wojciech,Stachowiak,324,6924,Parker,Gahagen,False,Quality on net,Default,111,210
+1028032,shot,2,11:02,8549,Adam,Beckman,317,6535,Brandon,Halverson,False,Non quality on net,Default,444,184
+1028032,shot,2,11:27,10520,Jesse,Pulkkinen,317,6535,Brandon,Halverson,False,Non quality on net,Default,446,140
+1028032,shot,2,12:12,8884,Matteo,Pietroniro,324,6924,Parker,Gahagen,False,Quality on net,Default,104,199
+1028032,shot,2,12:15,8744,Jakob,Pelletier,324,6924,Parker,Gahagen,True,Quality goal,Default,54,135
+1028032,goal,2,12:15,8744,Jakob,Pelletier,,,,,,,,54,135
+1028032,shot,2,12:45,10564,Cam,Berg,317,6535,Brandon,Halverson,False,Quality on net,Default,471,191
+1028032,shot,2,13:12,10566,Lucas,Mercuri,324,6924,Parker,Gahagen,False,Quality on net,Default,54,171
+1028032,shot,2,14:47,2350,Chris,Terry,317,6535,Brandon,Halverson,False,Quality on net,Default,516,124
+1028032,shot,2,14:48,2350,Chris,Terry,317,6535,Brandon,Halverson,False,Quality on net,Default,529,141
+1028032,shot,2,14:48,6861,Matthew,Highmore,317,6535,Brandon,Halverson,False,Quality on net,Default,537,140
+1028032,shot,2,14:49,6861,Matthew,Highmore,317,6535,Brandon,Halverson,True,Quality goal,Default,542,169
+1028032,goal,2,14:49,6861,Matthew,Highmore,,,,,,,,542,169
+1028032,shot,2,15:31,9689,Travis,Mitchell,317,6535,Brandon,Halverson,False,Non quality on net,Default,407,27
+1028032,shot,2,15:55,10393,Dyllan,Gill,324,6924,Parker,Gahagen,False,Non quality on net,Default,190,33
+1028032,shot,2,17:09,9079,Tommy,Miller,324,6924,Parker,Gahagen,False,Non quality on net,Default,219,164
+1028032,shot,2,17:55,8922,Simon,Lundmark,324,6924,Parker,Gahagen,False,Non quality on net,Default,190,123
+1028032,shot,3,3:54,9901,Gabriel,Szturc,324,6924,Parker,Gahagen,False,Quality on net,Default,56,133
+1028032,shot,3,3:59,4910,Scott,Sabourin,324,6924,Parker,Gahagen,False,Non quality on net,Default,40,186
+1028032,shot,3,7:27,9563,Nick,Abruzzese,324,6924,Parker,Gahagen,False,Quality on net,Default,56,174
+1028032,shot,3,7:37,9202,Conor,Geekie,324,6924,Parker,Gahagen,False,Non quality on net,Default,200,143
+1028032,shot,3,7:40,9563,Nick,Abruzzese,324,6924,Parker,Gahagen,True,Quality goal,Default,89,147
+1028032,goal,3,7:40,9563,Nick,Abruzzese,,,,,,,,89,147
+1028032,shot,3,9:01,9744,Chris,Harpur,324,6924,Parker,Gahagen,False,Quality on net,Default,131,82
+1028032,shot,3,11:25,7627,Hunter,Drew,317,6535,Brandon,Halverson,False,Non quality on net,Default,511,261
+1028032,shot,3,13:21,10020,Luke,Rowe,317,6535,Brandon,Halverson,False,Non quality on net,Default,443,240
+1028032,shot,3,15:36,10835,Wojciech,Stachowiak,324,6924,Parker,Gahagen,False,Quality on net,Default,114,159
+1028032,shot,3,17:48,10835,Wojciech,Stachowiak,324,6924,Parker,Gahagen,False,Quality on net,Default,68,162
+1028032,shot,3,18:50,8553,Mitchell,Chaffee,324,6924,Parker,Gahagen,True,Non quality goal,Default,352,82
+1028032,goal,3,18:50,8553,Mitchell,Chaffee,,,,,,,,352,82

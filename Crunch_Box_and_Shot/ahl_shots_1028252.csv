@@ -1,0 +1,56 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028252,shot,1,0:32,9823,Ethan,Samson,324,10427,Artur,Akhtyamov,False,Non quality on net,Default,396,218
+1028252,shot,1,0:35,9563,Nick,Abruzzese,324,10427,Artur,Akhtyamov,False,Non quality on net,Default,558,191
+1028252,shot,1,1:20,8553,Mitchell,Chaffee,324,10427,Artur,Akhtyamov,False,Quality on net,Default,471,219
+1028252,shot,1,2:14,9693,Brendan,Furry,324,10427,Artur,Akhtyamov,False,Non quality on net,Default,525,217
+1028252,shot,1,3:29,10613,Borya,Valis,335,6535,Brandon,Halverson,False,Non quality on net,Default,200,104
+1028252,shot,1,5:57,10526,Cooper,Flinton,324,10427,Artur,Akhtyamov,False,Quality on net,Default,477,183
+1028252,shot,1,9:52,10613,Borya,Valis,335,6535,Brandon,Halverson,False,Non quality on net,Default,50,116
+1028252,shot,1,10:49,4666,Jarred,Tinordi,324,10427,Artur,Akhtyamov,False,Non quality on net,Default,47,179
+1028252,shot,1,16:10,10148,Dylan,Duke,324,10427,Artur,Akhtyamov,False,Quality on net,Default,495,75
+1028252,shot,1,18:04,9823,Ethan,Samson,324,10427,Artur,Akhtyamov,False,Non quality on net,Default,407,242
+1028252,shot,1,19:17,10148,Dylan,Duke,324,10427,Artur,Akhtyamov,True,Non quality goal,Default,558,122
+1028252,goal,1,19:17,10148,Dylan,Duke,,,,,,,,558,122
+1028252,shot,2,0:28,8553,Mitchell,Chaffee,324,10427,Artur,Akhtyamov,False,Non quality on net,Default,549,219
+1028252,shot,2,0:35,9693,Brendan,Furry,324,10427,Artur,Akhtyamov,False,Non quality on net,Default,543,100
+1028252,shot,2,0:46,10835,Wojciech,Stachowiak,324,10427,Artur,Akhtyamov,False,Non quality on net,Default,531,225
+1028252,shot,2,1:54,8922,Simon,Lundmark,324,10427,Artur,Akhtyamov,False,Non quality on net,Default,459,245
+1028252,shot,2,4:07,10426,Cade,Webber,335,6535,Brandon,Halverson,False,Non quality on net,Default,93,245
+1028252,shot,2,6:00,10566,Lucas,Mercuri,324,10427,Artur,Akhtyamov,False,Quality on net,Default,524,195
+1028252,shot,2,7:00,10148,Dylan,Duke,324,10427,Artur,Akhtyamov,False,Quality on net,Default,471,93
+1028252,shot,2,7:31,9202,Conor,Geekie,324,10427,Artur,Akhtyamov,False,Quality on net,Default,539,144
+1028252,shot,2,9:32,8744,Jakob,Pelletier,324,10427,Artur,Akhtyamov,False,Quality on net,Default,480,162
+1028252,shot,2,12:43,8744,Jakob,Pelletier,324,10427,Artur,Akhtyamov,False,Non quality on net,Default,417,151
+1028252,shot,2,12:59,6681,Vinni,Lettieri,335,6535,Brandon,Halverson,False,Non quality on net,Default,76,87
+1028252,shot,2,13:03,6681,Vinni,Lettieri,335,6535,Brandon,Halverson,False,Quality on net,Default,50,134
+1028252,shot,2,13:17,10148,Dylan,Duke,324,10427,Artur,Akhtyamov,False,Quality on net,Default,518,140
+1028252,shot,2,13:48,8553,Mitchell,Chaffee,324,10427,Artur,Akhtyamov,False,Non quality on net,Default,552,214
+1028252,shot,2,17:58,6489,Alex,Nylander,335,6535,Brandon,Halverson,False,Non quality on net,Default,41,203
+1028252,shot,2,18:42,6489,Alex,Nylander,335,6535,Brandon,Halverson,False,Non quality on net,Default,117,239
+1028252,shot,3,2:28,9202,Conor,Geekie,324,10427,Artur,Akhtyamov,False,Non quality on net,Default,406,153
+1028252,shot,3,3:41,9823,Ethan,Samson,324,10427,Artur,Akhtyamov,False,Quality on net,Default,477,196
+1028252,shot,3,5:56,8922,Simon,Lundmark,324,10427,Artur,Akhtyamov,False,Non quality on net,Default,392,251
+1028252,shot,3,6:53,6489,Alex,Nylander,335,6535,Brandon,Halverson,False,Non quality on net,Default,176,174
+1028252,shot,3,7:09,9202,Conor,Geekie,324,10427,Artur,Akhtyamov,False,Quality on net,Default,463,189
+1028252,shot,3,8:14,9994,Henry,Thrun,335,6535,Brandon,Halverson,False,Non quality on net,Default,48,87
+1028252,shot,3,8:19,7693,Benoit-Olivier,Groulx,335,6535,Brandon,Halverson,False,Quality on net,Default,58,142
+1028252,shot,3,9:22,10526,Cooper,Flinton,324,10427,Artur,Akhtyamov,False,Quality on net,Default,484,215
+1028252,shot,3,10:14,4666,Jarred,Tinordi,324,10427,Artur,Akhtyamov,False,Non quality on net,Default,405,123
+1028252,shot,3,10:20,4666,Jarred,Tinordi,324,10427,Artur,Akhtyamov,False,Non quality on net,Default,405,59
+1028252,shot,3,12:11,9072,Marshall,Rifai,335,6535,Brandon,Halverson,False,Non quality on net,Default,189,75
+1028252,shot,3,12:14,7693,Benoit-Olivier,Groulx,335,6535,Brandon,Halverson,True,Quality goal,Default,87,173
+1028252,goal,3,12:14,7693,Benoit-Olivier,Groulx,,,,,,,,87,173
+1028252,shot,3,12:37,8553,Mitchell,Chaffee,324,10427,Artur,Akhtyamov,False,Non quality on net,Default,561,177
+1028252,shot,3,13:51,9994,Henry,Thrun,335,6535,Brandon,Halverson,False,Non quality on net,Default,144,71
+1028252,shot,3,13:57,9994,Henry,Thrun,335,6535,Brandon,Halverson,False,Non quality on net,Default,207,51
+1028252,shot,3,15:49,9202,Conor,Geekie,324,10427,Artur,Akhtyamov,False,Non quality on net,Default,381,41
+1028252,shot,3,17:57,7579,Reese,Johnson,335,6535,Brandon,Halverson,False,Quality on net,Default,72,114
+1028252,shot,3,19:49,10148,Dylan,Duke,324,10427,Artur,Akhtyamov,False,Non quality on net,Default,489,250
+1028252,shot,3,19:54,9754,Tristan,Allard,324,10427,Artur,Akhtyamov,False,Non quality on net,Default,543,105
+1028252,shot,3,19:54,9901,Gabriel,Szturc,324,10427,Artur,Akhtyamov,False,Quality on net,Default,515,111
+1028252,shot,OT,0:21,9823,Ethan,Samson,324,10427,Artur,Akhtyamov,False,Quality on net,Default,472,81
+1028252,shot,OT,0:36,8738,William,Villeneuve,335,6535,Brandon,Halverson,False,Non quality on net,Default,72,88
+1028252,shot,OT,0:39,8553,Mitchell,Chaffee,324,10427,Artur,Akhtyamov,False,Quality on net,Default,529,166
+1028252,shot,OT,0:44,10835,Wojciech,Stachowiak,324,10427,Artur,Akhtyamov,False,Quality on net,Default,541,175
+1028252,shot,OT,1:37,6489,Alex,Nylander,335,6535,Brandon,Halverson,True,Non quality goal,Default,48,126
+1028252,goal,OT,1:37,6489,Alex,Nylander,,,,,,,,48,126

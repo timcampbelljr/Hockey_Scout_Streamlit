@@ -1,0 +1,57 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1027883,shot,1,2:17,10525,Luke,Haymes,335,6535,Brandon,Halverson,False,Non quality on net,Default,43,120
+1027883,shot,1,3:37,9034,Declan,Carlile,324,9679,Dennis,Hildeby,False,Non quality on net,Default,429,62
+1027883,shot,1,6:14,10525,Luke,Haymes,335,6535,Brandon,Halverson,False,Quality on net,Default,81,129
+1027883,shot,1,6:31,10426,Cade,Webber,335,6535,Brandon,Halverson,False,Non quality on net,Default,149,253
+1027883,shot,1,8:53,10613,Borya,Valis,335,6535,Brandon,Halverson,False,Non quality on net,Default,69,99
+1027883,shot,1,9:28,9563,Nick,Abruzzese,324,9679,Dennis,Hildeby,False,Quality on net,Default,507,101
+1027883,shot,1,10:09,9901,Gabriel,Szturc,324,9679,Dennis,Hildeby,False,Quality on net,Default,525,117
+1027883,shot,1,13:59,10635,Blake,Smith,335,6535,Brandon,Halverson,False,Non quality on net,Default,579,181
+1027883,shot,1,14:00,5918,Travis,Boyd,335,6535,Brandon,Halverson,True,Quality goal,Default,91,158
+1027883,goal,1,14:00,5918,Travis,Boyd,,,,,,,,91,158
+1027883,shot,1,14:21,9034,Declan,Carlile,324,9679,Dennis,Hildeby,False,Non quality on net,Default,392,27
+1027883,shot,1,14:46,9034,Declan,Carlile,324,9679,Dennis,Hildeby,False,Non quality on net,Default,495,63
+1027883,shot,1,16:52,9034,Declan,Carlile,324,9679,Dennis,Hildeby,False,Non quality on net,Default,436,64
+1027883,shot,1,17:46,8738,William,Villeneuve,335,6535,Brandon,Halverson,False,Non quality on net,Default,135,273
+1027883,shot,2,2:02,10613,Borya,Valis,335,6535,Brandon,Halverson,False,Quality on net,Default,66,151
+1027883,shot,2,2:37,9901,Gabriel,Szturc,324,9679,Dennis,Hildeby,False,Non quality on net,Default,408,75
+1027883,shot,2,4:38,7693,Benoit-Olivier,Groulx,335,6535,Brandon,Halverson,False,Quality on net,Default,113,144
+1027883,shot,2,4:44,8884,Matteo,Pietroniro,324,9679,Dennis,Hildeby,False,Non quality on net,Default,490,67
+1027883,shot,2,5:38,10835,Wojciech,Stachowiak,324,9679,Dennis,Hildeby,True,Non quality goal,Default,539,101
+1027883,goal,2,5:38,10835,Wojciech,Stachowiak,,,,,,,,539,101
+1027883,shot,2,6:15,9079,Tommy,Miller,324,9679,Dennis,Hildeby,True,Quality goal,Default,458,209
+1027883,goal,2,6:15,9079,Tommy,Miller,,,,,,,,458,209
+1027883,shot,2,7:21,10525,Luke,Haymes,335,6535,Brandon,Halverson,False,Quality on net,Default,89,141
+1027883,shot,2,10:56,8744,Jakob,Pelletier,324,9679,Dennis,Hildeby,True,Non quality goal,Default,540,192
+1027883,goal,2,10:56,8744,Jakob,Pelletier,,,,,,,,540,192
+1027883,shot,2,12:15,9202,Conor,Geekie,324,9679,Dennis,Hildeby,True,Non quality goal,Default,549,123
+1027883,goal,2,12:15,9202,Conor,Geekie,,,,,,,,549,123
+1027883,shot,2,12:25,6489,Alex,Nylander,335,6535,Brandon,Halverson,True,Quality goal,Default,63,135
+1027883,goal,2,12:25,6489,Alex,Nylander,,,,,,,,63,135
+1027883,shot,2,13:49,10635,Blake,Smith,335,6535,Brandon,Halverson,False,Non quality on net,Default,153,223
+1027883,shot,2,14:08,8738,William,Villeneuve,335,6535,Brandon,Halverson,False,Non quality on net,Default,171,233
+1027883,shot,2,14:19,9563,Nick,Abruzzese,324,9679,Dennis,Hildeby,False,Quality on net,Default,539,171
+1027883,shot,2,16:28,9896,Maxim,Groshev,324,9679,Dennis,Hildeby,False,Non quality on net,Default,423,151
+1027883,shot,2,16:41,10635,Blake,Smith,335,6535,Brandon,Halverson,False,Quality on net,Default,124,95
+1027883,shot,2,17:20,9188,Ben,King,335,6535,Brandon,Halverson,False,Non quality on net,Default,38,167
+1027883,shot,2,17:25,8738,William,Villeneuve,335,6535,Brandon,Halverson,False,Non quality on net,Default,200,225
+1027883,shot,2,17:32,10144,Chas,Sharpe,335,6535,Brandon,Halverson,True,Quality goal,Default,105,118
+1027883,goal,2,17:32,10144,Chas,Sharpe,,,,,,,,105,118
+1027883,shot,2,19:38,10119,Noah,Chadwick,335,6535,Brandon,Halverson,False,Non quality on net,Default,219,165
+1027883,shot,3,0:29,9202,Conor,Geekie,324,9679,Dennis,Hildeby,False,Non quality on net,Default,444,41
+1027883,shot,3,2:38,9202,Conor,Geekie,324,9679,Dennis,Hildeby,False,Quality on net,Default,530,172
+1027883,shot,3,3:25,6510,Matt,Benning,335,6535,Brandon,Halverson,False,Quality on net,Default,77,107
+1027883,shot,3,7:33,10525,Luke,Haymes,335,6535,Brandon,Halverson,False,Quality on net,Default,117,166
+1027883,shot,3,8:15,10835,Wojciech,Stachowiak,324,9679,Dennis,Hildeby,False,Quality on net,Default,467,95
+1027883,shot,3,8:15,6779,Boris,Katchouk,324,9679,Dennis,Hildeby,False,Quality on net,Default,535,137
+1027883,shot,3,8:27,9749,Roman,Schmidt,324,9679,Dennis,Hildeby,False,Non quality on net,Default,404,220
+1027883,shot,3,10:31,4573,Logan,Shaw,335,6535,Brandon,Halverson,False,Non quality on net,Default,57,206
+1027883,shot,3,11:10,5918,Travis,Boyd,335,6535,Brandon,Halverson,False,Non quality on net,Default,174,95
+1027883,shot,3,12:39,9563,Nick,Abruzzese,324,9679,Dennis,Hildeby,False,Quality on net,Default,491,209
+1027883,shot,3,12:39,9202,Conor,Geekie,324,9679,Dennis,Hildeby,False,Quality on net,Default,512,180
+1027883,shot,3,15:29,6522,Steven,Santini,324,9679,Dennis,Hildeby,False,Non quality on net,Default,108,252
+1027883,shot,3,15:52,10525,Luke,Haymes,335,6535,Brandon,Halverson,False,Non quality on net,Default,50,103
+1027883,shot,3,18:57,6779,Boris,Katchouk,324,9679,Dennis,Hildeby,True,Quality goal,Default,478,165
+1027883,goal,3,18:57,6779,Boris,Katchouk,,,,,,,,478,165
+1027883,shot,3,19:43,9994,Henry,Thrun,335,6535,Brandon,Halverson,True,Non quality goal,Default,196,255
+1027883,goal,3,19:43,9994,Henry,Thrun,,,,,,,,196,255

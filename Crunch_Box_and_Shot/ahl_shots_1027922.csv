@@ -1,0 +1,74 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1027922,shot,1,0:37,9079,Tommy,Miller,324,10002,Devon,Levi,False,Non quality on net,Default,423,241
+1027922,shot,1,0:38,10835,Wojciech,Stachowiak,324,10002,Devon,Levi,True,Quality goal,Default,513,117
+1027922,goal,1,0:38,10835,Wojciech,Stachowiak,,,,,,,,513,117
+1027922,shot,1,1:24,10052,Anton,Wahlberg,323,9096,Ryan,Fanti,False,Non quality on net,Default,163,202
+1027922,shot,1,2:47,9923,Riley,Fiddler-Schultz,323,9096,Ryan,Fanti,False,Non quality on net,Default,47,225
+1027922,shot,1,2:51,9767,Ryan,Johnson,323,9096,Ryan,Fanti,False,Non quality on net,Default,82,255
+1027922,shot,1,3:30,10052,Anton,Wahlberg,323,9096,Ryan,Fanti,False,Quality on net,Default,112,127
+1027922,shot,1,4:40,8705,Brendan,Warren,323,9096,Ryan,Fanti,False,Non quality on net,Default,208,43
+1027922,shot,1,5:07,9896,Maxim,Groshev,324,10002,Devon,Levi,False,Non quality on net,Default,431,51
+1027922,shot,1,6:06,7622,Jake,Leschyshyn,323,9096,Ryan,Fanti,True,Non quality goal,Default,158,141
+1027922,goal,1,6:06,7622,Jake,Leschyshyn,,,,,,,,158,141
+1027922,shot,1,6:27,8553,Mitchell,Chaffee,324,10002,Devon,Levi,False,Quality on net,Default,457,141
+1027922,shot,1,6:39,6522,Steven,Santini,324,10002,Devon,Levi,False,Quality on net,Default,495,141
+1027922,shot,1,7:15,10148,Dylan,Duke,324,10002,Devon,Levi,False,Quality on net,Default,549,159
+1027922,shot,1,7:15,7622,Jake,Leschyshyn,323,9096,Ryan,Fanti,False,Quality on net,Default,79,156
+1027922,shot,1,7:28,9171,Niko,Huuhtanen,324,10002,Devon,Levi,False,Non quality on net,Default,432,112
+1027922,shot,1,7:54,8864,Zac,Jones,323,9096,Ryan,Fanti,False,Non quality on net,Default,67,194
+1027922,shot,1,7:59,9215,Noah,Laaouan,323,9096,Ryan,Fanti,False,Non quality on net,Default,138,237
+1027922,shot,1,11:34,9700,Trevor,Kuntar,323,9096,Ryan,Fanti,False,Quality on net,Default,103,130
+1027922,shot,1,11:53,9643,Jagger,Joshua,323,9096,Ryan,Fanti,False,Quality on net,Default,122,189
+1027922,shot,1,12:53,9923,Riley,Fiddler-Schultz,323,9096,Ryan,Fanti,False,Quality on net,Default,71,131
+1027922,shot,1,13:26,8744,Jakob,Pelletier,324,10002,Devon,Levi,False,Quality on net,Default,538,159
+1027922,shot,1,13:58,10835,Wojciech,Stachowiak,324,10002,Devon,Levi,False,Non quality on net,Default,488,54
+1027922,shot,1,14:18,10835,Wojciech,Stachowiak,324,10002,Devon,Levi,True,Quality goal,Default,487,73
+1027922,goal,1,14:18,10835,Wojciech,Stachowiak,,,,,,,,487,73
+1027922,shot,1,16:03,8864,Zac,Jones,323,9096,Ryan,Fanti,False,Non quality on net,Default,159,234
+1027922,shot,1,16:07,10444,Konsta,Helenius,323,9096,Ryan,Fanti,False,Quality on net,Default,136,102
+1027922,shot,1,16:11,10052,Anton,Wahlberg,323,9096,Ryan,Fanti,False,Non quality on net,Default,95,55
+1027922,shot,1,16:36,9923,Riley,Fiddler-Schultz,323,9096,Ryan,Fanti,False,Quality on net,Default,108,74
+1027922,shot,1,17:19,9078,Graham,Slaggert,323,9096,Ryan,Fanti,False,Quality on net,Default,141,193
+1027922,shot,1,18:11,9700,Trevor,Kuntar,323,9096,Ryan,Fanti,False,Non quality on net,Default,174,159
+1027922,shot,1,18:24,10436,Vsevolod,Komarov,323,9096,Ryan,Fanti,False,Non quality on net,Default,128,45
+1027922,shot,1,19:37,10835,Wojciech,Stachowiak,324,10002,Devon,Levi,False,Quality on net,Default,461,120
+1027922,shot,1,19:58,7622,Jake,Leschyshyn,323,9096,Ryan,Fanti,False,Quality on net,Default,68,147
+1027922,shot,2,3:48,9700,Trevor,Kuntar,323,9096,Ryan,Fanti,False,Non quality on net,Default,197,150
+1027922,shot,2,5:58,9563,Nick,Abruzzese,324,10002,Devon,Levi,False,Quality on net,Default,489,137
+1027922,shot,2,5:59,10148,Dylan,Duke,324,10002,Devon,Levi,True,Quality goal,Default,461,83
+1027922,goal,2,5:59,10148,Dylan,Duke,,,,,,,,461,83
+1027922,shot,2,6:04,10544,Tyler,Kopff,323,9096,Ryan,Fanti,False,Non quality on net,Default,62,250
+1027922,shot,2,6:49,8864,Zac,Jones,323,9096,Ryan,Fanti,False,Quality on net,Default,131,215
+1027922,shot,2,7:42,9896,Maxim,Groshev,324,10002,Devon,Levi,False,Non quality on net,Default,436,56
+1027922,shot,2,8:01,9202,Conor,Geekie,324,10002,Devon,Levi,False,Quality on net,Default,554,130
+1027922,shot,2,9:00,8553,Mitchell,Chaffee,324,10002,Devon,Levi,False,Quality on net,Default,505,188
+1027922,shot,2,10:17,6522,Steven,Santini,324,10002,Devon,Levi,False,Non quality on net,Default,407,249
+1027922,shot,2,11:30,8553,Mitchell,Chaffee,324,10002,Devon,Levi,False,Quality on net,Default,543,142
+1027922,shot,2,11:39,4910,Scott,Sabourin,324,10002,Devon,Levi,False,Quality on net,Default,542,152
+1027922,shot,2,11:46,4910,Scott,Sabourin,324,10002,Devon,Levi,False,Quality on net,Default,538,137
+1027922,shot,2,11:57,9896,Maxim,Groshev,324,10002,Devon,Levi,False,Non quality on net,Default,417,234
+1027922,shot,2,12:06,4910,Scott,Sabourin,324,10002,Devon,Levi,True,Quality goal,Default,559,163
+1027922,goal,2,12:06,4910,Scott,Sabourin,,,,,,,,559,163
+1027922,shot,2,14:53,8619,Jack,Rathbone,323,9096,Ryan,Fanti,False,Non quality on net,Default,202,147
+1027922,shot,2,15:09,9767,Ryan,Johnson,323,9096,Ryan,Fanti,False,Non quality on net,Default,207,222
+1027922,shot,2,19:26,9034,Declan,Carlile,324,10002,Devon,Levi,False,Non quality on net,Default,441,215
+1027922,shot,2,19:30,9563,Nick,Abruzzese,324,10002,Devon,Levi,False,Quality on net,Default,549,165
+1027922,shot,3,3:21,9923,Riley,Fiddler-Schultz,323,9096,Ryan,Fanti,False,Non quality on net,Default,167,225
+1027922,shot,3,3:26,9643,Jagger,Joshua,323,9096,Ryan,Fanti,False,Quality on net,Default,49,157
+1027922,shot,3,3:37,9754,Tristan,Allard,324,10002,Devon,Levi,False,Quality on net,Default,491,91
+1027922,shot,3,4:31,8864,Zac,Jones,323,9096,Ryan,Fanti,False,Non quality on net,Default,107,241
+1027922,shot,3,4:32,7622,Jake,Leschyshyn,323,9096,Ryan,Fanti,True,Non quality goal,Default,44,124
+1027922,goal,3,4:32,7622,Jake,Leschyshyn,,,,,,,,44,124
+1027922,shot,3,6:21,9754,Tristan,Allard,324,10002,Devon,Levi,False,Non quality on net,Default,451,220
+1027922,shot,3,6:27,9743,Zach,Metsa,323,9096,Ryan,Fanti,True,Quality goal,Default,108,78
+1027922,goal,3,6:27,9743,Zach,Metsa,,,,,,,,108,78
+1027922,shot,3,8:09,8619,Jack,Rathbone,323,9096,Ryan,Fanti,False,Non quality on net,Default,144,264
+1027922,shot,3,9:53,9754,Tristan,Allard,324,10002,Devon,Levi,False,Quality on net,Default,501,178
+1027922,shot,3,10:05,10436,Vsevolod,Komarov,323,9096,Ryan,Fanti,False,Non quality on net,Default,279,143
+1027922,shot,3,11:18,9743,Zach,Metsa,323,9096,Ryan,Fanti,False,Quality on net,Default,143,73
+1027922,shot,3,11:51,9563,Nick,Abruzzese,324,10002,Devon,Levi,False,Non quality on net,Default,448,39
+1027922,shot,3,14:05,10052,Anton,Wahlberg,323,9096,Ryan,Fanti,False,Quality on net,Default,56,129
+1027922,shot,3,15:24,10148,Dylan,Duke,324,10002,Devon,Levi,True,Non quality goal,Default,511,27
+1027922,goal,3,15:24,10148,Dylan,Duke,,,,,,,,511,27
+1027922,shot,3,18:03,10444,Konsta,Helenius,323,9096,Ryan,Fanti,False,Non quality on net,Default,183,93
+1027922,shot,3,18:39,7622,Jake,Leschyshyn,323,9096,Ryan,Fanti,False,Quality on net,Default,44,155

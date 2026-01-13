@@ -1,0 +1,65 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028059,shot,1,1:22,8744,Jakob,Pelletier,324,10002,Devon,Levi,False,Quality on net,Default,532,147
+1028059,shot,1,1:57,9693,Brendan,Furry,324,10002,Devon,Levi,False,Non quality on net,Default,410,151
+1028059,shot,1,2:00,10835,Wojciech,Stachowiak,324,10002,Devon,Levi,False,Non quality on net,Default,556,123
+1028059,shot,1,2:33,10052,Anton,Wahlberg,323,9096,Ryan,Fanti,False,Non quality on net,Default,37,135
+1028059,shot,1,3:53,9079,Tommy,Miller,324,10002,Devon,Levi,False,Non quality on net,Default,450,267
+1028059,shot,1,3:54,8744,Jakob,Pelletier,324,10002,Devon,Levi,False,Quality on net,Default,552,171
+1028059,shot,1,4:43,9202,Conor,Geekie,324,10002,Devon,Levi,False,Non quality on net,Default,413,99
+1028059,shot,1,11:29,10052,Anton,Wahlberg,323,9096,Ryan,Fanti,False,Non quality on net,Default,39,128
+1028059,shot,1,11:46,8553,Mitchell,Chaffee,324,10002,Devon,Levi,False,Non quality on net,Default,440,208
+1028059,shot,1,12:03,9215,Noah,Laaouan,323,9096,Ryan,Fanti,False,Non quality on net,Default,177,69
+1028059,shot,1,12:53,9643,Jagger,Joshua,323,9096,Ryan,Fanti,False,Quality on net,Default,45,132
+1028059,shot,1,14:00,9504,Isak,Rosén,323,9096,Ryan,Fanti,True,Quality goal,Default,57,174
+1028059,goal,1,14:00,9504,Isak,Rosén,,,,,,,,57,174
+1028059,shot,1,14:06,8553,Mitchell,Chaffee,324,10002,Devon,Levi,False,Quality on net,Default,516,186
+1028059,shot,1,15:52,8705,Brendan,Warren,323,9096,Ryan,Fanti,False,Non quality on net,Default,183,39
+1028059,shot,1,16:43,9923,Riley,Fiddler-Schultz,323,9096,Ryan,Fanti,False,Non quality on net,Default,111,32
+1028059,shot,1,18:25,8580,Carson,Meyer,323,9096,Ryan,Fanti,False,Non quality on net,Default,161,55
+1028059,shot,2,0:58,9504,Isak,Rosén,323,9096,Ryan,Fanti,False,Non quality on net,Default,108,46
+1028059,shot,2,1:07,9504,Isak,Rosén,323,9096,Ryan,Fanti,False,Quality on net,Default,53,141
+1028059,shot,2,1:36,6779,Boris,Katchouk,324,10002,Devon,Levi,False,Quality on net,Default,465,213
+1028059,shot,2,2:09,9927,Viktor,Neuchev,323,9096,Ryan,Fanti,False,Non quality on net,Default,285,205
+1028059,shot,2,2:23,9767,Ryan,Johnson,323,9096,Ryan,Fanti,False,Non quality on net,Default,197,220
+1028059,shot,2,3:06,10835,Wojciech,Stachowiak,324,10002,Devon,Levi,True,Quality goal,Default,533,164
+1028059,goal,2,3:06,10835,Wojciech,Stachowiak,,,,,,,,533,164
+1028059,shot,2,5:32,8864,Zac,Jones,323,9096,Ryan,Fanti,False,Non quality on net,Default,195,81
+1028059,shot,2,5:41,8884,Matteo,Pietroniro,324,10002,Devon,Levi,False,Non quality on net,Default,429,29
+1028059,shot,2,5:47,8744,Jakob,Pelletier,324,10002,Devon,Levi,False,Quality on net,Default,464,99
+1028059,shot,2,5:50,9754,Tristan,Allard,324,10002,Devon,Levi,False,Quality on net,Default,521,152
+1028059,shot,2,6:40,8619,Jack,Rathbone,323,9096,Ryan,Fanti,False,Non quality on net,Default,183,261
+1028059,shot,2,6:45,8619,Jack,Rathbone,323,9096,Ryan,Fanti,False,Quality on net,Default,138,171
+1028059,shot,2,8:28,8553,Mitchell,Chaffee,324,10002,Devon,Levi,False,Non quality on net,Default,433,164
+1028059,shot,2,9:08,8744,Jakob,Pelletier,324,10002,Devon,Levi,True,Quality goal,Default,545,147
+1028059,goal,2,9:08,8744,Jakob,Pelletier,,,,,,,,545,147
+1028059,shot,2,9:57,4910,Scott,Sabourin,324,10002,Devon,Levi,False,Non quality on net,Default,407,261
+1028059,shot,2,11:59,9767,Ryan,Johnson,323,9096,Ryan,Fanti,False,Non quality on net,Default,543,51
+1028059,shot,2,12:41,10148,Dylan,Duke,324,10002,Devon,Levi,False,Quality on net,Default,533,146
+1028059,shot,2,13:04,6779,Boris,Katchouk,324,10002,Devon,Levi,False,Non quality on net,Default,555,219
+1028059,shot,2,14:36,10436,Vsevolod,Komarov,323,9096,Ryan,Fanti,False,Non quality on net,Default,174,66
+1028059,shot,2,16:48,8619,Jack,Rathbone,323,9096,Ryan,Fanti,False,Non quality on net,Default,195,184
+1028059,shot,2,17:06,9749,Roman,Schmidt,324,10002,Devon,Levi,False,Non quality on net,Default,442,241
+1028059,shot,2,17:25,9930,Nikita,Novikov,323,9096,Ryan,Fanti,False,Non quality on net,Default,166,226
+1028059,shot,2,17:47,9700,Trevor,Kuntar,323,9096,Ryan,Fanti,False,Non quality on net,Default,62,77
+1028059,shot,2,17:57,9215,Noah,Laaouan,323,9096,Ryan,Fanti,True,Quality goal,Default,129,143
+1028059,goal,2,17:57,9215,Noah,Laaouan,,,,,,,,129,143
+1028059,shot,2,19:46,9079,Tommy,Miller,324,10002,Devon,Levi,False,Non quality on net,Default,408,227
+1028059,shot,3,3:43,8884,Matteo,Pietroniro,324,10002,Devon,Levi,False,Non quality on net,Default,420,45
+1028059,shot,3,4:10,8884,Matteo,Pietroniro,324,10002,Devon,Levi,False,Non quality on net,Default,416,58
+1028059,shot,3,5:09,8744,Jakob,Pelletier,324,10002,Devon,Levi,False,Non quality on net,Default,445,192
+1028059,shot,3,6:06,8580,Carson,Meyer,323,9096,Ryan,Fanti,False,Non quality on net,Default,246,94
+1028059,shot,3,10:29,8744,Jakob,Pelletier,324,10002,Devon,Levi,True,Quality goal,Default,538,177
+1028059,goal,3,10:29,8744,Jakob,Pelletier,,,,,,,,538,177
+1028059,shot,3,11:07,8619,Jack,Rathbone,323,9096,Ryan,Fanti,False,Non quality on net,Default,134,52
+1028059,shot,3,11:33,8580,Carson,Meyer,323,9096,Ryan,Fanti,False,Non quality on net,Default,153,43
+1028059,shot,3,12:01,10148,Dylan,Duke,324,10002,Devon,Levi,False,Quality on net,Default,542,144
+1028059,shot,3,14:40,9700,Trevor,Kuntar,323,9096,Ryan,Fanti,False,Quality on net,Default,130,107
+1028059,shot,3,16:05,8580,Carson,Meyer,323,9096,Ryan,Fanti,True,Quality goal,Default,45,134
+1028059,goal,3,16:05,8580,Carson,Meyer,,,,,,,,45,134
+1028059,shot,3,16:27,9202,Conor,Geekie,324,10002,Devon,Levi,False,Non quality on net,Default,410,137
+1028059,shot,3,17:09,9643,Jagger,Joshua,323,9096,Ryan,Fanti,False,Quality on net,Default,44,162
+1028059,shot,3,18:09,9079,Tommy,Miller,324,10002,Devon,Levi,False,Non quality on net,Default,447,66
+1028059,shot,3,19:46,8864,Zac,Jones,323,9096,Ryan,Fanti,True,Quality goal,Default,51,161
+1028059,goal,3,19:46,8864,Zac,Jones,,,,,,,,51,161
+1028059,shot,3,19:57,8744,Jakob,Pelletier,324,10002,Devon,Levi,False,Quality on net,Default,530,139
+1028059,shot,3,20:00,8553,Mitchell,Chaffee,324,10002,Devon,Levi,False,Non quality on net,Default,495,40

@@ -1,0 +1,69 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1027824,shot,1,1:08,10436,Vsevolod,Komarov,323,6535,Brandon,Halverson,False,Non quality on net,Default,539,202
+1027824,shot,1,1:15,9034,Declan,Carlile,324,6844,Alexandar,Georgiev,False,Non quality on net,Default,77,209
+1027824,shot,1,1:27,9901,Gabriel,Szturc,324,6844,Alexandar,Georgiev,False,Quality on net,Default,88,117
+1027824,shot,1,1:33,9901,Gabriel,Szturc,324,6844,Alexandar,Georgiev,False,Quality on net,Default,67,133
+1027824,shot,1,2:22,9896,Maxim,Groshev,324,6844,Alexandar,Georgiev,False,Non quality on net,Default,246,255
+1027824,shot,1,2:41,10544,Tyler,Kopff,323,6535,Brandon,Halverson,False,Non quality on net,Default,550,216
+1027824,shot,1,2:50,9078,Graham,Slaggert,323,6535,Brandon,Halverson,False,Quality on net,Default,535,134
+1027824,shot,1,3:19,9700,Trevor,Kuntar,323,6535,Brandon,Halverson,False,Non quality on net,Default,446,117
+1027824,shot,1,4:53,9923,Riley,Fiddler-Schultz,323,6535,Brandon,Halverson,False,Quality on net,Default,488,83
+1027824,shot,1,5:01,10444,Konsta,Helenius,323,6535,Brandon,Halverson,False,Non quality on net,Default,463,231
+1027824,shot,1,5:11,9749,Roman,Schmidt,324,6844,Alexandar,Georgiev,False,Non quality on net,Default,156,80
+1027824,shot,1,5:20,8922,Simon,Lundmark,324,6844,Alexandar,Georgiev,False,Non quality on net,Default,165,110
+1027824,shot,1,6:17,10835,Wojciech,Stachowiak,324,6844,Alexandar,Georgiev,False,Quality on net,Default,88,172
+1027824,shot,1,6:52,8864,Zac,Jones,323,6535,Brandon,Halverson,False,Quality on net,Default,509,188
+1027824,shot,1,7:00,9896,Maxim,Groshev,324,6844,Alexandar,Georgiev,False,Quality on net,Default,96,141
+1027824,shot,1,7:12,8744,Jakob,Pelletier,324,6844,Alexandar,Georgiev,False,Non quality on net,Default,73,228
+1027824,shot,1,7:24,10444,Konsta,Helenius,323,6535,Brandon,Halverson,False,Quality on net,Default,509,167
+1027824,shot,1,7:34,9034,Declan,Carlile,324,6844,Alexandar,Georgiev,False,Quality on net,Default,109,221
+1027824,shot,1,8:47,9693,Brendan,Furry,324,6844,Alexandar,Georgiev,False,Non quality on net,Default,76,238
+1027824,shot,1,12:25,10607,Ethan,Gauthier,324,6844,Alexandar,Georgiev,False,Non quality on net,Default,81,230
+1027824,shot,1,12:34,9896,Maxim,Groshev,324,6844,Alexandar,Georgiev,False,Quality on net,Default,100,151
+1027824,shot,1,12:34,9754,Tristan,Allard,324,6844,Alexandar,Georgiev,False,Quality on net,Default,71,169
+1027824,shot,1,12:47,10835,Wojciech,Stachowiak,324,6844,Alexandar,Georgiev,False,Quality on net,Default,113,193
+1027824,shot,1,13:11,10835,Wojciech,Stachowiak,324,6844,Alexandar,Georgiev,False,Non quality on net,Default,93,221
+1027824,shot,1,13:49,10903,Dominic,James,324,6844,Alexandar,Georgiev,False,Quality on net,Default,107,118
+1027824,shot,1,15:02,9693,Brendan,Furry,324,6844,Alexandar,Georgiev,False,Quality on net,Default,105,113
+1027824,shot,1,15:49,8619,Jack,Rathbone,323,6535,Brandon,Halverson,False,Non quality on net,Default,469,259
+1027824,shot,1,16:43,9923,Riley,Fiddler-Schultz,323,6535,Brandon,Halverson,False,Quality on net,Default,471,102
+1027824,shot,1,17:25,8744,Jakob,Pelletier,324,6844,Alexandar,Georgiev,False,Quality on net,Default,81,187
+1027824,shot,1,17:26,8884,Matteo,Pietroniro,324,6844,Alexandar,Georgiev,True,Quality goal,Default,81,143
+1027824,goal,1,17:26,8884,Matteo,Pietroniro,,,,,,,,81,143
+1027824,shot,1,18:26,10566,Lucas,Mercuri,324,6844,Alexandar,Georgiev,False,Quality on net,Default,63,168
+1027824,shot,2,1:33,6779,Boris,Katchouk,324,6844,Alexandar,Georgiev,False,Quality on net,Default,77,159
+1027824,shot,2,1:38,6779,Boris,Katchouk,324,6844,Alexandar,Georgiev,False,Quality on net,Default,69,146
+1027824,shot,2,1:46,9078,Graham,Slaggert,323,6535,Brandon,Halverson,False,Quality on net,Default,513,104
+1027824,shot,2,2:32,9927,Viktor,Neuchev,323,6535,Brandon,Halverson,False,Non quality on net,Default,502,68
+1027824,shot,2,4:02,10157,Noah,Östlund,323,6535,Brandon,Halverson,False,Non quality on net,Default,529,45
+1027824,shot,2,4:23,9896,Maxim,Groshev,324,6844,Alexandar,Georgiev,False,Non quality on net,Default,164,249
+1027824,shot,2,4:24,8884,Matteo,Pietroniro,324,6844,Alexandar,Georgiev,True,Non quality goal,Default,174,210
+1027824,goal,2,4:24,8884,Matteo,Pietroniro,,,,,,,,174,210
+1027824,shot,2,5:52,10157,Noah,Östlund,323,6535,Brandon,Halverson,False,Non quality on net,Default,472,232
+1027824,shot,2,8:05,9504,Isak,Rosén,323,6535,Brandon,Halverson,False,Non quality on net,Default,537,63
+1027824,shot,2,13:17,10903,Dominic,James,324,6844,Alexandar,Georgiev,False,Quality on net,Default,98,121
+1027824,shot,2,13:56,9504,Isak,Rosén,323,6535,Brandon,Halverson,False,Non quality on net,Default,543,69
+1027824,shot,2,14:49,9034,Declan,Carlile,324,6844,Alexandar,Georgiev,False,Non quality on net,Default,170,93
+1027824,shot,2,14:58,9901,Gabriel,Szturc,324,6844,Alexandar,Georgiev,False,Quality on net,Default,99,75
+1027824,shot,2,15:00,10444,Konsta,Helenius,323,6535,Brandon,Halverson,False,Quality on net,Default,487,144
+1027824,shot,2,15:45,10157,Noah,Östlund,323,6535,Brandon,Halverson,False,Non quality on net,Default,509,48
+1027824,shot,2,15:50,10444,Konsta,Helenius,323,6535,Brandon,Halverson,False,Quality on net,Default,501,171
+1027824,shot,2,16:05,9504,Isak,Rosén,323,6535,Brandon,Halverson,False,Quality on net,Default,500,155
+1027824,shot,2,17:36,8619,Jack,Rathbone,323,6535,Brandon,Halverson,False,Non quality on net,Default,498,45
+1027824,shot,2,17:45,9563,Nick,Abruzzese,324,6844,Alexandar,Georgiev,False,Non quality on net,Default,153,152
+1027824,shot,2,18:13,9034,Declan,Carlile,324,6844,Alexandar,Georgiev,False,Non quality on net,Default,125,64
+1027824,shot,3,4:41,10436,Vsevolod,Komarov,323,6535,Brandon,Halverson,False,Non quality on net,Default,510,256
+1027824,shot,3,5:41,9930,Nikita,Novikov,323,6535,Brandon,Halverson,False,Non quality on net,Default,435,192
+1027824,shot,3,8:23,9930,Nikita,Novikov,323,6535,Brandon,Halverson,False,Quality on net,Default,536,188
+1027824,shot,3,9:19,8744,Jakob,Pelletier,324,6844,Alexandar,Georgiev,False,Quality on net,Default,115,106
+1027824,shot,3,10:25,10157,Noah,Östlund,323,6535,Brandon,Halverson,False,Non quality on net,Default,478,243
+1027824,shot,3,11:52,9927,Viktor,Neuchev,323,6535,Brandon,Halverson,False,Non quality on net,Default,503,239
+1027824,shot,3,12:47,8864,Zac,Jones,323,6535,Brandon,Halverson,False,Non quality on net,Default,434,106
+1027824,shot,3,13:14,9896,Maxim,Groshev,324,6844,Alexandar,Georgiev,False,Non quality on net,Default,391,247
+1027824,shot,3,14:13,10157,Noah,Östlund,323,6535,Brandon,Halverson,False,Quality on net,Default,481,84
+1027824,shot,3,15:02,9700,Trevor,Kuntar,323,6535,Brandon,Halverson,False,Non quality on net,Default,435,125
+1027824,shot,3,15:33,9761,Olivier,Nadeau,323,6535,Brandon,Halverson,False,Quality on net,Default,541,117
+1027824,shot,3,15:39,9927,Viktor,Neuchev,323,6535,Brandon,Halverson,False,Quality on net,Default,526,199
+1027824,shot,3,16:47,10835,Wojciech,Stachowiak,324,6844,Alexandar,Georgiev,True,Quality goal,Default,109,165
+1027824,goal,3,16:47,10835,Wojciech,Stachowiak,,,,,,,,109,165
+1027824,shot,3,19:11,8057,Charle-Édouard,D’Astous,324,6844,Alexandar,Georgiev,False,Quality on net,Default,105,223

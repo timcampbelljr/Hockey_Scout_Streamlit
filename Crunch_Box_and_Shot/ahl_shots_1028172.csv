@@ -1,0 +1,53 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028172,shot,1,2:13,9886,Cole,McWard,317,9096,Ryan,Fanti,False,Quality on net,Default,123,93
+1028172,shot,1,2:39,9689,Travis,Mitchell,317,9096,Ryan,Fanti,False,Quality on net,Default,138,176
+1028172,shot,1,4:03,10152,Marshall,Warren,317,9096,Ryan,Fanti,False,Non quality on net,Default,70,213
+1028172,shot,1,6:19,8744,Jakob,Pelletier,324,9444,Henrik,Tikkanen,False,Quality on net,Default,481,162
+1028172,shot,1,6:19,8744,Jakob,Pelletier,324,9444,Henrik,Tikkanen,False,Quality on net,Default,506,121
+1028172,shot,1,8:56,9754,Tristan,Allard,324,9444,Henrik,Tikkanen,False,Quality on net,Default,522,201
+1028172,shot,1,10:05,9202,Conor,Geekie,324,9444,Henrik,Tikkanen,False,Quality on net,Default,489,114
+1028172,shot,1,13:26,10388,Cam,Thiesing,317,9096,Ryan,Fanti,False,Quality on net,Default,106,123
+1028172,shot,1,14:40,4910,Scott,Sabourin,324,9444,Henrik,Tikkanen,True,Non quality goal,Default,453,123
+1028172,goal,1,14:40,4910,Scott,Sabourin,,,,,,,,453,123
+1028172,shot,1,15:24,9754,Tristan,Allard,324,9444,Henrik,Tikkanen,False,Quality on net,Default,523,114
+1028172,shot,1,15:42,7248,Sean,Day,317,9096,Ryan,Fanti,False,Non quality on net,Default,166,82
+1028172,shot,1,16:38,9896,Maxim,Groshev,324,9444,Henrik,Tikkanen,False,Quality on net,Default,551,171
+1028172,shot,1,18:45,7627,Hunter,Drew,317,9096,Ryan,Fanti,False,Non quality on net,Default,163,144
+1028172,shot,2,1:10,8744,Jakob,Pelletier,324,9444,Henrik,Tikkanen,False,Quality on net,Default,507,156
+1028172,shot,2,1:55,8884,Matteo,Pietroniro,324,9444,Henrik,Tikkanen,False,Quality on net,Default,492,147
+1028172,shot,2,2:04,10835,Wojciech,Stachowiak,324,9444,Henrik,Tikkanen,False,Quality on net,Default,545,160
+1028172,shot,2,2:16,8884,Matteo,Pietroniro,324,9444,Henrik,Tikkanen,False,Quality on net,Default,472,177
+1028172,shot,2,2:26,7690,Vincent,Sévigny,324,9444,Henrik,Tikkanen,False,Quality on net,Default,511,135
+1028172,shot,2,4:18,8549,Adam,Beckman,317,9096,Ryan,Fanti,False,Quality on net,Default,69,171
+1028172,shot,2,5:40,7627,Hunter,Drew,317,9096,Ryan,Fanti,False,Quality on net,Default,69,135
+1028172,shot,2,6:14,9563,Nick,Abruzzese,324,9444,Henrik,Tikkanen,False,Quality on net,Default,536,156
+1028172,shot,2,7:14,10152,Marshall,Warren,317,9096,Ryan,Fanti,False,Quality on net,Default,105,192
+1028172,shot,2,7:48,4910,Scott,Sabourin,324,9444,Henrik,Tikkanen,False,Non quality on net,Default,469,229
+1028172,shot,2,8:10,10564,Cam,Berg,317,9096,Ryan,Fanti,False,Quality on net,Default,95,109
+1028172,shot,2,8:19,10040,Alex,Jefferies,317,9096,Ryan,Fanti,False,Quality on net,Default,142,166
+1028172,shot,2,8:34,8553,Mitchell,Chaffee,324,9444,Henrik,Tikkanen,True,Quality goal,Default,549,140
+1028172,goal,2,8:34,8553,Mitchell,Chaffee,,,,,,,,549,140
+1028172,shot,2,10:16,6861,Matthew,Highmore,317,9096,Ryan,Fanti,False,Quality on net,Default,81,105
+1028172,shot,2,10:20,10148,Dylan,Duke,324,9444,Henrik,Tikkanen,True,Quality goal,Default,525,189
+1028172,goal,2,10:20,10148,Dylan,Duke,,,,,,,,525,189
+1028172,shot,2,11:29,10607,Ethan,Gauthier,324,9444,Henrik,Tikkanen,False,Quality on net,Default,529,142
+1028172,shot,2,11:37,4910,Scott,Sabourin,324,9444,Henrik,Tikkanen,False,Quality on net,Default,513,192
+1028172,shot,2,14:26,10388,Cam,Thiesing,317,9096,Ryan,Fanti,False,Non quality on net,Default,68,98
+1028172,shot,2,14:31,9954,Eetu,Liukas,317,9096,Ryan,Fanti,False,Quality on net,Default,53,142
+1028172,shot,2,17:00,9563,Nick,Abruzzese,324,9444,Henrik,Tikkanen,False,Quality on net,Default,541,134
+1028172,shot,3,1:24,10020,Luke,Rowe,317,9096,Ryan,Fanti,False,Quality on net,Default,513,151
+1028172,shot,3,3:00,10566,Lucas,Mercuri,324,9444,Henrik,Tikkanen,False,Quality on net,Default,543,165
+1028172,shot,3,3:27,10835,Wojciech,Stachowiak,324,9444,Henrik,Tikkanen,False,Quality on net,Default,525,101
+1028172,shot,3,6:01,9754,Tristan,Allard,324,9444,Henrik,Tikkanen,False,Quality on net,Default,506,177
+1028172,shot,3,8:44,9896,Maxim,Groshev,324,9444,Henrik,Tikkanen,False,Non quality on net,Default,441,129
+1028172,shot,3,9:18,10566,Lucas,Mercuri,324,9444,Henrik,Tikkanen,True,Quality goal,Default,549,165
+1028172,goal,3,9:18,10566,Lucas,Mercuri,,,,,,,,549,165
+1028172,shot,3,11:53,9896,Maxim,Groshev,324,9444,Henrik,Tikkanen,False,Non quality on net,Default,506,61
+1028172,shot,3,14:08,10562,Joey,Larson,317,9096,Ryan,Fanti,False,Quality on net,Default,110,164
+1028172,shot,3,15:09,10835,Wojciech,Stachowiak,324,9444,Henrik,Tikkanen,False,Quality on net,Default,471,180
+1028172,shot,3,15:24,9896,Maxim,Groshev,324,9444,Henrik,Tikkanen,True,Quality goal,Default,497,101
+1028172,goal,3,15:24,9896,Maxim,Groshev,,,,,,,,497,101
+1028172,shot,3,16:34,9442,Daylan,Kuefler,317,9096,Ryan,Fanti,False,Quality on net,Default,63,126
+1028172,shot,3,17:18,10562,Joey,Larson,317,9096,Ryan,Fanti,False,Quality on net,Default,111,100
+1028172,shot,3,18:11,10835,Wojciech,Stachowiak,324,9444,Henrik,Tikkanen,False,Quality on net,Default,530,116
+1028172,shot,3,19:29,10566,Lucas,Mercuri,324,9444,Henrik,Tikkanen,False,Quality on net,Default,540,123

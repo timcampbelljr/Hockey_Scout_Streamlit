@@ -1,0 +1,56 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028182,shot,1,0:59,9202,Conor,Geekie,324,8430,Dylan,Garand,False,Quality on net,Default,524,115
+1028182,shot,1,6:21,9754,Tristan,Allard,324,8430,Dylan,Garand,False,Non quality on net,Default,549,191
+1028182,shot,1,6:23,9901,Gabriel,Szturc,324,8430,Dylan,Garand,False,Quality on net,Default,553,141
+1028182,shot,1,7:14,4957,Derrick,Pouliot,307,6535,Brandon,Halverson,False,Non quality on net,Default,202,260
+1028182,shot,1,8:26,9693,Brendan,Furry,324,8430,Dylan,Garand,False,Quality on net,Default,556,147
+1028182,shot,1,9:38,9202,Conor,Geekie,324,8430,Dylan,Garand,False,Non quality on net,Default,452,251
+1028182,shot,1,10:29,9896,Maxim,Groshev,324,8430,Dylan,Garand,False,Quality on net,Default,545,159
+1028182,shot,1,10:31,9693,Brendan,Furry,324,8430,Dylan,Garand,True,Quality goal,Default,564,152
+1028182,goal,1,10:31,9693,Brendan,Furry,,,,,,,,564,152
+1028182,shot,1,11:42,8884,Matteo,Pietroniro,324,8430,Dylan,Garand,False,Non quality on net,Default,546,69
+1028182,shot,1,15:46,9754,Tristan,Allard,324,8430,Dylan,Garand,False,Quality on net,Default,479,134
+1028182,shot,1,16:15,8922,Simon,Lundmark,324,8430,Dylan,Garand,False,Non quality on net,Default,435,225
+1028182,shot,1,17:31,8553,Mitchell,Chaffee,324,8430,Dylan,Garand,True,Quality goal,Default,537,134
+1028182,goal,1,17:31,8553,Mitchell,Chaffee,,,,,,,,537,134
+1028182,shot,1,18:07,9901,Gabriel,Szturc,324,8430,Dylan,Garand,False,Quality on net,Default,530,151
+1028182,shot,1,18:25,10607,Ethan,Gauthier,324,8430,Dylan,Garand,False,Quality on net,Default,494,184
+1028182,shot,1,18:32,4666,Jarred,Tinordi,324,8430,Dylan,Garand,False,Quality on net,Default,459,87
+1028182,shot,1,18:51,10566,Lucas,Mercuri,324,8430,Dylan,Garand,False,Quality on net,Default,504,143
+1028182,shot,1,19:13,8884,Matteo,Pietroniro,324,8430,Dylan,Garand,False,Non quality on net,Default,461,46
+1028182,shot,1,19:52,4957,Derrick,Pouliot,307,6535,Brandon,Halverson,False,Non quality on net,Default,147,86
+1028182,shot,2,3:17,10123,Kalle,Väisänen,307,6535,Brandon,Halverson,False,Non quality on net,Default,147,31
+1028182,shot,2,6:20,10607,Ethan,Gauthier,324,8430,Dylan,Garand,False,Quality on net,Default,536,159
+1028182,shot,2,6:30,10607,Ethan,Gauthier,324,8430,Dylan,Garand,False,Non quality on net,Default,500,231
+1028182,shot,2,7:01,9202,Conor,Geekie,324,8430,Dylan,Garand,False,Non quality on net,Default,435,236
+1028182,shot,2,10:28,4666,Jarred,Tinordi,324,8430,Dylan,Garand,False,Non quality on net,Default,399,94
+1028182,shot,2,10:35,8884,Matteo,Pietroniro,324,8430,Dylan,Garand,False,Non quality on net,Default,392,52
+1028182,shot,2,10:48,8884,Matteo,Pietroniro,324,8430,Dylan,Garand,False,Non quality on net,Default,439,94
+1028182,shot,2,11:02,5944,Daniel,Walcott,307,6535,Brandon,Halverson,False,Quality on net,Default,51,150
+1028182,shot,2,12:10,10062,Jaroslav,Chmelar,307,6535,Brandon,Halverson,False,Non quality on net,Default,185,51
+1028182,shot,2,12:45,9666,Adam,Sýkora,307,6535,Brandon,Halverson,False,Non quality on net,Default,76,95
+1028182,shot,2,13:05,9666,Adam,Sýkora,307,6535,Brandon,Halverson,True,Quality goal,Default,63,130
+1028182,goal,2,13:05,9666,Adam,Sýkora,,,,,,,,63,130
+1028182,shot,2,14:25,10523,Jackson,Dorrington,307,6535,Brandon,Halverson,False,Non quality on net,Default,141,64
+1028182,shot,2,15:42,7669,Trey,Fix-Wolansky,307,6535,Brandon,Halverson,False,Non quality on net,Default,56,117
+1028182,shot,2,17:15,5995,Anton,Blidh,307,6535,Brandon,Halverson,True,Non quality goal,Default,43,124
+1028182,goal,2,17:15,5995,Anton,Blidh,,,,,,,,43,124
+1028182,shot,2,17:32,10566,Lucas,Mercuri,324,8430,Dylan,Garand,True,Quality goal,Default,546,159
+1028182,goal,2,17:32,10566,Lucas,Mercuri,,,,,,,,546,159
+1028182,shot,3,2:29,4910,Scott,Sabourin,324,8430,Dylan,Garand,True,Quality goal,Default,544,153
+1028182,goal,3,2:29,4910,Scott,Sabourin,,,,,,,,544,153
+1028182,shot,3,2:36,7569,Casey,Fitzgerald,307,6535,Brandon,Halverson,False,Non quality on net,Default,206,134
+1028182,shot,3,4:21,9202,Conor,Geekie,324,8430,Dylan,Garand,False,Quality on net,Default,519,192
+1028182,shot,3,4:27,8884,Matteo,Pietroniro,324,8430,Dylan,Garand,False,Quality on net,Default,468,100
+1028182,shot,3,7:55,9642,Brett,Berard,307,6535,Brandon,Halverson,False,Quality on net,Default,105,152
+1028182,shot,3,10:43,8553,Mitchell,Chaffee,324,8430,Dylan,Garand,False,Non quality on net,Default,420,154
+1028182,shot,3,15:55,9202,Conor,Geekie,324,8430,Dylan,Garand,False,Non quality on net,Default,557,85
+1028182,shot,3,16:02,10148,Dylan,Duke,324,8430,Dylan,Garand,False,Non quality on net,Default,450,138
+1028182,shot,3,17:27,4957,Derrick,Pouliot,307,6535,Brandon,Halverson,False,Non quality on net,Default,201,221
+1028182,shot,3,17:30,10062,Jaroslav,Chmelar,307,6535,Brandon,Halverson,True,Quality goal,Default,52,165
+1028182,goal,3,17:30,10062,Jaroslav,Chmelar,,,,,,,,52,165
+1028182,shot,3,18:34,10189,Dylan,Roobroeck,307,6535,Brandon,Halverson,False,Quality on net,Default,50,126
+1028182,shot,3,19:30,9642,Brett,Berard,307,6535,Brandon,Halverson,False,Quality on net,Default,69,137
+1028182,shot,3,19:32,5995,Anton,Blidh,307,6535,Brandon,Halverson,False,Non quality on net,Default,41,121
+1028182,shot,3,19:52,10148,Dylan,Duke,324,8430,Dylan,Garand,True,Non quality goal,Default,395,87
+1028182,goal,3,19:52,10148,Dylan,Duke,,,,,,,,395,87

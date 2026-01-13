@@ -1,0 +1,70 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028075,shot,1,2:21,10526,Cooper,Flinton,324,8860,Nico,Daws,False,Quality on net,Default,61,112
+1028075,shot,1,2:22,10526,Cooper,Flinton,324,8860,Nico,Daws,False,Quality on net,Default,52,127
+1028075,shot,1,4:14,8648,Angus,Crookshank,390,6535,Brandon,Halverson,False,Non quality on net,Default,550,222
+1028075,shot,1,4:31,6879,Dmitry,Osipov,390,6535,Brandon,Halverson,False,Non quality on net,Default,405,257
+1028075,shot,1,5:23,8744,Jakob,Pelletier,324,8860,Nico,Daws,True,Non quality goal,Default,76,90
+1028075,goal,1,5:23,8744,Jakob,Pelletier,,,,,,,,76,90
+1028075,shot,1,6:12,9114,Thomas,Bordeleau,390,6535,Brandon,Halverson,False,Quality on net,Default,539,149
+1028075,shot,1,6:14,7624,Calen,Addison,390,6535,Brandon,Halverson,True,Non quality goal,Default,447,180
+1028075,goal,1,6:14,7624,Calen,Addison,,,,,,,,447,180
+1028075,shot,1,8:40,10474,Seamus,Casey,390,6535,Brandon,Halverson,False,Quality on net,Default,460,132
+1028075,shot,1,8:50,10474,Seamus,Casey,390,6535,Brandon,Halverson,False,Non quality on net,Default,416,143
+1028075,shot,1,11:20,9114,Thomas,Bordeleau,390,6535,Brandon,Halverson,False,Non quality on net,Default,524,218
+1028075,shot,1,12:54,10529,Ethan,Edwards,390,6535,Brandon,Halverson,False,Non quality on net,Default,399,179
+1028075,shot,1,13:05,9896,Maxim,Groshev,324,8860,Nico,Daws,False,Quality on net,Default,78,196
+1028075,shot,1,13:27,4910,Scott,Sabourin,324,8860,Nico,Daws,False,Quality on net,Default,65,147
+1028075,shot,1,14:55,7624,Calen,Addison,390,6535,Brandon,Halverson,False,Non quality on net,Default,389,176
+1028075,shot,1,15:06,9067,Brian,Halonen,390,6535,Brandon,Halverson,False,Non quality on net,Default,452,38
+1028075,shot,1,16:10,9896,Maxim,Groshev,324,8860,Nico,Daws,False,Non quality on net,Default,211,189
+1028075,shot,1,16:35,10835,Wojciech,Stachowiak,324,8860,Nico,Daws,True,Quality goal,Default,51,135
+1028075,goal,1,16:35,10835,Wojciech,Stachowiak,,,,,,,,51,135
+1028075,shot,1,17:37,9079,Tommy,Miller,324,8860,Nico,Daws,False,Non quality on net,Default,201,84
+1028075,shot,2,0:09,9067,Brian,Halonen,390,6535,Brandon,Halverson,False,Non quality on net,Default,537,212
+1028075,shot,2,1:01,10148,Dylan,Duke,324,8860,Nico,Daws,False,Non quality on net,Default,41,102
+1028075,shot,2,2:09,10935,Romain,Rodzinski,324,8860,Nico,Daws,False,Non quality on net,Default,194,188
+1028075,shot,2,2:11,8744,Jakob,Pelletier,324,8860,Nico,Daws,False,Non quality on net,Default,59,105
+1028075,shot,2,4:15,8648,Angus,Crookshank,390,6535,Brandon,Halverson,False,Non quality on net,Default,555,57
+1028075,shot,2,4:29,9067,Brian,Halonen,390,6535,Brandon,Halverson,False,Non quality on net,Default,484,31
+1028075,shot,2,4:47,9067,Brian,Halonen,390,6535,Brandon,Halverson,False,Non quality on net,Default,459,68
+1028075,shot,2,4:48,8910,Mike,Hardman,390,6535,Brandon,Halverson,False,Quality on net,Default,543,163
+1028075,shot,2,5:27,9067,Brian,Halonen,390,6535,Brandon,Halverson,False,Quality on net,Default,486,74
+1028075,shot,2,6:30,8910,Mike,Hardman,390,6535,Brandon,Halverson,False,Non quality on net,Default,544,188
+1028075,shot,2,6:31,8910,Mike,Hardman,390,6535,Brandon,Halverson,True,Quality goal,Default,543,165
+1028075,goal,2,6:31,8910,Mike,Hardman,,,,,,,,543,165
+1028075,shot,2,7:07,10632,Shane,Lachance,390,6535,Brandon,Halverson,False,Quality on net,Default,553,173
+1028075,shot,2,7:41,10935,Romain,Rodzinski,324,8860,Nico,Daws,False,Non quality on net,Default,190,269
+1028075,shot,2,8:39,8744,Jakob,Pelletier,324,8860,Nico,Daws,False,Quality on net,Default,114,199
+1028075,shot,2,9:20,7608,Jonathan,Gruden,390,6535,Brandon,Halverson,False,Non quality on net,Default,409,34
+1028075,shot,2,11:21,9896,Maxim,Groshev,324,8860,Nico,Daws,False,Non quality on net,Default,182,221
+1028075,shot,2,12:14,10892,Lenni,Hämeenaho,390,6535,Brandon,Halverson,False,Non quality on net,Default,441,155
+1028075,shot,2,12:35,8891,Nathan,Légaré,390,6535,Brandon,Halverson,False,Non quality on net,Default,410,251
+1028075,shot,2,13:10,8884,Matteo,Pietroniro,324,8860,Nico,Daws,True,Non quality goal,Default,75,230
+1028075,goal,2,13:10,8884,Matteo,Pietroniro,,,,,,,,75,230
+1028075,shot,2,13:42,9749,Roman,Schmidt,324,8860,Nico,Daws,False,Quality on net,Default,76,151
+1028075,shot,2,15:18,9079,Tommy,Miller,324,8860,Nico,Daws,False,Non quality on net,Default,108,229
+1028075,shot,2,17:35,8744,Jakob,Pelletier,324,8860,Nico,Daws,True,Quality goal,Default,81,145
+1028075,goal,2,17:35,8744,Jakob,Pelletier,,,,,,,,81,145
+1028075,shot,2,19:28,9516,Xavier,Parent,390,6535,Brandon,Halverson,True,Non quality goal,Default,534,73
+1028075,goal,2,19:28,9516,Xavier,Parent,,,,,,,,534,73
+1028075,shot,3,3:05,8910,Mike,Hardman,390,6535,Brandon,Halverson,False,Non quality on net,Default,444,85
+1028075,shot,3,3:40,6879,Dmitry,Osipov,390,6535,Brandon,Halverson,False,Non quality on net,Default,404,157
+1028075,shot,3,4:15,8553,Mitchell,Chaffee,324,8860,Nico,Daws,True,Non quality goal,Default,153,101
+1028075,goal,3,4:15,8553,Mitchell,Chaffee,,,,,,,,153,101
+1028075,shot,3,7:12,8884,Matteo,Pietroniro,324,8860,Nico,Daws,False,Quality on net,Default,135,195
+1028075,shot,3,7:18,8884,Matteo,Pietroniro,324,8860,Nico,Daws,False,Non quality on net,Default,205,250
+1028075,shot,3,13:28,10474,Seamus,Casey,390,6535,Brandon,Halverson,False,Quality on net,Default,473,72
+1028075,shot,3,13:40,6879,Dmitry,Osipov,390,6535,Brandon,Halverson,False,Non quality on net,Default,411,261
+1028075,shot,3,15:01,10474,Seamus,Casey,390,6535,Brandon,Halverson,False,Non quality on net,Default,390,72
+1028075,shot,3,15:54,10632,Shane,Lachance,390,6535,Brandon,Halverson,False,Quality on net,Default,543,148
+1028075,shot,3,16:47,10632,Shane,Lachance,390,6535,Brandon,Halverson,False,Non quality on net,Default,393,154
+1028075,shot,3,17:06,7251,Ryan,Schmelzer,390,6535,Brandon,Halverson,False,Quality on net,Default,541,117
+1028075,shot,3,18:08,7624,Calen,Addison,390,6535,Brandon,Halverson,False,Non quality on net,Default,410,181
+1028075,shot,3,18:10,8648,Angus,Crookshank,390,6535,Brandon,Halverson,False,Quality on net,Default,549,170
+1028075,shot,3,18:16,9067,Brian,Halonen,390,6535,Brandon,Halverson,False,Non quality on net,Default,465,42
+1028075,shot,3,18:18,8648,Angus,Crookshank,390,6535,Brandon,Halverson,False,Quality on net,Default,519,149
+1028075,shot,3,19:11,8910,Mike,Hardman,390,6535,Brandon,Halverson,False,Non quality on net,Default,549,185
+1028075,shot,3,19:12,8910,Mike,Hardman,390,6535,Brandon,Halverson,False,Non quality on net,Default,558,171
+1028075,shot,3,19:19,8648,Angus,Crookshank,390,6535,Brandon,Halverson,False,Quality on net,Default,533,139
+1028075,shot,3,19:23,10474,Seamus,Casey,390,6535,Brandon,Halverson,False,Non quality on net,Default,393,159
+1028075,shot,3,19:30,10474,Seamus,Casey,390,6535,Brandon,Halverson,False,Non quality on net,Default,410,130

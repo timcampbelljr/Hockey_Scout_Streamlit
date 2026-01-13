@@ -1,0 +1,58 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1027835,shot,1,2:00,10436,Vsevolod,Komarov,323,6535,Brandon,Halverson,False,Non quality on net,Default,201,108
+1027835,shot,1,2:01,8641,Josh,Dunne,323,6535,Brandon,Halverson,True,Non quality goal,Default,45,122
+1027835,goal,1,2:01,8641,Josh,Dunne,,,,,,,,45,122
+1027835,shot,1,7:39,9504,Isak,Rosén,323,6535,Brandon,Halverson,False,Non quality on net,Default,113,27
+1027835,shot,1,7:55,8864,Zac,Jones,323,6535,Brandon,Halverson,False,Non quality on net,Default,165,71
+1027835,shot,1,8:04,9504,Isak,Rosén,323,6535,Brandon,Halverson,False,Non quality on net,Default,182,165
+1027835,shot,1,8:22,8864,Zac,Jones,323,6535,Brandon,Halverson,False,Non quality on net,Default,206,124
+1027835,shot,1,8:23,9927,Viktor,Neuchev,323,6535,Brandon,Halverson,True,Quality goal,Default,81,96
+1027835,goal,1,8:23,9927,Viktor,Neuchev,,,,,,,,81,96
+1027835,shot,1,10:28,8864,Zac,Jones,323,6535,Brandon,Halverson,False,Non quality on net,Default,198,155
+1027835,shot,1,10:36,8864,Zac,Jones,323,6535,Brandon,Halverson,False,Non quality on net,Default,176,213
+1027835,shot,1,11:00,8641,Josh,Dunne,323,6535,Brandon,Halverson,False,Quality on net,Default,70,105
+1027835,shot,1,11:15,8864,Zac,Jones,323,6535,Brandon,Halverson,False,Non quality on net,Default,174,131
+1027835,shot,1,13:33,9700,Trevor,Kuntar,323,6535,Brandon,Halverson,False,Non quality on net,Default,349,248
+1027835,shot,1,15:00,9901,Gabriel,Szturc,324,7644,Ukko-Pekka,Luukkonen,False,Quality on net,Default,529,141
+1027835,shot,1,15:01,9901,Gabriel,Szturc,324,7644,Ukko-Pekka,Luukkonen,False,Quality on net,Default,477,141
+1027835,shot,1,15:01,10607,Ethan,Gauthier,324,7644,Ukko-Pekka,Luukkonen,False,Quality on net,Default,541,144
+1027835,shot,1,15:56,8884,Matteo,Pietroniro,324,7644,Ukko-Pekka,Luukkonen,False,Non quality on net,Default,529,41
+1027835,shot,1,16:52,9693,Brendan,Furry,324,7644,Ukko-Pekka,Luukkonen,False,Non quality on net,Default,415,36
+1027835,shot,1,17:16,9930,Nikita,Novikov,323,6535,Brandon,Halverson,False,Non quality on net,Default,177,227
+1027835,shot,1,17:28,9202,Conor,Geekie,324,7644,Ukko-Pekka,Luukkonen,False,Non quality on net,Default,443,257
+1027835,shot,1,18:02,8744,Jakob,Pelletier,324,7644,Ukko-Pekka,Luukkonen,False,Non quality on net,Default,469,43
+1027835,shot,1,19:07,9202,Conor,Geekie,324,7644,Ukko-Pekka,Luukkonen,True,Non quality goal,Default,500,262
+1027835,goal,1,19:07,9202,Conor,Geekie,,,,,,,,500,262
+1027835,shot,1,19:59,8641,Josh,Dunne,323,6535,Brandon,Halverson,False,Non quality on net,Default,119,35
+1027835,shot,2,1:42,9202,Conor,Geekie,324,7644,Ukko-Pekka,Luukkonen,False,Non quality on net,Default,100,55
+1027835,shot,2,2:50,9896,Maxim,Groshev,324,7644,Ukko-Pekka,Luukkonen,False,Quality on net,Default,543,141
+1027835,shot,2,4:30,10566,Lucas,Mercuri,324,7644,Ukko-Pekka,Luukkonen,False,Non quality on net,Default,453,206
+1027835,shot,2,5:01,10566,Lucas,Mercuri,324,7644,Ukko-Pekka,Luukkonen,False,Quality on net,Default,519,161
+1027835,shot,2,6:52,8864,Zac,Jones,323,6535,Brandon,Halverson,False,Non quality on net,Default,179,174
+1027835,shot,2,7:19,9700,Trevor,Kuntar,323,6535,Brandon,Halverson,True,Quality goal,Default,53,165
+1027835,goal,2,7:19,9700,Trevor,Kuntar,,,,,,,,53,165
+1027835,shot,2,8:35,6522,Steven,Santini,324,7644,Ukko-Pekka,Luukkonen,False,Non quality on net,Default,411,249
+1027835,shot,2,8:51,10566,Lucas,Mercuri,324,7644,Ukko-Pekka,Luukkonen,False,Non quality on net,Default,447,102
+1027835,shot,2,9:44,9202,Conor,Geekie,324,7644,Ukko-Pekka,Luukkonen,False,Quality on net,Default,491,166
+1027835,shot,2,9:58,9563,Nick,Abruzzese,324,7644,Ukko-Pekka,Luukkonen,True,Quality goal,Default,539,164
+1027835,goal,2,9:58,9563,Nick,Abruzzese,,,,,,,,539,164
+1027835,shot,2,12:52,8641,Josh,Dunne,323,6535,Brandon,Halverson,False,Non quality on net,Default,81,224
+1027835,shot,2,13:09,9767,Ryan,Johnson,323,6535,Brandon,Halverson,False,Non quality on net,Default,196,213
+1027835,shot,2,15:06,8884,Matteo,Pietroniro,324,7644,Ukko-Pekka,Luukkonen,False,Non quality on net,Default,465,49
+1027835,shot,2,15:58,8864,Zac,Jones,323,6535,Brandon,Halverson,False,Non quality on net,Default,190,116
+1027835,shot,2,16:10,8641,Josh,Dunne,323,6535,Brandon,Halverson,False,Quality on net,Default,68,148
+1027835,shot,2,16:22,10444,Konsta,Helenius,323,6535,Brandon,Halverson,False,Quality on net,Default,76,134
+1027835,shot,2,17:51,8705,Brendan,Warren,323,6535,Brandon,Halverson,False,Quality on net,Default,90,125
+1027835,shot,2,18:29,9643,Jagger,Joshua,323,6535,Brandon,Halverson,True,Quality goal,Default,145,168
+1027835,goal,2,18:29,9643,Jagger,Joshua,,,,,,,,145,168
+1027835,shot,2,19:22,9643,Jagger,Joshua,323,6535,Brandon,Halverson,False,Quality on net,Default,93,170
+1027835,shot,3,4:26,10835,Wojciech,Stachowiak,324,7644,Ukko-Pekka,Luukkonen,False,Quality on net,Default,534,171
+1027835,shot,3,4:26,6779,Boris,Katchouk,324,7644,Ukko-Pekka,Luukkonen,False,Quality on net,Default,521,122
+1027835,shot,3,7:44,8744,Jakob,Pelletier,324,7644,Ukko-Pekka,Luukkonen,False,Non quality on net,Default,432,107
+1027835,shot,3,11:29,8864,Zac,Jones,323,6535,Brandon,Halverson,False,Non quality on net,Default,200,87
+1027835,shot,3,12:45,9643,Jagger,Joshua,323,6535,Brandon,Halverson,False,Quality on net,Default,56,155
+1027835,shot,3,13:10,9923,Riley,Fiddler-Schultz,323,6535,Brandon,Halverson,False,Non quality on net,Default,206,242
+1027835,shot,3,13:58,10436,Vsevolod,Komarov,323,6535,Brandon,Halverson,False,Non quality on net,Default,524,34
+1027835,shot,3,17:47,9202,Conor,Geekie,324,7644,Ukko-Pekka,Luukkonen,False,Non quality on net,Default,470,51
+1027835,shot,3,18:42,9202,Conor,Geekie,324,7644,Ukko-Pekka,Luukkonen,False,Non quality on net,Default,437,225
+1027835,shot,3,19:18,8744,Jakob,Pelletier,324,7644,Ukko-Pekka,Luukkonen,False,Quality on net,Default,493,210

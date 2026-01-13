@@ -1,0 +1,69 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1027892,shot,1,1:30,9202,Conor,Geekie,324,8860,Nico,Daws,False,Non quality on net,Default,394,201
+1027892,shot,1,3:00,9754,Tristan,Allard,324,8860,Nico,Daws,False,Non quality on net,Default,67,207
+1027892,shot,1,3:10,7251,Ryan,Schmelzer,390,9096,Ryan,Fanti,False,Quality on net,Default,545,181
+1027892,shot,1,8:43,6262,Kyle,Criscuolo,390,9096,Ryan,Fanti,False,Non quality on net,Default,483,243
+1027892,shot,1,10:22,7251,Ryan,Schmelzer,390,9096,Ryan,Fanti,False,Non quality on net,Default,524,207
+1027892,shot,1,10:31,10632,Shane,Lachance,390,9096,Ryan,Fanti,False,Quality on net,Default,537,148
+1027892,shot,1,11:30,10148,Dylan,Duke,324,8860,Nico,Daws,False,Quality on net,Default,87,199
+1027892,shot,1,15:20,8648,Angus,Crookshank,390,9096,Ryan,Fanti,False,Non quality on net,Default,432,123
+1027892,shot,1,17:05,10835,Wojciech,Stachowiak,324,8860,Nico,Daws,False,Quality on net,Default,118,100
+1027892,shot,1,18:41,4910,Scott,Sabourin,324,8860,Nico,Daws,False,Quality on net,Default,80,157
+1027892,shot,1,18:49,9202,Conor,Geekie,324,8860,Nico,Daws,False,Quality on net,Default,96,169
+1027892,shot,1,18:50,4910,Scott,Sabourin,324,8860,Nico,Daws,True,Quality goal,Default,73,151
+1027892,goal,1,18:50,4910,Scott,Sabourin,,,,,,,,73,151
+1027892,shot,2,0:28,8648,Angus,Crookshank,390,9096,Ryan,Fanti,False,Quality on net,Default,505,135
+1027892,shot,2,1:03,9563,Nick,Abruzzese,324,8860,Nico,Daws,True,Quality goal,Default,68,144
+1027892,goal,2,1:03,9563,Nick,Abruzzese,,,,,,,,68,144
+1027892,shot,2,2:20,6362,Colton,White,390,9096,Ryan,Fanti,False,Non quality on net,Default,461,233
+1027892,shot,2,3:01,8648,Angus,Crookshank,390,9096,Ryan,Fanti,False,Quality on net,Default,482,207
+1027892,shot,2,4:40,7608,Jonathan,Gruden,390,9096,Ryan,Fanti,False,Quality on net,Default,471,158
+1027892,shot,2,5:02,7608,Jonathan,Gruden,390,9096,Ryan,Fanti,False,Quality on net,Default,516,190
+1027892,shot,2,6:55,6262,Kyle,Criscuolo,390,9096,Ryan,Fanti,False,Non quality on net,Default,445,225
+1027892,shot,2,7:22,6262,Kyle,Criscuolo,390,9096,Ryan,Fanti,False,Quality on net,Default,534,119
+1027892,shot,2,7:33,7251,Ryan,Schmelzer,390,9096,Ryan,Fanti,False,Quality on net,Default,485,206
+1027892,shot,2,8:44,6362,Colton,White,390,9096,Ryan,Fanti,False,Quality on net,Default,484,227
+1027892,shot,2,9:38,9034,Declan,Carlile,324,8860,Nico,Daws,False,Non quality on net,Default,144,44
+1027892,shot,2,10:44,7251,Ryan,Schmelzer,390,9096,Ryan,Fanti,False,Quality on net,Default,528,105
+1027892,shot,2,12:57,6262,Kyle,Criscuolo,390,9096,Ryan,Fanti,False,Quality on net,Default,483,189
+1027892,shot,2,14:09,9079,Tommy,Miller,324,8860,Nico,Daws,False,Quality on net,Default,119,170
+1027892,shot,2,14:26,9896,Maxim,Groshev,324,8860,Nico,Daws,False,Non quality on net,Default,167,206
+1027892,shot,2,15:58,10815,Matyas,Melovsky,390,9096,Ryan,Fanti,False,Non quality on net,Default,141,242
+1027892,shot,2,16:21,9693,Brendan,Furry,324,8860,Nico,Daws,True,Non quality goal,Default,49,113
+1027892,goal,2,16:21,9693,Brendan,Furry,,,,,,,,49,113
+1027892,shot,2,16:43,9749,Roman,Schmidt,324,8860,Nico,Daws,False,Quality on net,Default,111,148
+1027892,shot,2,18:06,9896,Maxim,Groshev,324,8860,Nico,Daws,False,Quality on net,Default,112,189
+1027892,shot,2,18:31,9754,Tristan,Allard,324,8860,Nico,Daws,False,Quality on net,Default,81,139
+1027892,shot,2,19:09,9202,Conor,Geekie,324,8860,Nico,Daws,True,Quality goal,Default,87,191
+1027892,goal,2,19:09,9202,Conor,Geekie,,,,,,,,87,191
+1027892,shot,2,19:53,9896,Maxim,Groshev,324,8860,Nico,Daws,False,Quality on net,Default,101,115
+1027892,shot,3,0:50,4910,Scott,Sabourin,324,8860,Nico,Daws,False,Quality on net,Default,108,175
+1027892,shot,3,1:16,8744,Jakob,Pelletier,324,8860,Nico,Daws,False,Non quality on net,Default,75,217
+1027892,shot,3,1:25,9034,Declan,Carlile,324,8860,Nico,Daws,False,Quality on net,Default,105,219
+1027892,shot,3,1:37,8744,Jakob,Pelletier,324,8860,Nico,Daws,False,Quality on net,Default,93,160
+1027892,shot,3,3:07,10815,Matyas,Melovsky,390,9096,Ryan,Fanti,False,Non quality on net,Default,540,79
+1027892,shot,3,3:58,10835,Wojciech,Stachowiak,324,8860,Nico,Daws,False,Non quality on net,Default,161,160
+1027892,shot,3,4:05,10835,Wojciech,Stachowiak,324,8860,Nico,Daws,False,Non quality on net,Default,144,226
+1027892,shot,3,4:47,9516,Xavier,Parent,390,9096,Ryan,Fanti,False,Quality on net,Default,473,84
+1027892,shot,3,6:13,10158,Jack,Malone,390,9096,Ryan,Fanti,False,Non quality on net,Default,501,260
+1027892,shot,3,6:18,8910,Mike,Hardman,390,9096,Ryan,Fanti,False,Non quality on net,Default,499,65
+1027892,shot,3,7:13,10835,Wojciech,Stachowiak,324,8860,Nico,Daws,False,Quality on net,Default,141,85
+1027892,shot,3,7:17,8553,Mitchell,Chaffee,324,8860,Nico,Daws,False,Quality on net,Default,110,141
+1027892,shot,3,7:22,8553,Mitchell,Chaffee,324,8860,Nico,Daws,False,Quality on net,Default,83,155
+1027892,shot,3,9:01,9034,Declan,Carlile,324,8860,Nico,Daws,False,Non quality on net,Default,159,134
+1027892,shot,3,9:15,9202,Conor,Geekie,324,8860,Nico,Daws,False,Non quality on net,Default,158,78
+1027892,shot,3,12:45,8910,Mike,Hardman,390,9096,Ryan,Fanti,False,Non quality on net,Default,530,232
+1027892,shot,3,13:01,9114,Thomas,Bordeleau,390,9096,Ryan,Fanti,False,Quality on net,Default,525,161
+1027892,shot,3,14:03,8648,Angus,Crookshank,390,9096,Ryan,Fanti,False,Non quality on net,Default,466,238
+1027892,shot,3,15:38,7624,Calen,Addison,390,9096,Ryan,Fanti,False,Quality on net,Default,471,139
+1027892,shot,3,16:01,9034,Declan,Carlile,324,8860,Nico,Daws,False,Non quality on net,Default,278,246
+1027892,shot,3,16:20,10632,Shane,Lachance,390,9096,Ryan,Fanti,False,Non quality on net,Default,442,103
+1027892,shot,3,16:44,6262,Kyle,Criscuolo,390,9096,Ryan,Fanti,False,Quality on net,Default,474,153
+1027892,shot,3,16:44,10632,Shane,Lachance,390,9096,Ryan,Fanti,False,Quality on net,Default,516,159
+1027892,shot,3,16:44,10632,Shane,Lachance,390,9096,Ryan,Fanti,False,Quality on net,Default,534,183
+1027892,shot,3,17:44,7117,Austin,Strand,390,9096,Ryan,Fanti,False,Non quality on net,Default,439,273
+1027892,shot,3,18:25,9693,Brendan,Furry,324,8860,Nico,Daws,False,Non quality on net,Default,103,268
+1027892,shot,3,18:45,8922,Simon,Lundmark,324,8860,Nico,Daws,False,Non quality on net,Default,165,47
+1027892,shot,3,18:59,10815,Matyas,Melovsky,390,9096,Ryan,Fanti,False,Quality on net,Default,459,143
+1027892,shot,3,19:03,6362,Colton,White,390,9096,Ryan,Fanti,False,Non quality on net,Default,432,118
+1027892,shot,3,19:05,9516,Xavier,Parent,390,9096,Ryan,Fanti,False,Non quality on net,Default,433,131

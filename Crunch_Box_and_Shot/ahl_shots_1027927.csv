@@ -1,0 +1,46 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1027927,shot,1,1:50,5614,Trevor,Carrick,384,9096,Ryan,Fanti,False,Non quality on net,Default,184,226
+1027927,shot,1,3:37,6522,Steven,Santini,324,10088,Cooper,Black,False,Non quality on net,Default,435,157
+1027927,shot,1,6:13,9988,Michael,Benning,384,9096,Ryan,Fanti,False,Non quality on net,Default,174,133
+1027927,shot,1,7:39,5614,Trevor,Carrick,384,9096,Ryan,Fanti,False,Non quality on net,Default,204,186
+1027927,shot,1,10:20,10566,Lucas,Mercuri,324,10088,Cooper,Black,False,Quality on net,Default,476,183
+1027927,shot,1,10:43,8553,Mitchell,Chaffee,324,10088,Cooper,Black,True,Quality goal,Default,508,122
+1027927,goal,1,10:43,8553,Mitchell,Chaffee,,,,,,,,508,122
+1027927,shot,1,11:37,10566,Lucas,Mercuri,324,10088,Cooper,Black,False,Quality on net,Default,511,142
+1027927,shot,1,12:32,9034,Declan,Carlile,324,10088,Cooper,Black,False,Non quality on net,Default,401,124
+1027927,shot,1,16:31,9988,Michael,Benning,384,9096,Ryan,Fanti,False,Non quality on net,Default,258,47
+1027927,shot,1,19:55,6522,Steven,Santini,324,10088,Cooper,Black,False,Non quality on net,Default,420,223
+1027927,shot,2,0:26,5614,Trevor,Carrick,384,9096,Ryan,Fanti,False,Quality on net,Default,87,207
+1027927,shot,2,0:53,9034,Declan,Carlile,324,10088,Cooper,Black,False,Non quality on net,Default,408,70
+1027927,shot,2,2:17,8922,Simon,Lundmark,324,10088,Cooper,Black,False,Quality on net,Default,469,125
+1027927,shot,2,4:03,10914,Anton,Lundmark,384,9096,Ryan,Fanti,False,Non quality on net,Default,170,48
+1027927,shot,2,11:58,10615,Jack,Devine,384,9096,Ryan,Fanti,False,Non quality on net,Default,69,57
+1027927,shot,2,12:03,7337,Brian,Pinho,384,9096,Ryan,Fanti,False,Quality on net,Default,78,174
+1027927,shot,2,15:42,7337,Brian,Pinho,384,9096,Ryan,Fanti,False,Non quality on net,Default,146,157
+1027927,shot,2,15:49,8405,Nolan,Foote,384,9096,Ryan,Fanti,False,Quality on net,Default,78,152
+1027927,shot,2,15:58,7337,Brian,Pinho,384,9096,Ryan,Fanti,False,Quality on net,Default,101,155
+1027927,shot,2,16:15,9693,Brendan,Furry,324,10088,Cooper,Black,False,Quality on net,Default,517,161
+1027927,shot,2,17:52,10915,Hunter,St. Martin,384,9096,Ryan,Fanti,False,Non quality on net,Default,184,175
+1027927,shot,2,18:23,8405,Nolan,Foote,384,9096,Ryan,Fanti,False,Non quality on net,Default,99,262
+1027927,shot,2,19:21,9990,Wilmer,Skoog,384,9096,Ryan,Fanti,False,Quality on net,Default,57,183
+1027927,shot,3,0:19,7337,Brian,Pinho,384,9096,Ryan,Fanti,True,Non quality goal,Default,105,51
+1027927,goal,3,0:19,7337,Brian,Pinho,,,,,,,,105,51
+1027927,shot,3,2:14,6779,Boris,Katchouk,324,10088,Cooper,Black,False,Non quality on net,Default,444,57
+1027927,shot,3,2:40,10615,Jack,Devine,384,9096,Ryan,Fanti,True,Quality goal,Default,85,129
+1027927,goal,3,2:40,10615,Jack,Devine,,,,,,,,85,129
+1027927,shot,3,2:58,10087,Gracyn,Sawchyn,384,9096,Ryan,Fanti,False,Non quality on net,Default,77,47
+1027927,shot,3,3:05,8744,Jakob,Pelletier,324,10088,Cooper,Black,False,Quality on net,Default,515,105
+1027927,shot,3,3:21,9202,Conor,Geekie,324,10088,Cooper,Black,False,Quality on net,Default,529,133
+1027927,shot,3,6:56,9880,Jake,Livingstone,384,9096,Ryan,Fanti,False,Non quality on net,Default,188,84
+1027927,shot,3,7:06,9693,Brendan,Furry,324,10088,Cooper,Black,False,Non quality on net,Default,478,53
+1027927,shot,3,10:41,10835,Wojciech,Stachowiak,324,10088,Cooper,Black,False,Quality on net,Default,531,147
+1027927,shot,3,11:24,9202,Conor,Geekie,324,10088,Cooper,Black,False,Quality on net,Default,465,219
+1027927,shot,3,11:30,8744,Jakob,Pelletier,324,10088,Cooper,Black,False,Quality on net,Default,501,163
+1027927,shot,3,12:04,9990,Wilmer,Skoog,384,9096,Ryan,Fanti,False,Quality on net,Default,68,137
+1027927,shot,3,12:17,6779,Boris,Katchouk,324,10088,Cooper,Black,False,Quality on net,Default,540,166
+1027927,shot,3,15:54,10915,Hunter,St. Martin,384,9096,Ryan,Fanti,False,Quality on net,Default,74,139
+1027927,shot,3,18:15,9034,Declan,Carlile,324,10088,Cooper,Black,False,Non quality on net,Default,444,135
+1027927,shot,3,19:12,10615,Jack,Devine,384,9096,Ryan,Fanti,True,Quality goal,Default,63,152
+1027927,goal,3,19:12,10615,Jack,Devine,,,,,,,,63,152
+1027927,shot,3,19:42,10110,Riese,Gaber,384,9096,Ryan,Fanti,True,Non quality goal,Default,279,194
+1027927,goal,3,19:42,10110,Riese,Gaber,,,,,,,,279,194

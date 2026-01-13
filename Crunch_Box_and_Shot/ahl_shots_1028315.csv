@@ -1,0 +1,51 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028315,shot,1,1:09,10437,Adam,Engström,415,6535,Brandon,Halverson,True,Non quality goal,Default,390,144
+1028315,goal,1,1:09,10437,Adam,Engström,,,,,,,,390,144
+1028315,shot,1,1:58,9523,Xavier,Simoneau,415,6535,Brandon,Halverson,False,Non quality on net,Default,411,224
+1028315,shot,1,4:27,9901,Gabriel,Szturc,324,7179,Kaapo,Kähkönen,False,Non quality on net,Default,174,120
+1028315,shot,1,4:36,9896,Maxim,Groshev,324,7179,Kaapo,Kähkönen,False,Non quality on net,Default,183,208
+1028315,shot,1,5:24,9823,Ethan,Samson,324,7179,Kaapo,Kähkönen,False,Non quality on net,Default,65,224
+1028315,shot,1,5:28,9796,Jared,Davidson,415,6535,Brandon,Halverson,True,Quality goal,Default,531,190
+1028315,goal,1,5:28,9796,Jared,Davidson,,,,,,,,531,190
+1028315,shot,1,5:54,9693,Brendan,Furry,324,7179,Kaapo,Kähkönen,False,Quality on net,Default,54,145
+1028315,shot,1,7:15,8553,Mitchell,Chaffee,324,7179,Kaapo,Kähkönen,True,Quality goal,Default,112,210
+1028315,goal,1,7:15,8553,Mitchell,Chaffee,,,,,,,,112,210
+1028315,shot,1,7:47,9796,Jared,Davidson,415,6535,Brandon,Halverson,False,Non quality on net,Default,493,260
+1028315,shot,1,8:03,10139,Florian,Xhekaj,415,6535,Brandon,Halverson,False,Non quality on net,Default,438,171
+1028315,shot,1,9:03,8717,Marc,Del Gaizo,415,6535,Brandon,Halverson,False,Non quality on net,Default,442,244
+1028315,shot,1,12:36,10566,Lucas,Mercuri,324,7179,Kaapo,Kähkönen,False,Quality on net,Default,83,111
+1028315,shot,1,12:47,10566,Lucas,Mercuri,324,7179,Kaapo,Kähkönen,False,Quality on net,Default,75,118
+1028315,shot,1,14:12,8553,Mitchell,Chaffee,324,7179,Kaapo,Kähkönen,False,Non quality on net,Default,159,145
+1028315,shot,1,14:35,8553,Mitchell,Chaffee,324,7179,Kaapo,Kähkönen,False,Quality on net,Default,57,158
+1028315,shot,1,14:35,8553,Mitchell,Chaffee,324,7179,Kaapo,Kähkönen,False,Quality on net,Default,56,159
+1028315,shot,1,14:39,10607,Ethan,Gauthier,324,7179,Kaapo,Kähkönen,True,Quality goal,Default,52,155
+1028315,goal,1,14:39,10607,Ethan,Gauthier,,,,,,,,52,155
+1028315,shot,1,14:45,9522,Filip,Mešár,415,6535,Brandon,Halverson,False,Quality on net,Default,503,150
+1028315,shot,1,19:28,9791,Sean,Farrell,415,6535,Brandon,Halverson,False,Non quality on net,Default,553,176
+1028315,shot,2,0:00,9791,Sean,Farrell,415,6535,Brandon,Halverson,False,Quality on net,Default,527,172
+1028315,shot,2,0:14,10437,Adam,Engström,415,6535,Brandon,Halverson,False,Quality on net,Default,479,133
+1028315,shot,2,1:26,9520,William,Trudeau,415,6535,Brandon,Halverson,False,Non quality on net,Default,483,252
+1028315,shot,2,4:36,8744,Jakob,Pelletier,324,7179,Kaapo,Kähkönen,False,Non quality on net,Default,165,100
+1028315,shot,2,5:54,10526,Cooper,Flinton,324,7179,Kaapo,Kähkönen,False,Quality on net,Default,75,147
+1028315,shot,2,7:36,7690,Vincent,Sévigny,324,7179,Kaapo,Kähkönen,False,Quality on net,Default,117,220
+1028315,shot,2,7:42,9563,Nick,Abruzzese,324,7179,Kaapo,Kähkönen,False,Quality on net,Default,72,118
+1028315,shot,2,8:06,8744,Jakob,Pelletier,324,7179,Kaapo,Kähkönen,False,Non quality on net,Default,44,118
+1028315,shot,2,8:21,8744,Jakob,Pelletier,324,7179,Kaapo,Kähkönen,False,Non quality on net,Default,198,70
+1028315,shot,2,8:36,10607,Ethan,Gauthier,324,7179,Kaapo,Kähkönen,False,Quality on net,Default,98,126
+1028315,shot,2,9:43,10526,Cooper,Flinton,324,7179,Kaapo,Kähkönen,False,Non quality on net,Default,38,133
+1028315,shot,2,12:52,9522,Filip,Mešár,415,6535,Brandon,Halverson,False,Non quality on net,Default,455,104
+1028315,shot,2,16:11,9522,Filip,Mešár,415,6535,Brandon,Halverson,False,Non quality on net,Default,435,187
+1028315,shot,2,17:22,9563,Nick,Abruzzese,324,7179,Kaapo,Kähkönen,False,Quality on net,Default,99,151
+1028315,shot,2,17:45,8744,Jakob,Pelletier,324,7179,Kaapo,Kähkönen,False,Non quality on net,Default,84,216
+1028315,shot,2,19:34,10148,Dylan,Duke,324,7179,Kaapo,Kähkönen,False,Quality on net,Default,37,139
+1028315,shot,3,2:42,10148,Dylan,Duke,324,7179,Kaapo,Kähkönen,True,Quality goal,Default,68,147
+1028315,goal,3,2:42,10148,Dylan,Duke,,,,,,,,68,147
+1028315,shot,3,4:10,8744,Jakob,Pelletier,324,7179,Kaapo,Kähkönen,False,Non quality on net,Default,199,53
+1028315,shot,3,6:18,9093,Lucas,Condotta,415,6535,Brandon,Halverson,False,Quality on net,Default,537,165
+1028315,shot,3,6:30,9754,Tristan,Allard,324,7179,Kaapo,Kähkönen,False,Non quality on net,Default,144,178
+1028315,shot,3,7:56,4819,Alex,Belzile,415,6535,Brandon,Halverson,False,Non quality on net,Default,480,70
+1028315,shot,3,8:21,9823,Ethan,Samson,324,7179,Kaapo,Kähkönen,False,Non quality on net,Default,99,59
+1028315,shot,3,8:27,9901,Gabriel,Szturc,324,7179,Kaapo,Kähkönen,False,Quality on net,Default,71,169
+1028315,shot,3,14:13,10566,Lucas,Mercuri,324,7179,Kaapo,Kähkönen,False,Quality on net,Default,74,165
+1028315,shot,3,16:11,9791,Sean,Farrell,415,6535,Brandon,Halverson,False,Non quality on net,Default,395,87
+1028315,shot,3,17:23,9093,Lucas,Condotta,415,6535,Brandon,Halverson,False,Quality on net,Default,472,118

@@ -1,0 +1,58 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028198,shot,1,1:01,9108,Georgii,Merkulov,309,9096,Ryan,Fanti,True,Quality goal,Default,135,99
+1028198,goal,1,1:01,9108,Georgii,Merkulov,,,,,,,,135,99
+1028198,shot,1,2:22,6522,Steven,Santini,324,10871,Simon,Zajicek,False,Non quality on net,Default,340,237
+1028198,shot,1,5:09,10148,Dylan,Duke,324,10871,Simon,Zajicek,False,Non quality on net,Default,424,74
+1028198,shot,1,5:24,10574,Dans,Locmelis,309,9096,Ryan,Fanti,False,Quality on net,Default,129,220
+1028198,shot,1,9:27,10055,Riley,Duran,309,9096,Ryan,Fanti,False,Non quality on net,Default,46,180
+1028198,shot,1,10:09,10835,Wojciech,Stachowiak,324,10871,Simon,Zajicek,False,Quality on net,Default,512,165
+1028198,shot,1,11:30,8922,Simon,Lundmark,324,10871,Simon,Zajicek,False,Non quality on net,Default,423,201
+1028198,shot,1,13:58,5721,Patrick,Brown,309,9096,Ryan,Fanti,False,Non quality on net,Default,158,197
+1028198,shot,1,14:12,9693,Brendan,Furry,324,10871,Simon,Zajicek,False,Quality on net,Default,494,73
+1028198,shot,1,14:34,6779,Boris,Katchouk,324,10871,Simon,Zajicek,False,Non quality on net,Default,449,114
+1028198,shot,1,14:59,9693,Brendan,Furry,324,10871,Simon,Zajicek,False,Quality on net,Default,539,151
+1028198,shot,1,15:16,9202,Conor,Geekie,324,10871,Simon,Zajicek,True,Quality goal,Default,492,180
+1028198,goal,1,15:16,9202,Conor,Geekie,,,,,,,,492,180
+1028198,shot,1,17:46,8386,Jacob,Perreault,309,9096,Ryan,Fanti,False,Quality on net,Default,79,141
+1028198,shot,1,18:31,7943,Riley,Tufte,309,9096,Ryan,Fanti,False,Non quality on net,Default,163,116
+1028198,shot,1,18:34,5721,Patrick,Brown,309,9096,Ryan,Fanti,False,Quality on net,Default,92,84
+1028198,shot,1,18:37,9108,Georgii,Merkulov,309,9096,Ryan,Fanti,False,Non quality on net,Default,43,125
+1028198,shot,2,0:43,8553,Mitchell,Chaffee,324,10871,Simon,Zajicek,False,Non quality on net,Default,525,70
+1028198,shot,2,0:57,6522,Steven,Santini,324,10871,Simon,Zajicek,False,Non quality on net,Default,380,236
+1028198,shot,2,1:03,9435,Joey,Abate,309,9096,Ryan,Fanti,False,Quality on net,Default,65,132
+1028198,shot,2,2:16,5721,Patrick,Brown,309,9096,Ryan,Fanti,False,Non quality on net,Default,69,58
+1028198,shot,2,5:09,7943,Riley,Tufte,309,9096,Ryan,Fanti,False,Quality on net,Default,95,195
+1028198,shot,2,5:29,10835,Wojciech,Stachowiak,324,10871,Simon,Zajicek,False,Quality on net,Default,499,137
+1028198,shot,2,9:02,10835,Wojciech,Stachowiak,324,10871,Simon,Zajicek,False,Non quality on net,Default,466,241
+1028198,shot,2,10:12,8553,Mitchell,Chaffee,324,10871,Simon,Zajicek,False,Non quality on net,Default,510,232
+1028198,shot,2,10:59,9108,Georgii,Merkulov,309,9096,Ryan,Fanti,True,Quality goal,Default,78,124
+1028198,goal,2,10:59,9108,Georgii,Merkulov,,,,,,,,78,124
+1028198,shot,2,11:14,9729,Matthew,Poitras,309,9096,Ryan,Fanti,False,Non quality on net,Default,57,112
+1028198,shot,2,11:32,9712,Frederic,Brunet,309,9096,Ryan,Fanti,False,Quality on net,Default,130,202
+1028198,shot,2,14:57,9693,Brendan,Furry,324,10871,Simon,Zajicek,False,Quality on net,Default,506,130
+1028198,shot,2,15:21,9729,Matthew,Poitras,309,9096,Ryan,Fanti,False,Quality on net,Default,116,153
+1028198,shot,2,15:42,4666,Jarred,Tinordi,324,10871,Simon,Zajicek,False,Non quality on net,Default,403,267
+1028198,shot,2,15:50,10566,Lucas,Mercuri,324,10871,Simon,Zajicek,False,Quality on net,Default,533,148
+1028198,shot,2,15:54,10566,Lucas,Mercuri,324,10871,Simon,Zajicek,False,Quality on net,Default,539,141
+1028198,shot,2,17:50,9202,Conor,Geekie,324,10871,Simon,Zajicek,False,Non quality on net,Default,481,232
+1028198,shot,3,1:03,9108,Georgii,Merkulov,309,9096,Ryan,Fanti,False,Non quality on net,Default,191,186
+1028198,shot,3,1:21,7943,Riley,Tufte,309,9096,Ryan,Fanti,False,Non quality on net,Default,164,224
+1028198,shot,3,1:30,10508,Ty,Gallagher,309,9096,Ryan,Fanti,False,Non quality on net,Default,182,48
+1028198,shot,3,3:36,10566,Lucas,Mercuri,324,10871,Simon,Zajicek,False,Quality on net,Default,537,131
+1028198,shot,3,4:06,10508,Ty,Gallagher,309,9096,Ryan,Fanti,False,Non quality on net,Default,192,72
+1028198,shot,3,4:23,8922,Simon,Lundmark,324,10871,Simon,Zajicek,False,Non quality on net,Default,427,236
+1028198,shot,3,5:45,8553,Mitchell,Chaffee,324,10871,Simon,Zajicek,False,Quality on net,Default,477,152
+1028198,shot,3,6:45,10584,Dalton,Bancroft,309,9096,Ryan,Fanti,False,Non quality on net,Default,189,218
+1028198,shot,3,6:56,9831,John,Farinacci,309,9096,Ryan,Fanti,False,Quality on net,Default,59,146
+1028198,shot,3,9:21,7378,Christian,Wolanin,309,9096,Ryan,Fanti,False,Non quality on net,Default,207,225
+1028198,shot,3,10:16,9729,Matthew,Poitras,309,9096,Ryan,Fanti,False,Quality on net,Default,133,155
+1028198,shot,3,12:02,7378,Christian,Wolanin,309,9096,Ryan,Fanti,False,Non quality on net,Default,208,238
+1028198,shot,3,12:19,10508,Ty,Gallagher,309,9096,Ryan,Fanti,False,Non quality on net,Default,201,94
+1028198,shot,3,13:37,8462,Billy,Sweezey,309,9096,Ryan,Fanti,False,Non quality on net,Default,213,108
+1028198,shot,3,16:11,9202,Conor,Geekie,324,10871,Simon,Zajicek,False,Non quality on net,Default,548,33
+1028198,shot,3,17:08,9729,Matthew,Poitras,309,9096,Ryan,Fanti,False,Quality on net,Default,65,175
+1028198,shot,3,18:19,5721,Patrick,Brown,309,9096,Ryan,Fanti,False,Non quality on net,Default,47,185
+1028198,shot,3,18:54,10148,Dylan,Duke,324,10871,Simon,Zajicek,False,Non quality on net,Default,470,57
+1028198,shot,3,19:35,10835,Wojciech,Stachowiak,324,10871,Simon,Zajicek,False,Quality on net,Default,537,186
+1028198,shot,3,19:41,9108,Georgii,Merkulov,309,9096,Ryan,Fanti,True,Non quality goal,Default,304,285
+1028198,goal,3,19:41,9108,Georgii,Merkulov,,,,,,,,304,285

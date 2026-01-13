@@ -1,0 +1,41 @@
+a,g,ga,game_id,is_goalie,mins,number,pim,plus_minus,pos,shots,skater,svs,team_id,team_name,team_side
+0,0,,1028145,0,0:00,7,0,1,D,1,Simon Lundmark,,324,Syracuse Crunch,home
+0,0,,1028145,0,0:00,9,2,0,C,2,Wojciech Stachowiak,,324,Syracuse Crunch,home
+0,0,,1028145,0,0:00,11,5,0,C,0,Lucas Mercuri,,324,Syracuse Crunch,home
+1,0,,1028145,0,0:00,13,0,1,LW,3,Brendan Furry,,324,Syracuse Crunch,home
+0,0,,1028145,0,0:00,14,0,0,RW,2,Tristan Allard,,324,Syracuse Crunch,home
+0,0,,1028145,0,0:00,16,0,1,D,4,Steven Santini,,324,Syracuse Crunch,home
+0,0,,1028145,0,0:00,20,0,0,RW,1,Cooper Flinton,,324,Syracuse Crunch,home
+0,0,,1028145,0,0:00,21,0,1,RW,0,Mitchell Chaffee,,324,Syracuse Crunch,home
+0,1,,1028145,0,0:00,22,0,2,LW,3,Jakob Pelletier,,324,Syracuse Crunch,home
+0,0,,1028145,0,0:00,23,0,1,D,2,Maxim Groshev,,324,Syracuse Crunch,home
+0,1,,1028145,0,0:00,25,2,0,LW,2,Dylan Duke,,324,Syracuse Crunch,home
+1,0,,1028145,0,0:00,28,0,1,D,0,Jarred Tinordi,,324,Syracuse Crunch,home
+0,0,,1028145,0,0:00,42,0,0,D,3,Ethan Samson,,324,Syracuse Crunch,home
+0,0,,1028145,0,0:00,62,0,0,C,1,Jack Finley,,324,Syracuse Crunch,home
+0,0,,1028145,0,0:00,75,2,0,D,0,Matteo Pietroniro,,324,Syracuse Crunch,home
+1,0,,1028145,0,0:00,80,2,0,RW,0,Nick Abruzzese,,324,Syracuse Crunch,home
+1,1,,1028145,0,0:00,94,0,1,C,2,Conor Geekie,,324,Syracuse Crunch,home
+0,0,,1028145,0,0:00,95,0,0,LW,2,Gabriel Szturc,,324,Syracuse Crunch,home
+0,0,1,1028145,1,60:00,1,0,0,G,,Kevin Mandolese,14,324,Syracuse Crunch,home
+0,0,0,1028145,1,,59,0,0,G,,Ryan Fanti,0,324,Syracuse Crunch,home
+0,0,,1028145,0,0:00,12,0,-2,F,0,Devin Kaplan,,313,Lehigh Valley Phantoms,away
+0,0,,1028145,0,0:00,15,2,-2,D,1,Christian Kyrou,,313,Lehigh Valley Phantoms,away
+0,0,,1028145,0,0:00,17,0,-1,LW,1,Garrett Wilson,,313,Lehigh Valley Phantoms,away
+0,0,,1028145,0,0:00,19,5,0,D,0,Hunter McDonald,,313,Lehigh Valley Phantoms,away
+1,0,,1028145,0,0:00,21,0,-1,F,2,Alex Bump,,313,Lehigh Valley Phantoms,away
+0,0,,1028145,0,0:00,23,0,0,F,0,Karsen Dorwart,,313,Lehigh Valley Phantoms,away
+1,0,,1028145,0,0:00,25,2,-2,C,3,Lane Pederson,,313,Lehigh Valley Phantoms,away
+0,0,,1028145,0,0:00,36,0,0,F,0,Sawyer Boulton,,313,Lehigh Valley Phantoms,away
+0,0,,1028145,0,0:00,37,0,0,D,0,Adam Ginning,,313,Lehigh Valley Phantoms,away
+0,0,,1028145,0,0:00,43,0,0,F,0,Oscar Eklind,,313,Lehigh Valley Phantoms,away
+0,0,,1028145,0,0:00,52,0,-1,F,0,Denver Barkey,,313,Lehigh Valley Phantoms,away
+0,1,,1028145,0,0:00,56,0,0,F,1,Jacob Gaucher,,313,Lehigh Valley Phantoms,away
+0,0,,1028145,0,0:00,59,2,0,D,0,Oliver Bonk,,313,Lehigh Valley Phantoms,away
+0,0,,1028145,0,0:00,72,2,0,F,2,Alexis Gendron,,313,Lehigh Valley Phantoms,away
+0,0,,1028145,0,0:00,74,0,0,C,0,Zayde Wisdom,,313,Lehigh Valley Phantoms,away
+0,0,,1028145,0,0:00,76,0,0,D,0,Roman Schmidt,,313,Lehigh Valley Phantoms,away
+0,0,,1028145,0,0:00,82,0,0,D,2,Maxence Guenette,,313,Lehigh Valley Phantoms,away
+0,0,,1028145,0,0:00,90,0,-2,LW,3,Anthony Richard,,313,Lehigh Valley Phantoms,away
+0,0,2,1028145,1,57:20,35,0,0,G,,Aleksei Kolosov,25,313,Lehigh Valley Phantoms,away
+0,0,0,1028145,1,,64,0,0,G,,Carson Bjarnason,0,313,Lehigh Valley Phantoms,away

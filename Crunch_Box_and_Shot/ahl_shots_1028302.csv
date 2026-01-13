@@ -1,0 +1,34 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028302,shot,1,1:46,8884,Matteo,Pietroniro,324,10818,Jakub,Málek,False,Non quality on net,Default,410,47
+1028302,shot,1,2:56,6262,Kyle,Criscuolo,390,9096,Ryan,Fanti,False,Quality on net,Default,65,114
+1028302,shot,1,8:27,9067,Brian,Halonen,390,9096,Ryan,Fanti,False,Non quality on net,Default,177,172
+1028302,shot,1,10:05,8744,Jakob,Pelletier,324,10818,Jakub,Málek,False,Non quality on net,Default,479,231
+1028302,shot,1,10:47,10529,Ethan,Edwards,390,9096,Ryan,Fanti,False,Non quality on net,Default,183,162
+1028302,shot,1,12:04,9758,Topias,Vilen,390,9096,Ryan,Fanti,False,Quality on net,Default,126,208
+1028302,shot,1,13:27,4666,Jarred,Tinordi,324,10818,Jakub,Málek,False,Non quality on net,Default,411,26
+1028302,shot,1,18:37,7608,Jonathan,Gruden,390,9096,Ryan,Fanti,False,Non quality on net,Default,204,254
+1028302,shot,1,19:16,8648,Angus,Crookshank,390,9096,Ryan,Fanti,False,Non quality on net,Default,111,265
+1028302,shot,2,0:35,9516,Xavier,Parent,390,9096,Ryan,Fanti,True,Non quality goal,Default,171,270
+1028302,goal,2,0:35,9516,Xavier,Parent,,,,,,,,171,270
+1028302,shot,2,2:11,9754,Tristan,Allard,324,10818,Jakub,Málek,False,Quality on net,Default,463,126
+1028302,shot,2,4:43,10148,Dylan,Duke,324,10818,Jakub,Málek,False,Non quality on net,Default,471,45
+1028302,shot,2,7:07,10474,Seamus,Casey,390,9096,Ryan,Fanti,False,Non quality on net,Default,46,78
+1028302,shot,2,13:03,10474,Seamus,Casey,390,9096,Ryan,Fanti,False,Non quality on net,Default,170,144
+1028302,shot,2,13:30,8778,Jackson,van de Leest,390,9096,Ryan,Fanti,False,Non quality on net,Default,149,212
+1028302,shot,2,15:07,8884,Matteo,Pietroniro,324,10818,Jakub,Málek,False,Non quality on net,Default,271,34
+1028302,shot,3,0:38,8648,Angus,Crookshank,390,9096,Ryan,Fanti,False,Quality on net,Default,122,171
+1028302,shot,3,0:42,8744,Jakob,Pelletier,324,10818,Jakub,Málek,False,Quality on net,Default,531,127
+1028302,shot,3,2:37,9067,Brian,Halonen,390,9096,Ryan,Fanti,True,Quality goal,Default,93,175
+1028302,goal,3,2:37,9067,Brian,Halonen,,,,,,,,93,175
+1028302,shot,3,4:47,8553,Mitchell,Chaffee,324,10818,Jakub,Málek,False,Non quality on net,Default,435,119
+1028302,shot,3,5:25,10607,Ethan,Gauthier,324,10818,Jakub,Málek,False,Non quality on net,Default,507,65
+1028302,shot,3,7:04,9202,Conor,Geekie,324,10818,Jakub,Málek,False,Non quality on net,Default,447,226
+1028302,shot,3,7:31,10892,Lenni,Hämeenaho,390,9096,Ryan,Fanti,False,Non quality on net,Default,160,163
+1028302,shot,3,7:33,8648,Angus,Crookshank,390,9096,Ryan,Fanti,False,Quality on net,Default,65,181
+1028302,shot,3,11:07,8553,Mitchell,Chaffee,324,10818,Jakub,Málek,False,Non quality on net,Default,554,122
+1028302,shot,3,13:05,9754,Tristan,Allard,324,10818,Jakub,Málek,False,Quality on net,Default,475,78
+1028302,shot,3,13:36,9563,Nick,Abruzzese,324,10818,Jakub,Málek,False,Quality on net,Default,549,150
+1028302,shot,3,13:52,9563,Nick,Abruzzese,324,10818,Jakub,Málek,False,Non quality on net,Default,562,124
+1028302,shot,3,14:01,8884,Matteo,Pietroniro,324,10818,Jakub,Málek,False,Quality on net,Default,487,109
+1028302,shot,3,18:55,8648,Angus,Crookshank,390,9096,Ryan,Fanti,True,Non quality goal,Default,200,267
+1028302,goal,3,18:55,8648,Angus,Crookshank,,,,,,,,200,267

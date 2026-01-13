@@ -1,0 +1,64 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1027943,shot,1,0:54,10914,Anton,Lundmark,384,6535,Brandon,Halverson,False,Quality on net,Default,133,107
+1027943,shot,1,1:05,7687,Tobias,Bjornfot,384,6535,Brandon,Halverson,False,Non quality on net,Default,195,256
+1027943,shot,1,1:19,10615,Jack,Devine,384,6535,Brandon,Halverson,False,Non quality on net,Default,250,109
+1027943,shot,1,1:35,10507,Colton,Huard,384,6535,Brandon,Halverson,True,Non quality goal,Default,195,95
+1027943,goal,1,1:35,10507,Colton,Huard,,,,,,,,195,95
+1027943,shot,1,2:56,10566,Lucas,Mercuri,324,7784,Kevin,Mandolese,True,Non quality goal,Default,451,171
+1027943,goal,1,2:56,10566,Lucas,Mercuri,,,,,,,,451,171
+1027943,shot,1,3:16,8553,Mitchell,Chaffee,324,7784,Kevin,Mandolese,False,Non quality on net,Default,423,90
+1027943,shot,1,4:55,7337,Brian,Pinho,384,6535,Brandon,Halverson,False,Non quality on net,Default,153,21
+1027943,shot,1,6:03,8744,Jakob,Pelletier,324,7784,Kevin,Mandolese,False,Quality on net,Default,474,81
+1027943,shot,1,6:23,9034,Declan,Carlile,324,7784,Kevin,Mandolese,False,Non quality on net,Default,408,39
+1027943,shot,1,6:45,10914,Anton,Lundmark,384,6535,Brandon,Halverson,False,Quality on net,Default,135,134
+1027943,shot,1,8:48,10526,Cooper,Flinton,324,7784,Kevin,Mandolese,False,Non quality on net,Default,453,226
+1027943,shot,1,9:54,5614,Trevor,Carrick,384,6535,Brandon,Halverson,False,Non quality on net,Default,284,205
+1027943,shot,1,10:41,8553,Mitchell,Chaffee,324,7784,Kevin,Mandolese,False,Non quality on net,Default,400,129
+1027943,shot,1,12:11,8744,Jakob,Pelletier,324,7784,Kevin,Mandolese,False,Non quality on net,Default,413,141
+1027943,shot,1,13:51,5614,Trevor,Carrick,384,6535,Brandon,Halverson,False,Non quality on net,Default,150,213
+1027943,shot,1,15:51,10056,Ben,Steeves,384,6535,Brandon,Halverson,False,Non quality on net,Default,58,97
+1027943,shot,2,0:21,9749,Roman,Schmidt,324,7784,Kevin,Mandolese,False,Non quality on net,Default,399,258
+1027943,shot,2,2:47,10056,Ben,Steeves,384,6535,Brandon,Halverson,False,Non quality on net,Default,40,127
+1027943,shot,2,4:42,9563,Nick,Abruzzese,324,7784,Kevin,Mandolese,False,Non quality on net,Default,524,30
+1027943,shot,2,4:58,7337,Brian,Pinho,384,6535,Brandon,Halverson,False,Non quality on net,Default,130,33
+1027943,shot,2,5:19,9988,Michael,Benning,384,6535,Brandon,Halverson,False,Non quality on net,Default,187,113
+1027943,shot,2,8:44,8553,Mitchell,Chaffee,324,7784,Kevin,Mandolese,False,Quality on net,Default,522,173
+1027943,shot,2,9:59,6522,Steven,Santini,324,7784,Kevin,Mandolese,False,Non quality on net,Default,401,205
+1027943,shot,2,10:35,8405,Nolan,Foote,384,6535,Brandon,Halverson,False,Quality on net,Default,54,152
+1027943,shot,2,11:10,5614,Trevor,Carrick,384,6535,Brandon,Halverson,False,Quality on net,Default,140,163
+1027943,shot,2,11:44,10615,Jack,Devine,384,6535,Brandon,Halverson,False,Quality on net,Default,119,156
+1027943,shot,2,11:45,9990,Wilmer,Skoog,384,6535,Brandon,Halverson,False,Quality on net,Default,57,127
+1027943,shot,2,12:04,10087,Gracyn,Sawchyn,384,6535,Brandon,Halverson,False,Non quality on net,Default,47,126
+1027943,shot,2,12:04,10056,Ben,Steeves,384,6535,Brandon,Halverson,False,Quality on net,Default,134,92
+1027943,shot,2,12:56,8405,Nolan,Foote,384,6535,Brandon,Halverson,False,Quality on net,Default,86,193
+1027943,shot,2,13:07,8744,Jakob,Pelletier,324,7784,Kevin,Mandolese,False,Quality on net,Default,537,169
+1027943,shot,2,13:15,8011,MacKenzie,Entwistle,384,6535,Brandon,Halverson,True,Quality goal,Default,72,173
+1027943,goal,2,13:15,8011,MacKenzie,Entwistle,,,,,,,,72,173
+1027943,shot,2,14:25,9754,Tristan,Allard,324,7784,Kevin,Mandolese,False,Non quality on net,Default,560,177
+1027943,shot,2,14:34,9563,Nick,Abruzzese,324,7784,Kevin,Mandolese,False,Quality on net,Default,516,164
+1027943,shot,2,14:44,10615,Jack,Devine,384,6535,Brandon,Halverson,False,Quality on net,Default,101,109
+1027943,shot,2,15:40,10148,Dylan,Duke,324,7784,Kevin,Mandolese,False,Non quality on net,Default,555,123
+1027943,shot,2,18:46,9202,Conor,Geekie,324,7784,Kevin,Mandolese,False,Non quality on net,Default,327,58
+1027943,shot,3,2:36,10456,Sandis,Vilmanis,384,6535,Brandon,Halverson,False,Quality on net,Default,109,170
+1027943,shot,3,3:39,9202,Conor,Geekie,324,7784,Kevin,Mandolese,False,Quality on net,Default,494,190
+1027943,shot,3,3:49,9202,Conor,Geekie,324,7784,Kevin,Mandolese,False,Quality on net,Default,476,183
+1027943,shot,3,4:01,8553,Mitchell,Chaffee,324,7784,Kevin,Mandolese,False,Quality on net,Default,553,129
+1027943,shot,3,4:36,9896,Maxim,Groshev,324,7784,Kevin,Mandolese,False,Quality on net,Default,467,109
+1027943,shot,3,4:51,9896,Maxim,Groshev,324,7784,Kevin,Mandolese,False,Non quality on net,Default,410,220
+1027943,shot,3,6:06,10148,Dylan,Duke,324,7784,Kevin,Mandolese,False,Non quality on net,Default,317,271
+1027943,shot,3,6:24,10056,Ben,Steeves,384,6535,Brandon,Halverson,False,Quality on net,Default,56,153
+1027943,shot,3,6:24,10056,Ben,Steeves,384,6535,Brandon,Halverson,True,Quality goal,Default,46,155
+1027943,goal,3,6:24,10056,Ben,Steeves,,,,,,,,46,155
+1027943,shot,3,7:30,9880,Jake,Livingstone,384,6535,Brandon,Halverson,False,Non quality on net,Default,207,100
+1027943,shot,3,7:36,8405,Nolan,Foote,384,6535,Brandon,Halverson,False,Quality on net,Default,138,133
+1027943,shot,3,8:49,9034,Declan,Carlile,324,7784,Kevin,Mandolese,False,Quality on net,Default,521,189
+1027943,shot,3,10:34,9754,Tristan,Allard,324,7784,Kevin,Mandolese,False,Quality on net,Default,507,92
+1027943,shot,3,11:30,9988,Michael,Benning,384,6535,Brandon,Halverson,False,Non quality on net,Default,190,130
+1027943,shot,3,11:51,9034,Declan,Carlile,324,7784,Kevin,Mandolese,False,Non quality on net,Default,485,63
+1027943,shot,3,13:05,7687,Tobias,Bjornfot,384,6535,Brandon,Halverson,False,Quality on net,Default,128,206
+1027943,shot,3,14:25,9034,Declan,Carlile,324,7784,Kevin,Mandolese,False,Non quality on net,Default,509,52
+1027943,shot,3,16:37,10148,Dylan,Duke,324,7784,Kevin,Mandolese,False,Quality on net,Default,541,129
+1027943,shot,3,17:09,9034,Declan,Carlile,324,7784,Kevin,Mandolese,False,Non quality on net,Default,472,64
+1027943,shot,3,17:22,9202,Conor,Geekie,324,7784,Kevin,Mandolese,False,Non quality on net,Default,411,241
+1027943,shot,3,18:08,9563,Nick,Abruzzese,324,7784,Kevin,Mandolese,True,Quality goal,Default,543,163
+1027943,goal,3,18:08,9563,Nick,Abruzzese,,,,,,,,543,163

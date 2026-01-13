@@ -1,0 +1,57 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028083,shot,1,0:48,5721,Patrick,Brown,309,10585,Jacob,Fowler,False,Quality on net,Snap,509,198
+1028083,shot,1,1:35,9524,Fabian,Lysell,309,10585,Jacob,Fowler,False,Non quality on net,Wrist,479,283
+1028083,shot,1,2:49,9166,Brett,Harrison,309,10585,Jacob,Fowler,False,Quality on net,Wrist,486,224
+1028083,shot,1,5:28,9523,Xavier,Simoneau,415,7890,Michael,DiPietro,False,Quality on net,Wrist,55,145
+1028083,shot,1,7:29,8837,Shawn,Element,309,10585,Jacob,Fowler,False,Non quality on net,Wrist,467,18
+1028083,shot,1,9:06,9435,Joey,Abate,309,10585,Jacob,Fowler,False,Quality on net,Wrist,66,147
+1028083,shot,1,10:41,7274,Tobie,Bisson,415,7890,Michael,DiPietro,False,Non quality on net,Wrist,204,285
+1028083,shot,1,10:56,8717,Marc,Del Gaizo,415,7890,Michael,DiPietro,True,Non quality goal,Default,196,243
+1028083,goal,1,10:56,8717,Marc,Del Gaizo,,,,,,,,196,243
+1028083,shot,1,12:33,9831,John,Farinacci,309,10585,Jacob,Fowler,False,Non quality on net,Backhand,560,189
+1028083,shot,1,13:06,5889,Josiah,Didier,415,7890,Michael,DiPietro,False,Quality on net,Wrist,142,88
+1028083,shot,1,14:23,9435,Joey,Abate,309,10585,Jacob,Fowler,False,Quality on net,Tip,545,172
+1028083,shot,1,15:16,9791,Sean,Farrell,415,7890,Michael,DiPietro,False,Non quality on net,Wrist,30,134
+1028083,shot,1,15:24,5927,Laurent,Dauphin,415,7890,Michael,DiPietro,False,Non quality on net,Wrist,135,45
+1028083,shot,1,17:59,9520,William,Trudeau,415,7890,Michael,DiPietro,False,Non quality on net,Wrist,219,281
+1028083,shot,1,19:08,9166,Brett,Harrison,309,10585,Jacob,Fowler,False,Quality on net,Tip,512,159
+1028083,shot,2,0:52,9108,Georgii,Merkulov,309,10585,Jacob,Fowler,False,Non quality on net,Backhand,569,245
+1028083,shot,2,1:01,9520,William,Trudeau,415,7890,Michael,DiPietro,False,Non quality on net,Wrist,112,283
+1028083,shot,2,3:34,7378,Christian,Wolanin,309,10585,Jacob,Fowler,False,Non quality on net,Slap,388,182
+1028083,shot,2,3:45,9729,Matthew,Poitras,309,10585,Jacob,Fowler,False,Non quality on net,Slap,510,62
+1028083,shot,2,4:41,9108,Georgii,Merkulov,309,10585,Jacob,Fowler,False,Non quality on net,Slap,507,225
+1028083,shot,2,7:39,5970,Samuel,Blais,415,7890,Michael,DiPietro,False,Non quality on net,Slap,196,228
+1028083,shot,2,7:47,5970,Samuel,Blais,415,7890,Michael,DiPietro,False,Non quality on net,Wrist,161,220
+1028083,shot,2,9:20,10367,Owen,Beck,415,7890,Michael,DiPietro,False,Non quality on net,Wrist,51,69
+1028083,shot,2,9:46,8717,Marc,Del Gaizo,415,7890,Michael,DiPietro,False,Non quality on net,Wrist,214,265
+1028083,shot,2,10:13,10505,Will,Dineen,415,7890,Michael,DiPietro,False,Quality on net,Slap,119,179
+1028083,shot,2,11:17,9712,Frederic,Brunet,309,10585,Jacob,Fowler,True,Non quality goal,Snap,393,117
+1028083,goal,2,11:17,9712,Frederic,Brunet,,,,,,,,393,117
+1028083,shot,2,13:20,9435,Joey,Abate,309,10585,Jacob,Fowler,False,Non quality on net,Wrist,581,104
+1028083,shot,2,15:40,10367,Owen,Beck,415,7890,Michael,DiPietro,False,Non quality on net,Slap,151,101
+1028083,shot,2,17:30,4819,Alex,Belzile,415,7890,Michael,DiPietro,True,Quality goal,Snap,94,132
+1028083,goal,2,17:30,4819,Alex,Belzile,,,,,,,,94,132
+1028083,shot,2,17:46,8386,Jacob,Perreault,309,10585,Jacob,Fowler,False,Quality on net,Wrist,505,207
+1028083,shot,2,17:59,9729,Matthew,Poitras,309,10585,Jacob,Fowler,False,Non quality on net,Backhand,561,119
+1028083,shot,3,1:09,8717,Marc,Del Gaizo,415,7890,Michael,DiPietro,False,Quality on net,Snap,93,210
+1028083,shot,3,1:31,10055,Riley,Duran,309,10585,Jacob,Fowler,False,Quality on net,Wrist,495,220
+1028083,shot,3,4:35,9166,Brett,Harrison,309,10585,Jacob,Fowler,False,Quality on net,Snap,495,129
+1028083,shot,3,5:41,10869,Loke,Johansson,309,10585,Jacob,Fowler,False,Non quality on net,Wrist,388,27
+1028083,shot,3,6:37,9729,Matthew,Poitras,309,10585,Jacob,Fowler,False,Quality on net,Snap,475,166
+1028083,shot,3,7:41,10367,Owen,Beck,415,7890,Michael,DiPietro,False,Non quality on net,Wrist,470,39
+1028083,shot,3,8:45,7378,Christian,Wolanin,309,10585,Jacob,Fowler,False,Non quality on net,Wrist,418,118
+1028083,shot,3,9:33,5721,Patrick,Brown,309,10585,Jacob,Fowler,False,Quality on net,Wrist,541,126
+1028083,shot,3,10:06,10574,Dans,Locmelis,309,10585,Jacob,Fowler,False,Non quality on net,Wrist,455,135
+1028083,shot,3,10:38,9523,Xavier,Simoneau,415,7890,Michael,DiPietro,True,Non quality goal,Default,42,174
+1028083,goal,3,10:38,9523,Xavier,Simoneau,,,,,,,,42,174
+1028083,shot,3,10:57,9520,William,Trudeau,415,7890,Michael,DiPietro,False,Non quality on net,Wrist,575,224
+1028083,shot,3,11:08,9524,Fabian,Lysell,309,10585,Jacob,Fowler,False,Non quality on net,Wrist,526,226
+1028083,shot,3,11:17,9108,Georgii,Merkulov,309,10585,Jacob,Fowler,False,Quality on net,Wrist,536,177
+1028083,shot,3,11:18,5721,Patrick,Brown,309,10585,Jacob,Fowler,False,Quality on net,Wrist,542,167
+1028083,shot,3,11:38,9791,Sean,Farrell,415,7890,Michael,DiPietro,False,Quality on net,Wrist,99,217
+1028083,shot,3,11:42,7274,Tobie,Bisson,415,7890,Michael,DiPietro,False,Non quality on net,Wrist,213,224
+1028083,shot,3,13:44,9435,Joey,Abate,309,10585,Jacob,Fowler,False,Non quality on net,Snap,399,208
+1028083,shot,3,18:03,9093,Lucas,Condotta,415,7890,Michael,DiPietro,True,Quality goal,Default,55,157
+1028083,goal,3,18:03,9093,Lucas,Condotta,,,,,,,,55,157
+1028083,shot,3,18:28,7378,Christian,Wolanin,309,10585,Jacob,Fowler,False,Non quality on net,Slap,423,27
+1028083,shot,3,19:31,7704,Victor,Söderström,309,10585,Jacob,Fowler,False,Quality on net,Wrist,481,115

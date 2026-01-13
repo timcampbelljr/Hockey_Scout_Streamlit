@@ -1,0 +1,48 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1027977,shot,1,0:29,10526,Cooper,Flinton,324,9103,Clay,Stevenson,False,Quality on net,Default,69,144
+1027977,shot,1,3:47,9034,Declan,Carlile,324,9103,Clay,Stevenson,False,Non quality on net,Default,200,247
+1027977,shot,1,5:13,10174,Andrew,Cristall,319,6535,Brandon,Halverson,False,Quality on net,Default,541,183
+1027977,shot,1,8:36,10174,Andrew,Cristall,319,6535,Brandon,Halverson,False,Non quality on net,Default,469,237
+1027977,shot,1,9:18,7584,Matt,Strome,319,6535,Brandon,Halverson,False,Non quality on net,Default,438,245
+1027977,shot,1,12:26,8598,Graeme,Clarke,319,6535,Brandon,Halverson,False,Quality on net,Default,535,190
+1027977,shot,1,12:39,9161,Bogdan,Trineyev,319,6535,Brandon,Halverson,False,Quality on net,Default,513,165
+1027977,shot,1,12:49,7584,Matt,Strome,319,6535,Brandon,Halverson,False,Quality on net,Default,545,134
+1027977,shot,1,12:49,10644,Ilya,Protas,319,6535,Brandon,Halverson,False,Quality on net,Default,553,135
+1027977,shot,1,12:56,4026,Aaron,Ness,319,6535,Brandon,Halverson,False,Non quality on net,Default,478,48
+1027977,shot,1,14:15,9693,Brendan,Furry,324,9103,Clay,Stevenson,False,Non quality on net,Default,112,264
+1027977,shot,1,15:50,9754,Tristan,Allard,324,9103,Clay,Stevenson,False,Quality on net,Default,102,124
+1027977,shot,1,17:20,9034,Declan,Carlile,324,9103,Clay,Stevenson,False,Non quality on net,Default,171,197
+1027977,shot,1,18:07,9161,Bogdan,Trineyev,319,6535,Brandon,Halverson,False,Non quality on net,Default,183,161
+1027977,shot,2,0:43,6522,Steven,Santini,324,9103,Clay,Stevenson,False,Non quality on net,Default,210,48
+1027977,shot,2,3:55,9881,Sam,Bitten,319,6535,Brandon,Halverson,False,Quality on net,Default,482,181
+1027977,shot,2,4:02,7024,Louie,Belpedio,319,6535,Brandon,Halverson,False,Quality on net,Default,470,160
+1027977,shot,2,4:08,9161,Bogdan,Trineyev,319,6535,Brandon,Halverson,False,Quality on net,Default,479,140
+1027977,shot,2,4:25,9896,Maxim,Groshev,324,9103,Clay,Stevenson,False,Quality on net,Default,75,171
+1027977,shot,2,6:15,9563,Nick,Abruzzese,324,9103,Clay,Stevenson,False,Non quality on net,Default,64,195
+1027977,shot,2,7:07,10526,Cooper,Flinton,324,9103,Clay,Stevenson,False,Non quality on net,Default,87,225
+1027977,shot,2,7:16,10644,Ilya,Protas,319,6535,Brandon,Halverson,False,Quality on net,Default,503,148
+1027977,shot,2,7:22,10174,Andrew,Cristall,319,6535,Brandon,Halverson,False,Quality on net,Default,498,131
+1027977,shot,2,7:42,9079,Tommy,Miller,324,9103,Clay,Stevenson,False,Quality on net,Default,75,154
+1027977,shot,2,8:20,10644,Ilya,Protas,319,6535,Brandon,Halverson,False,Quality on net,Default,526,176
+1027977,shot,2,9:06,9171,Niko,Huuhtanen,324,9103,Clay,Stevenson,False,Quality on net,Default,65,177
+1027977,shot,2,9:13,9896,Maxim,Groshev,324,9103,Clay,Stevenson,False,Non quality on net,Default,45,172
+1027977,shot,2,11:47,10644,Ilya,Protas,319,6535,Brandon,Halverson,True,Quality goal,Default,494,213
+1027977,goal,2,11:47,10644,Ilya,Protas,,,,,,,,494,213
+1027977,shot,2,14:19,7024,Louie,Belpedio,319,6535,Brandon,Halverson,False,Non quality on net,Default,400,147
+1027977,shot,2,16:20,10566,Lucas,Mercuri,324,9103,Clay,Stevenson,False,Quality on net,Default,57,163
+1027977,shot,2,16:26,10566,Lucas,Mercuri,324,9103,Clay,Stevenson,False,Quality on net,Default,52,156
+1027977,shot,2,16:32,9034,Declan,Carlile,324,9103,Clay,Stevenson,False,Quality on net,Default,60,144
+1027977,shot,3,6:40,8922,Simon,Lundmark,324,9103,Clay,Stevenson,False,Non quality on net,Default,179,154
+1027977,shot,3,7:06,9034,Declan,Carlile,324,9103,Clay,Stevenson,False,Non quality on net,Default,176,264
+1027977,shot,3,9:54,9161,Bogdan,Trineyev,319,6535,Brandon,Halverson,False,Quality on net,Default,484,140
+1027977,shot,3,11:46,9896,Maxim,Groshev,324,9103,Clay,Stevenson,False,Quality on net,Default,457,183
+1027977,shot,3,12:40,7584,Matt,Strome,319,6535,Brandon,Halverson,False,Non quality on net,Default,311,10
+1027977,shot,3,12:45,10174,Andrew,Cristall,319,6535,Brandon,Halverson,False,Quality on net,Default,547,177
+1027977,shot,3,12:45,10174,Andrew,Cristall,319,6535,Brandon,Halverson,True,Quality goal,Default,546,178
+1027977,goal,3,12:45,10174,Andrew,Cristall,,,,,,,,546,178
+1027977,shot,3,18:01,9563,Nick,Abruzzese,324,9103,Clay,Stevenson,False,Non quality on net,Default,199,161
+1027977,shot,3,18:13,9034,Declan,Carlile,324,9103,Clay,Stevenson,True,Quality goal,Default,118,85
+1027977,goal,3,18:13,9034,Declan,Carlile,,,,,,,,118,85
+1027977,shot,3,19:26,9563,Nick,Abruzzese,324,9103,Clay,Stevenson,False,Quality on net,Default,77,119
+1027977,shot,3,19:27,10835,Wojciech,Stachowiak,324,9103,Clay,Stevenson,False,Quality on net,Default,77,136
+1027977,shot,3,20:00,10835,Wojciech,Stachowiak,324,9103,Clay,Stevenson,False,Non quality on net,Default,294,160
