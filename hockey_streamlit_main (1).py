@@ -468,56 +468,7 @@ def load_faceoff_data():
         logging.exception(f"Error loading faceoff data: {e}")
         return pd.DataFrame()
 
-@st.cache_data
-def load_shootout_data():
-    """Load shootout data."""
-    try:
-        # Check all possible directories for shootout data
-        shootout_files = (
-            list(ASSETS_DIR.glob("Shootout*.csv")) +
-            list(ASSETS_DIR.glob("Shootout*.xlsx")) +
-            list(CRUNCH_DATA_DIR.glob("Shootout*.csv")) +
-            list(CRUNCH_DATA_DIR.glob("Shootout*.xlsx"))
-        )
-        
-        if not shootout_files:
-            return pd.DataFrame()
-        
-        # Read CSV with proper encoding
-        df = pd.read_csv(shootout_files[0], encoding='cp1252')
-        
-        # Normalize column names
-        df.columns = df.columns.str.strip().str.lower()
-        
-        # Rename columns to match expected format
-        column_mapping = {
-            'where player shot from on ice': 'shot_location_ice',
-            'where the shot went on goal': 'shot_location_goal',
-            'what move they made': 'move_type',
-            'goalie (don\'t worry about this)': 'goalie',
-            'date': 'date'
-        }
-        
-        df = df.rename(columns=column_mapping)
-        
-        # Clean up data
-        df["player"] = df["player"].fillna("").astype(str).str.strip()
-        df["team"] = df.get("team", pd.Series([""] * len(df))).fillna("").astype(str).str.strip()
-        
-        # Remove rows with empty player names or "idle"
-        df = df[df["player"].notna() & (df["player"] != "") & (df["player"].str.lower() != "idle")].copy()
-        
-        # Clean goal column
-        df["goal"] = df["goal"].fillna("No")
-        df["goal"] = df["goal"].apply(lambda x: "Yes" if str(x).strip().lower() in ["yes", "y", "goal"] else "No")
-        
-        # Drop rows where all important columns are NaN
-        df = df.dropna(subset=['player', 'goal'], how='all')
-        
-        return df
-    except Exception as e:
-        logging.exception(f"Error loading shootout data: {e}")
-        return pd.DataFrame()
+
 
 # ============================================================================
 # VISUALIZATION FUNCTIONS
@@ -778,9 +729,15 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
             )
             player_games["points"] = player_games["goals"] + player_games["assists"]
             
+            # Sort by game_id to get chronological order
+            player_games = player_games.sort_values("game_id", ascending=True)
+            
+            # Add game number (1, 2, 3, etc.)
+            player_games["game_number"] = range(1, len(player_games) + 1)
+            
             # Create season summary row
             season_summary = pd.DataFrame([{
-                "game_id": "SEASON TOTAL",
+                "game_number": "TOTAL",
                 "opponent": f"{len(player_games)} Games",
                 "goals": player_games["goals"].sum(),
                 "assists": player_games["assists"].sum(),
@@ -790,8 +747,8 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
                 "shots": player_games["shots"].sum()
             }])
             
-            # Sort individual games and combine with summary
-            individual_games = player_games[["game_id", "opponent", "goals", "assists", "points", "plus_minus", "penalty_minutes", "shots"]].sort_values("game_id", ascending=False)
+            # Reverse order for display (most recent first) but keep numbering intact
+            individual_games = player_games[["game_number", "opponent", "goals", "assists", "points", "plus_minus", "penalty_minutes", "shots"]].iloc[::-1]
             display_df = pd.concat([season_summary, individual_games], ignore_index=True)
             
             st.dataframe(
@@ -799,7 +756,7 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
                 hide_index=True,
                 use_container_width=True,
                 column_config={
-                    "game_id": "Game",
+                    "game_number": "Game #",
                     "opponent": "Opponent",
                     "goals": "G",
                     "assists": "A",
@@ -840,7 +797,13 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
         st.markdown('<div class="section-header">Shootout Performance</div>', unsafe_allow_html=True)
         
         if not shootout_data.empty:
+            # Try exact match first
             player_shootout = shootout_data[shootout_data["player"] == player_name]
+            
+            # If no match, try matching by last name only
+            if player_shootout.empty and " " in player_name:
+                last_name = player_name.split()[-1]
+                player_shootout = shootout_data[shootout_data["player"].str.lower() == last_name.lower()]
             
             if not player_shootout.empty:
                 attempts = len(player_shootout)
@@ -977,9 +940,15 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                 axis=1
             )
             
+            # Sort by game_id to get chronological order
+            goalie_games = goalie_games.sort_values("game_id", ascending=True)
+            
+            # Add game number (1, 2, 3, etc.)
+            goalie_games["game_number"] = range(1, len(goalie_games) + 1)
+            
             # Create season summary row
             season_summary = pd.DataFrame([{
-                "game_id": "SEASON TOTAL",
+                "game_number": "TOTAL",
                 "opponent": f"{len(goalie_games)} Games",
                 "saves": goalie_games["saves"].sum(),
                 "goals_against": goalie_games["goals_against"].sum(),
@@ -988,12 +957,15 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
             }])
             
             # Individual games
-            individual_games = goalie_games[["game_id", "opponent", "saves", "goals_against"]].sort_values("game_id", ascending=False)
+            individual_games = goalie_games[["game_number", "opponent", "saves", "goals_against"]].copy()
             individual_games["sv_pct"] = individual_games.apply(
                 lambda row: f"{row['saves'] / (row['saves'] + row['goals_against']):.3f}" if (row['saves'] + row['goals_against']) > 0 else "0.000",
                 axis=1
             )
             individual_games["gaa"] = "N/A"
+            
+            # Reverse order for display (most recent first) but keep numbering intact
+            individual_games = individual_games.iloc[::-1]
             
             display_df = pd.concat([season_summary, individual_games], ignore_index=True)
             
@@ -1002,7 +974,7 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                 hide_index=True,
                 use_container_width=True,
                 column_config={
-                    "game_id": "Game",
+                    "game_number": "Game #",
                     "opponent": "Opponent",
                     "saves": "SVS",
                     "goals_against": "GA",
@@ -1083,7 +1055,7 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
 def render_roster_management(player_stats, goalie_stats, excluded_players, current_roster):
     """Render roster management section for excluding traded players."""
     
-    with st.expander("⚙️ Manage Roster (Exclude Non-Roster Players)", expanded=False):
+    with st.expander("⚙️ Manage Roster (Exclude Traded Players)", expanded=False):
         st.markdown('<div class="manage-roster-section">', unsafe_allow_html=True)
         
         st.markdown("### Exclude players from roster views")
