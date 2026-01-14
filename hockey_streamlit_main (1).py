@@ -12,6 +12,7 @@ import plotly.graph_objects as go
 from pathlib import Path
 import glob
 import logging
+import json
 
 # Page config
 st.set_page_config(
@@ -111,13 +112,26 @@ st.markdown("""
         background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%) !important;
         border: none !important;
     }
+    .excluded-player {
+        opacity: 0.5;
+        text-decoration: line-through;
+    }
+    .manage-roster-section {
+        background-color: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        margin-bottom: 2rem;
+        border: 2px solid #e5e7eb;
+    }
 </style>
 """, unsafe_allow_html=True)
 
 # Configuration
 UPLOAD_DIR = Path("uploaded_data")
 ASSETS_DIR = Path("assets")
-CRUNCH_DATA_DIR = Path("Crunch_Box_and_Shot")  # Your specific folder
+CRUNCH_DATA_DIR = Path("Crunch_Box_and_Shot")
+EXCLUDED_PLAYERS_FILE = CRUNCH_DATA_DIR / "excluded_players.json"
+ROSTER_FILE = CRUNCH_DATA_DIR / "Crunch_Roster.txt"
 
 # Create directories if they don't exist
 UPLOAD_DIR.mkdir(exist_ok=True)
@@ -128,6 +142,66 @@ CRUNCH_DATA_DIR.mkdir(exist_ok=True)
 TARGET_TEAM = "Syracuse Crunch"
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+# ============================================================================
+# PLAYER EXCLUSION MANAGEMENT
+# ============================================================================
+
+def load_current_roster():
+    """Load current roster from Crunch_Roster.txt file."""
+    if not ROSTER_FILE.exists():
+        return set()
+    
+    try:
+        with open(ROSTER_FILE, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+        
+        roster = set()
+        for line in lines:
+            line = line.strip()
+            if not line or line.startswith('#'):
+                continue
+            
+            # Parse format: "9 – Wojciech Stachowiak"
+            if '–' in line or '-' in line:
+                # Split on either – or -
+                parts = line.replace('–', '-').split('-', 1)
+                if len(parts) == 2:
+                    name = parts[1].strip()
+                    if name:
+                        roster.add(name)
+        
+        logging.info(f"Loaded {len(roster)} players from current roster")
+        return roster
+    except Exception as e:
+        logging.error(f"Error loading roster file: {e}")
+        return set()
+
+def load_excluded_players():
+    """Load list of excluded players from JSON file."""
+    if EXCLUDED_PLAYERS_FILE.exists():
+        try:
+            with open(EXCLUDED_PLAYERS_FILE, 'r') as f:
+                data = json.load(f)
+                return set(data.get('excluded_players', []))
+        except Exception as e:
+            logging.error(f"Error loading excluded players: {e}")
+            return set()
+    return set()
+
+def save_excluded_players(excluded_set):
+    """Save list of excluded players to JSON file."""
+    try:
+        with open(EXCLUDED_PLAYERS_FILE, 'w') as f:
+            json.dump({'excluded_players': list(excluded_set)}, f, indent=2)
+    except Exception as e:
+        logging.error(f"Error saving excluded players: {e}")
+
+def filter_excluded_players(df, excluded_players):
+    """Filter out excluded players from dataframe."""
+    if df.empty or not excluded_players:
+        return df
+    return df[~df['skater'].isin(excluded_players)].copy()
 
 # ============================================================================
 # XG MODEL FUNCTIONS
@@ -890,18 +964,84 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
     
     with tab1:
         st.markdown('<div class="section-header">Game-by-Game Stats</div>', unsafe_allow_html=True)
-        # ... box score code ...
+        
+        # Get game-by-game stats
+        goalie_games = st.session_state.goalies_df[
+            st.session_state.goalies_df["skater"] == goalie_name
+        ].copy()
+        
+        if not goalie_games.empty and not games_df.empty:
+            goalie_games = goalie_games.merge(games_df, on="game_id", suffixes=('', '_game'))
+            goalie_games["opponent"] = goalie_games.apply(
+                lambda row: row["away_team"] if row["team_name"] == row["home_team"] else row["home_team"],
+                axis=1
+            )
+            
+            # Create season summary row
+            season_summary = pd.DataFrame([{
+                "game_id": "SEASON TOTAL",
+                "opponent": f"{len(goalie_games)} Games",
+                "saves": goalie_games["saves"].sum(),
+                "goals_against": goalie_games["goals_against"].sum(),
+                "sv_pct": f"{goalie_stats['save_percentage']:.3f}",
+                "gaa": f"{goalie_stats['goals_against_average']:.2f}"
+            }])
+            
+            # Individual games
+            individual_games = goalie_games[["game_id", "opponent", "saves", "goals_against"]].sort_values("game_id", ascending=False)
+            individual_games["sv_pct"] = individual_games.apply(
+                lambda row: f"{row['saves'] / (row['saves'] + row['goals_against']):.3f}" if (row['saves'] + row['goals_against']) > 0 else "0.000",
+                axis=1
+            )
+            individual_games["gaa"] = "N/A"
+            
+            display_df = pd.concat([season_summary, individual_games], ignore_index=True)
+            
+            st.dataframe(
+                display_df,
+                hide_index=True,
+                use_container_width=True,
+                column_config={
+                    "game_id": "Game",
+                    "opponent": "Opponent",
+                    "saves": "SVS",
+                    "goals_against": "GA",
+                    "sv_pct": "SV%",
+                    "gaa": "GAA"
+                }
+            )
+        else:
+            st.info("No game data available")
     
     with tab2:
         st.markdown('<div class="section-header">Goals Against Chart</div>', unsafe_allow_html=True)
-        # ... goals against code ...
+        
+        if not goalie_shots.empty:
+            goals_against = goalie_shots[goalie_shots["is_goal"] == True]
+            
+            col1, col2, col3 = st.columns(3)
+            with col1:
+                st.metric("Shots Faced", len(goalie_shots))
+            with col2:
+                st.metric("Goals Against", len(goals_against))
+            with col3:
+                if len(goalie_shots) > 0:
+                    sv_pct = ((len(goalie_shots) - len(goals_against)) / len(goalie_shots)) * 100
+                    st.metric("Save %", f"{sv_pct:.1f}%")
+            
+            if not goals_against.empty:
+                fig = create_shot_chart(goals_against, goalie_name, view_type="goalie")
+                if fig:
+                    st.plotly_chart(fig, use_container_width=True)
+            else:
+                st.success("🎉 No goals against in shot data!")
+        else:
+            st.info("No shot data available for this goalie")
     
-    with tab3:  # <-- Make sure this aligns with tab1 and tab2 above
+    with tab3:
         st.markdown('<div class="section-header">Shootout Performance</div>', unsafe_allow_html=True)
         
         if not shootout_data.empty:
-            # For goalies, we need to check the "goalie" column if it exists
-            # Otherwise we can't match goalies to shootout data
             if "goalie" in shootout_data.columns:
                 goalie_shootout = shootout_data[shootout_data["goalie"] == goalie_name]
             else:
@@ -922,7 +1062,6 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                 
                 st.markdown("---")
                 
-                # Display breakdown by shooter
                 st.markdown("**Goals Against by Shooter:**")
                 if "player" in goalie_shootout.columns:
                     goals_df = goalie_shootout[goalie_shootout["goal"] == "Yes"]
@@ -936,6 +1075,112 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                 st.info("No shootout data available for this goalie")
         else:
             st.info("No shootout data loaded")
+
+# ============================================================================
+# ROSTER MANAGEMENT UI
+# ============================================================================
+
+def render_roster_management(player_stats, goalie_stats, excluded_players, current_roster):
+    """Render roster management section for excluding traded players."""
+    
+    with st.expander("⚙️ Manage Roster (Exclude Traded Players)", expanded=False):
+        st.markdown('<div class="manage-roster-section">', unsafe_allow_html=True)
+        
+        st.markdown("### Exclude players from roster views")
+        st.caption("Use this to hide players who have been traded or are no longer with the team. Their data remains in the system but won't appear in roster selections.")
+        
+        # Combine all players
+        all_players = []
+        if not player_stats.empty:
+            all_players.extend(player_stats['skater'].tolist())
+        if not goalie_stats.empty:
+            all_players.extend(goalie_stats['skater'].tolist())
+        
+        all_players = sorted(set(all_players))
+        
+        if not all_players:
+            st.info("No players found in current dataset")
+            st.markdown('</div>', unsafe_allow_html=True)
+            return excluded_players
+        
+        # Identify players not on current roster
+        not_on_roster = [p for p in all_players if p not in current_roster] if current_roster else []
+        
+        # Split into two columns
+        col1, col2 = st.columns([2, 1])
+        
+        with col1:
+            st.markdown("**Select players to exclude:**")
+            
+            # Multiselect with currently excluded players pre-selected
+            newly_excluded = st.multiselect(
+                "Players",
+                options=all_players,
+                default=list(excluded_players),
+                help="Select all players who should be hidden from roster views",
+                label_visibility="collapsed"
+            )
+            
+            # Show count
+            st.caption(f"Currently excluding: {len(newly_excluded)} player(s)")
+        
+        with col2:
+            st.markdown("**Quick Actions:**")
+            
+            if st.button("🔄 Clear All Exclusions", use_container_width=True):
+                newly_excluded = []
+                st.success("Cleared all exclusions!")
+            
+            # Show button to exclude players not on current roster
+            if current_roster and not_on_roster:
+                if st.button(f"📋 Exclude {len(not_on_roster)} Non-Roster Players", use_container_width=True, help="Exclude players not in Crunch_Roster.txt"):
+                    newly_excluded = list(set(newly_excluded + not_on_roster))
+                    st.info(f"Added {len(not_on_roster)} players not on current roster")
+            
+            if not player_stats.empty:
+                # Find players with 0 games (potential trades)
+                zero_game_players = player_stats[player_stats['games_played'] == 0]['skater'].tolist()
+                if zero_game_players:
+                    if st.button(f"⚡ Exclude {len(zero_game_players)} player(s) with 0 GP", use_container_width=True):
+                        newly_excluded = list(set(newly_excluded + zero_game_players))
+                        st.info(f"Added {len(zero_game_players)} players with 0 games played")
+        
+        # Show roster analysis
+        if current_roster:
+            st.markdown("---")
+            col1, col2, col3 = st.columns(3)
+            with col1:
+                st.metric("📋 Current Roster", len(current_roster))
+            with col2:
+                st.metric("📊 Players in Data", len(all_players))
+            with col3:
+                st.metric("⚠️ Not on Roster", len(not_on_roster))
+            
+            if not_on_roster:
+                with st.expander(f"View {len(not_on_roster)} players not on current roster"):
+                    not_roster_df = pd.DataFrame({"Player": sorted(not_on_roster)})
+                    st.dataframe(not_roster_df, hide_index=True, use_container_width=True)
+                    st.caption("These players appear in your game data but are not in Crunch_Roster.txt")
+        else:
+            st.info("💡 Place 'Crunch_Roster.txt' in the 'Crunch_Box_and_Shot' folder to automatically detect traded players")
+        
+        # Save button
+        st.markdown("---")
+        if st.button("💾 Save Roster Changes", type="primary", use_container_width=True):
+            save_excluded_players(set(newly_excluded))
+            st.success(f"✅ Saved! Excluding {len(newly_excluded)} player(s) from roster views.")
+            st.rerun()
+        
+        # Show excluded players list if any
+        if newly_excluded:
+            st.markdown("---")
+            st.markdown("**Currently Excluded Players:**")
+            excluded_df = pd.DataFrame({"Player": sorted(newly_excluded)})
+            st.dataframe(excluded_df, hide_index=True, use_container_width=True)
+        
+        st.markdown('</div>', unsafe_allow_html=True)
+        
+        return set(newly_excluded)
 
 # ============================================================================
 # MAIN APP
@@ -954,8 +1199,18 @@ def main():
             st.session_state.clear()
             st.rerun()
     
+    # Load excluded players
+    if 'excluded_players' not in st.session_state:
+        st.session_state.excluded_players = load_excluded_players()
+    
+    # Load current roster
+    if 'current_roster' not in st.session_state:
+        st.session_state.current_roster = load_current_roster()
+        if st.session_state.current_roster:
+            logging.info(f"Current roster loaded: {len(st.session_state.current_roster)} players")
+    
     # Load data with progress
-  if 'data_loaded' not in st.session_state:
+    if 'data_loaded' not in st.session_state:
         status_placeholder = st.empty()
         progress_bar = st.progress(0)
         
@@ -997,21 +1252,6 @@ def main():
             status_placeholder.empty()
             progress_bar.empty()
             return
-            
-            # Show what was loaded
-            status_placeholder.success(
-                f"✅ Loaded: {len(games_df)} games, "
-                f"{len(players_df['skater'].unique()) if not players_df.empty else 0} players, "
-                f"{len(goalies_df['skater'].unique()) if not goalies_df.empty else 0} goalies"
-            )
-            progress_bar.empty()
-            
-        except Exception as e:
-            st.error(f"❌ Error loading data: {e}")
-            logging.exception("Data loading error")
-            status_placeholder.empty()
-            progress_bar.empty()
-            return
     else:
         # Show quick stats in collapsed section
         with st.expander("📊 Data Summary", expanded=False):
@@ -1020,13 +1260,17 @@ def main():
                 st.metric("Games", len(st.session_state.games_df))
             with col2:
                 unique_players = len(st.session_state.players_df['skater'].unique()) if not st.session_state.players_df.empty else 0
-                st.metric("Players", unique_players)
+                excluded_count = len(st.session_state.excluded_players)
+                st.metric("Active Players", unique_players - excluded_count)
             with col3:
                 unique_goalies = len(st.session_state.goalies_df['skater'].unique()) if not st.session_state.goalies_df.empty else 0
                 st.metric("Goalies", unique_goalies)
             with col4:
                 total_shots = len(st.session_state.shots_df) if not st.session_state.shots_df.empty else 0
                 st.metric("Total Shots", total_shots)
+            
+            if st.session_state.excluded_players:
+                st.caption(f"ℹ️ {len(st.session_state.excluded_players)} player(s) excluded from roster views")
     
     # Get current season
     if not st.session_state.games_df.empty:
@@ -1036,33 +1280,46 @@ def main():
     
     # Check if we have data
     if st.session_state.players_df.empty and st.session_state.goalies_df.empty:
-        st.warning("⚠️ No Syracuse Crunch data found. Please ensure CSV files are in the 'assets' folder.")
+        st.warning("⚠️ No Syracuse Crunch data found. Please ensure CSV files are in the 'Crunch_Box_and_Shot' folder.")
         st.info("""
         **Expected folder structure:**
         ```
-        assets/
+        Crunch_Box_and_Shot/
         ├── ahl_boxscore_*.csv
-        └── ahl_shots_*.csv
+        ├── ahl_shots_*.csv
+        └── Crunch_Roster.txt (optional - for roster management)
         ```
         """)
         return
     
-    # Aggregate stats
-    player_stats = aggregate_player_stats(st.session_state.players_df, st.session_state.shots_df, current_season)
-    goalie_stats = aggregate_goalie_stats(st.session_state.goalies_df, current_season)
+    # Aggregate stats (before filtering)
+    player_stats_full = aggregate_player_stats(st.session_state.players_df, st.session_state.shots_df, current_season)
+    goalie_stats_full = aggregate_goalie_stats(st.session_state.goalies_df, current_season)
+    
+    # Roster Management Section
+    st.markdown("---")
+    st.session_state.excluded_players = render_roster_management(
+        player_stats_full, 
+        goalie_stats_full, 
+        st.session_state.excluded_players,
+        st.session_state.current_roster
+    )
+    
+    # Filter out excluded players for display
+    player_stats = filter_excluded_players(player_stats_full, st.session_state.excluded_players)
+    goalie_stats = filter_excluded_players(goalie_stats_full, st.session_state.excluded_players)
     
     # View selector
     view_mode = st.radio("", ["👥 Players", "🥅 Goalies"], horizontal=True, label_visibility="collapsed")
     
     st.markdown("---")
     
- 
     # ========================================================================
     # PLAYERS VIEW
     # ========================================================================
     if view_mode == "👥 Players":
         if player_stats.empty:
-            st.info("No player data available for Syracuse Crunch")
+            st.info("No active players available (all players may be excluded)")
             return
         
         # Categorize players by position
@@ -1082,7 +1339,7 @@ def main():
                 forward_names = forwards['skater'].tolist()
                 
                 # Initialize selected forward
-                if 'selected_forward' not in st.session_state:
+                if 'selected_forward' not in st.session_state or st.session_state.selected_forward not in forward_names:
                     st.session_state.selected_forward = forward_names[0]
                 
                 # Find current index
@@ -1129,7 +1386,7 @@ def main():
                 defense_names = defensemen['skater'].tolist()
                 
                 # Initialize selected defenseman
-                if 'selected_defenseman' not in st.session_state:
+                if 'selected_defenseman' not in st.session_state or st.session_state.selected_defenseman not in defense_names:
                     st.session_state.selected_defenseman = defense_names[0]
                 
                 # Find current index
@@ -1165,15 +1422,13 @@ def main():
                     st.session_state.shootout_df,
                     st.session_state.games_df
                 )
-            else:
-                st.info("Select a player from the roster")
     
- # ========================================================================
+    # ========================================================================
     # GOALIES VIEW
     # ========================================================================
     else:
         if goalie_stats.empty:
-            st.info("No goalie data available for Syracuse Crunch")
+            st.info("No active goalies available")
             return
         
         # Sort goalies by save percentage
@@ -1185,44 +1440,9 @@ def main():
                          for _, row in goalie_stats.iterrows()]
         
         # Initialize selected goalie
-        if 'selected_goalie' not in st.session_state:
+        if 'selected_goalie' not in st.session_state or st.session_state.selected_goalie not in goalie_list:
             st.session_state.selected_goalie = goalie_list[0] if goalie_list else None
         
         # Find current index
         try:
             current_idx = goalie_list.index(st.session_state.selected_goalie)
-        except (ValueError, AttributeError):
-            current_idx = 0
-            st.session_state.selected_goalie = goalie_list[0] if goalie_list else None
-        
-        if st.session_state.selected_goalie:
-            selected_option = st.selectbox(
-                "Select Goalie:",
-                options=goalie_options,
-                index=current_idx,
-                key="goalie_select"
-            )
-            
-            # Extract goalie name from selection
-            selected_goalie = goalie_list[goalie_options.index(selected_option)]
-            st.session_state.selected_goalie = selected_goalie
-            
-            # Get selected goalie stats
-            goalie_row = goalie_stats[goalie_stats["skater"] == selected_goalie].iloc[0]
-            
-            # Get goalie-specific data
-            goalie_shots = st.session_state.shots_df_goalies[
-                st.session_state.shots_df_goalies["goalie"] == selected_goalie
-            ].copy() if not st.session_state.shots_df_goalies.empty else pd.DataFrame()
-            
-            # Render card
-            render_goalie_card(
-                selected_goalie,
-                goalie_row,
-                goalie_shots,
-                st.session_state.shootout_df,
-                st.session_state.games_df
-            )
-
-if __name__ == "__main__":
-    main()
