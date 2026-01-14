@@ -1083,7 +1083,7 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
 def render_roster_management(player_stats, goalie_stats, excluded_players, current_roster):
     """Render roster management section for excluding traded players."""
     
-    with st.expander("⚙️ Manage Roster (Exclude Traded Players)", expanded=False):
+    with st.expander("⚙️ Manage Roster (Exclude Non-Roster Players)", expanded=False):
         st.markdown('<div class="manage-roster-section">', unsafe_allow_html=True)
         
         st.markdown("### Exclude players from roster views")
