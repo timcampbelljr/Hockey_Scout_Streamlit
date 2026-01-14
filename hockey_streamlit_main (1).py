@@ -468,6 +468,68 @@ def load_faceoff_data():
         logging.exception(f"Error loading faceoff data: {e}")
         return pd.DataFrame()
 
+@st.cache_data
+def load_shootout_data():
+    """Load shootout data."""
+    try:
+        # Check all possible directories for shootout data
+        shootout_files = (
+            list(ASSETS_DIR.glob("Shootout*.csv")) +
+            list(ASSETS_DIR.glob("Shootout*.xlsx")) +
+            list(CRUNCH_DATA_DIR.glob("Shootout*.csv")) +
+            list(CRUNCH_DATA_DIR.glob("Shootout*.xlsx"))
+        )
+        
+        if not shootout_files:
+            logging.warning("No shootout files found")
+            return pd.DataFrame()
+        
+        logging.info(f"Found shootout file: {shootout_files[0]}")
+        
+        # Read CSV with proper encoding
+        df = pd.read_csv(shootout_files[0], encoding='cp1252')
+        
+        logging.info(f"Loaded shootout data: {len(df)} rows, columns: {df.columns.tolist()}")
+        
+        # Normalize column names
+        df.columns = df.columns.str.strip().str.lower()
+        
+        # Rename columns to match expected format
+        column_mapping = {
+            'where player shot from on ice': 'shot_location_ice',
+            'where the shot went on goal': 'shot_location_goal',
+            'what move they made': 'move_type',
+            'goalie (don\'t worry about this)': 'goalie',
+            "goalie (don't worry about this)": 'goalie',
+            'date': 'date',
+            'team': 'team',
+            'player': 'player',
+            'goal': 'goal'
+        }
+        
+        df = df.rename(columns=column_mapping)
+        
+        # Clean up data
+        df["player"] = df["player"].fillna("").astype(str).str.strip()
+        df["team"] = df.get("team", pd.Series([""] * len(df))).fillna("").astype(str).str.strip()
+        
+        # Remove rows with empty player names or "idle"
+        df = df[df["player"].notna() & (df["player"] != "") & (df["player"].str.lower() != "idle")].copy()
+        
+        # Clean goal column
+        df["goal"] = df["goal"].fillna("No")
+        df["goal"] = df["goal"].apply(lambda x: "Yes" if str(x).strip().lower() in ["yes", "y", "goal"] else "No")
+        
+        # Drop rows where all important columns are NaN
+        df = df.dropna(subset=['player', 'goal'], how='all')
+        
+        logging.info(f"Cleaned shootout data: {len(df)} rows")
+        
+        return df
+    except Exception as e:
+        logging.exception(f"Error loading shootout data: {e}")
+        return pd.DataFrame()
+
 
 
 # ============================================================================
