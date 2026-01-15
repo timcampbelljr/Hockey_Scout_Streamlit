@@ -1,0 +1,44 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028333,shot,1,1:01,9896,Maxim,Groshev,324,10002,Devon,Levi,False,Non quality on net,Default,414,45
+1028333,shot,1,2:24,7622,Jake,Leschyshyn,323,6535,Brandon,Halverson,False,Non quality on net,Default,137,69
+1028333,shot,1,7:44,10052,Anton,Wahlberg,323,6535,Brandon,Halverson,False,Non quality on net,Default,105,255
+1028333,shot,1,9:04,8864,Zac,Jones,323,6535,Brandon,Halverson,False,Non quality on net,Default,225,253
+1028333,shot,1,9:05,8864,Zac,Jones,323,6535,Brandon,Halverson,False,Non quality on net,Default,167,89
+1028333,shot,1,12:20,8580,Carson,Meyer,323,6535,Brandon,Halverson,False,Quality on net,Default,143,197
+1028333,shot,1,12:34,9761,Olivier,Nadeau,323,6535,Brandon,Halverson,False,Quality on net,Default,45,140
+1028333,shot,1,13:35,9754,Tristan,Allard,324,10002,Devon,Levi,False,Non quality on net,Default,488,49
+1028333,shot,1,14:50,10148,Dylan,Duke,324,10002,Devon,Levi,False,Non quality on net,Default,455,228
+1028333,shot,1,16:44,4666,Jarred,Tinordi,324,10002,Devon,Levi,False,Non quality on net,Default,431,81
+1028333,shot,1,19:59,8864,Zac,Jones,323,6535,Brandon,Halverson,False,Non quality on net,Default,178,247
+1028333,shot,2,1:05,9923,Riley,Fiddler-Schultz,323,6535,Brandon,Halverson,False,Quality on net,Default,52,147
+1028333,shot,2,1:09,9923,Riley,Fiddler-Schultz,323,6535,Brandon,Halverson,False,Quality on net,Default,51,162
+1028333,shot,2,4:02,8744,Jakob,Pelletier,324,10002,Devon,Levi,False,Non quality on net,Default,544,47
+1028333,shot,2,4:06,9563,Nick,Abruzzese,324,10002,Devon,Levi,False,Quality on net,Default,541,129
+1028333,shot,2,5:22,9803,Isaac,Belliveau,323,6535,Brandon,Halverson,False,Non quality on net,Default,168,87
+1028333,shot,2,5:24,7622,Jake,Leschyshyn,323,6535,Brandon,Halverson,False,Quality on net,Default,77,135
+1028333,shot,2,6:01,8580,Carson,Meyer,323,6535,Brandon,Halverson,False,Quality on net,Default,130,159
+1028333,shot,2,6:02,9923,Riley,Fiddler-Schultz,323,6535,Brandon,Halverson,False,Quality on net,Default,50,145
+1028333,shot,2,6:49,8864,Zac,Jones,323,6535,Brandon,Halverson,True,Non quality goal,Default,181,220
+1028333,goal,2,6:49,8864,Zac,Jones,,,,,,,,181,220
+1028333,shot,2,8:06,9896,Maxim,Groshev,324,10002,Devon,Levi,False,Non quality on net,Default,465,17
+1028333,shot,2,8:11,10566,Lucas,Mercuri,324,10002,Devon,Levi,False,Quality on net,Default,552,134
+1028333,shot,2,11:07,8680,Curtis,Douglas,324,10002,Devon,Levi,False,Non quality on net,Default,445,31
+1028333,shot,2,12:38,8744,Jakob,Pelletier,324,10002,Devon,Levi,False,Non quality on net,Default,458,232
+1028333,shot,2,13:47,9643,Jagger,Joshua,323,6535,Brandon,Halverson,False,Quality on net,Default,77,145
+1028333,shot,2,15:15,10444,Konsta,Helenius,323,6535,Brandon,Halverson,False,Non quality on net,Default,147,115
+1028333,shot,2,15:59,9079,Tommy,Miller,324,10002,Devon,Levi,False,Non quality on net,Default,451,223
+1028333,shot,2,18:23,9923,Riley,Fiddler-Schultz,323,6535,Brandon,Halverson,False,Quality on net,Default,71,175
+1028333,shot,3,0:26,9079,Tommy,Miller,324,10002,Devon,Levi,False,Non quality on net,Default,399,251
+1028333,shot,3,2:57,9700,Trevor,Kuntar,323,6535,Brandon,Halverson,False,Quality on net,Default,48,158
+1028333,shot,3,3:26,8553,Mitchell,Chaffee,324,10002,Devon,Levi,False,Quality on net,Default,553,162
+1028333,shot,3,4:18,8864,Zac,Jones,323,6535,Brandon,Halverson,True,Quality goal,Default,115,183
+1028333,goal,3,4:18,8864,Zac,Jones,,,,,,,,115,183
+1028333,shot,3,5:16,9823,Ethan,Samson,324,10002,Devon,Levi,False,Non quality on net,Default,407,73
+1028333,shot,3,6:48,10566,Lucas,Mercuri,324,10002,Devon,Levi,False,Quality on net,Default,527,143
+1028333,shot,3,9:28,9079,Tommy,Miller,324,10002,Devon,Levi,False,Non quality on net,Default,419,188
+1028333,shot,3,13:41,9563,Nick,Abruzzese,324,10002,Devon,Levi,False,Quality on net,Default,541,138
+1028333,shot,3,14:34,9693,Brendan,Furry,324,10002,Devon,Levi,False,Non quality on net,Default,429,148
+1028333,shot,3,15:35,10566,Lucas,Mercuri,324,10002,Devon,Levi,False,Non quality on net,Default,509,274
+1028333,shot,3,17:22,9923,Riley,Fiddler-Schultz,323,6535,Brandon,Halverson,True,Non quality goal,Default,500,15
+1028333,goal,3,17:22,9923,Riley,Fiddler-Schultz,,,,,,,,500,15
+1028333,shot,3,19:35,9693,Brendan,Furry,324,10002,Devon,Levi,False,Quality on net,Default,543,159
