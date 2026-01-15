@@ -819,16 +819,17 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
     
     # ... rest of the function remains the same
     
-    # Tabs for different views
-    tab1, tab2, tab3, tab4 = st.tabs(["📊 Box Score", "🎯 Shot Chart", "🥅 Shootout", "⚔️ Faceoffs"])
-    
+   # Tabs for different views
+tab1, tab2, tab3, tab4 = st.tabs(
+    ["📊 Box Score", "🎯 Shot Chart", "🥅 Shootout", "⚔️ Faceoffs"]
+)
+
 with tab1:
     st.markdown(
         '<div class="stat-card"><h3>Game-by-Game Stats</h3></div>',
         unsafe_allow_html=True
     )
 
-    # Get game-by-game stats
     player_games = st.session_state.players_df[
         st.session_state.players_df["skater"] == player_name
     ].copy()
@@ -845,15 +846,13 @@ with tab1:
             axis=1
         )
 
-        player_games["points"] = player_games["goals"] + player_games["assists"]
+        player_games["points"] = (
+            player_games["goals"] + player_games["assists"]
+        )
 
-        # Sort chronologically
-        player_games = player_games.sort_values("game_id", ascending=True)
-
-        # Add game number
+        player_games = player_games.sort_values("game_id")
         player_games["game_number"] = range(1, len(player_games) + 1)
 
-        # Reverse for display (most recent first)
         display_df = player_games[
             [
                 "game_number",
@@ -895,28 +894,22 @@ with tab2:
     if not player_shots.empty:
         col1, col2, col3, col4 = st.columns(4)
 
-        with col1:
-            st.metric("Total Shots", len(player_shots))
-
-        with col2:
-            goals = (player_shots["is_goal"] == True).sum()
-            st.metric("Goals", goals)
-
-        with col3:
-            shooting_pct = (goals / len(player_shots)) * 100
-            st.metric("Shooting %", f"{shooting_pct:.1f}%")
-
-        with col4:
-            avg_xg = (
-                player_shots["xg"].mean()
-                if "xg" in player_shots.columns
-                else 0
-            )
-            st.metric("Avg xG", f"{avg_xg:.3f}")
-
-        fig = create_shot_chart(
-            player_shots, player_name, view_type="player"
+        col1.metric("Total Shots", len(player_shots))
+        goals = (player_shots["is_goal"] == True).sum()
+        col2.metric("Goals", goals)
+        col3.metric(
+            "Shooting %",
+            f"{(goals / len(player_shots)) * 100:.1f}%"
         )
+
+        avg_xg = (
+            player_shots["xg"].mean()
+            if "xg" in player_shots.columns
+            else 0
+        )
+        col4.metric("Avg xG", f"{avg_xg:.3f}")
+
+        fig = create_shot_chart(player_shots, player_name, view_type="player")
         if fig:
             st.plotly_chart(fig, use_container_width=True)
     else:
@@ -951,62 +944,11 @@ with tab3:
             col3.metric("Success Rate", f"{success_rate:.1f}%")
 
             st.markdown("---")
-
-            col1, col2 = st.columns(2)
-
-            with col1:
-                st.markdown("**Shot Locations (Ice):**")
-                if "shot_location_ice" in player_shootout.columns:
-                    for loc, count in player_shootout[
-                        "shot_location_ice"
-                    ].value_counts().items():
-                        if pd.notna(loc):
-                            st.write(f"• {loc}: {count}")
-
-                st.markdown("**Move Types:**")
-                if "move_type" in player_shootout.columns:
-                    for move, count in player_shootout[
-                        "move_type"
-                    ].value_counts().items():
-                        if pd.notna(move):
-                            st.write(f"• {move}: {count}")
-
-            with col2:
-                st.markdown("**Shot Locations (Goal):**")
-                if "shot_location_goal" in player_shootout.columns:
-                    for loc, count in player_shootout[
-                        "shot_location_goal"
-                    ].value_counts().items():
-                        if pd.notna(loc):
-                            st.write(f"• {loc}: {count}")
-
-            st.markdown("---")
-            st.markdown("**Recent Attempts:**")
-
-            display_cols = [
-                "date",
-                "shot_location_ice",
-                "shot_location_goal",
-                "move_type",
-                "goal",
-            ]
-            available_cols = [
-                c for c in display_cols if c in player_shootout.columns
-            ]
-
-            if available_cols:
-                st.dataframe(
-                    player_shootout[available_cols].head(10),
-                    hide_index=True,
-                    use_container_width=True,
-                    column_config={
-                        "date": "Date",
-                        "shot_location_ice": "Shot From",
-                        "shot_location_goal": "Shot To",
-                        "move_type": "Move",
-                        "goal": "Result",
-                    },
-                )
+            st.dataframe(
+                player_shootout.head(10),
+                hide_index=True,
+                use_container_width=True,
+            )
         else:
             st.info("No shootout data available for this player")
     else:
@@ -1037,6 +979,7 @@ with tab4:
             st.info("No faceoff data available for this player")
     else:
         st.info("No faceoff data loaded")
+
 
 
 def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, games_df):
