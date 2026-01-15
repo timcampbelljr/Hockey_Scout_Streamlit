@@ -275,7 +275,6 @@ def determine_season_from_game_id(game_id: int) -> str:
             return f"{start_year}-{end_year_short:02d}"
         except (ValueError, IndexError):
             pass
-    
     if game_id > 1024000:
         return "2023-24"
     return "2024-25"
@@ -283,7 +282,6 @@ def determine_season_from_game_id(game_id: int) -> str:
 @st.cache_data
 def load_all_data():
     """Load all hockey data and filter for Syracuse Crunch only."""
-    
     def get_unique_files(pattern):
         """Get all CSV files matching pattern from all directories"""
         upload_files = list(UPLOAD_DIR.glob(pattern)) if UPLOAD_DIR.exists() else []
@@ -294,13 +292,12 @@ def load_all_data():
         all_files = {}
         for f in upload_files + assets_files + crunch_files:
             all_files[f.name] = f
-        
         return sorted(all_files.values(), key=lambda x: x.name)
-    
+
     # Get ALL boxscore and shot files from both directories
     boxscore_files = get_unique_files("ahl_boxscore_*.csv")
     shot_files = get_unique_files("ahl_shots_*.csv")
-    
+
     # Log what we found
     logging.info(f"Found {len(boxscore_files)} boxscore files")
     logging.info(f"Found {len(shot_files)} shot files")
@@ -308,11 +305,10 @@ def load_all_data():
     if boxscore_files:
         game_ids = [f.stem.replace("ahl_boxscore_", "") for f in boxscore_files]
         logging.info(f"Boxscore game IDs: {min(game_ids)} to {max(game_ids)}")
-    
     if shot_files:
         game_ids = [f.stem.replace("ahl_shots_", "") for f in shot_files]
         logging.info(f"Shot file game IDs: {min(game_ids)} to {max(game_ids)}")
-    
+
     all_shots = []
     
     # Load shots
@@ -321,7 +317,7 @@ def load_all_data():
             all_shots.append(pd.read_csv(f))
         except Exception as e:
             logging.exception(f"Error processing shot file {f}: {e}")
-    
+
     shot_df = pd.DataFrame()
     if all_shots:
         shot_df = pd.concat(all_shots).drop_duplicates()
@@ -347,11 +343,11 @@ def load_all_data():
             except Exception as e:
                 logging.exception(f"Error in xG calculation: {e}")
                 shot_df["xg"] = 0.0
-    
+
     all_players = []
     all_goalies = []
     all_games = []
-    
+
     # Load boxscores
     for f in boxscore_files:
         try:
@@ -361,6 +357,7 @@ def load_all_data():
             
             game_id = int(df["game_id"].iloc[0])
             season = determine_season_from_game_id(game_id)
+            
             home_team = df[df["team_side"] == "home"]["team_name"].iloc[0]
             away_team = df[df["team_side"] == "away"]["team_name"].iloc[0]
             
@@ -378,24 +375,12 @@ def load_all_data():
             players_df = df[~df["is_goalie"]].copy()
             goalies_df = df[df["is_goalie"]].copy()
             
-            # Add goals from shots data
-            if not shot_df.empty:
-                game_shots = shot_df[shot_df["game_id"] == game_id]
-                player_goals = (
-                    game_shots[game_shots["is_goal"]]
-                    .groupby("shooter")
-                    .size()
-                    .reset_index(name="goals_from_shots")
-                )
-                players_df = pd.merge(
-                    players_df, player_goals, left_on="skater", right_on="shooter", how="left"
-                )
-                players_df["g"] = players_df["goals_from_shots"].fillna(0).astype(int)
-                players_df.drop(columns=["shooter", "goals_from_shots"], inplace=True, errors='ignore')
-            
+            # Use goals directly from boxscore file - don't override with shot data
+            # The boxscore file already has the correct goals (g column)
             players_df = players_df.rename(
                 columns={"g": "goals", "a": "assists", "pim": "penalty_minutes", "sog": "shots"}
             )
+            
             goalies_df = goalies_df.rename(
                 columns={"svs": "saves", "ga": "goals_against", "mins": "minutes_played"}
             )
@@ -405,18 +390,18 @@ def load_all_data():
             
         except Exception as e:
             logging.exception(f"Error processing boxscore file {f}: {e}")
-    
+
     # Combine all data
     players_df = pd.concat(all_players).drop_duplicates(subset=["game_id", "skater"]) if all_players else pd.DataFrame()
     goalies_df = pd.concat(all_goalies).drop_duplicates(subset=["game_id", "skater"]) if all_goalies else pd.DataFrame()
     games_df = pd.DataFrame(all_games).drop_duplicates(subset=["game_id"]) if all_games else pd.DataFrame()
-    
+
     # Filter for Syracuse Crunch only
     if not players_df.empty:
         players_df = players_df[players_df["team_name"] == TARGET_TEAM]
     if not goalies_df.empty:
         goalies_df = goalies_df[goalies_df["team_name"] == TARGET_TEAM]
-    
+
     # Add season to shots and filter by Crunch players
     if not shot_df.empty and not games_df.empty:
         if "season" not in shot_df.columns:
@@ -435,7 +420,7 @@ def load_all_data():
             shot_df_goalies = pd.DataFrame()
     else:
         shot_df_goalies = pd.DataFrame()
-    
+
     return players_df, goalies_df, games_df, shot_df, shot_df_goalies
 
 @st.cache_data
