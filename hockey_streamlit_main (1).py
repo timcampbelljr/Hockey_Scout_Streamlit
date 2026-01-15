@@ -1108,35 +1108,35 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
         st.markdown('<div class="section-header">Shootout Performance</div>', unsafe_allow_html=True)
         
         if not shootout_data.empty:
-            if "goalie" in shootout_data.columns:
-                goalie_shootout = shootout_data[shootout_data["goalie"] == goalie_name]
-            else:
-                goalie_shootout = pd.DataFrame()
+            # Filter shootout data for this goalie
+            goalie_shootout = shootout_data[shootout_data["goalie"] == goalie_name]
+            
+            # If no exact match and goalie has a space in name, try matching last name
+            if goalie_shootout.empty and " " in goalie_name:
+                last_name = goalie_name.split()[-1]
+                goalie_shootout = shootout_data[
+                    shootout_data["goalie"].str.lower() == last_name.lower()
+                ]
             
             if not goalie_shootout.empty:
-                shots_faced = len(goalie_shootout)
-                goals_against = (goalie_shootout["goal"] == "Yes").sum()
-                save_pct = ((shots_faced - goals_against) / shots_faced * 100) if shots_faced > 0 else 0
+                attempts = len(goalie_shootout)
+                goals_allowed = (goalie_shootout["goal"] == "Yes").sum()
+                saves = attempts - goals_allowed
+                save_rate = (saves / attempts * 100) if attempts > 0 else 0
                 
                 col1, col2, col3 = st.columns(3)
-                with col1:
-                    st.metric("Shots Faced", shots_faced)
-                with col2:
-                    st.metric("Goals Against", goals_against)
-                with col3:
-                    st.metric("Save %", f"{save_pct:.1f}%")
+                col1.metric("Attempts", attempts)
+                col2.metric("Saves", saves)
+                col3.metric("Save %", f"{save_rate:.1f}%")
                 
                 st.markdown("---")
                 
-                st.markdown("**Goals Against by Shooter:**")
-                if "player" in goalie_shootout.columns:
-                    goals_df = goalie_shootout[goalie_shootout["goal"] == "Yes"]
-                    if not goals_df.empty:
-                        shooter_goals = goals_df["player"].value_counts()
-                        for shooter, count in shooter_goals.items():
-                            st.write(f"• {shooter}: {count}")
-                    else:
-                        st.success("No goals allowed!")
+                # Display the shootout attempts table
+                st.dataframe(
+                    goalie_shootout.head(10),
+                    hide_index=True,
+                    use_container_width=True,
+                )
             else:
                 st.info("No shootout data available for this goalie")
         else:
