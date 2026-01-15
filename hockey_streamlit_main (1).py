@@ -865,7 +865,7 @@ with tab1:
         else:
             st.info("No game data available")
     
-    with tab2:
+  with tab2:
         st.markdown('<div class="section-header">Shot Chart</div>', unsafe_allow_html=True)
         
         if not player_shots.empty:
