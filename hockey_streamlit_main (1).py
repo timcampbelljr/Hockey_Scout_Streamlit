@@ -788,17 +788,16 @@ def aggregate_goalie_stats(goalies_df, season="2024-25"):
 
 def render_player_card(player_name, player_stats, player_shots, faceoff_data, shootout_data, games_df):
     """Render a complete player card with all stats."""
-    
     # Header
     st.markdown(f"""
-    <div class="player-card">
-        <div class="player-name">{player_name}</div>
-        <div class="player-position">{player_stats['pos']} • Syracuse Crunch</div>
-    </div>
+        <div style='text-align: center; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; margin-bottom: 20px;'>
+            <h1 style='color: white; margin: 0;'>{player_name}</h1>
+            <p style='color: rgba(255,255,255,0.9); margin: 5px 0 0 0; font-size: 1.1em;'>{player_stats['pos']} • Syracuse Crunch</p>
+        </div>
     """, unsafe_allow_html=True)
-    
-    # Season Stats
-    col1, col2, col3, col4, col5, col6 = st.columns(6)
+
+    # Season Stats - Now with 8 columns including +/- and PIM
+    col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
     with col1:
         st.metric("GP", player_stats['games_played'])
     with col2:
@@ -808,17 +807,23 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
     with col4:
         st.metric("PTS", player_stats['points'])
     with col5:
-        st.metric("SOG", player_stats['shots'])
+        st.metric("+/-", player_stats['plus_minus'])
     with col6:
+        st.metric("PIM", player_stats['penalty_minutes'])
+    with col7:
+        st.metric("SOG", player_stats['shots'])
+    with col8:
         st.metric("Avg xG", f"{player_stats['avg_xg']:.3f}")
-    
+
     st.markdown("---")
+    
+    # ... rest of the function remains the same
     
     # Tabs for different views
     tab1, tab2, tab3, tab4 = st.tabs(["📊 Box Score", "🎯 Shot Chart", "🥅 Shootout", "⚔️ Faceoffs"])
     
-    with tab1:
-        st.markdown('<div class="section-header">Game-by-Game Stats</div>', unsafe_allow_html=True)
+with tab1:
+        st.markdown('<div class="stat-card"><h3>Game-by-Game Stats</h3></div>', unsafe_allow_html=True)
         
         # Get game-by-game stats
         player_games = st.session_state.players_df[
@@ -839,21 +844,8 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
             # Add game number (1, 2, 3, etc.)
             player_games["game_number"] = range(1, len(player_games) + 1)
             
-            # Create season summary row
-            season_summary = pd.DataFrame([{
-                "game_number": "TOTAL",
-                "opponent": f"{len(player_games)} Games",
-                "goals": player_games["goals"].sum(),
-                "assists": player_games["assists"].sum(),
-                "points": player_games["points"].sum(),
-                "plus_minus": player_games["plus_minus"].sum(),
-                "penalty_minutes": player_games["penalty_minutes"].sum(),
-                "shots": player_games["shots"].sum()
-            }])
-            
             # Reverse order for display (most recent first) but keep numbering intact
-            individual_games = player_games[["game_number", "opponent", "goals", "assists", "points", "plus_minus", "penalty_minutes", "shots"]].iloc[::-1]
-            display_df = pd.concat([season_summary, individual_games], ignore_index=True)
+            display_df = player_games[["game_number", "opponent", "goals", "assists", "points", "plus_minus", "penalty_minutes", "shots"]].iloc[::-1]
             
             st.dataframe(
                 display_df,
