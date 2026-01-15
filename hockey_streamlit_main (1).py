@@ -866,7 +866,7 @@ with tab1:
             st.info("No game data available")
     
     with tab2:
-        st.markdown('<div class="section-header">Shot Chart</div>', unsafe_allow_html=True)
+        st.markdown('<div class="stat-card"><h3>Shot Chart</h3></div>', unsafe_allow_html=True)
         
         if not player_shots.empty:
             col1, col2, col3, col4 = st.columns(4)
@@ -888,7 +888,7 @@ with tab1:
                 st.plotly_chart(fig, use_container_width=True)
         else:
             st.info("No shot data available for this player")
-    
+            
     with tab3:
         st.markdown('<div class="section-header">Shootout Performance</div>', unsafe_allow_html=True)
         
