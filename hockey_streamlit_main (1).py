@@ -823,174 +823,221 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
     tab1, tab2, tab3, tab4 = st.tabs(["📊 Box Score", "🎯 Shot Chart", "🥅 Shootout", "⚔️ Faceoffs"])
     
 with tab1:
-        st.markdown('<div class="stat-card"><h3>Game-by-Game Stats</h3></div>', unsafe_allow_html=True)
-        
-        # Get game-by-game stats
-        player_games = st.session_state.players_df[
-            st.session_state.players_df["skater"] == player_name
-        ].copy()
-        
-        if not player_games.empty and not games_df.empty:
-            player_games = player_games.merge(games_df, on="game_id", suffixes=('', '_game'))
-            player_games["opponent"] = player_games.apply(
-                lambda row: row["away_team"] if row["team_name"] == row["home_team"] else row["home_team"],
-                axis=1
+    st.markdown(
+        '<div class="stat-card"><h3>Game-by-Game Stats</h3></div>',
+        unsafe_allow_html=True
+    )
+
+    # Get game-by-game stats
+    player_games = st.session_state.players_df[
+        st.session_state.players_df["skater"] == player_name
+    ].copy()
+
+    if not player_games.empty and not games_df.empty:
+        player_games = player_games.merge(
+            games_df, on="game_id", suffixes=("", "_game")
+        )
+
+        player_games["opponent"] = player_games.apply(
+            lambda row: row["away_team"]
+            if row["team_name"] == row["home_team"]
+            else row["home_team"],
+            axis=1
+        )
+
+        player_games["points"] = player_games["goals"] + player_games["assists"]
+
+        # Sort chronologically
+        player_games = player_games.sort_values("game_id", ascending=True)
+
+        # Add game number
+        player_games["game_number"] = range(1, len(player_games) + 1)
+
+        # Reverse for display (most recent first)
+        display_df = player_games[
+            [
+                "game_number",
+                "opponent",
+                "goals",
+                "assists",
+                "points",
+                "plus_minus",
+                "penalty_minutes",
+                "shots",
+            ]
+        ].iloc[::-1]
+
+        st.dataframe(
+            display_df,
+            hide_index=True,
+            use_container_width=True,
+            column_config={
+                "game_number": "Game #",
+                "opponent": "Opponent",
+                "goals": "G",
+                "assists": "A",
+                "points": "PTS",
+                "plus_minus": "+/-",
+                "penalty_minutes": "PIM",
+                "shots": "SOG",
+            },
+        )
+    else:
+        st.info("No game data available")
+
+
+with tab2:
+    st.markdown(
+        '<div class="stat-card"><h3>Shot Chart</h3></div>',
+        unsafe_allow_html=True
+    )
+
+    if not player_shots.empty:
+        col1, col2, col3, col4 = st.columns(4)
+
+        with col1:
+            st.metric("Total Shots", len(player_shots))
+
+        with col2:
+            goals = (player_shots["is_goal"] == True).sum()
+            st.metric("Goals", goals)
+
+        with col3:
+            shooting_pct = (goals / len(player_shots)) * 100
+            st.metric("Shooting %", f"{shooting_pct:.1f}%")
+
+        with col4:
+            avg_xg = (
+                player_shots["xg"].mean()
+                if "xg" in player_shots.columns
+                else 0
             )
-            player_games["points"] = player_games["goals"] + player_games["assists"]
-            
-            # Sort by game_id to get chronological order
-            player_games = player_games.sort_values("game_id", ascending=True)
-            
-            # Add game number (1, 2, 3, etc.)
-            player_games["game_number"] = range(1, len(player_games) + 1)
-            
-            # Reverse order for display (most recent first) but keep numbering intact
-            display_df = player_games[["game_number", "opponent", "goals", "assists", "points", "plus_minus", "penalty_minutes", "shots"]].iloc[::-1]
-            
-            st.dataframe(
-                display_df,
-                hide_index=True,
-                use_container_width=True,
-                column_config={
-                    "game_number": "Game #",
-                    "opponent": "Opponent",
-                    "goals": "G",
-                    "assists": "A",
-                    "points": "PTS",
-                    "plus_minus": "+/-",
-                    "penalty_minutes": "PIM",
-                    "shots": "SOG"
-                }
-            )
-        else:
-            st.info("No game data available")
-    
-    with tab2:
-            st.markdown('<div class="stat-card"><h3>Shot Chart</h3></div>', unsafe_allow_html=True)
-        
-        if not player_shots.empty:
-            col1, col2, col3, col4 = st.columns(4)
+            st.metric("Avg xG", f"{avg_xg:.3f}")
+
+        fig = create_shot_chart(
+            player_shots, player_name, view_type="player"
+        )
+        if fig:
+            st.plotly_chart(fig, use_container_width=True)
+    else:
+        st.info("No shot data available for this player")
+
+
+with tab3:
+    st.markdown(
+        '<div class="section-header">Shootout Performance</div>',
+        unsafe_allow_html=True
+    )
+
+    if not shootout_data.empty:
+        player_shootout = shootout_data[
+            shootout_data["player"] == player_name
+        ]
+
+        if player_shootout.empty and " " in player_name:
+            last_name = player_name.split()[-1]
+            player_shootout = shootout_data[
+                shootout_data["player"].str.lower() == last_name.lower()
+            ]
+
+        if not player_shootout.empty:
+            attempts = len(player_shootout)
+            goals = (player_shootout["goal"] == "Yes").sum()
+            success_rate = (goals / attempts * 100) if attempts else 0
+
+            col1, col2, col3 = st.columns(3)
+            col1.metric("Attempts", attempts)
+            col2.metric("Goals", goals)
+            col3.metric("Success Rate", f"{success_rate:.1f}%")
+
+            st.markdown("---")
+
+            col1, col2 = st.columns(2)
+
             with col1:
-                st.metric("Total Shots", len(player_shots))
+                st.markdown("**Shot Locations (Ice):**")
+                if "shot_location_ice" in player_shootout.columns:
+                    for loc, count in player_shootout[
+                        "shot_location_ice"
+                    ].value_counts().items():
+                        if pd.notna(loc):
+                            st.write(f"• {loc}: {count}")
+
+                st.markdown("**Move Types:**")
+                if "move_type" in player_shootout.columns:
+                    for move, count in player_shootout[
+                        "move_type"
+                    ].value_counts().items():
+                        if pd.notna(move):
+                            st.write(f"• {move}: {count}")
+
             with col2:
-                goals = len(player_shots[player_shots["is_goal"] == True])
-                st.metric("Goals", goals)
-            with col3:
-                if len(player_shots) > 0:
-                    shooting_pct = (goals / len(player_shots)) * 100
-                    st.metric("Shooting %", f"{shooting_pct:.1f}%")
-            with col4:
-                avg_xg = player_shots["xg"].mean() if "xg" in player_shots.columns else 0
-                st.metric("Avg xG", f"{avg_xg:.3f}")
-            
-            fig = create_shot_chart(player_shots, player_name, view_type="player")
-            if fig:
-                st.plotly_chart(fig, use_container_width=True)
+                st.markdown("**Shot Locations (Goal):**")
+                if "shot_location_goal" in player_shootout.columns:
+                    for loc, count in player_shootout[
+                        "shot_location_goal"
+                    ].value_counts().items():
+                        if pd.notna(loc):
+                            st.write(f"• {loc}: {count}")
+
+            st.markdown("---")
+            st.markdown("**Recent Attempts:**")
+
+            display_cols = [
+                "date",
+                "shot_location_ice",
+                "shot_location_goal",
+                "move_type",
+                "goal",
+            ]
+            available_cols = [
+                c for c in display_cols if c in player_shootout.columns
+            ]
+
+            if available_cols:
+                st.dataframe(
+                    player_shootout[available_cols].head(10),
+                    hide_index=True,
+                    use_container_width=True,
+                    column_config={
+                        "date": "Date",
+                        "shot_location_ice": "Shot From",
+                        "shot_location_goal": "Shot To",
+                        "move_type": "Move",
+                        "goal": "Result",
+                    },
+                )
         else:
-            st.info("No shot data available for this player")
-            
-    with tab3:
-        st.markdown('<div class="section-header">Shootout Performance</div>', unsafe_allow_html=True)
-        
-        if not shootout_data.empty:
-            # Try exact match first
-            player_shootout = shootout_data[shootout_data["player"] == player_name]
-            
-            # If no match, try matching by last name only
-            if player_shootout.empty and " " in player_name:
-                last_name = player_name.split()[-1]
-                player_shootout = shootout_data[shootout_data["player"].str.lower() == last_name.lower()]
-            
-            if not player_shootout.empty:
-                attempts = len(player_shootout)
-                goals = (player_shootout["goal"] == "Yes").sum()
-                success_rate = (goals / attempts * 100) if attempts > 0 else 0
-                
-                col1, col2, col3 = st.columns(3)
-                with col1:
-                    st.metric("Attempts", attempts)
-                with col2:
-                    st.metric("Goals", goals)
-                with col3:
-                    st.metric("Success Rate", f"{success_rate:.1f}%")
-                
-                st.markdown("---")
-                
-                # Display shootout details
-                col1, col2 = st.columns(2)
-                
-                with col1:
-                    st.markdown("**Shot Locations (Ice):**")
-                    if "shot_location_ice" in player_shootout.columns:
-                        locations = player_shootout["shot_location_ice"].value_counts()
-                        for loc, count in locations.items():
-                            if pd.notna(loc) and str(loc).lower() not in ['nan', 'n/a', '']:
-                                st.write(f"• {loc}: {count}")
-                    
-                    st.markdown("**Move Types:**")
-                    if "move_type" in player_shootout.columns:
-                        moves = player_shootout["move_type"].value_counts()
-                        for move, count in moves.items():
-                            if pd.notna(move) and str(move).lower() not in ['nan', 'n/a', '']:
-                                st.write(f"• {move}: {count}")
-                
-                with col2:
-                    st.markdown("**Shot Locations (Goal):**")
-                    if "shot_location_goal" in player_shootout.columns:
-                        goal_locs = player_shootout["shot_location_goal"].value_counts()
-                        for loc, count in goal_locs.items():
-                            if pd.notna(loc) and str(loc).lower() not in ['nan', 'n/a', '']:
-                                st.write(f"• {loc}: {count}")
-                
-                # Show recent attempts
-                st.markdown("---")
-                st.markdown("**Recent Attempts:**")
-                display_cols = ['date', 'shot_location_ice', 'shot_location_goal', 'move_type', 'goal']
-                available_cols = [col for col in display_cols if col in player_shootout.columns]
-                
-                if available_cols:
-                    recent = player_shootout[available_cols].head(10)
-                    st.dataframe(
-                        recent,
-                        hide_index=True,
-                        use_container_width=True,
-                        column_config={
-                            'date': 'Date',
-                            'shot_location_ice': 'Shot From',
-                            'shot_location_goal': 'Shot To',
-                            'move_type': 'Move',
-                            'goal': 'Result'
-                        }
-                    )
-            else:
-                st.info("No shootout data available for this player")
+            st.info("No shootout data available for this player")
+    else:
+        st.info("No shootout data loaded")
+
+
+with tab4:
+    st.markdown(
+        '<div class="section-header">Faceoff Statistics</div>',
+        unsafe_allow_html=True
+    )
+
+    if not faceoff_data.empty:
+        player_faceoff = faceoff_data[
+            faceoff_data["player"] == player_name
+        ]
+
+        if not player_faceoff.empty:
+            row = player_faceoff.iloc[0]
+
+            col1, col2, col3, col4, col5 = st.columns(5)
+            col1.metric("Total", row.get("total_faceoffs", 0))
+            col2.metric("Overall", f"{row.get('overall', 0):.1f}%")
+            col3.metric("Offensive", f"{row.get('offensive', 0):.1f}%")
+            col4.metric("Defensive", f"{row.get('defensive', 0):.1f}%")
+            col5.metric("Neutral", f"{row.get('neutral', 0):.1f}%")
         else:
-            st.info("No shootout data loaded")
-    
-    with tab4:
-        st.markdown('<div class="section-header">Faceoff Statistics</div>', unsafe_allow_html=True)
-        
-        if not faceoff_data.empty:
-            player_faceoff = faceoff_data[faceoff_data["player"] == player_name]
-            
-            if not player_faceoff.empty:
-                row = player_faceoff.iloc[0]
-                
-                col1, col2, col3, col4, col5 = st.columns(5)
-                with col1:
-                    st.metric("Total", row.get("total_faceoffs", 0))
-                with col2:
-                    st.metric("Overall", f"{row.get('overall', 0):.1f}%")
-                with col3:
-                    st.metric("Offensive", f"{row.get('offensive', 0):.1f}%")
-                with col4:
-                    st.metric("Defensive", f"{row.get('defensive', 0):.1f}%")
-                with col5:
-                    st.metric("Neutral", f"{row.get('neutral', 0):.1f}%")
-            else:
-                st.info("No faceoff data available for this player")
-        else:
-            st.info("No faceoff data loaded")
+            st.info("No faceoff data available for this player")
+    else:
+        st.info("No faceoff data loaded")
+
 
 def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, games_df):
     """Render a complete goalie card."""
