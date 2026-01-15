@@ -407,8 +407,43 @@ def load_all_data():
             logging.exception(f"Error processing boxscore file {f}: {e}")
 
     # Combine all data
-    players_df = pd.concat(all_players).drop_duplicates(subset=["game_id", "skater"]) if all_players else pd.DataFrame()
-    goalies_df = pd.concat(all_goalies).drop_duplicates(subset=["game_id", "skater"]) if all_goalies else pd.DataFrame()
+   # Combine all data
+    players_df = pd.concat(all_players) if all_players else pd.DataFrame()
+    goalies_df = pd.concat(all_goalies) if all_goalies else pd.DataFrame()
+    games_df = pd.DataFrame(all_games).drop_duplicates(subset=["game_id"]) if all_games else pd.DataFrame()
+    game_team_df = pd.DataFrame(game_team_ids).drop_duplicates(subset=["game_id"]) if game_team_ids else pd.DataFrame()
+
+    # Handle stat corrections: sum stats for duplicate game_id + skater combinations
+    if not players_df.empty:
+        # Group by game_id and skater, summing numeric stats
+        numeric_cols = ["goals", "assists", "penalty_minutes", "plus_minus", "shots"]
+        agg_dict = {col: "sum" for col in numeric_cols}
+        agg_dict.update({
+            "pos": "first",
+            "team_name": "first",
+            "team_id": "first",
+            "team_side": "first",
+            "season": "first",
+            "number": "first"
+        })
+        
+        players_df = players_df.groupby(["game_id", "skater"], as_index=False).agg(agg_dict)
+    
+    if not goalies_df.empty:
+        # Group by game_id and skater, summing numeric stats
+        numeric_cols = ["saves", "goals_against"]
+        agg_dict = {col: "sum" for col in numeric_cols}
+        agg_dict.update({
+            "pos": "first",
+            "team_name": "first",
+            "team_id": "first",
+            "team_side": "first",
+            "season": "first",
+            "number": "first",
+            "minutes_played": "first"  # Usually don't sum minutes for goalies
+        })
+        
+        goalies_df = goalies_df.groupby(["game_id", "skater"], as_index=False).agg(agg_dict)
     games_df = pd.DataFrame(all_games).drop_duplicates(subset=["game_id"]) if all_games else pd.DataFrame()
     game_team_df = pd.DataFrame(game_team_ids).drop_duplicates(subset=["game_id"]) if game_team_ids else pd.DataFrame()
 
