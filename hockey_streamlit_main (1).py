@@ -379,9 +379,12 @@ def load_all_data():
             crunch_row = df[df["team_name"] == TARGET_TEAM]
             if not crunch_row.empty:
                 crunch_team_id = int(crunch_row["team_id"].iloc[0])
+                # Also get opponent team ID
+                opponent_team_id = away_team_id if crunch_team_id == home_team_id else home_team_id
                 game_team_ids.append({
                     "game_id": game_id,
-                    "crunch_team_id": crunch_team_id
+                    "crunch_team_id": crunch_team_id,
+                    "opponent_team_id": opponent_team_id
                 })
             
             df["is_goalie"] = df["pos"] == "G"
@@ -390,8 +393,6 @@ def load_all_data():
             players_df = df[~df["is_goalie"]].copy()
             goalies_df = df[df["is_goalie"]].copy()
             
-            # Use goals directly from boxscore file - don't override with shot data
-            # The boxscore file already has the correct goals (g column)
             players_df = players_df.rename(
                 columns={"g": "goals", "a": "assists", "pim": "penalty_minutes", "sog": "shots"}
             )
@@ -407,11 +408,8 @@ def load_all_data():
             logging.exception(f"Error processing boxscore file {f}: {e}")
 
     # Combine all data
-   # Combine all data
     players_df = pd.concat(all_players) if all_players else pd.DataFrame()
     goalies_df = pd.concat(all_goalies) if all_goalies else pd.DataFrame()
-    games_df = pd.DataFrame(all_games).drop_duplicates(subset=["game_id"]) if all_games else pd.DataFrame()
-    game_team_df = pd.DataFrame(game_team_ids).drop_duplicates(subset=["game_id"]) if game_team_ids else pd.DataFrame()
 
     # Handle stat corrections: sum stats for duplicate game_id + skater combinations
     if not players_df.empty:
@@ -440,10 +438,11 @@ def load_all_data():
             "team_side": "first",
             "season": "first",
             "number": "first",
-            "minutes_played": "first"  # Usually don't sum minutes for goalies
+            "minutes_played": "first"
         })
         
         goalies_df = goalies_df.groupby(["game_id", "skater"], as_index=False).agg(agg_dict)
+    
     games_df = pd.DataFrame(all_games).drop_duplicates(subset=["game_id"]) if all_games else pd.DataFrame()
     game_team_df = pd.DataFrame(game_team_ids).drop_duplicates(subset=["game_id"]) if game_team_ids else pd.DataFrame()
 
@@ -453,33 +452,49 @@ def load_all_data():
     if not goalies_df.empty:
         goalies_df = goalies_df[goalies_df["team_name"] == TARGET_TEAM]
 
-    # Add season to shots and filter by Crunch team_id
+    # Split shots into two dataframes: shots BY Crunch and shots AGAINST Crunch
+    shot_df_players = pd.DataFrame()
+    shot_df_goalies = pd.DataFrame()
+    
     if not shot_df.empty and not games_df.empty:
+        # Add season to shots
         if "season" not in shot_df.columns:
             shot_df = pd.merge(shot_df, games_df[["game_id", "season"]], on="game_id", how="left")
         
-        # Add Crunch team ID to shot data
+        # Add Crunch and opponent team IDs to shot data
         if not game_team_df.empty:
             shot_df = pd.merge(shot_df, game_team_df, on="game_id", how="left")
             
-            # Filter shots to only those taken BY Syracuse Crunch
-            shot_df = shot_df[shot_df["shooter_team_id"] == shot_df["crunch_team_id"]]
+            # SHOTS BY CRUNCH PLAYERS (for player shot charts)
+            shot_df_players = shot_df[shot_df["shooter_team_id"] == shot_df["crunch_team_id"]].copy()
             
             # Further filter by Crunch players (in case of name conflicts)
             if not players_df.empty:
                 crunch_players = players_df["skater"].unique()
-                shot_df = shot_df[shot_df["shooter"].isin(crunch_players)]
-        
-        # Filter shots for Crunch goalies (shots AGAINST Crunch)
-        if not goalies_df.empty:
-            crunch_goalies = goalies_df["skater"].unique()
-            shot_df_goalies = shot_df[shot_df["goalie"].isin(crunch_goalies)]
+                shot_df_players = shot_df_players[shot_df_players["shooter"].isin(crunch_players)]
+            
+            # SHOTS AGAINST CRUNCH GOALIES (for goalie charts)
+            # These are shots where the shooter_team_id is the OPPONENT
+            shot_df_goalies = shot_df[shot_df["shooter_team_id"] == shot_df["opponent_team_id"]].copy()
+            
+            # Further filter by Crunch goalies
+            if not goalies_df.empty:
+                crunch_goalies = goalies_df["skater"].unique()
+                shot_df_goalies = shot_df_goalies[shot_df_goalies["goalie"].isin(crunch_goalies)]
+            
+            # Log the filtering results
+            logging.info(f"Player shots (by Crunch): {len(shot_df_players)}")
+            logging.info(f"Goalie shots (against Crunch): {len(shot_df_goalies)}")
         else:
-            shot_df_goalies = pd.DataFrame()
-    else:
-        shot_df_goalies = pd.DataFrame()
+            # Fallback if no team mapping available
+            if not goalies_df.empty:
+                crunch_goalies = goalies_df["skater"].unique()
+                shot_df_goalies = shot_df[shot_df["goalie"].isin(crunch_goalies)].copy()
+                logging.info(f"Using fallback goalie filtering: {len(shot_df_goalies)} shots")
 
-    return players_df, goalies_df, games_df, shot_df, shot_df_goalies
+    return players_df, goalies_df, games_df, shot_df_players, shot_df_goalies
+
+    
 @st.cache_data
 def load_faceoff_data():
     """Load faceoff data."""
