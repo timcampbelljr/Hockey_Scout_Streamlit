@@ -941,6 +941,7 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
                     selected_game = st.selectbox(
                         "Select Game:",
                         available_games,
+                        index=len(available_games) - 1,  # Default to most recent game
                         format_func=lambda x: game_lookup.get(x, f"Game {x}"),
                         key=f"player_single_game_{player_name}"
                     )
@@ -1168,6 +1169,7 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                     selected_game = st.selectbox(
                         "Select Game:",
                         available_games,
+                        index=len(available_games) - 1,  # Default to most recent game
                         format_func=lambda x: game_lookup.get(x, f"Game {x}"),
                         key=f"player_single_game_{player_name}"
                     )
