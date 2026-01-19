@@ -907,6 +907,24 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
             # Game selector for shot chart
             available_games = sorted(player_shots["game_id"].unique())
             
+            # Create game lookup dictionary with opponent info
+            game_lookup = {}
+            player_games = st.session_state.players_df[
+                st.session_state.players_df["skater"] == player_name
+            ].copy()
+            
+            if not player_games.empty and not games_df.empty:
+                player_games = player_games.merge(games_df, on="game_id", suffixes=("", "_game"))
+                player_games["opponent"] = player_games.apply(
+                    lambda row: row["away_team"] if row["team_name"] == row["home_team"] else row["home_team"],
+                    axis=1
+                )
+                player_games = player_games.sort_values("game_id")
+                player_games["game_number"] = range(1, len(player_games) + 1)
+                
+                for _, row in player_games.iterrows():
+                    game_lookup[row["game_id"]] = f"Game {row['game_number']}: {row['opponent']}"
+            
             col1, col2 = st.columns([3, 1])
             with col1:
                 game_filter_option = st.radio(
@@ -923,7 +941,7 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
                     selected_game = st.selectbox(
                         "Select Game:",
                         available_games,
-                        format_func=lambda x: f"Game {x}",
+                        format_func=lambda x: game_lookup.get(x, f"Game {x}"),
                         key=f"player_single_game_{player_name}"
                     )
                 filtered_shots = player_shots[player_shots["game_id"] == selected_game]
@@ -1116,6 +1134,24 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
             # Game selector for shot chart
             available_games = sorted(player_shots["game_id"].unique())
             
+            # Create game lookup dictionary with opponent info
+            game_lookup = {}
+            player_games = st.session_state.players_df[
+                st.session_state.players_df["skater"] == player_name
+            ].copy()
+            
+            if not player_games.empty and not games_df.empty:
+                player_games = player_games.merge(games_df, on="game_id", suffixes=("", "_game"))
+                player_games["opponent"] = player_games.apply(
+                    lambda row: row["away_team"] if row["team_name"] == row["home_team"] else row["home_team"],
+                    axis=1
+                )
+                player_games = player_games.sort_values("game_id")
+                player_games["game_number"] = range(1, len(player_games) + 1)
+                
+                for _, row in player_games.iterrows():
+                    game_lookup[row["game_id"]] = f"Game {row['game_number']}: {row['opponent']}"
+            
             col1, col2 = st.columns([3, 1])
             with col1:
                 game_filter_option = st.radio(
@@ -1132,7 +1168,7 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                     selected_game = st.selectbox(
                         "Select Game:",
                         available_games,
-                        format_func=lambda x: f"Game {x}",
+                        format_func=lambda x: game_lookup.get(x, f"Game {x}"),
                         key=f"player_single_game_{player_name}"
                     )
                 filtered_shots = player_shots[player_shots["game_id"] == selected_game]
