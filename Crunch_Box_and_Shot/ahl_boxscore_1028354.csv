@@ -1,0 +1,41 @@
+a,g,ga,game_id,is_goalie,mins,number,pim,plus_minus,pos,shots,skater,svs,team_id,team_name,team_side
+0,0,,1028354,0,0:00,3,0,0,D,0,Helge Grans,,313,Lehigh Valley Phantoms,home
+0,0,,1028354,0,0:00,12,2,0,F,0,Devin Kaplan,,313,Lehigh Valley Phantoms,home
+1,0,,1028354,0,0:00,15,0,-2,D,1,Christian Kyrou,,313,Lehigh Valley Phantoms,home
+0,0,,1028354,0,0:00,17,0,-1,LW,1,Garrett Wilson,,313,Lehigh Valley Phantoms,home
+0,0,,1028354,0,0:00,20,0,-1,RW,2,Cooper Marody,,313,Lehigh Valley Phantoms,home
+0,0,,1028354,0,0:00,22,0,-2,F,2,Tucker Robertson,,313,Lehigh Valley Phantoms,home
+0,0,,1028354,0,0:00,23,0,-1,F,0,Karsen Dorwart,,313,Lehigh Valley Phantoms,home
+0,0,,1028354,0,0:00,25,0,-1,C,3,Lane Pederson,,313,Lehigh Valley Phantoms,home
+1,0,,1028354,0,0:00,26,0,-2,RW,1,Phil Tomasino,,313,Lehigh Valley Phantoms,home
+0,0,,1028354,0,0:00,37,0,-2,D,1,Adam Ginning,,313,Lehigh Valley Phantoms,home
+0,0,,1028354,0,0:00,43,0,0,F,1,Oscar Eklind,,313,Lehigh Valley Phantoms,home
+0,0,,1028354,0,0:00,56,0,0,F,0,Jacob Gaucher,,313,Lehigh Valley Phantoms,home
+0,0,,1028354,0,0:00,59,0,0,D,3,Oliver Bonk,,313,Lehigh Valley Phantoms,home
+0,0,,1028354,0,0:00,72,12,-2,F,5,Alexis Gendron,,313,Lehigh Valley Phantoms,home
+0,0,,1028354,0,0:00,74,0,0,C,0,Zayde Wisdom,,313,Lehigh Valley Phantoms,home
+0,0,,1028354,0,0:00,76,2,-1,D,0,Roman Schmidt,,313,Lehigh Valley Phantoms,home
+0,0,,1028354,0,0:00,82,0,0,D,3,Maxence Guenette,,313,Lehigh Valley Phantoms,home
+0,1,,1028354,0,0:00,90,0,-1,LW,5,Anthony Richard,,313,Lehigh Valley Phantoms,home
+0,0,3,1028354,1,58:39,1,0,0,G,,Yaniv Perets,17,313,Lehigh Valley Phantoms,home
+0,0,0,1028354,1,,64,0,0,G,,Carson Bjarnason,0,313,Lehigh Valley Phantoms,home
+0,1,,1028354,0,0:00,8,0,1,D,2,Tommy Miller,,324,Syracuse Crunch,away
+1,0,,1028354,0,0:00,11,0,1,C,0,Lucas Mercuri,,324,Syracuse Crunch,away
+0,0,,1028354,0,0:00,13,0,0,LW,1,Brendan Furry,,324,Syracuse Crunch,away
+0,1,,1028354,0,0:00,14,0,1,C,1,Tristan Allard,,324,Syracuse Crunch,away
+0,0,,1028354,0,0:00,20,0,0,RW,2,Cooper Flinton,,324,Syracuse Crunch,away
+2,0,,1028354,0,0:00,22,0,1,LW,3,Jakob Pelletier,,324,Syracuse Crunch,away
+1,0,,1028354,0,0:00,23,0,2,D,1,Maxim Groshev,,324,Syracuse Crunch,away
+0,1,,1028354,0,0:00,25,0,1,RW,2,Dylan Duke,,324,Syracuse Crunch,away
+0,0,,1028354,0,0:00,28,6,0,D,1,Jarred Tinordi,,324,Syracuse Crunch,away
+0,0,,1028354,0,0:00,39,0,1,LW,2,Curtis Douglas,,324,Syracuse Crunch,away
+1,0,,1028354,0,0:00,42,4,1,D,0,Ethan Samson,,324,Syracuse Crunch,away
+0,0,,1028354,0,0:00,75,0,0,D,2,Matteo Pietroniro,,324,Syracuse Crunch,away
+0,0,,1028354,0,0:00,79,0,1,RW,0,Ethan Gauthier,,324,Syracuse Crunch,away
+1,1,,1028354,0,0:00,80,0,1,RW,2,Nick Abruzzese,,324,Syracuse Crunch,away
+1,0,,1028354,0,0:00,81,0,1,LW,0,Milo Roelens,,324,Syracuse Crunch,away
+1,0,,1028354,0,0:00,94,2,1,C,2,Conor Geekie,,324,Syracuse Crunch,away
+0,0,,1028354,0,0:00,95,0,0,C,0,Gabriel Szturc,,324,Syracuse Crunch,away
+0,0,,1028354,0,0:00,96,0,2,D,0,Chris Harpur,,324,Syracuse Crunch,away
+0,0,1,1028354,1,60:00,32,0,0,G,,Jon Gillies,27,324,Syracuse Crunch,away
+0,0,0,1028354,1,,59,0,0,G,,Ryan Fanti,0,324,Syracuse Crunch,away
