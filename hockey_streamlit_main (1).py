@@ -904,24 +904,51 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
         )
 
         if not player_shots.empty:
+            # Game selector for shot chart
+            available_games = sorted(player_shots["game_id"].unique())
+            
+            col1, col2 = st.columns([3, 1])
+            with col1:
+                game_filter_option = st.radio(
+                    "Show shots from:",
+                    ["All Games", "Single Game"],
+                    horizontal=True,
+                    key=f"player_game_filter_{player_name}"
+                )
+            
+            # Filter shots based on selection
+            filtered_shots = player_shots.copy()
+            if game_filter_option == "Single Game":
+                with col2:
+                    selected_game = st.selectbox(
+                        "Select Game:",
+                        available_games,
+                        format_func=lambda x: f"Game {x}",
+                        key=f"player_single_game_{player_name}"
+                    )
+                filtered_shots = player_shots[player_shots["game_id"] == selected_game]
+            
+            st.markdown("---")
+            
+            # Metrics
             col1, col2, col3, col4 = st.columns(4)
 
-            col1.metric("Total Shots", len(player_shots))
-            goals = (player_shots["is_goal"] == True).sum()
+            col1.metric("Total Shots", len(filtered_shots))
+            goals = (filtered_shots["is_goal"] == True).sum()
             col2.metric("Goals", goals)
             col3.metric(
                 "Shooting %",
-                f"{(goals / len(player_shots)) * 100:.1f}%"
+                f"{(goals / len(filtered_shots)) * 100:.1f}%" if len(filtered_shots) > 0 else "0.0%"
             )
 
             avg_xg = (
-                player_shots["xg"].mean()
-                if "xg" in player_shots.columns
+                filtered_shots["xg"].mean()
+                if "xg" in filtered_shots.columns and len(filtered_shots) > 0
                 else 0
             )
             col4.metric("Avg xG", f"{avg_xg:.3f}")
 
-            fig = create_shot_chart(player_shots, player_name, view_type="player")
+            fig = create_shot_chart(filtered_shots, player_name, view_type="player")
             if fig:
                 st.plotly_chart(fig, use_container_width=True)
         else:
@@ -1080,29 +1107,61 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
             st.info("No game data available")
     
     with tab2:
-        st.markdown('<div class="section-header">Goals Against Chart</div>', unsafe_allow_html=True)
-        
-        if not goalie_shots.empty:
-            goals_against = goalie_shots[goalie_shots["is_goal"] == True]
+        st.markdown(
+            '<div class="stat-card"><h3>Shot Chart</h3></div>',
+            unsafe_allow_html=True
+        )
+
+        if not player_shots.empty:
+            # Game selector for shot chart
+            available_games = sorted(player_shots["game_id"].unique())
             
-            col1, col2, col3 = st.columns(3)
+            col1, col2 = st.columns([3, 1])
             with col1:
-                st.metric("Shots Faced", len(goalie_shots))
-            with col2:
-                st.metric("Goals Against", len(goals_against))
-            with col3:
-                if len(goalie_shots) > 0:
-                    sv_pct = ((len(goalie_shots) - len(goals_against)) / len(goalie_shots)) * 100
-                    st.metric("Save %", f"{sv_pct:.1f}%")
+                game_filter_option = st.radio(
+                    "Show shots from:",
+                    ["All Games", "Single Game"],
+                    horizontal=True,
+                    key=f"player_game_filter_{player_name}"
+                )
             
-            if not goals_against.empty:
-                fig = create_shot_chart(goals_against, goalie_name, view_type="goalie")
-                if fig:
-                    st.plotly_chart(fig, use_container_width=True)
-            else:
-                st.success("🎉 No goals against in shot data!")
+            # Filter shots based on selection
+            filtered_shots = player_shots.copy()
+            if game_filter_option == "Single Game":
+                with col2:
+                    selected_game = st.selectbox(
+                        "Select Game:",
+                        available_games,
+                        format_func=lambda x: f"Game {x}",
+                        key=f"player_single_game_{player_name}"
+                    )
+                filtered_shots = player_shots[player_shots["game_id"] == selected_game]
+            
+            st.markdown("---")
+            
+            # Metrics
+            col1, col2, col3, col4 = st.columns(4)
+
+            col1.metric("Total Shots", len(filtered_shots))
+            goals = (filtered_shots["is_goal"] == True).sum()
+            col2.metric("Goals", goals)
+            col3.metric(
+                "Shooting %",
+                f"{(goals / len(filtered_shots)) * 100:.1f}%" if len(filtered_shots) > 0 else "0.0%"
+            )
+
+            avg_xg = (
+                filtered_shots["xg"].mean()
+                if "xg" in filtered_shots.columns and len(filtered_shots) > 0
+                else 0
+            )
+            col4.metric("Avg xG", f"{avg_xg:.3f}")
+
+            fig = create_shot_chart(filtered_shots, player_name, view_type="player")
+            if fig:
+                st.plotly_chart(fig, use_container_width=True)
         else:
-            st.info("No shot data available for this goalie")
+            st.info("No shot data available for this player")
     
     with tab3:
         st.markdown('<div class="section-header">Shootout Performance</div>', unsafe_allow_html=True)
