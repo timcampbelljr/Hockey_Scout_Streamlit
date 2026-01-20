@@ -1200,6 +1200,8 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
             fig = create_shot_chart(goals_only, goalie_name, view_type="goalie")
             if fig:
                 st.plotly_chart(fig, use_container_width=True)
+            else:
+                st.info("No goals scored against this goalie in selected game(s)")
         else:
             st.info("No shot data available for this goalie")
     
@@ -1250,7 +1252,6 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                 st.info("No shootout data available for this goalie")
         else:
             st.info("No shootout data loaded")
-
 # ============================================================================
 # ROSTER MANAGEMENT UI
 # ============================================================================
