@@ -529,97 +529,117 @@ def load_faceoff_data():
 def load_shootout_data():
     """Load shootout data."""
     try:
-        # Check all possible directories for shootout data - more flexible pattern
+        # Check all possible directories for shootout data
         shootout_files = []
-        for directory in [ASSETS_DIR, CRUNCH_DATA_DIR]:
+        for directory in [ASSETS_DIR, CRUNCH_DATA_DIR, UPLOAD_DIR, Path(".")]:
             if directory.exists():
-                # Cast to list to avoid issues
-                shootout_files.extend(list(directory.glob("*shootout*.csv")))
-                shootout_files.extend(list(directory.glob("*shootout*.xlsx")))
-                shootout_files.extend(list(directory.glob("*Shootout*.csv")))
-                shootout_files.extend(list(directory.glob("*Shootout*.xlsx")))
-                shootout_files.extend(list(directory.glob("*SO*.csv")))  # Added for "SO" pattern
-                shootout_files.extend(list(directory.glob("*SO*.xlsx")))
+                all_csvs = list(directory.glob("*.csv"))
+                shootout_csvs = [
+                    f for f in all_csvs 
+                    if any(keyword in f.name.lower() for keyword in ['shootout', 'shoot', 'so'])
+                ]
+                shootout_files.extend(shootout_csvs)
         
         # Remove duplicates
-        shootout_files = list(set(shootout_files))
+        unique_files = {}
+        for f in shootout_files:
+            unique_files[f.name] = f
+        shootout_files = list(unique_files.values())
         
         if not shootout_files:
-            logging.warning("No shootout files found in directories")
-            logging.warning(f"Checked directories: {[str(d) for d in [ASSETS_DIR, CRUNCH_DATA_DIR] if d.exists()]}")
+            logging.warning("No shootout files found")
             return pd.DataFrame()
         
-        logging.info(f"Found {len(shootout_files)} shootout file(s): {[f.name for f in shootout_files]}")
-        logging.info(f"Using shootout file: {shootout_files[0]}")
+        shootout_file = shootout_files[0]
+        logging.info(f"Loading shootout file: {shootout_file}")
         
-        # Try UTF-8 first, then fall back to cp1252
-        try:
-            df = pd.read_csv(shootout_files[0], encoding='utf-8')
-            logging.info("Loaded with UTF-8 encoding")
-        except UnicodeDecodeError:
-            logging.info("UTF-8 failed, trying cp1252 encoding")
-            df = pd.read_csv(shootout_files[0], encoding='cp1252')
+        # Try multiple encodings AND error handling for malformed CSV
+        df = None
+        for encoding in ['utf-8', 'cp1252', 'latin-1']:
+            try:
+                # Use error_bad_lines=False to skip bad lines, or on_bad_lines='skip' for newer pandas
+                try:
+                    # Pandas >= 1.3
+                    df = pd.read_csv(
+                        shootout_file, 
+                        encoding=encoding,
+                        on_bad_lines='skip'  # Skip lines with wrong number of fields
+                    )
+                except TypeError:
+                    # Pandas < 1.3
+                    df = pd.read_csv(
+                        shootout_file, 
+                        encoding=encoding,
+                        error_bad_lines=False  # Skip lines with wrong number of fields
+                    )
+                
+                logging.info(f"✅ Loaded with {encoding} encoding")
+                break
+            except Exception as e:
+                logging.info(f"Failed with {encoding}: {e}")
+                continue
         
-        logging.info(f"Raw shootout data: {len(df)} rows")
-        logging.info(f"Columns found: {df.columns.tolist()}")
+        if df is None or df.empty:
+            logging.error("Could not load shootout data")
+            return pd.DataFrame()
+        
+        logging.info(f"Loaded {len(df)} rows")
+        logging.info(f"Columns: {df.columns.tolist()}")
         
         # Normalize column names
         df.columns = df.columns.str.strip().str.lower()
-        logging.info(f"Normalized columns: {df.columns.tolist()}")
         
-        # Rename columns to match expected format
+        # Rename columns
         column_mapping = {
             'where player shot from on ice': 'shot_location_ice',
             'where the shot went on goal': 'shot_location_goal',
             'what move they made': 'move_type',
             'goalie (don\'t worry about this)': 'goalie',
             "goalie (don't worry about this)": 'goalie',
-            'goalie': 'goalie',
-            'date': 'date',
-            'team': 'team',
-            'player': 'player',
-            'goal': 'goal'
         }
         
         df = df.rename(columns=column_mapping)
-        logging.info(f"Columns after mapping: {df.columns.tolist()}")
         
         # Clean up data
-        df["player"] = df["player"].fillna("").astype(str).str.strip()
-        df["team"] = df.get("team", pd.Series([""] * len(df))).fillna("").astype(str).str.strip()
+        if 'player' in df.columns:
+            df["player"] = df["player"].fillna("").astype(str).str.strip()
+        else:
+            logging.error("No 'player' column found!")
+            return pd.DataFrame()
         
-        # Clean goalie column if it exists
-        if "goalie" in df.columns:
+        if 'team' in df.columns:
+            df["team"] = df["team"].fillna("").astype(str).str.strip()
+        else:
+            df["team"] = ""
+        
+        if 'goalie' in df.columns:
             df["goalie"] = df["goalie"].fillna("").astype(str).str.strip()
-            logging.info(f"Sample goalie names: {df['goalie'].unique()[:5].tolist()}")
+        else:
+            df["goalie"] = ""
         
-        logging.info(f"Sample player names: {df['player'].unique()[:5].tolist()}")
-        logging.info(f"Sample teams: {df['team'].unique()[:5].tolist()}")
-        
-        # Remove rows with empty player names or "idle"
-        initial_len = len(df)
+        # Remove empty/idle players
         df = df[df["player"].notna() & (df["player"] != "") & (df["player"].str.lower() != "idle")].copy()
-        logging.info(f"Removed {initial_len - len(df)} rows with empty/idle players")
         
         # Clean goal column
-        df["goal"] = df["goal"].fillna("No")
-        df["goal"] = df["goal"].apply(lambda x: "Yes" if str(x).strip().lower() in ["yes", "y", "goal", "1"] else "No")
+        if 'goal' in df.columns:
+            df["goal"] = df["goal"].fillna("No")
+            df["goal"] = df["goal"].apply(
+                lambda x: "Yes" if str(x).strip().lower() in ["yes", "y", "goal", "1", "true"] else "No"
+            )
+        else:
+            logging.error("No 'goal' column found!")
+            return pd.DataFrame()
         
-        # Drop rows where all important columns are NaN
-        df = df.dropna(subset=['player', 'goal'], how='all')
-        
-        # Add a flag to identify if this is a Crunch shooter or opponent shooter
-        # If team is Syracuse Crunch, the player is a Crunch shooter
-        # If team is NOT Syracuse Crunch, the player is an opponent (and goalie column has the Crunch goalie)
+        # Add Crunch shooter flag
         df["is_crunch_shooter"] = df["team"].str.contains("Syracuse Crunch|Crunch", case=False, na=False)
         
-        logging.info(f"Final shootout data: {len(df)} rows ({df['is_crunch_shooter'].sum()} Crunch shooters, {(~df['is_crunch_shooter']).sum()} opponent shooters)")
+        logging.info(f"Final: {len(df)} rows ({df['is_crunch_shooter'].sum()} Crunch, {(~df['is_crunch_shooter']).sum()} opponent)")
         
         return df
+        
     except Exception as e:
         logging.exception(f"Error loading shootout data: {e}")
         return pd.DataFrame()
-
 
 
 # ============================================================================
