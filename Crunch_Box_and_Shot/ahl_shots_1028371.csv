@@ -1,0 +1,67 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028371,shot,1,1:39,4666,Jarred,Tinordi,324,10002,Devon,Levi,False,Non quality on net,Default,443,57
+1028371,shot,1,2:35,10148,Dylan,Duke,324,10002,Devon,Levi,False,Non quality on net,Default,139,45
+1028371,shot,1,2:37,10526,Cooper,Flinton,324,10002,Devon,Levi,False,Quality on net,Default,111,159
+1028371,shot,1,3:41,9700,Trevor,Kuntar,323,9096,Ryan,Fanti,False,Quality on net,Default,480,81
+1028371,shot,1,4:59,9079,Tommy,Miller,324,10002,Devon,Levi,False,Non quality on net,Default,121,246
+1028371,shot,1,5:06,8744,Jakob,Pelletier,324,10002,Devon,Levi,False,Quality on net,Default,115,163
+1028371,shot,1,9:33,9927,Viktor,Neuchev,323,9096,Ryan,Fanti,False,Quality on net,Default,499,123
+1028371,shot,1,12:18,8864,Zac,Jones,323,9096,Ryan,Fanti,False,Non quality on net,Default,463,42
+1028371,shot,1,12:26,9700,Trevor,Kuntar,323,9096,Ryan,Fanti,False,Quality on net,Default,467,105
+1028371,shot,1,14:10,10926,Redmond,Savage,323,9096,Ryan,Fanti,False,Non quality on net,Default,472,22
+1028371,shot,1,14:59,9202,Conor,Geekie,324,10002,Devon,Levi,True,Non quality goal,Default,151,154
+1028371,goal,1,14:59,9202,Conor,Geekie,,,,,,,,151,154
+1028371,shot,1,15:32,8680,Curtis,Douglas,324,10002,Devon,Levi,False,Non quality on net,Default,47,121
+1028371,shot,1,18:57,9202,Conor,Geekie,324,10002,Devon,Levi,False,Quality on net,Default,62,166
+1028371,shot,1,19:31,9754,Tristan,Allard,324,10002,Devon,Levi,False,Quality on net,Default,75,150
+1028371,shot,1,19:32,9754,Tristan,Allard,324,10002,Devon,Levi,False,Quality on net,Default,63,128
+1028371,shot,2,2:17,9761,Olivier,Nadeau,323,9096,Ryan,Fanti,False,Non quality on net,Default,477,229
+1028371,shot,2,3:27,9930,Nikita,Novikov,323,9096,Ryan,Fanti,False,Non quality on net,Default,399,47
+1028371,shot,2,3:51,9930,Nikita,Novikov,323,9096,Ryan,Fanti,False,Non quality on net,Default,469,37
+1028371,shot,2,3:58,8619,Jack,Rathbone,323,9096,Ryan,Fanti,False,Non quality on net,Default,411,179
+1028371,shot,2,4:15,9643,Jagger,Joshua,323,9096,Ryan,Fanti,False,Non quality on net,Default,555,198
+1028371,shot,2,5:30,9202,Conor,Geekie,324,10002,Devon,Levi,False,Quality on net,Default,63,157
+1028371,shot,2,5:47,9563,Nick,Abruzzese,324,10002,Devon,Levi,False,Quality on net,Default,54,140
+1028371,shot,2,5:48,8744,Jakob,Pelletier,324,10002,Devon,Levi,False,Quality on net,Default,60,127
+1028371,shot,2,6:27,9761,Olivier,Nadeau,323,9096,Ryan,Fanti,False,Quality on net,Default,492,128
+1028371,shot,2,6:34,7622,Jake,Leschyshyn,323,9096,Ryan,Fanti,False,Quality on net,Default,543,171
+1028371,shot,2,7:00,9896,Maxim,Groshev,324,10002,Devon,Levi,False,Non quality on net,Default,197,238
+1028371,shot,2,7:22,9688,Aidan,Fulp,323,9096,Ryan,Fanti,False,Non quality on net,Default,453,199
+1028371,shot,2,8:10,8744,Jakob,Pelletier,324,10002,Devon,Levi,False,Quality on net,Default,56,120
+1028371,shot,2,9:07,9202,Conor,Geekie,324,10002,Devon,Levi,False,Quality on net,Default,123,201
+1028371,shot,2,9:09,10607,Ethan,Gauthier,324,10002,Devon,Levi,False,Quality on net,Default,133,157
+1028371,shot,2,11:07,9504,Isak,Rosén,323,9096,Ryan,Fanti,False,Quality on net,Default,461,184
+1028371,shot,2,11:18,7622,Jake,Leschyshyn,323,9096,Ryan,Fanti,True,Non quality goal,Default,550,114
+1028371,goal,2,11:18,7622,Jake,Leschyshyn,,,,,,,,550,114
+1028371,shot,2,14:04,9693,Brendan,Furry,324,10002,Devon,Levi,False,Quality on net,Default,89,142
+1028371,shot,2,14:33,9079,Tommy,Miller,324,10002,Devon,Levi,False,Non quality on net,Default,187,70
+1028371,shot,2,15:39,9504,Isak,Rosén,323,9096,Ryan,Fanti,False,Non quality on net,Default,547,69
+1028371,shot,2,15:43,9700,Trevor,Kuntar,323,9096,Ryan,Fanti,False,Quality on net,Default,539,131
+1028371,shot,2,15:44,9923,Riley,Fiddler-Schultz,323,9096,Ryan,Fanti,False,Quality on net,Default,541,162
+1028371,shot,2,15:58,9803,Isaac,Belliveau,323,9096,Ryan,Fanti,False,Quality on net,Default,464,79
+1028371,shot,2,17:39,8864,Zac,Jones,323,9096,Ryan,Fanti,True,Non quality goal,Default,416,114
+1028371,goal,2,17:39,8864,Zac,Jones,,,,,,,,416,114
+1028371,shot,2,18:16,8553,Mitchell,Chaffee,324,10002,Devon,Levi,False,Quality on net,Default,111,190
+1028371,shot,2,19:26,9896,Maxim,Groshev,324,10002,Devon,Levi,False,Non quality on net,Default,152,30
+1028371,shot,3,2:12,10566,Lucas,Mercuri,324,10002,Devon,Levi,False,Quality on net,Default,56,175
+1028371,shot,3,6:15,9930,Nikita,Novikov,323,9096,Ryan,Fanti,False,Non quality on net,Default,443,42
+1028371,shot,3,7:45,9767,Ryan,Johnson,323,9096,Ryan,Fanti,False,Non quality on net,Default,436,92
+1028371,shot,3,8:37,8580,Carson,Meyer,323,9096,Ryan,Fanti,False,Non quality on net,Default,433,201
+1028371,shot,3,13:14,8705,Brendan,Warren,323,9096,Ryan,Fanti,False,Quality on net,Default,546,136
+1028371,shot,3,14:26,10148,Dylan,Duke,324,10002,Devon,Levi,False,Non quality on net,Default,50,98
+1028371,shot,3,15:27,9767,Ryan,Johnson,323,9096,Ryan,Fanti,False,Non quality on net,Default,444,137
+1028371,shot,3,15:44,8744,Jakob,Pelletier,324,10002,Devon,Levi,True,Quality goal,Default,92,207
+1028371,goal,3,15:44,8744,Jakob,Pelletier,,,,,,,,92,207
+1028371,shot,3,16:52,9927,Viktor,Neuchev,323,9096,Ryan,Fanti,False,Non quality on net,Default,481,48
+1028371,shot,3,17:03,9079,Tommy,Miller,324,10002,Devon,Levi,False,Non quality on net,Default,192,38
+1028371,shot,3,17:04,8884,Matteo,Pietroniro,324,10002,Devon,Levi,False,Non quality on net,Default,165,261
+1028371,shot,3,17:30,8864,Zac,Jones,323,9096,Ryan,Fanti,False,Non quality on net,Default,556,186
+1028371,shot,3,17:31,9504,Isak,Rosén,323,9096,Ryan,Fanti,False,Quality on net,Default,543,169
+1028371,shot,3,19:03,9767,Ryan,Johnson,323,9096,Ryan,Fanti,False,Non quality on net,Default,420,93
+1028371,shot,OT,0:20,8744,Jakob,Pelletier,324,10002,Devon,Levi,False,Non quality on net,Default,127,58
+1028371,shot,OT,0:24,9202,Conor,Geekie,324,10002,Devon,Levi,False,Quality on net,Default,105,156
+1028371,shot,OT,2:45,9504,Isak,Rosén,323,9096,Ryan,Fanti,False,Quality on net,Default,493,137
+1028371,shot,OT,3:15,9896,Maxim,Groshev,324,10002,Devon,Levi,False,Quality on net,Default,59,160
+1028371,shot,OT,3:24,9700,Trevor,Kuntar,323,9096,Ryan,Fanti,False,Quality on net,Default,488,122
+1028371,shot,OT,4:42,9504,Isak,Rosén,323,9096,Ryan,Fanti,False,Non quality on net,Default,522,72
+1028371,shot,OT,4:54,9896,Maxim,Groshev,324,10002,Devon,Levi,False,Non quality on net,Default,165,141
