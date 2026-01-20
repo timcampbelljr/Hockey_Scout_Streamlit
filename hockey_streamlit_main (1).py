@@ -984,50 +984,50 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
             st.info("No shot data available for this player")
 
     with tab3:
-    st.markdown(
-        '<div class="section-header">Shootout Performance</div>',
-        unsafe_allow_html=True
-    )
+        st.markdown(
+            '<div class="section-header">Shootout Performance</div>',
+            unsafe_allow_html=True
+        )
 
-    if not shootout_data.empty:
-        # Filter for Crunch shooters only
-        player_shootout = shootout_data[
-            (shootout_data["player"] == player_name) & 
-            (shootout_data["is_crunch_shooter"] == True)
-        ]
-
-        if player_shootout.empty and " " in player_name:
-            last_name = player_name.split()[-1]
+        if not shootout_data.empty:
+            # Filter for Crunch shooters only
             player_shootout = shootout_data[
-                (shootout_data["player"].str.lower() == last_name.lower()) &
+                (shootout_data["player"] == player_name) & 
                 (shootout_data["is_crunch_shooter"] == True)
             ]
 
-        if not player_shootout.empty:
-            attempts = len(player_shootout)
-            goals = (player_shootout["goal"] == "Yes").sum()
-            success_rate = (goals / attempts * 100) if attempts else 0
+            if player_shootout.empty and " " in player_name:
+                last_name = player_name.split()[-1]
+                player_shootout = shootout_data[
+                    (shootout_data["player"].str.lower() == last_name.lower()) &
+                    (shootout_data["is_crunch_shooter"] == True)
+                ]
 
-            col1, col2, col3 = st.columns(3)
-            col1.metric("Attempts", attempts)
-            col2.metric("Goals", goals)
-            col3.metric("Success Rate", f"{success_rate:.1f}%")
+            if not player_shootout.empty:
+                attempts = len(player_shootout)
+                goals = (player_shootout["goal"] == "Yes").sum()
+                success_rate = (goals / attempts * 100) if attempts else 0
 
-            st.markdown("---")
-            
-            # Show relevant columns
-            display_cols = ['date', 'player', 'shot_location_ice', 'shot_location_goal', 'move_type', 'goal']
-            available_cols = [col for col in display_cols if col in player_shootout.columns]
-            
-            st.dataframe(
-                player_shootout[available_cols].head(10),
-                hide_index=True,
-                use_container_width=True,
-            )
+                col1, col2, col3 = st.columns(3)
+                col1.metric("Attempts", attempts)
+                col2.metric("Goals", goals)
+                col3.metric("Success Rate", f"{success_rate:.1f}%")
+
+                st.markdown("---")
+                
+                # Show relevant columns
+                display_cols = ['date', 'player', 'shot_location_ice', 'shot_location_goal', 'move_type', 'goal']
+                available_cols = [col for col in display_cols if col in player_shootout.columns]
+                
+                st.dataframe(
+                    player_shootout[available_cols].head(10),
+                    hide_index=True,
+                    use_container_width=True,
+                )
+            else:
+                st.info("No shootout data available for this player")
         else:
-            st.info("No shootout data available for this player")
-    else:
-        st.info("No shootout data loaded")
+            st.info("No shootout data loaded")
 
     with tab4:
         st.markdown(
