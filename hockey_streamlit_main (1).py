@@ -1036,14 +1036,38 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
             # Extract last name from player_name
             if " " in player_name:
                 last_name = player_name.split()[-1]
+                first_name = player_name.split()[0]
             else:
                 last_name = player_name
+                first_name = player_name
             
-            # Filter for Crunch shooters matching last name
+            # Try multiple matching strategies
+            # 1. Exact last name match
             player_shootout = shootout_data[
                 (shootout_data["is_crunch_shooter"] == True) &
                 (shootout_data["player"].str.lower() == last_name.lower())
             ]
+            
+            # 2. If no match, try matching full name
+            if player_shootout.empty:
+                player_shootout = shootout_data[
+                    (shootout_data["is_crunch_shooter"] == True) &
+                    (shootout_data["player"].str.lower() == player_name.lower())
+                ]
+            
+            # 3. If still no match, try partial match on last name
+            if player_shootout.empty:
+                player_shootout = shootout_data[
+                    (shootout_data["is_crunch_shooter"] == True) &
+                    (shootout_data["player"].str.lower().str.contains(last_name.lower(), na=False))
+                ]
+            
+            # 4. If still no match, try first name
+            if player_shootout.empty:
+                player_shootout = shootout_data[
+                    (shootout_data["is_crunch_shooter"] == True) &
+                    (shootout_data["player"].str.lower() == first_name.lower())
+                ]
 
             if not player_shootout.empty:
                 attempts = len(player_shootout)
