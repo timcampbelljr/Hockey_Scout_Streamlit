@@ -1131,14 +1131,14 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
             unsafe_allow_html=True
         )
 
-        if not goalie_shots.empty:  # CHANGED FROM player_shots
+        if not goalie_shots.empty:
             # Game selector for shot chart
-            available_games = sorted(goalie_shots["game_id"].unique())  # CHANGED FROM player_shots
+            available_games = sorted(goalie_shots["game_id"].unique())
             
             # Create game lookup dictionary with opponent info
             game_lookup = {}
-            goalie_games = st.session_state.goalies_df[  # CHANGED FROM players_df
-                st.session_state.goalies_df["skater"] == goalie_name  # CHANGED FROM player_name
+            goalie_games = st.session_state.goalies_df[
+                st.session_state.goalies_df["skater"] == goalie_name
             ].copy()
             
             if not goalie_games.empty and not games_df.empty:
@@ -1163,7 +1163,7 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                 )
             
             # Filter shots based on selection
-            filtered_shots = goalie_shots.copy()  # CHANGED FROM player_shots
+            filtered_shots = goalie_shots.copy()
             if game_filter_option == "Single Game":
                 with col2:
                     selected_game = st.selectbox(
@@ -1173,7 +1173,7 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                         format_func=lambda x: game_lookup.get(x, f"Game {x}"),
                         key=f"goalie_single_game_{goalie_name}"
                     )
-                filtered_shots = goalie_shots[goalie_shots["game_id"] == selected_game]  # CHANGED FROM player_shots
+                filtered_shots = goalie_shots[goalie_shots["game_id"] == selected_game]
             
             st.markdown("---")
             
@@ -1225,120 +1225,6 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                     (shootout_data["goalie"].str.lower() == f"{last_name} {first_name}".lower()) |
                     (shootout_data["goalie"].str.lower() == last_name.lower()) |
                     (shootout_data["goalie"].str.lower() == first_name.lower())
-                ]
-            
-            if not goalie_shootout.empty:
-                attempts = len(goalie_shootout)
-                goals_allowed = (goalie_shootout["goal"] == "Yes").sum()
-                saves = attempts - goals_allowed
-                save_rate = (saves / attempts * 100) if attempts > 0 else 0
-                
-                col1, col2, col3 = st.columns(3)
-                col1.metric("Attempts", attempts)
-                col2.metric("Saves", saves)
-                col3.metric("Save %", f"{save_rate:.1f}%")
-                
-                st.markdown("---")
-                
-                # Display the shootout attempts table
-                st.dataframe(
-                    goalie_shootout.head(10),
-                    hide_index=True,
-                    use_container_width=True,
-                )
-            else:
-                st.info("No shootout data available for this goalie")
-        else:
-            st.info("No shootout data loaded")
-    
-    with tab2:
-        st.markdown(
-            '<div class="stat-card"><h3>Shot Chart</h3></div>',
-            unsafe_allow_html=True
-        )
-
-        if not player_shots.empty:
-            # Game selector for shot chart
-            available_games = sorted(player_shots["game_id"].unique())
-            
-            # Create game lookup dictionary with opponent info
-            game_lookup = {}
-            player_games = st.session_state.players_df[
-                st.session_state.players_df["skater"] == player_name
-            ].copy()
-            
-            if not player_games.empty and not games_df.empty:
-                player_games = player_games.merge(games_df, on="game_id", suffixes=("", "_game"))
-                player_games["opponent"] = player_games.apply(
-                    lambda row: row["away_team"] if row["team_name"] == row["home_team"] else row["home_team"],
-                    axis=1
-                )
-                player_games = player_games.sort_values("game_id")
-                player_games["game_number"] = range(1, len(player_games) + 1)
-                
-                for _, row in player_games.iterrows():
-                    game_lookup[row["game_id"]] = f"Game {row['game_number']}: {row['opponent']}"
-            
-            col1, col2 = st.columns([3, 1])
-            with col1:
-                game_filter_option = st.radio(
-                    "Show shots from:",
-                    ["All Games", "Single Game"],
-                    horizontal=True,
-                    key=f"player_game_filter_{player_name}"
-                )
-            
-            # Filter shots based on selection
-            filtered_shots = player_shots.copy()
-            if game_filter_option == "Single Game":
-                with col2:
-                    selected_game = st.selectbox(
-                        "Select Game:",
-                        available_games,
-                        index=len(available_games) - 1,  # Default to most recent game
-                        format_func=lambda x: game_lookup.get(x, f"Game {x}"),
-                        key=f"player_single_game_{player_name}"
-                    )
-                filtered_shots = player_shots[player_shots["game_id"] == selected_game]
-            
-            st.markdown("---")
-            
-            # Metrics
-            col1, col2, col3, col4 = st.columns(4)
-
-            col1.metric("Total Shots", len(filtered_shots))
-            goals = (filtered_shots["is_goal"] == True).sum()
-            col2.metric("Goals", goals)
-            col3.metric(
-                "Shooting %",
-                f"{(goals / len(filtered_shots)) * 100:.1f}%" if len(filtered_shots) > 0 else "0.0%"
-            )
-
-            avg_xg = (
-                filtered_shots["xg"].mean()
-                if "xg" in filtered_shots.columns and len(filtered_shots) > 0
-                else 0
-            )
-            col4.metric("Avg xG", f"{avg_xg:.3f}")
-
-            fig = create_shot_chart(filtered_shots, player_name, view_type="player")
-            if fig:
-                st.plotly_chart(fig, use_container_width=True)
-        else:
-            st.info("No shot data available for this player")
-    
-    with tab3:
-        st.markdown('<div class="section-header">Shootout Performance</div>', unsafe_allow_html=True)
-        
-        if not shootout_data.empty:
-            # Filter shootout data for this goalie
-            goalie_shootout = shootout_data[shootout_data["goalie"] == goalie_name]
-            
-            # If no exact match and goalie has a space in name, try matching last name
-            if goalie_shootout.empty and " " in goalie_name:
-                last_name = goalie_name.split()[-1]
-                goalie_shootout = shootout_data[
-                    shootout_data["goalie"].str.lower() == last_name.lower()
                 ]
             
             if not goalie_shootout.empty:
