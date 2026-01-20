@@ -533,28 +533,39 @@ def load_shootout_data():
         shootout_files = []
         for directory in [ASSETS_DIR, CRUNCH_DATA_DIR]:
             if directory.exists():
-                shootout_files.extend(directory.glob("*shootout*.csv"))
-                shootout_files.extend(directory.glob("*shootout*.xlsx"))
-                shootout_files.extend(directory.glob("*Shootout*.csv"))
-                shootout_files.extend(directory.glob("*Shootout*.xlsx"))
+                # Cast to list to avoid issues
+                shootout_files.extend(list(directory.glob("*shootout*.csv")))
+                shootout_files.extend(list(directory.glob("*shootout*.xlsx")))
+                shootout_files.extend(list(directory.glob("*Shootout*.csv")))
+                shootout_files.extend(list(directory.glob("*Shootout*.xlsx")))
+                shootout_files.extend(list(directory.glob("*SO*.csv")))  # Added for "SO" pattern
+                shootout_files.extend(list(directory.glob("*SO*.xlsx")))
+        
+        # Remove duplicates
+        shootout_files = list(set(shootout_files))
         
         if not shootout_files:
-            logging.warning("No shootout files found")
+            logging.warning("No shootout files found in directories")
+            logging.warning(f"Checked directories: {[str(d) for d in [ASSETS_DIR, CRUNCH_DATA_DIR] if d.exists()]}")
             return pd.DataFrame()
         
-        logging.info(f"Found shootout file: {shootout_files[0]}")
+        logging.info(f"Found {len(shootout_files)} shootout file(s): {[f.name for f in shootout_files]}")
+        logging.info(f"Using shootout file: {shootout_files[0]}")
         
         # Try UTF-8 first, then fall back to cp1252
         try:
             df = pd.read_csv(shootout_files[0], encoding='utf-8')
+            logging.info("Loaded with UTF-8 encoding")
         except UnicodeDecodeError:
             logging.info("UTF-8 failed, trying cp1252 encoding")
             df = pd.read_csv(shootout_files[0], encoding='cp1252')
         
-        logging.info(f"Loaded shootout data: {len(df)} rows, columns: {df.columns.tolist()}")
+        logging.info(f"Raw shootout data: {len(df)} rows")
+        logging.info(f"Columns found: {df.columns.tolist()}")
         
         # Normalize column names
         df.columns = df.columns.str.strip().str.lower()
+        logging.info(f"Normalized columns: {df.columns.tolist()}")
         
         # Rename columns to match expected format
         column_mapping = {
@@ -563,6 +574,7 @@ def load_shootout_data():
             'what move they made': 'move_type',
             'goalie (don\'t worry about this)': 'goalie',
             "goalie (don't worry about this)": 'goalie',
+            'goalie': 'goalie',
             'date': 'date',
             'team': 'team',
             'player': 'player',
@@ -570,17 +582,28 @@ def load_shootout_data():
         }
         
         df = df.rename(columns=column_mapping)
+        logging.info(f"Columns after mapping: {df.columns.tolist()}")
         
         # Clean up data
         df["player"] = df["player"].fillna("").astype(str).str.strip()
         df["team"] = df.get("team", pd.Series([""] * len(df))).fillna("").astype(str).str.strip()
         
+        # Clean goalie column if it exists
+        if "goalie" in df.columns:
+            df["goalie"] = df["goalie"].fillna("").astype(str).str.strip()
+            logging.info(f"Sample goalie names: {df['goalie'].unique()[:5].tolist()}")
+        
+        logging.info(f"Sample player names: {df['player'].unique()[:5].tolist()}")
+        logging.info(f"Sample teams: {df['team'].unique()[:5].tolist()}")
+        
         # Remove rows with empty player names or "idle"
+        initial_len = len(df)
         df = df[df["player"].notna() & (df["player"] != "") & (df["player"].str.lower() != "idle")].copy()
+        logging.info(f"Removed {initial_len - len(df)} rows with empty/idle players")
         
         # Clean goal column
         df["goal"] = df["goal"].fillna("No")
-        df["goal"] = df["goal"].apply(lambda x: "Yes" if str(x).strip().lower() in ["yes", "y", "goal"] else "No")
+        df["goal"] = df["goal"].apply(lambda x: "Yes" if str(x).strip().lower() in ["yes", "y", "goal", "1"] else "No")
         
         # Drop rows where all important columns are NaN
         df = df.dropna(subset=['player', 'goal'], how='all')
@@ -590,7 +613,7 @@ def load_shootout_data():
         # If team is NOT Syracuse Crunch, the player is an opponent (and goalie column has the Crunch goalie)
         df["is_crunch_shooter"] = df["team"].str.contains("Syracuse Crunch|Crunch", case=False, na=False)
         
-        logging.info(f"Cleaned shootout data: {len(df)} rows ({df['is_crunch_shooter'].sum()} Crunch shooters, {(~df['is_crunch_shooter']).sum()} opponent shooters)")
+        logging.info(f"Final shootout data: {len(df)} rows ({df['is_crunch_shooter'].sum()} Crunch shooters, {(~df['is_crunch_shooter']).sum()} opponent shooters)")
         
         return df
     except Exception as e:
@@ -990,18 +1013,21 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
         )
 
         if not shootout_data.empty:
-            # Filter for Crunch shooters only
-            player_shootout = shootout_data[
-                (shootout_data["player"] == player_name) & 
-                (shootout_data["is_crunch_shooter"] == True)
-            ]
-
-            if player_shootout.empty and " " in player_name:
+            # Debug: show what data we have
+            if st.checkbox("🔍 Debug: Show all shootout data", key=f"debug_shootout_{player_name}"):
+                st.write("Available Crunch shooters:", shootout_data[shootout_data["is_crunch_shooter"] == True]["player"].unique().tolist())
+            
+            # Extract last name from player_name
+            if " " in player_name:
                 last_name = player_name.split()[-1]
-                player_shootout = shootout_data[
-                    (shootout_data["player"].str.lower() == last_name.lower()) &
-                    (shootout_data["is_crunch_shooter"] == True)
-                ]
+            else:
+                last_name = player_name
+            
+            # Filter for Crunch shooters matching last name
+            player_shootout = shootout_data[
+                (shootout_data["is_crunch_shooter"] == True) &
+                (shootout_data["player"].str.lower() == last_name.lower())
+            ]
 
             if not player_shootout.empty:
                 attempts = len(player_shootout)
@@ -1025,7 +1051,7 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
                     use_container_width=True,
                 )
             else:
-                st.info("No shootout data available for this player")
+                st.info(f"No shootout data available for {player_name} (searching for last name: '{last_name}')")
         else:
             st.info("No shootout data loaded")
 
@@ -1227,30 +1253,15 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
         st.markdown('<div class="section-header">Shootout Performance</div>', unsafe_allow_html=True)
         
         if not shootout_data.empty:
-            # For goalies, filter for rows where:
-            # 1. The goalie column matches this goalie's name (opponent shots against them)
-            # 2. is_crunch_shooter is False (these are opponent shooters)
+            # Debug: show what data we have
+            if st.checkbox("🔍 Debug: Show all shootout goalie data", key=f"debug_shootout_goalie_{goalie_name}"):
+                st.write("Available goalies:", shootout_data[shootout_data["is_crunch_shooter"] == False]["goalie"].unique().tolist())
+            
+            # For goalies, use exact full name match
             goalie_shootout = shootout_data[
                 (shootout_data["goalie"] == goalie_name) & 
                 (shootout_data["is_crunch_shooter"] == False)
             ]
-            
-            # If no exact match, try matching with different name formats
-            if goalie_shootout.empty and " " in goalie_name:
-                name_parts = goalie_name.split()
-                first_name = name_parts[0]
-                last_name = name_parts[-1]
-                
-                goalie_shootout = shootout_data[
-                    (shootout_data["is_crunch_shooter"] == False) &
-                    (
-                        (shootout_data["goalie"].str.lower() == goalie_name.lower()) |
-                        (shootout_data["goalie"].str.lower() == f"{first_name} {last_name}".lower()) |
-                        (shootout_data["goalie"].str.lower() == f"{last_name} {first_name}".lower()) |
-                        (shootout_data["goalie"].str.lower() == last_name.lower()) |
-                        (shootout_data["goalie"].str.lower() == first_name.lower())
-                    )
-                ]
             
             if not goalie_shootout.empty:
                 attempts = len(goalie_shootout)
@@ -1275,7 +1286,7 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                     use_container_width=True,
                 )
             else:
-                st.info("No shootout data available for this goalie")
+                st.info(f"No shootout data available for {goalie_name}")
         else:
             st.info("No shootout data loaded")
 # ============================================================================
