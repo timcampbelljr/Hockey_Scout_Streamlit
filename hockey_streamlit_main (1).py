@@ -1131,14 +1131,14 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
             unsafe_allow_html=True
         )
 
-        if not goalie_shots.empty:
+        if not goalie_shots.empty:  # CHANGED FROM player_shots
             # Game selector for shot chart
-            available_games = sorted(goalie_shots["game_id"].unique())
+            available_games = sorted(goalie_shots["game_id"].unique())  # CHANGED FROM player_shots
             
             # Create game lookup dictionary with opponent info
             game_lookup = {}
-            goalie_games = st.session_state.goalies_df[
-                st.session_state.goalies_df["skater"] == goalie_name
+            goalie_games = st.session_state.goalies_df[  # CHANGED FROM players_df
+                st.session_state.goalies_df["skater"] == goalie_name  # CHANGED FROM player_name
             ].copy()
             
             if not goalie_games.empty and not games_df.empty:
@@ -1163,7 +1163,7 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                 )
             
             # Filter shots based on selection
-            filtered_shots = goalie_shots.copy()
+            filtered_shots = goalie_shots.copy()  # CHANGED FROM player_shots
             if game_filter_option == "Single Game":
                 with col2:
                     selected_game = st.selectbox(
@@ -1173,7 +1173,7 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                         format_func=lambda x: game_lookup.get(x, f"Game {x}"),
                         key=f"goalie_single_game_{goalie_name}"
                     )
-                filtered_shots = goalie_shots[goalie_shots["game_id"] == selected_game]
+                filtered_shots = goalie_shots[goalie_shots["game_id"] == selected_game]  # CHANGED FROM player_shots
             
             st.markdown("---")
             
