@@ -2,7 +2,7 @@
 Syracuse Crunch Scouting Dashboard - Single Page with Player Cards
 Complete player profiles with box scores, shot charts, shootout, and faceoffs
 
-Run with: streamlit run syracuse_crunch_dashboard.py
+Run with: streamlit run syracuse_crunch_dashboard.pydef
 """
 
 import streamlit as st
@@ -1403,6 +1403,36 @@ def main():
     # Title
     st.markdown('<div class="main-title">🏒 Syracuse Crunch</div>', unsafe_allow_html=True)
     st.markdown('<div class="subtitle">Player Scouting Dashboard</div>', unsafe_allow_html=True)
+    
+    # ===== TEMPORARY DEBUG SECTION =====
+    st.markdown("---")
+    st.subheader("🔍 Debug: Shootout File Check")
+    
+    # Check what files exist
+    st.write("**Checking directories:**")
+    for directory in [ASSETS_DIR, CRUNCH_DATA_DIR]:
+        if directory.exists():
+            st.write(f"✅ {directory} exists")
+            all_files = list(directory.glob("*.csv"))
+            st.write(f"   CSV files found: {[f.name for f in all_files]}")
+            shootout_files = [f for f in all_files if 'shoot' in f.name.lower() or 'so' in f.name.lower()]
+            st.write(f"   Shootout-related files: {[f.name for f in shootout_files]}")
+        else:
+            st.write(f"❌ {directory} does not exist")
+    
+    # Try to load shootout data and show details
+    st.write("**Attempting to load shootout data:**")
+    shootout_test = load_shootout_data()
+    if shootout_test.empty:
+        st.error("❌ Shootout data is EMPTY")
+    else:
+        st.success(f"✅ Loaded {len(shootout_test)} rows of shootout data")
+        st.write("Columns:", shootout_test.columns.tolist())
+        st.write("First few rows:")
+        st.dataframe(shootout_test.head())
+    
+    st.markdown("---")
+    # ===== END DEBUG SECTION =====
     
     # Add reload button in top right
     col1, col2 = st.columns([4, 1])
