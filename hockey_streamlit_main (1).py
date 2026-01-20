@@ -1204,52 +1204,52 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
             st.info("No shot data available for this goalie")
     
     with tab3:
-    st.markdown('<div class="section-header">Shootout Performance</div>', unsafe_allow_html=True)
-    
-    if not shootout_data.empty:
-        # Filter shootout data for this goalie
-        # Try exact match first
-        goalie_shootout = shootout_data[shootout_data["goalie"] == goalie_name]
+        st.markdown('<div class="section-header">Shootout Performance</div>', unsafe_allow_html=True)
         
-        # If no exact match, try matching with different name formats
-        if goalie_shootout.empty and " " in goalie_name:
-            # Split the goalie name
-            name_parts = goalie_name.split()
-            first_name = name_parts[0]
-            last_name = name_parts[-1]
+        if not shootout_data.empty:
+            # Filter shootout data for this goalie
+            # Try exact match first
+            goalie_shootout = shootout_data[shootout_data["goalie"] == goalie_name]
             
-            # Try: "FirstName LastName" or "LastName FirstName" or just "LastName"
-            goalie_shootout = shootout_data[
-                (shootout_data["goalie"].str.lower() == goalie_name.lower()) |
-                (shootout_data["goalie"].str.lower() == f"{first_name} {last_name}".lower()) |
-                (shootout_data["goalie"].str.lower() == f"{last_name} {first_name}".lower()) |
-                (shootout_data["goalie"].str.lower() == last_name.lower()) |
-                (shootout_data["goalie"].str.lower() == first_name.lower())
-            ]
-        
-        if not goalie_shootout.empty:
-            attempts = len(goalie_shootout)
-            goals_allowed = (goalie_shootout["goal"] == "Yes").sum()
-            saves = attempts - goals_allowed
-            save_rate = (saves / attempts * 100) if attempts > 0 else 0
+            # If no exact match, try matching with different name formats
+            if goalie_shootout.empty and " " in goalie_name:
+                # Split the goalie name
+                name_parts = goalie_name.split()
+                first_name = name_parts[0]
+                last_name = name_parts[-1]
+                
+                # Try: "FirstName LastName" or "LastName FirstName" or just "LastName"
+                goalie_shootout = shootout_data[
+                    (shootout_data["goalie"].str.lower() == goalie_name.lower()) |
+                    (shootout_data["goalie"].str.lower() == f"{first_name} {last_name}".lower()) |
+                    (shootout_data["goalie"].str.lower() == f"{last_name} {first_name}".lower()) |
+                    (shootout_data["goalie"].str.lower() == last_name.lower()) |
+                    (shootout_data["goalie"].str.lower() == first_name.lower())
+                ]
             
-            col1, col2, col3 = st.columns(3)
-            col1.metric("Attempts", attempts)
-            col2.metric("Saves", saves)
-            col3.metric("Save %", f"{save_rate:.1f}%")
-            
-            st.markdown("---")
-            
-            # Display the shootout attempts table
-            st.dataframe(
-                goalie_shootout.head(10),
-                hide_index=True,
-                use_container_width=True,
-            )
+            if not goalie_shootout.empty:
+                attempts = len(goalie_shootout)
+                goals_allowed = (goalie_shootout["goal"] == "Yes").sum()
+                saves = attempts - goals_allowed
+                save_rate = (saves / attempts * 100) if attempts > 0 else 0
+                
+                col1, col2, col3 = st.columns(3)
+                col1.metric("Attempts", attempts)
+                col2.metric("Saves", saves)
+                col3.metric("Save %", f"{save_rate:.1f}%")
+                
+                st.markdown("---")
+                
+                # Display the shootout attempts table
+                st.dataframe(
+                    goalie_shootout.head(10),
+                    hide_index=True,
+                    use_container_width=True,
+                )
+            else:
+                st.info("No shootout data available for this goalie")
         else:
-            st.info("No shootout data available for this goalie")
-    else:
-        st.info("No shootout data loaded")
+            st.info("No shootout data loaded")
     
     with tab2:
         st.markdown(
