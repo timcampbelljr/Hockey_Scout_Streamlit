@@ -13,6 +13,36 @@ from pathlib import Path
 import glob
 import logging
 import json
+import threading
+import time
+from datetime import datetime
+
+# ============================================================================
+# KEEP-ALIVE FUNCTIONALITY
+# ============================================================================
+
+def periodic_ping():
+    """Periodic ping to keep session active"""
+    while True:
+        try:
+            time.sleep(30000)  #About 8.33 hours. Will Take app offline if not included
+            # Update a session state variable to trigger activity
+            if 'last_ping' in st.session_state:
+                st.session_state.last_ping = datetime.now()
+        except Exception as e:
+            logging.error(f"Ping error: {e}")
+            break
+
+def start_keepalive():
+    """Start the keepalive thread if not already running"""
+    if 'keepalive_started' not in st.session_state:
+        st.session_state.keepalive_started = True
+        st.session_state.last_ping = datetime.now()
+        
+        # Start background thread
+        ping_thread = threading.Thread(target=periodic_ping, daemon=True)
+        ping_thread.start()
+        logging.info("Keep-alive thread started")
 
 # Page config
 st.set_page_config(
@@ -1353,7 +1383,8 @@ def main():
     # Title
     st.markdown('<div class="main-title">🏒 Syracuse Crunch</div>', unsafe_allow_html=True)
     st.markdown('<div class="subtitle">Player Scouting Dashboard</div>', unsafe_allow_html=True)
-    
+    # START KEEP-ALIVE
+    start_keepalive()
     # Add reload button in top right
     col1, col2 = st.columns([4, 1])
     with col2:
