@@ -1033,10 +1033,6 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
         )
 
         if not shootout_data.empty:
-            # Debug: show what data we have
-            if st.checkbox("🔍 Debug: Show all shootout data", key=f"debug_shootout_{player_name}"):
-                st.write("Available Crunch shooters:", shootout_data[shootout_data["is_crunch_shooter"] == True]["player"].unique().tolist())
-            
             # Extract last name from player_name
             if " " in player_name:
                 last_name = player_name.split()[-1]
@@ -1071,7 +1067,7 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
                     use_container_width=True,
                 )
             else:
-                st.info(f"No shootout data available for {player_name} (searching for last name: '{last_name}')")
+                st.info(f"No shootout data available for {player_name}")
         else:
             st.info("No shootout data loaded")
 
@@ -1273,10 +1269,6 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
         st.markdown('<div class="section-header">Shootout Performance</div>', unsafe_allow_html=True)
         
         if not shootout_data.empty:
-            # Debug: show what data we have
-            if st.checkbox("🔍 Debug: Show all shootout goalie data", key=f"debug_shootout_goalie_{goalie_name}"):
-                st.write("Available goalies:", shootout_data[shootout_data["is_crunch_shooter"] == False]["goalie"].unique().tolist())
-            
             # For goalies, use exact full name match
             goalie_shootout = shootout_data[
                 (shootout_data["goalie"] == goalie_name) & 
