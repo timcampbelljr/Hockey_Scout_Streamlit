@@ -1224,60 +1224,60 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
             st.info("No shot data available for this goalie")
     
     with tab3:
-    st.markdown('<div class="section-header">Shootout Performance</div>', unsafe_allow_html=True)
-    
-    if not shootout_data.empty:
-        # For goalies, filter for rows where:
-        # 1. The goalie column matches this goalie's name (opponent shots against them)
-        # 2. is_crunch_shooter is False (these are opponent shooters)
-        goalie_shootout = shootout_data[
-            (shootout_data["goalie"] == goalie_name) & 
-            (shootout_data["is_crunch_shooter"] == False)
-        ]
+        st.markdown('<div class="section-header">Shootout Performance</div>', unsafe_allow_html=True)
         
-        # If no exact match, try matching with different name formats
-        if goalie_shootout.empty and " " in goalie_name:
-            name_parts = goalie_name.split()
-            first_name = name_parts[0]
-            last_name = name_parts[-1]
-            
+        if not shootout_data.empty:
+            # For goalies, filter for rows where:
+            # 1. The goalie column matches this goalie's name (opponent shots against them)
+            # 2. is_crunch_shooter is False (these are opponent shooters)
             goalie_shootout = shootout_data[
-                (shootout_data["is_crunch_shooter"] == False) &
-                (
-                    (shootout_data["goalie"].str.lower() == goalie_name.lower()) |
-                    (shootout_data["goalie"].str.lower() == f"{first_name} {last_name}".lower()) |
-                    (shootout_data["goalie"].str.lower() == f"{last_name} {first_name}".lower()) |
-                    (shootout_data["goalie"].str.lower() == last_name.lower()) |
-                    (shootout_data["goalie"].str.lower() == first_name.lower())
-                )
+                (shootout_data["goalie"] == goalie_name) & 
+                (shootout_data["is_crunch_shooter"] == False)
             ]
-        
-        if not goalie_shootout.empty:
-            attempts = len(goalie_shootout)
-            goals_allowed = (goalie_shootout["goal"] == "Yes").sum()
-            saves = attempts - goals_allowed
-            save_rate = (saves / attempts * 100) if attempts > 0 else 0
             
-            col1, col2, col3 = st.columns(3)
-            col1.metric("Shots Faced", attempts)
-            col2.metric("Saves", saves)
-            col3.metric("Save %", f"{save_rate:.1f}%")
+            # If no exact match, try matching with different name formats
+            if goalie_shootout.empty and " " in goalie_name:
+                name_parts = goalie_name.split()
+                first_name = name_parts[0]
+                last_name = name_parts[-1]
+                
+                goalie_shootout = shootout_data[
+                    (shootout_data["is_crunch_shooter"] == False) &
+                    (
+                        (shootout_data["goalie"].str.lower() == goalie_name.lower()) |
+                        (shootout_data["goalie"].str.lower() == f"{first_name} {last_name}".lower()) |
+                        (shootout_data["goalie"].str.lower() == f"{last_name} {first_name}".lower()) |
+                        (shootout_data["goalie"].str.lower() == last_name.lower()) |
+                        (shootout_data["goalie"].str.lower() == first_name.lower())
+                    )
+                ]
             
-            st.markdown("---")
-            
-            # Display the shootout attempts table with relevant columns
-            display_cols = ['date', 'team', 'player', 'shot_location_ice', 'shot_location_goal', 'move_type', 'goal']
-            available_cols = [col for col in display_cols if col in goalie_shootout.columns]
-            
-            st.dataframe(
-                goalie_shootout[available_cols].head(10),
-                hide_index=True,
-                use_container_width=True,
-            )
+            if not goalie_shootout.empty:
+                attempts = len(goalie_shootout)
+                goals_allowed = (goalie_shootout["goal"] == "Yes").sum()
+                saves = attempts - goals_allowed
+                save_rate = (saves / attempts * 100) if attempts > 0 else 0
+                
+                col1, col2, col3 = st.columns(3)
+                col1.metric("Shots Faced", attempts)
+                col2.metric("Saves", saves)
+                col3.metric("Save %", f"{save_rate:.1f}%")
+                
+                st.markdown("---")
+                
+                # Display the shootout attempts table with relevant columns
+                display_cols = ['date', 'team', 'player', 'shot_location_ice', 'shot_location_goal', 'move_type', 'goal']
+                available_cols = [col for col in display_cols if col in goalie_shootout.columns]
+                
+                st.dataframe(
+                    goalie_shootout[available_cols].head(10),
+                    hide_index=True,
+                    use_container_width=True,
+                )
+            else:
+                st.info("No shootout data available for this goalie")
         else:
-            st.info("No shootout data available for this goalie")
-    else:
-        st.info("No shootout data loaded")
+            st.info("No shootout data loaded")
 # ============================================================================
 # ROSTER MANAGEMENT UI
 # ============================================================================
