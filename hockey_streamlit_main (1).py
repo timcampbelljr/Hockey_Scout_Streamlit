@@ -1405,34 +1405,50 @@ def main():
     st.markdown('<div class="subtitle">Player Scouting Dashboard</div>', unsafe_allow_html=True)
     
     # ===== TEMPORARY DEBUG SECTION =====
-    st.markdown("---")
-    st.subheader("🔍 Debug: Shootout File Check")
+st.markdown("---")
+st.subheader("🔍 Debug: Shootout File Check")
+
+# Check directory structure
+st.write("**Directory Check:**")
+st.write(f"CRUNCH_DATA_DIR path: {CRUNCH_DATA_DIR}")
+st.write(f"CRUNCH_DATA_DIR exists: {CRUNCH_DATA_DIR.exists()}")
+
+if CRUNCH_DATA_DIR.exists():
+    all_files = list(CRUNCH_DATA_DIR.glob("*"))
+    st.write(f"Total files in directory: {len(all_files)}")
+    st.write("All files:", [f.name for f in all_files])
     
-    # Check what files exist
-    st.write("**Checking directories:**")
-    for directory in [ASSETS_DIR, CRUNCH_DATA_DIR]:
-        if directory.exists():
-            st.write(f"✅ {directory} exists")
-            all_files = list(directory.glob("*.csv"))
-            st.write(f"   CSV files found: {[f.name for f in all_files]}")
-            shootout_files = [f for f in all_files if 'shoot' in f.name.lower() or 'so' in f.name.lower()]
-            st.write(f"   Shootout-related files: {[f.name for f in shootout_files]}")
-        else:
-            st.write(f"❌ {directory} does not exist")
+    csv_files = list(CRUNCH_DATA_DIR.glob("*.csv"))
+    st.write(f"CSV files: {[f.name for f in csv_files]}")
     
-    # Try to load shootout data and show details
-    st.write("**Attempting to load shootout data:**")
-    shootout_test = load_shootout_data()
-    if shootout_test.empty:
-        st.error("❌ Shootout data is EMPTY")
-    else:
-        st.success(f"✅ Loaded {len(shootout_test)} rows of shootout data")
-        st.write("Columns:", shootout_test.columns.tolist())
-        st.write("First few rows:")
-        st.dataframe(shootout_test.head())
+    # Check for the specific file
+    shootout_file = CRUNCH_DATA_DIR / "Shootout_Scouting(Crunch SO).csv"
+    st.write(f"Looking for: Shootout_Scouting(Crunch SO).csv")
+    st.write(f"Full path: {shootout_file}")
+    st.write(f"File exists: {shootout_file.exists()}")
     
-    st.markdown("---")
-    # ===== END DEBUG SECTION =====
+    if shootout_file.exists():
+        st.success("✅ File found! Attempting to load...")
+        try:
+            test_df = pd.read_csv(shootout_file)
+            st.write(f"Loaded {len(test_df)} rows")
+            st.write(f"Columns: {test_df.columns.tolist()}")
+            st.dataframe(test_df.head())
+        except Exception as e:
+            st.error(f"Error loading file: {e}")
+
+# Try to load shootout data and show details
+st.write("**Load Function Result:**")
+shootout_test = load_shootout_data()
+if shootout_test.empty:
+    st.error("❌ Shootout data is EMPTY after load_shootout_data()")
+else:
+    st.success(f"✅ Loaded {len(shootout_test)} rows of shootout data")
+    st.write("Columns:", shootout_test.columns.tolist())
+    st.dataframe(shootout_test.head())
+
+st.markdown("---")
+# ===== END DEBUG SECTION =====
     
     # Add reload button in top right
     col1, col2 = st.columns([4, 1])
