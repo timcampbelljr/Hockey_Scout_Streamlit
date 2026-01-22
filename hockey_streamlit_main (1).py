@@ -1788,8 +1788,8 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
         shootout_net_data = pd.DataFrame()
         
         try:
-            # Load ice location data (Crunch25-26SO.csv)
-            ice_file = CRUNCH_DATA_DIR / "Crunch25-26SO.csv"
+            # Load ice location data (Crunch2526SO.csv)
+            ice_file = CRUNCH_DATA_DIR / "Crunch2526SO.csv"
             if ice_file.exists():
                 shootout_ice_data = pd.read_csv(ice_file)
                 shootout_ice_data.columns = shootout_ice_data.columns.str.strip()
@@ -1816,10 +1816,10 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
         if not shootout_data.empty:
             # Match player in scouting data using existing logic
             player_scouting_data = shootout_data[
-                shootout_data["player"] == goalie_name
+                shootout_data["player"] == player_name
             ]
-            if player_scouting_data.empty and " " in goalie_name:
-                last_name = goalie_name.split()[-1]
+            if player_scouting_data.empty and " " in player_name:
+                last_name = player_name.split()[-1]
                 player_scouting_data = shootout_data[
                     shootout_data["player"].str.lower() == last_name.lower()
                 ]
@@ -1833,13 +1833,13 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
             st.info("No shootout data available for this player")
         else:
             # Extract player name parts for matching
-            if " " in goalie_name:
-                name_parts = goalie_name.split()
+            if " " in player_name:
+                name_parts = player_name.split()
                 last_name = name_parts[-1]
                 first_name = name_parts[0]
             else:
-                last_name = goalie_name
-                first_name = goalie_name
+                last_name = player_name
+                first_name = player_name
             
             # Initialize empty dataframes for player data
             player_ice_data = pd.DataFrame()
@@ -1857,7 +1857,7 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                 
                 if player_ice_data.empty:
                     player_ice_data = crunch_ice_data[
-                        crunch_ice_data["Player"].str.lower() == goalie_name.lower()
+                        crunch_ice_data["Player"].str.lower() == player_name.lower()
                     ]
                 
                 if player_ice_data.empty:
@@ -1870,7 +1870,7 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                         crunch_ice_data["Player"].str.lower().str.contains(first_name.lower(), na=False)
                     ]
                 
-                logging.info(f"Found {len(player_ice_data)} ice location records for {goalie_name}")
+                logging.info(f"Found {len(player_ice_data)} ice location records for {player_name}")
             
             # Match player in net location data
             if has_net_data:
@@ -1885,7 +1885,7 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                         crunch_net_data["Player"].str.lower().str.contains(last_name.lower(), na=False)
                     ]
                 
-                logging.info(f"Found {len(player_net_data)} net location records for {goalie_name}")
+                logging.info(f"Found {len(player_net_data)} net location records for {player_name}")
             
             # Check if we found any data for this player
             found_player_data = (
@@ -1965,7 +1965,7 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                                     hovertemplate='<b>GOAL! - %{text}</b><br>Location: (%{x:.1f}, %{y:.1f})<extra></extra>'
                                 ))
                             
-                            fig_rink.update_layout(title=f"{goalie_name} - Shootout Shot Locations")
+                            fig_rink.update_layout(title=f"{player_name} - Shootout Shot Locations")
                             st.plotly_chart(fig_rink, use_container_width=True)
                         else:
                             st.info("Ice location data not available")
@@ -2024,7 +2024,7 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                                     hovertemplate='<b>GOAL! - %{text}</b><br>Location: (%{x:.1f}, %{y:.1f})<extra></extra>'
                                 ))
                             
-                            fig_net.update_layout(title=f"{goalie_name} - Shots on Net")
+                            fig_net.update_layout(title=f"{player_name} - Shots on Net")
                             st.plotly_chart(fig_net, use_container_width=True)
                             
                             # Net zone breakdown for goals only
@@ -2061,7 +2061,7 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                     )
                 
             else:
-                st.info(f"No shootout data available for {goalie_name}")
+                st.info(f"No shootout data available for {player_name}")
                 st.caption("Player must be on the Syracuse Crunch to appear in shootout data")
 
 
