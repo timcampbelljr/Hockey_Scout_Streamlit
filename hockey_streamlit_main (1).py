@@ -748,11 +748,12 @@ def create_shot_chart(df, player_name, view_type="player"):
     )
     
     return fig
-
+#NHL RInk For Shootout Data With Goal Loacations included
 def create_nhl_rink_shootout():
     """
     Create NHL rink for shootout visualization
     Shot-plotter coordinates: center (0,0), x ∈ [-100,100], y ∈ [-42.5,42.5]
+    Crunch players shoot on LEFT side (attacking right-to-left)
     """
     fig = go.Figure()
     
@@ -787,7 +788,24 @@ def create_nhl_rink_shootout():
             line=dict(color="red", width=2)
         )
     
-    # Faceoff circles (right zone - offensive for shootout)
+    # Faceoff circles - BOTH zones
+    # Left zone (Crunch attacking)
+    for y_center in [-22, 22]:
+        fig.add_shape(
+            type="circle",
+            x0=-69-15, y0=y_center-15, x1=-69+15, y1=y_center+15,
+            line=dict(color="red", width=2),
+            fillcolor="rgba(255,0,0,0.1)"
+        )
+        # Faceoff dot
+        fig.add_shape(
+            type="circle",
+            x0=-69-1, y0=y_center-1, x1=-69+1, y1=y_center+1,
+            fillcolor="red",
+            line=dict(color="red", width=1)
+        )
+    
+    # Right zone
     for y_center in [-22, 22]:
         fig.add_shape(
             type="circle",
@@ -817,16 +835,35 @@ def create_nhl_rink_shootout():
         line=dict(color="blue", width=1)
     )
     
-    # Goal crease (right side)
-    crease_path = "M 89 -4 L 89 4 L 85 4.5 Q 83 4.5 83 3 L 83 -3 Q 83 -4.5 85 -4.5 L 89 -4 Z"
+    # Goal creases - BOTH ends
+    # Left goal (Crunch attacking this one)
+    crease_path_left = "M -89 -4 L -89 4 L -85 4.5 Q -83 4.5 -83 3 L -83 -3 Q -83 -4.5 -85 -4.5 L -89 -4 Z"
     fig.add_shape(
         type="path",
-        path=crease_path,
+        path=crease_path_left,
         line=dict(color="red", width=2),
         fillcolor="rgba(173,216,230,0.4)"
     )
     
-    # Goal rectangle (6 x 4 feet)
+    # Right goal
+    crease_path_right = "M 89 -4 L 89 4 L 85 4.5 Q 83 4.5 83 3 L 83 -3 Q 83 -4.5 85 -4.5 L 89 -4 Z"
+    fig.add_shape(
+        type="path",
+        path=crease_path_right,
+        line=dict(color="red", width=2),
+        fillcolor="rgba(173,216,230,0.4)"
+    )
+    
+    # Goal rectangles
+    # Left goal (6 x 4 feet)
+    fig.add_shape(
+        type="rect",
+        x0=-92, y0=-3, x1=-89, y1=3,
+        line=dict(color="red", width=2),
+        fillcolor="rgba(255,255,255,0.3)"
+    )
+    
+    # Right goal
     fig.add_shape(
         type="rect",
         x0=89, y0=-3, x1=92, y1=3,
@@ -837,7 +874,7 @@ def create_nhl_rink_shootout():
     fig.update_layout(
         showlegend=True,
         xaxis=dict(
-            range=[-100, 105],
+            range=[-105, 105],
             showgrid=False,
             zeroline=False,
             visible=False
@@ -856,113 +893,6 @@ def create_nhl_rink_shootout():
     )
     
     return fig
-
-def create_nhl_goal_net():
-    """
-    Create NHL goal net visualization
-    Shot-plotter net: 72 x 48 inches, center (0,0)
-    """
-    fig = go.Figure()
-    
-    # Goal outline (72 x 48 inches, or 6 x 4 feet)
-    fig.add_shape(
-        type="rect",
-        x0=-36, y0=-24, x1=36, y1=24,
-        line=dict(color="red", width=3),
-        fillcolor="rgba(255,255,255,0.3)"
-    )
-    
-    # Posts (including in total dimensions: 76.75 x 49.1875)
-    post_radius = 2.4  # inches
-    for x, y in [(-36, -24), (-36, 24), (36, -24), (36, 24)]:
-        fig.add_shape(
-            type="circle",
-            x0=x-post_radius, y0=y-post_radius,
-            x1=x+post_radius, y1=y+post_radius,
-            fillcolor="red",
-            line=dict(color="darkred", width=1)
-        )
-    
-    # Divide net into 9 zones (3x3 grid)
-    for x in [-12, 12]:
-        fig.add_shape(
-            type="line",
-            x0=x, y0=-24, x1=x, y1=24,
-            line=dict(color="gray", width=1, dash="dash")
-        )
-    
-    for y in [-8, 8]:
-        fig.add_shape(
-            type="line",
-            x0=-36, y0=y, x1=36, y1=y,
-            line=dict(color="gray", width=1, dash="dash")
-        )
-    
-    # Add zone labels
-    zones = [
-        (-24, -16, "Bottom\nLeft"), (0, -16, "Bottom\nCenter"), (24, -16, "Bottom\nRight"),
-        (-24, 0, "Middle\nLeft"), (0, 0, "Five\nHole"), (24, 0, "Middle\nRight"),
-        (-24, 16, "Top\nLeft"), (0, 16, "Top\nCenter"), (24, 16, "Top\nRight"),
-    ]
-    
-    for x, y, label in zones:
-        fig.add_annotation(
-            x=x, y=y,
-            text=label,
-            showarrow=False,
-            font=dict(size=9, color="gray"),
-            opacity=0.6
-        )
-    
-    fig.update_layout(
-        showlegend=True,
-        xaxis=dict(
-            range=[-45, 45],
-            showgrid=False,
-            zeroline=False,
-            visible=False
-        ),
-        yaxis=dict(
-            range=[-30, 30],
-            showgrid=False,
-            zeroline=False,
-            visible=False,
-            scaleanchor="x",
-            scaleratio=1
-        ),
-        plot_bgcolor='white',
-        height=350,
-        margin=dict(l=10, r=10, t=30, b=10)
-    )
-    
-    return fig
-
-def get_net_zone(x, y):
-    """Determine which zone of the net the shot went to"""
-    if pd.isna(x) or pd.isna(y):
-        return "Unknown"
-    
-    # Determine horizontal position
-    if x < -12:
-        horizontal = "Left"
-    elif x > 12:
-        horizontal = "Right"
-    else:
-        horizontal = "Center"
-    
-    # Determine vertical position
-    if y < -8:
-        vertical = "Bottom"
-    elif y > 8:
-        vertical = "Top"
-    else:
-        vertical = "Middle"
-    
-    # Special case for five hole
-    if horizontal == "Center" and vertical == "Middle":
-        return "Five Hole"
-    
-    return f"{vertical} {horizontal}"
 
 def create_nhl_goal_net():
     """
@@ -1598,13 +1528,20 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
                     st.markdown("---")
                     st.subheader("📋 Shootout Details")
                     
-                    # Show relevant columns from scouting data
+                    # Show relevant columns from original scouting data format
                     display_cols = ['date', 'player', 'shot_location_ice', 'shot_location_goal', 'move_type', 'goal']
                     available_cols = [col for col in display_cols if col in player_scouting_data.columns]
                     
                     if available_cols:
                         st.dataframe(
-                            player_scouting_data[available_cols],
+                            player_scouting_data[available_cols].head(10),
+                            hide_index=True,
+                            use_container_width=True,
+                        )
+                    else:
+                        # If column names are different, show all available columns
+                        st.dataframe(
+                            player_scouting_data.head(10),
                             hide_index=True,
                             use_container_width=True,
                         )
@@ -1833,7 +1770,7 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                 st.info("No goals scored against this goalie in selected game(s)")
         else:
             st.info("No shot data available for this goalie")
-    
+    #GoalieSOT3
     with tab3:
         st.markdown('<div class="section-header">Shootout Performance</div>', unsafe_allow_html=True)
         
