@@ -1307,8 +1307,8 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
         shootout_net_data = pd.DataFrame()
         
         try:
-            # Load ice location data (Crunch2526SO.csv)
-            ice_file = CRUNCH_DATA_DIR / "Crunch2526SO.csv"
+            # Load ice location data (Crunch25-26SO.csv)
+            ice_file = CRUNCH_DATA_DIR / "Crunch25-26SO.csv"
             if ice_file.exists():
                 shootout_ice_data = pd.read_csv(ice_file)
                 shootout_ice_data.columns = shootout_ice_data.columns.str.strip()
@@ -1414,13 +1414,13 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
             )
             
             if found_player_data:
-                # Calculate stats from ice data (primary source)
-                if not player_ice_data.empty:
-                    attempts = len(player_ice_data)
-                    goals = (player_ice_data["Type"] == "Goal").sum()
-                elif not player_scouting_data.empty:
+                # Calculate stats - PRIORITIZE shootout_data (Shootout_Scouting) for stats
+                if not player_scouting_data.empty:
                     attempts = len(player_scouting_data)
                     goals = (player_scouting_data["goal"] == "Yes").sum()
+                elif not player_ice_data.empty:
+                    attempts = len(player_ice_data)
+                    goals = (player_ice_data["Type"] == "Goal").sum()
                 else:
                     attempts = 0
                     goals = 0
@@ -1479,7 +1479,7 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
                                         symbol='star',
                                         line=dict(width=2, color='darkred')
                                     ),
-                                    name='Goal ⭐',
+                                    name='Goal',
                                     text=goals_df["Player"],
                                     hovertemplate='<b>GOAL! - %{text}</b><br>Location: (%{x:.1f}, %{y:.1f})<extra></extra>'
                                 ))
@@ -1496,9 +1496,18 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
                             # Create net
                             fig_net = create_nhl_goal_net()
                             
-                            # Separate goals and saves
-                            net_goals = player_net_data[player_net_data["Type"] == "Goal"]
-                            net_saves = player_net_data[player_net_data["Type"] == "Save"]
+                            # Log the data we have
+                            logging.info(f"Net data columns: {player_net_data.columns.tolist()}")
+                            logging.info(f"Net data Type values: {player_net_data['Type'].unique() if 'Type' in player_net_data.columns else 'No Type column'}")
+                            
+                            # Separate goals and saves - handle different possible values
+                            if 'Type' in player_net_data.columns:
+                                net_goals = player_net_data[player_net_data["Type"].str.lower().isin(['goal', 'goals'])]
+                                net_saves = player_net_data[player_net_data["Type"].str.lower().isin(['save', 'saves', 'saved'])]
+                            else:
+                                # Fallback: assume all are goals if no Type column
+                                net_goals = player_net_data.copy()
+                                net_saves = pd.DataFrame()
                             
                             # Plot saves (if any)
                             if not net_saves.empty:
@@ -1551,6 +1560,11 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
                             # Show saves count if any
                             if not net_saves.empty:
                                 st.caption(f"💾 {len(net_saves)} save(s) by goalie")
+                            
+                            # Debug info
+                            if net_goals.empty and net_saves.empty:
+                                st.info("No shot locations found on net")
+                                st.caption(f"Data available: {len(player_net_data)} row(s)")
                         else:
                             st.info("Net location data not available")
                 
@@ -1568,6 +1582,7 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
             else:
                 st.info(f"No shootout data available for {player_name}")
                 st.caption("Player must be on the Syracuse Crunch to appear in shootout data")
+
     with tab4:
         st.markdown(
             '<div class="section-header">Faceoff Statistics</div>',
