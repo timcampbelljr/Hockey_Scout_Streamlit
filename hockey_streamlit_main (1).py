@@ -964,6 +964,113 @@ def get_net_zone(x, y):
     
     return f"{vertical} {horizontal}"
 
+def create_nhl_goal_net():
+    """
+    Create NHL goal net visualization
+    Shot-plotter net: 72 x 48 inches, center (0,0)
+    """
+    fig = go.Figure()
+    
+    # Goal outline (72 x 48 inches, or 6 x 4 feet)
+    fig.add_shape(
+        type="rect",
+        x0=-36, y0=-24, x1=36, y1=24,
+        line=dict(color="red", width=3),
+        fillcolor="rgba(255,255,255,0.3)"
+    )
+    
+    # Posts (including in total dimensions: 76.75 x 49.1875)
+    post_radius = 2.4  # inches
+    for x, y in [(-36, -24), (-36, 24), (36, -24), (36, 24)]:
+        fig.add_shape(
+            type="circle",
+            x0=x-post_radius, y0=y-post_radius,
+            x1=x+post_radius, y1=y+post_radius,
+            fillcolor="red",
+            line=dict(color="darkred", width=1)
+        )
+    
+    # Divide net into 9 zones (3x3 grid)
+    for x in [-12, 12]:
+        fig.add_shape(
+            type="line",
+            x0=x, y0=-24, x1=x, y1=24,
+            line=dict(color="gray", width=1, dash="dash")
+        )
+    
+    for y in [-8, 8]:
+        fig.add_shape(
+            type="line",
+            x0=-36, y0=y, x1=36, y1=y,
+            line=dict(color="gray", width=1, dash="dash")
+        )
+    
+    # Add zone labels
+    zones = [
+        (-24, -16, "Bottom\nLeft"), (0, -16, "Bottom\nCenter"), (24, -16, "Bottom\nRight"),
+        (-24, 0, "Middle\nLeft"), (0, 0, "Five\nHole"), (24, 0, "Middle\nRight"),
+        (-24, 16, "Top\nLeft"), (0, 16, "Top\nCenter"), (24, 16, "Top\nRight"),
+    ]
+    
+    for x, y, label in zones:
+        fig.add_annotation(
+            x=x, y=y,
+            text=label,
+            showarrow=False,
+            font=dict(size=9, color="gray"),
+            opacity=0.6
+        )
+    
+    fig.update_layout(
+        showlegend=True,
+        xaxis=dict(
+            range=[-45, 45],
+            showgrid=False,
+            zeroline=False,
+            visible=False
+        ),
+        yaxis=dict(
+            range=[-30, 30],
+            showgrid=False,
+            zeroline=False,
+            visible=False,
+            scaleanchor="x",
+            scaleratio=1
+        ),
+        plot_bgcolor='white',
+        height=350,
+        margin=dict(l=10, r=10, t=30, b=10)
+    )
+    
+    return fig
+
+def get_net_zone(x, y):
+    """Determine which zone of the net the shot went to"""
+    if pd.isna(x) or pd.isna(y):
+        return "Unknown"
+    
+    # Determine horizontal position
+    if x < -12:
+        horizontal = "Left"
+    elif x > 12:
+        horizontal = "Right"
+    else:
+        horizontal = "Center"
+    
+    # Determine vertical position
+    if y < -8:
+        vertical = "Bottom"
+    elif y > 8:
+        vertical = "Top"
+    else:
+        vertical = "Middle"
+    
+    # Special case for five hole
+    if horizontal == "Center" and vertical == "Middle":
+        return "Five Hole"
+    
+    return f"{vertical} {horizontal}"
+
 # ============================================================================
 # AGGREGATION FUNCTIONS
 # ============================================================================
