@@ -143,6 +143,8 @@ TARGET_TEAM = "Syracuse Crunch"
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
+
+
 # ============================================================================
 # PLAYER EXCLUSION MANAGEMENT
 # ============================================================================
@@ -747,6 +749,221 @@ def create_shot_chart(df, player_name, view_type="player"):
     
     return fig
 
+def create_nhl_rink_shootout():
+    """
+    Create NHL rink for shootout visualization
+    Shot-plotter coordinates: center (0,0), x ∈ [-100,100], y ∈ [-42.5,42.5]
+    """
+    fig = go.Figure()
+    
+    # Rink outline (200 x 85 feet)
+    fig.add_shape(
+        type="rect",
+        x0=-100, y0=-42.5, x1=100, y1=42.5,
+        line=dict(color="black", width=3),
+        fillcolor="white"
+    )
+    
+    # Center red line
+    fig.add_shape(
+        type="line",
+        x0=0, y0=-42.5, x1=0, y1=42.5,
+        line=dict(color="red", width=3)
+    )
+    
+    # Blue lines (25 feet from center)
+    for x in [-25, 25]:
+        fig.add_shape(
+            type="line",
+            x0=x, y0=-42.5, x1=x, y1=42.5,
+            line=dict(color="blue", width=2)
+        )
+    
+    # Goal lines (11 feet from boards)
+    for x in [-89, 89]:
+        fig.add_shape(
+            type="line",
+            x0=x, y0=-42.5, x1=x, y1=42.5,
+            line=dict(color="red", width=2)
+        )
+    
+    # Faceoff circles (right zone - offensive for shootout)
+    for y_center in [-22, 22]:
+        fig.add_shape(
+            type="circle",
+            x0=69-15, y0=y_center-15, x1=69+15, y1=y_center+15,
+            line=dict(color="red", width=2),
+            fillcolor="rgba(255,0,0,0.1)"
+        )
+        # Faceoff dot
+        fig.add_shape(
+            type="circle",
+            x0=69-1, y0=y_center-1, x1=69+1, y1=y_center+1,
+            fillcolor="red",
+            line=dict(color="red", width=1)
+        )
+    
+    # Center faceoff circle
+    fig.add_shape(
+        type="circle",
+        x0=-15, y0=-15, x1=15, y1=15,
+        line=dict(color="blue", width=2),
+        fillcolor="rgba(0,0,255,0.05)"
+    )
+    fig.add_shape(
+        type="circle",
+        x0=-1, y0=-1, x1=1, y1=1,
+        fillcolor="blue",
+        line=dict(color="blue", width=1)
+    )
+    
+    # Goal crease (right side)
+    crease_path = "M 89 -4 L 89 4 L 85 4.5 Q 83 4.5 83 3 L 83 -3 Q 83 -4.5 85 -4.5 L 89 -4 Z"
+    fig.add_shape(
+        type="path",
+        path=crease_path,
+        line=dict(color="red", width=2),
+        fillcolor="rgba(173,216,230,0.4)"
+    )
+    
+    # Goal rectangle (6 x 4 feet)
+    fig.add_shape(
+        type="rect",
+        x0=89, y0=-3, x1=92, y1=3,
+        line=dict(color="red", width=2),
+        fillcolor="rgba(255,255,255,0.3)"
+    )
+    
+    fig.update_layout(
+        showlegend=True,
+        xaxis=dict(
+            range=[-100, 105],
+            showgrid=False,
+            zeroline=False,
+            visible=False
+        ),
+        yaxis=dict(
+            range=[-45, 45],
+            showgrid=False,
+            zeroline=False,
+            visible=False,
+            scaleanchor="x",
+            scaleratio=1
+        ),
+        plot_bgcolor='#f0f8ff',
+        height=400,
+        margin=dict(l=10, r=10, t=30, b=10)
+    )
+    
+    return fig
+
+def create_nhl_goal_net():
+    """
+    Create NHL goal net visualization
+    Shot-plotter net: 72 x 48 inches, center (0,0)
+    """
+    fig = go.Figure()
+    
+    # Goal outline (72 x 48 inches, or 6 x 4 feet)
+    fig.add_shape(
+        type="rect",
+        x0=-36, y0=-24, x1=36, y1=24,
+        line=dict(color="red", width=3),
+        fillcolor="rgba(255,255,255,0.3)"
+    )
+    
+    # Posts (including in total dimensions: 76.75 x 49.1875)
+    post_radius = 2.4  # inches
+    for x, y in [(-36, -24), (-36, 24), (36, -24), (36, 24)]:
+        fig.add_shape(
+            type="circle",
+            x0=x-post_radius, y0=y-post_radius,
+            x1=x+post_radius, y1=y+post_radius,
+            fillcolor="red",
+            line=dict(color="darkred", width=1)
+        )
+    
+    # Divide net into 9 zones (3x3 grid)
+    for x in [-12, 12]:
+        fig.add_shape(
+            type="line",
+            x0=x, y0=-24, x1=x, y1=24,
+            line=dict(color="gray", width=1, dash="dash")
+        )
+    
+    for y in [-8, 8]:
+        fig.add_shape(
+            type="line",
+            x0=-36, y0=y, x1=36, y1=y,
+            line=dict(color="gray", width=1, dash="dash")
+        )
+    
+    # Add zone labels
+    zones = [
+        (-24, -16, "Bottom\nLeft"), (0, -16, "Bottom\nCenter"), (24, -16, "Bottom\nRight"),
+        (-24, 0, "Middle\nLeft"), (0, 0, "Five\nHole"), (24, 0, "Middle\nRight"),
+        (-24, 16, "Top\nLeft"), (0, 16, "Top\nCenter"), (24, 16, "Top\nRight"),
+    ]
+    
+    for x, y, label in zones:
+        fig.add_annotation(
+            x=x, y=y,
+            text=label,
+            showarrow=False,
+            font=dict(size=9, color="gray"),
+            opacity=0.6
+        )
+    
+    fig.update_layout(
+        showlegend=True,
+        xaxis=dict(
+            range=[-45, 45],
+            showgrid=False,
+            zeroline=False,
+            visible=False
+        ),
+        yaxis=dict(
+            range=[-30, 30],
+            showgrid=False,
+            zeroline=False,
+            visible=False,
+            scaleanchor="x",
+            scaleratio=1
+        ),
+        plot_bgcolor='white',
+        height=350,
+        margin=dict(l=10, r=10, t=30, b=10)
+    )
+    
+    return fig
+
+def get_net_zone(x, y):
+    """Determine which zone of the net the shot went to"""
+    if pd.isna(x) or pd.isna(y):
+        return "Unknown"
+    
+    # Determine horizontal position
+    if x < -12:
+        horizontal = "Left"
+    elif x > 12:
+        horizontal = "Right"
+    else:
+        horizontal = "Center"
+    
+    # Determine vertical position
+    if y < -8:
+        vertical = "Bottom"
+    elif y > 8:
+        vertical = "Top"
+    else:
+        vertical = "Middle"
+    
+    # Special case for five hole
+    if horizontal == "Center" and vertical == "Middle":
+        return "Five Hole"
+    
+    return f"{vertical} {horizontal}"
+
 # ============================================================================
 # AGGREGATION FUNCTIONS
 # ============================================================================
@@ -1028,73 +1245,204 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
 
     with tab3:
         st.markdown(
-            '<div class="section-header">Shootout Performance</div>',
+            '<div class="section-header">🥅 Shootout Performance</div>',
             unsafe_allow_html=True
         )
 
-        if not shootout_data.empty:
-            # Extract last name from player_name
+        # Try to load shootout ice and net data
+        shootout_ice_data = pd.DataFrame()
+        shootout_net_data = pd.DataFrame()
+        
+        try:
+            # Load ice location data (Crunch2526SO.csv)
+            ice_file = CRUNCH_DATA_DIR / "Crunch2526SO.csv"
+            if ice_file.exists():
+                shootout_ice_data = pd.read_csv(ice_file)
+                shootout_ice_data.columns = shootout_ice_data.columns.str.strip()
+        except Exception as e:
+            st.warning(f"Could not load shootout ice location data: {e}")
+        
+        try:
+            # Load net location data (SO_Goalzone.csv)
+            net_file = CRUNCH_DATA_DIR / "SO_Goalzone.csv"
+            if net_file.exists():
+                shootout_net_data = pd.read_csv(net_file)
+                shootout_net_data.columns = shootout_net_data.columns.str.strip()
+        except Exception as e:
+            st.warning(f"Could not load shootout net location data: {e}")
+
+        if shootout_ice_data.empty:
+            st.info("No shootout data available. Please add Crunch2526SO.csv to the Crunch_Box_and_Shot folder.")
+        else:
+            # Extract player name parts for matching
             if " " in player_name:
-                last_name = player_name.split()[-1]
-                first_name = player_name.split()[0]
+                name_parts = player_name.split()
+                last_name = name_parts[-1]
+                first_name = name_parts[0]
             else:
                 last_name = player_name
                 first_name = player_name
             
+            # Filter for Crunch (Home) players only
+            crunch_ice_data = shootout_ice_data[shootout_ice_data["Team"] == "Home"].copy()
+            
             # Try multiple matching strategies
-            # 1. Exact last name match
-            player_shootout = shootout_data[
-                (shootout_data["is_crunch_shooter"] == True) &
-                (shootout_data["player"].str.lower() == last_name.lower())
+            player_ice_data = crunch_ice_data[
+                crunch_ice_data["Player"].str.lower() == last_name.lower()
             ]
             
-            # 2. If no match, try matching full name
-            if player_shootout.empty:
-                player_shootout = shootout_data[
-                    (shootout_data["is_crunch_shooter"] == True) &
-                    (shootout_data["player"].str.lower() == player_name.lower())
+            if player_ice_data.empty:
+                player_ice_data = crunch_ice_data[
+                    crunch_ice_data["Player"].str.lower() == player_name.lower()
                 ]
             
-            # 3. If still no match, try partial match on last name
-            if player_shootout.empty:
-                player_shootout = shootout_data[
-                    (shootout_data["is_crunch_shooter"] == True) &
-                    (shootout_data["player"].str.lower().str.contains(last_name.lower(), na=False))
+            if player_ice_data.empty:
+                player_ice_data = crunch_ice_data[
+                    crunch_ice_data["Player"].str.lower().str.contains(last_name.lower(), na=False)
                 ]
             
-            # 4. If still no match, try first name
-            if player_shootout.empty:
-                player_shootout = shootout_data[
-                    (shootout_data["is_crunch_shooter"] == True) &
-                    (shootout_data["player"].str.lower() == first_name.lower())
+            if player_ice_data.empty:
+                player_ice_data = crunch_ice_data[
+                    crunch_ice_data["Player"].str.lower().str.contains(first_name.lower(), na=False)
                 ]
-
-            if not player_shootout.empty:
-                attempts = len(player_shootout)
-                goals = (player_shootout["goal"] == "Yes").sum()
+            
+            # Match net data if available
+            player_net_data = pd.DataFrame()
+            if not shootout_net_data.empty:
+                crunch_net_data = shootout_net_data[shootout_net_data["Team"] == "Home"].copy()
+                
+                player_net_data = crunch_net_data[
+                    crunch_net_data["Player"].str.lower() == last_name.lower()
+                ]
+                
+                if player_net_data.empty:
+                    player_net_data = crunch_net_data[
+                        crunch_net_data["Player"].str.lower().str.contains(last_name.lower(), na=False)
+                    ]
+            
+            # Display results
+            if not player_ice_data.empty:
+                # Calculate stats
+                attempts = len(player_ice_data)
+                goals = (player_ice_data["Type"] == "Goal").sum()
                 success_rate = (goals / attempts * 100) if attempts else 0
-
+                
+                # Metrics row
                 col1, col2, col3 = st.columns(3)
-                col1.metric("Attempts", attempts)
+                col1.metric("Shootout Attempts", attempts)
                 col2.metric("Goals", goals)
                 col3.metric("Success Rate", f"{success_rate:.1f}%")
-
+                
                 st.markdown("---")
                 
-                # Show relevant columns
-                display_cols = ['date', 'player', 'shot_location_ice', 'shot_location_goal', 'move_type', 'goal']
-                available_cols = [col for col in display_cols if col in player_shootout.columns]
+                # Create two-column layout for visualizations
+                col1, col2 = st.columns(2)
+                
+                with col1:
+                    st.subheader("🏒 Shot Locations on Ice")
+                    
+                    # Create rink
+                    fig_rink = create_nhl_rink_shootout()
+                    
+                    # Add player shots
+                    shots = player_ice_data[player_ice_data["Type"] == "Shot"]
+                    goals_df = player_ice_data[player_ice_data["Type"] == "Goal"]
+                    
+                    # Plot shots (missed)
+                    if not shots.empty:
+                        fig_rink.add_trace(go.Scatter(
+                            x=shots["X"],
+                            y=shots["Y"],
+                            mode='markers',
+                            marker=dict(
+                                size=12,
+                                color='lightblue',
+                                symbol='circle',
+                                line=dict(width=2, color='blue')
+                            ),
+                            name='Miss',
+                            text=shots["Player"],
+                            hovertemplate='<b>Miss - %{text}</b><br>Location: (%{x:.1f}, %{y:.1f})<extra></extra>'
+                        ))
+                    
+                    # Plot goals
+                    if not goals_df.empty:
+                        fig_rink.add_trace(go.Scatter(
+                            x=goals_df["X"],
+                            y=goals_df["Y"],
+                            mode='markers',
+                            marker=dict(
+                                size=16,
+                                color='red',
+                                symbol='star',
+                                line=dict(width=2, color='darkred')
+                            ),
+                            name='Goal ⭐',
+                            text=goals_df["Player"],
+                            hovertemplate='<b>GOAL! - %{text}</b><br>Location: (%{x:.1f}, %{y:.1f})<extra></extra>'
+                        ))
+                    
+                    fig_rink.update_layout(title=f"{player_name} - Shootout Shot Locations")
+                    st.plotly_chart(fig_rink, use_container_width=True)
+                
+                with col2:
+                    st.subheader("🥅 Shot Locations on Net")
+                    
+                    if not player_net_data.empty:
+                        # Create net
+                        fig_net = create_nhl_goal_net()
+                        
+                        # Add shots to net (goals only)
+                        net_goals = player_net_data[player_net_data["Type"] == "Goal"]
+                        
+                        if not net_goals.empty:
+                            fig_net.add_trace(go.Scatter(
+                                x=net_goals["X"],
+                                y=net_goals["Y"],
+                                mode='markers',
+                                marker=dict(
+                                    size=16,
+                                    color='red',
+                                    symbol='star',
+                                    line=dict(width=2, color='darkred')
+                                ),
+                                name='Goal',
+                                text=net_goals["Player"],
+                                hovertemplate='<b>GOAL! - %{text}</b><br>Location: (%{x:.1f}, %{y:.1f})<extra></extra>'
+                            ))
+                            
+                            fig_net.update_layout(title=f"{player_name} - Goals on Net")
+                            st.plotly_chart(fig_net, use_container_width=True)
+                            
+                            # Net zone breakdown
+                            st.markdown("**Goal Locations by Zone:**")
+                            net_goals["Zone"] = net_goals.apply(
+                                lambda row: get_net_zone(row["X"], row["Y"]), axis=1
+                            )
+                            zone_counts = net_goals["Zone"].value_counts().reset_index()
+                            zone_counts.columns = ["Zone", "Goals"]
+                            st.dataframe(zone_counts, hide_index=True, use_container_width=True)
+                        else:
+                            st.info("No goals scored to display on net")
+                    else:
+                        st.info("Net location data not available for this player")
+                
+                # Detailed attempt log
+                st.markdown("---")
+                st.subheader("📋 Shootout Attempts")
+                
+                display_cols = ['Player', 'Type', 'X', 'Y']
+                available_cols = [col for col in display_cols if col in player_ice_data.columns]
                 
                 st.dataframe(
-                    player_shootout[available_cols].head(10),
+                    player_ice_data[available_cols],
                     hide_index=True,
                     use_container_width=True,
                 )
+                
             else:
                 st.info(f"No shootout data available for {player_name}")
-        else:
-            st.info("No shootout data loaded")
-
+                st.caption("Player must be on the Syracuse Crunch (Home team) to appear in shootout data")
     with tab4:
         st.markdown(
             '<div class="section-header">Faceoff Statistics</div>',
