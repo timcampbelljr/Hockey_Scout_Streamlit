@@ -757,19 +757,23 @@ def create_nhl_rink_shootout():
     """
     fig = go.Figure()
     
+    # IMPORTANT: Draw shapes first, then markers will be added on top
+    
     # Rink outline (200 x 85 feet)
     fig.add_shape(
         type="rect",
         x0=-100, y0=-42.5, x1=100, y1=42.5,
         line=dict(color="black", width=3),
-        fillcolor="white"
+        fillcolor="white",
+        layer="below"  # Draw below traces
     )
     
     # Center red line
     fig.add_shape(
         type="line",
         x0=0, y0=-42.5, x1=0, y1=42.5,
-        line=dict(color="red", width=3)
+        line=dict(color="red", width=3),
+        layer="below"
     )
     
     # Blue lines (25 feet from center)
@@ -777,7 +781,8 @@ def create_nhl_rink_shootout():
         fig.add_shape(
             type="line",
             x0=x, y0=-42.5, x1=x, y1=42.5,
-            line=dict(color="blue", width=2)
+            line=dict(color="blue", width=2),
+            layer="below"
         )
     
     # Goal lines (11 feet from boards)
@@ -785,7 +790,8 @@ def create_nhl_rink_shootout():
         fig.add_shape(
             type="line",
             x0=x, y0=-42.5, x1=x, y1=42.5,
-            line=dict(color="red", width=2)
+            line=dict(color="red", width=2),
+            layer="below"
         )
     
     # Faceoff circles - BOTH zones
@@ -795,14 +801,16 @@ def create_nhl_rink_shootout():
             type="circle",
             x0=-69-15, y0=y_center-15, x1=-69+15, y1=y_center+15,
             line=dict(color="red", width=2),
-            fillcolor="rgba(255,0,0,0.1)"
+            fillcolor="rgba(255,0,0,0.1)",
+            layer="below"
         )
         # Faceoff dot
         fig.add_shape(
             type="circle",
             x0=-69-1, y0=y_center-1, x1=-69+1, y1=y_center+1,
             fillcolor="red",
-            line=dict(color="red", width=1)
+            line=dict(color="red", width=1),
+            layer="below"
         )
     
     # Right zone
@@ -811,14 +819,16 @@ def create_nhl_rink_shootout():
             type="circle",
             x0=69-15, y0=y_center-15, x1=69+15, y1=y_center+15,
             line=dict(color="red", width=2),
-            fillcolor="rgba(255,0,0,0.1)"
+            fillcolor="rgba(255,0,0,0.1)",
+            layer="below"
         )
         # Faceoff dot
         fig.add_shape(
             type="circle",
             x0=69-1, y0=y_center-1, x1=69+1, y1=y_center+1,
             fillcolor="red",
-            line=dict(color="red", width=1)
+            line=dict(color="red", width=1),
+            layer="below"
         )
     
     # Center faceoff circle
@@ -826,13 +836,15 @@ def create_nhl_rink_shootout():
         type="circle",
         x0=-15, y0=-15, x1=15, y1=15,
         line=dict(color="blue", width=2),
-        fillcolor="rgba(0,0,255,0.05)"
+        fillcolor="rgba(0,0,255,0.05)",
+        layer="below"
     )
     fig.add_shape(
         type="circle",
         x0=-1, y0=-1, x1=1, y1=1,
         fillcolor="blue",
-        line=dict(color="blue", width=1)
+        line=dict(color="blue", width=1),
+        layer="below"
     )
     
     # Goal creases - BOTH ends
@@ -842,7 +854,8 @@ def create_nhl_rink_shootout():
         type="path",
         path=crease_path_left,
         line=dict(color="red", width=2),
-        fillcolor="rgba(173,216,230,0.4)"
+        fillcolor="rgba(173,216,230,0.4)",
+        layer="below"
     )
     
     # Right goal
@@ -851,7 +864,8 @@ def create_nhl_rink_shootout():
         type="path",
         path=crease_path_right,
         line=dict(color="red", width=2),
-        fillcolor="rgba(173,216,230,0.4)"
+        fillcolor="rgba(173,216,230,0.4)",
+        layer="below"
     )
     
     # Goal rectangles
@@ -860,7 +874,8 @@ def create_nhl_rink_shootout():
         type="rect",
         x0=-92, y0=-3, x1=-89, y1=3,
         line=dict(color="red", width=2),
-        fillcolor="rgba(255,255,255,0.3)"
+        fillcolor="rgba(255,255,255,0.3)",
+        layer="below"
     )
     
     # Right goal
@@ -868,7 +883,8 @@ def create_nhl_rink_shootout():
         type="rect",
         x0=89, y0=-3, x1=92, y1=3,
         line=dict(color="red", width=2),
-        fillcolor="rgba(255,255,255,0.3)"
+        fillcolor="rgba(255,255,255,0.3)",
+        layer="below"
     )
     
     fig.update_layout(
@@ -1291,8 +1307,8 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
         shootout_net_data = pd.DataFrame()
         
         try:
-            # Load ice location data (Crunch25-26SO.csv)
-            ice_file = CRUNCH_DATA_DIR / "Crunch25-26SO.csv"
+            # Load ice location data (Crunch2526SO.csv)
+            ice_file = CRUNCH_DATA_DIR / "Crunch2526SO.csv"
             if ice_file.exists():
                 shootout_ice_data = pd.read_csv(ice_file)
                 shootout_ice_data.columns = shootout_ice_data.columns.str.strip()
@@ -1398,13 +1414,13 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
             )
             
             if found_player_data:
-                # Calculate stats from ice data (primary source)
-                if not player_ice_data.empty:
-                    attempts = len(player_ice_data)
-                    goals = (player_ice_data["Type"] == "Goal").sum()
-                elif not player_scouting_data.empty:
+                # Calculate stats - PRIORITIZE shootout_data (Shootout_Scouting) for stats
+                if not player_scouting_data.empty:
                     attempts = len(player_scouting_data)
                     goals = (player_scouting_data["goal"] == "Yes").sum()
+                elif not player_ice_data.empty:
+                    attempts = len(player_ice_data)
+                    goals = (player_ice_data["Type"] == "Goal").sum()
                 else:
                     attempts = 0
                     goals = 0
