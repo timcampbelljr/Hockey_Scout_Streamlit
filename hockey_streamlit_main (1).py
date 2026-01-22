@@ -1414,13 +1414,13 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
             )
             
             if found_player_data:
-                # Calculate stats - PRIORITIZE shootout_data (Shootout_Scouting) for stats
-                if not player_scouting_data.empty:
-                    attempts = len(player_scouting_data)
-                    goals = (player_scouting_data["goal"] == "Yes").sum()
-                elif not player_ice_data.empty:
+                # Calculate stats from ice data (primary source)
+                if not player_ice_data.empty:
                     attempts = len(player_ice_data)
                     goals = (player_ice_data["Type"] == "Goal").sum()
+                elif not player_scouting_data.empty:
+                    attempts = len(player_scouting_data)
+                    goals = (player_scouting_data["goal"] == "Yes").sum()
                 else:
                     attempts = 0
                     goals = 0
