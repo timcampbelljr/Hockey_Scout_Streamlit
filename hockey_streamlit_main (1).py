@@ -1386,7 +1386,7 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
         else:
             st.info("No shot data available for this player")
 
-        with tab3:
+    with tab3:
         st.markdown(
             '<div class="section-header">🥅 Shootout Performance</div>',
             unsafe_allow_html=True
