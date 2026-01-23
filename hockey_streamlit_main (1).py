@@ -2334,7 +2334,13 @@ def main():
             ].copy() if not st.session_state.shots_df_goalies.empty else pd.DataFrame()
             
             # Render card
-            def render_goalie_card(goalie_name, goalie_row, goalie_shots, shootout_data, games_df):
+            render_goalie_card(
+                selected_goalie,
+                goalie_row,
+                goalie_shots,
+                st.session_state.shootout_df,
+                st.session_state.games_df
+            )
 
 if __name__ == "__main__":
     main()
