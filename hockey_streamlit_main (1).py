@@ -2285,7 +2285,7 @@ def main():
                     st.session_state.games_df
                 )
     
-    # ========================================================================
+   # ========================================================================
     # GOALIES VIEW
     # ========================================================================
     else:
@@ -2321,7 +2321,6 @@ def main():
             )
             
             # Extract goalie name from selection
-           # Extract goalie name from selection
             selected_goalie = goalie_list[goalie_options.index(selected_option)]
             st.session_state.selected_goalie = selected_goalie
             
