@@ -2638,11 +2638,11 @@ def main():
     
     # ========================================================================
     # GOALIES VIEW
-    # ========================================================================
-    else:
-        if goalie_stats.empty:
-            st.info("No active goalies available")
-            return
+    # =======================================================================
+         else:
+            if goalie_stats.empty:
+                st.info("No active goalies available")
+                return
         
         # Sort goalies by save percentage
         goalie_stats = goalie_stats.sort_values("save_percentage", ascending=False)
