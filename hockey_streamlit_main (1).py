@@ -1671,38 +1671,7 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
             else:
                 st.info(f"No shootout data available for {player_name}")
                 st.caption("Player must be on the Syracuse Crunch to appear in shootout data")
-        
-        # Add summary table at the bottom for all players
-        if not shootout_data.empty:
-            st.markdown("---")
-            st.subheader("📊 All Players Shootout Summary")
-            
-            # Group by player and calculate stats
-            summary_stats = []
-            for player in shootout_data['player'].unique():
-                player_data = shootout_data[shootout_data['player'] == player]
-                attempts = len(player_data)
-                goals = (player_data['goal'] == 'Yes').sum()
-                success_rate = (goals / attempts * 100) if attempts > 0 else 0
                 
-                summary_stats.append({
-                    'Player': player,
-                    'Attempts': attempts,
-                    'Goals': goals,
-                    'Misses': attempts - goals,
-                    'Success Rate': f"{success_rate:.1f}%"
-                })
-            
-            # Create dataframe and sort by success rate
-            summary_df = pd.DataFrame(summary_stats)
-            summary_df['Sort_Rate'] = summary_df['Success Rate'].str.rstrip('%').astype(float)
-            summary_df = summary_df.sort_values('Sort_Rate', ascending=False).drop('Sort_Rate', axis=1)
-            
-            st.dataframe(
-                summary_df,
-                hide_index=True,
-                use_container_width=True,
-            )
     with tab4:
         st.markdown(
             '<div class="section-header">Faceoff Statistics</div>',
