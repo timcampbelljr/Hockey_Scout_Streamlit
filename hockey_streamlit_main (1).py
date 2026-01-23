@@ -1120,6 +1120,8 @@ def aggregate_goalie_stats(goalies_df, season="2024-25"):
     
     return agg_df
 
+
+
 # ============================================================================
 # PLAYER CARD COMPONENTS
 # ============================================================================
@@ -1128,10 +1130,10 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
     """Render a complete player card with all stats."""
     # Header
     st.markdown(f"""
-        <div style='text-align: center; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; margin-bottom: 20px;'>
-            <h1 style='color: white; margin: 0;'>{player_name}</h1>
-            <p style='color: rgba(255,255,255,0.9); margin: 5px 0 0 0; font-size: 1.1em;'>{player_stats['pos']} • Syracuse Crunch</p>
-        </div>
+        &lt;div style='text-align: center; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; margin-bottom: 20px;'&gt;
+            &lt;h1 style='color: white; margin: 0;'&gt;{player_name}&lt;/h1&gt;
+            &lt;p style='color: rgba(255,255,255,0.9); margin: 5px 0 0 0; font-size: 1.1em;'&gt;{player_stats['pos']} • Syracuse Crunch&lt;/p&gt;
+        &lt;/div&gt;
     """, unsafe_allow_html=True)
 
     # Season Stats - Now with 8 columns including +/- and PIM
@@ -1162,7 +1164,7 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
 
     with tab1:
         st.markdown(
-            '<div class="stat-card"><h3>Game-by-Game Stats</h3></div>',
+            '&lt;div class="stat-card"&gt;&lt;h3&gt;Game-by-Game Stats&lt;/h3&gt;&lt;/div&gt;',
             unsafe_allow_html=True
         )
 
@@ -1222,7 +1224,7 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
 
     with tab2:
         st.markdown(
-            '<div class="stat-card"><h3>Shot Chart</h3></div>',
+            '&lt;div class="stat-card"&gt;&lt;h3&gt;Shot Chart&lt;/h3&gt;&lt;/div&gt;',
             unsafe_allow_html=True
         )
 
@@ -1298,7 +1300,7 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
 
     with tab3:
         st.markdown(
-            '<div class="section-header">🥅 Shootout Performance</div>',
+            '&lt;div class="section-header"&gt;🥅 Shootout Performance&lt;/div&gt;',
             unsafe_allow_html=True
         )
 
@@ -1464,7 +1466,7 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
                                     ),
                                     name='Miss',
                                     text=shots["Player"],
-                                    hovertemplate='<b>Miss - %{text}</b><br>Location: (%{x:.1f}, %{y:.1f})<extra></extra>'
+                                    hovertemplate='&lt;b&gt;Miss - %{text}&lt;/b&gt;&lt;br&gt;Location: (%{x:.1f}, %{y:.1f})&lt;extra&gt;&lt;/extra&gt;'
                                 ))
                             
                             # Plot goals
@@ -1481,7 +1483,7 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
                                     ),
                                     name='Goal ⭐',
                                     text=goals_df["Player"],
-                                    hovertemplate='<b>GOAL! - %{text}</b><br>Location: (%{x:.1f}, %{y:.1f})<extra></extra>'
+                                    hovertemplate='&lt;b&gt;GOAL! - %{text}&lt;/b&gt;&lt;br&gt;Location: (%{x:.1f}, %{y:.1f})&lt;extra&gt;&lt;/extra&gt;'
                                 ))
                             
                             fig_rink.update_layout(title=f"{player_name} - Shootout Shot Locations")
@@ -1523,7 +1525,7 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
                                     ),
                                     name='Save',
                                     text=net_saves["Player"],
-                                    hovertemplate='<b>SAVE - %{text}</b><br>Location: (%{x:.1f}, %{y:.1f})<extra></extra>'
+                                    hovertemplate='&lt;b&gt;SAVE - %{text}&lt;/b&gt;&lt;br&gt;Location: (%{x:.1f}, %{y:.1f})&lt;extra&gt;&lt;/extra&gt;'
                                 ))
                             
                             # Plot goals
@@ -1540,7 +1542,7 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
                                     ),
                                     name='Goal',
                                     text=net_goals["Player"],
-                                    hovertemplate='<b>GOAL! - %{text}</b><br>Location: (%{x:.1f}, %{y:.1f})<extra></extra>'
+                                    hovertemplate='&lt;b&gt;GOAL! - %{text}&lt;/b&gt;&lt;br&gt;Location: (%{x:.1f}, %{y:.1f})&lt;extra&gt;&lt;/extra&gt;'
                                 ))
                             
                             fig_net.update_layout(title=f"{player_name} - Shots on Net")
@@ -1585,7 +1587,7 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
 
     with tab4:
         st.markdown(
-            '<div class="section-header">Faceoff Statistics</div>',
+            '&lt;div class="section-header"&gt;Faceoff Statistics&lt;/div&gt;',
             unsafe_allow_html=True
         )
 
@@ -1614,7 +1616,7 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
         # GoalieSOT3
         with tab3:
             st.markdown(
-                '<div class="section-header">🥅 Shootout Performance</div>',
+                '&lt;div class="section-header"&gt;🥅 Shootout Performance&lt;/div&gt;',
                 unsafe_allow_html=True
             )
 
@@ -1792,7 +1794,7 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
                                         ),
                                         name='Save',
                                         text=saves_df["Type"],
-                                        hovertemplate='<b>SAVE</b><br>Location: (%{x:.1f}, %{y:.1f})<extra></extra>'
+                                        hovertemplate='&lt;b&gt;SAVE&lt;/b&gt;&lt;br&gt;Location: (%{x:.1f}, %{y:.1f})&lt;extra&gt;&lt;/extra&gt;'
                                     ))
                                 
                                 # Plot goals against
@@ -1809,7 +1811,7 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
                                         ),
                                         name='Goal Against',
                                         text=goals_against_df["Player"],
-                                        hovertemplate='<b>GOAL AGAINST</b><br>Location: (%{x:.1f}, %{y:.1f})<extra></extra>'
+                                        hovertemplate='&lt;b&gt;GOAL AGAINST&lt;/b&gt;&lt;br&gt;Location: (%{x:.1f}, %{y:.1f})&lt;extra&gt;&lt;/extra&gt;'
                                     ))
                                 
                                 fig_rink.update_layout(title=f"{goalie_name} - Where Shooters Shot From")
@@ -1850,7 +1852,7 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
                                             line=dict(width=2, color='green')
                                         ),
                                         name='Save',
-                                        hovertemplate='<b>SAVE</b><br>Location: (%{x:.1f}, %{y:.1f})<extra></extra>'
+                                        hovertemplate='&lt;b&gt;SAVE&lt;/b&gt;&lt;br&gt;Location: (%{x:.1f}, %{y:.1f})&lt;extra&gt;&lt;/extra&gt;'
                                     ))
                                 
                                 # Plot goals against
@@ -1866,7 +1868,7 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
                                             line=dict(width=2, color='darkred')
                                         ),
                                         name='Goal Against',
-                                        hovertemplate='<b>GOAL AGAINST</b><br>Location: (%{x:.1f}, %{y:.1f})<extra></extra>'
+                                        hovertemplate='&lt;b&gt;GOAL AGAINST&lt;/b&gt;&lt;br&gt;Location: (%{x:.1f}, %{y:.1f})&lt;extra&gt;&lt;/extra&gt;'
                                     ))
                                 
                                 fig_net.update_layout(title=f"{goalie_name} - Where Pucks Went on Net")
@@ -1939,10 +1941,10 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
 # Minimal stub to prevent NameError when switching to Goalies view.
 def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, games_df):
     st.markdown(f"""
-        <div class="goalie-card">
-            <div class="player-name">{goalie_name}</div>
-            <div class="player-position">G • Syracuse Crunch</div>
-        </div>
+        &lt;div class="goalie-card"&gt;
+            &lt;div class="player-name"&gt;{goalie_name}&lt;/div&gt;
+            &lt;div class="player-position"&gt;G • Syracuse Crunch&lt;/div&gt;
+        &lt;/div&gt;
     """, unsafe_allow_html=True)
     col1, col2, col3, col4 = st.columns(4)
     col1.metric("GP", goalie_stats.get("games_played", 0))
@@ -1967,7 +1969,7 @@ def render_roster_management(player_stats, goalie_stats, excluded_players, curre
     """Render roster management section for excluding traded players."""
     
     with st.expander("⚙️ Manage Roster (Exclude Non-Roster Players)", expanded=False):
-        st.markdown('<div class="manage-roster-section">', unsafe_allow_html=True)
+        st.markdown('&lt;div class="manage-roster-section"&gt;', unsafe_allow_html=True)
         
         st.markdown("### Exclude players from roster views")
         st.caption("Use this to hide players who have been traded or are no longer with the team. Their data remains in the system but won't appear in roster selections.")
@@ -1983,7 +1985,7 @@ def render_roster_management(player_stats, goalie_stats, excluded_players, curre
         
         if not all_players:
             st.info("No players found in current dataset")
-            st.markdown('</div>', unsafe_allow_html=True)
+            st.markdown('&lt;/div&gt;', unsafe_allow_html=True)
             return excluded_players
         
         # Identify players not on current roster
@@ -2061,7 +2063,7 @@ def render_roster_management(player_stats, goalie_stats, excluded_players, curre
             excluded_df = pd.DataFrame({"Player": sorted(newly_excluded)})
             st.dataframe(excluded_df, hide_index=True, use_container_width=True)
         
-        st.markdown('</div>', unsafe_allow_html=True)
+        st.markdown('&lt;/div&gt;', unsafe_allow_html=True)
         
         return set(newly_excluded)
 
@@ -2069,11 +2071,10 @@ def render_roster_management(player_stats, goalie_stats, excluded_players, curre
 # MAIN APP
 # ============================================================================
 
-
 def main():
     # Title
-    st.markdown('<div class="main-title">🏒 Syracuse Crunch</div>', unsafe_allow_html=True)
-    st.markdown('<div class="subtitle">Player Scouting Dashboard</div>', unsafe_allow_html=True)
+    st.markdown('&lt;div class="main-title"&gt;🏒 Syracuse Crunch&lt;/div&gt;', unsafe_allow_html=True)
+    st.markdown('&lt;div class="subtitle"&gt;Player Scouting Dashboard&lt;/div&gt;', unsafe_allow_html=True)
     
     # Add reload button in top right
     col1, col2 = st.columns([4, 1])
@@ -2386,3 +2387,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
