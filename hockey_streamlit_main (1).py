@@ -2361,15 +2361,14 @@ def main():
                 shootout_data,
                 st.session_state.games_df
             )
-                        
-            
-                 # Render card
+            # Render card
             render_goalie_card(
                 selected_goalie,
                 goalie_row,
                 goalie_shots,
                 st.session_state.shootout_df,
                 st.session_state.games_df
-                        )
-      if __name__ == "__main__":
-          main()
+            )
+
+if __name__ == "__main__":
+    main()
