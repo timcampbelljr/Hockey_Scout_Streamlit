@@ -1952,7 +1952,7 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
             )
     
             if found_goalie_data:
-                # --- Stats ---
+                # --- Stats ---a
                 if not goalie_scouting_data.empty:
                     attempts = len(goalie_scouting_data)
                     goals_against = (goalie_scouting_data["goal"].astype(str).str.lower() == "yes").sum()
@@ -1992,7 +1992,8 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                                     x=saves_df["X"],
                                     y=saves_df["Y"],
                                     mode="markers",
-                                    name="Save"
+                                    name="Save",
+                                    marker=dict(color="green", size=10)
                                 ))
     
                             if not goals_df.empty:
@@ -2000,7 +2001,8 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                                     x=goals_df["X"],
                                     y=goals_df["Y"],
                                     mode="markers",
-                                    name="Goal Against"
+                                    name="Goal Against",
+                                    marker=dict(color="red", size=10)
                                 ))
     
                             fig_rink.update_layout(title=f"{goalie_name} — Shootout Ice Map")
