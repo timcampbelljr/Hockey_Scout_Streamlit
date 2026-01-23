@@ -1871,328 +1871,218 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
             '<div class="section-header">🥅 Shootout Performance</div>',
             unsafe_allow_html=True
         )
-
-        # Try to load all three shootout data files
+    
         shootout_ice_data = pd.DataFrame()
         shootout_net_data = pd.DataFrame()
-        
+    
+        # --- Load files ---
         try:
-            # Load ice location data (Crunch25-26SO.csv)
             ice_file = CRUNCH_DATA_DIR / "Crunch25-26SO.csv"
             if ice_file.exists():
                 shootout_ice_data = pd.read_csv(ice_file)
                 shootout_ice_data.columns = shootout_ice_data.columns.str.strip()
-                logging.info(f"Loaded shootout ice data: {len(shootout_ice_data)} rows, columns: {shootout_ice_data.columns.tolist()}")
-            else:
-                logging.warning(f"Ice file not found: {ice_file}")
         except Exception as e:
-            logging.warning(f"Could not load shootout ice location data: {e}")
-        
+            st.warning(f"Could not load shootout ice data: {e}")
+    
         try:
-            # Load net location data (SO_Goalzone.csv)
             net_file = CRUNCH_DATA_DIR / "SO_Goalzone.csv"
             if net_file.exists():
                 shootout_net_data = pd.read_csv(net_file)
                 shootout_net_data.columns = shootout_net_data.columns.str.strip()
-                logging.info(f"Loaded shootout net data: {len(shootout_net_data)} rows, columns: {shootout_net_data.columns.tolist()}")
-            else:
-                logging.warning(f"Net file not found: {net_file}")
         except Exception as e:
-            logging.warning(f"Could not load shootout net location data: {e}")
-
-        # Use the shootout_data from session state (Shootout_Scouting)
-        # For GOALIES: we need to filter where they ARE the goalie, not the player
+            st.warning(f"Could not load shootout net data: {e}")
+    
+        # --- Filter scouting data ---
         goalie_scouting_data = pd.DataFrame()
-        if not shootout_data.empty and 'goalie' in shootout_data.columns:
-            # Check if this is a goalie by looking in the goalie column
+    
+        if not shootout_data.empty and "goalie" in shootout_data.columns and goalie_name:
+            shootout_data = shootout_data.copy()
+            shootout_data["goalie"] = shootout_data["goalie"].astype(str)
+    
             goalie_scouting_data = shootout_data[
-                shootout_data["goalie"].str.lower().str.contains(player_name.lower(), na=False)
+                shootout_data["goalie"]
+                .str.contains(goalie_name, case=False, na=False)
             ]
-            
-            # If no exact match, try last name
-            if goalie_scouting_data.empty and " " in player_name:
-                last_name = player_name.split()[-1]
+    
+            if goalie_scouting_data.empty and " " in goalie_name:
+                last_name = goalie_name.split()[-1]
                 goalie_scouting_data = shootout_data[
-                    shootout_data["goalie"].str.lower().str.contains(last_name.lower(), na=False)
+                    shootout_data["goalie"]
+                    .str.contains(last_name, case=False, na=False)
                 ]
-            
-            logging.info(f"Found {len(goalie_scouting_data)} scouting records where {player_name} is the goalie")
-        
-        # Check if we have any shootout data
+    
         has_ice_data = not shootout_ice_data.empty
         has_net_data = not shootout_net_data.empty
         has_scouting_data = not goalie_scouting_data.empty
-        
+    
         if not has_ice_data and not has_scouting_data:
             st.info("No shootout data available for this goalie")
         else:
-            # Extract player name parts for matching
-            if " " in player_name:
-                name_parts = player_name.split()
-                last_name = name_parts[-1]
-                first_name = name_parts[0]
+            # --- Name handling ---
+            if " " in goalie_name:
+                last_name = goalie_name.split()[-1]
             else:
-                last_name = player_name
-                first_name = player_name
-            
-            # Initialize empty dataframes for goalie data
+                last_name = goalie_name
+    
             goalie_ice_data = pd.DataFrame()
             goalie_net_data = pd.DataFrame()
-            
-            # Match goalie in ice location data (Player column contains goalie name when facing shots)
-            if has_ice_data:
-                # For Away team goalies facing Home team shots
-                away_ice_data = shootout_ice_data[shootout_ice_data["Team"] == "Away"].copy()
-                
-                # Try multiple matching strategies
-                goalie_ice_data = away_ice_data[
-                    away_ice_data["Player"].str.lower() == last_name.lower()
+    
+            # --- Ice data ---
+            if has_ice_data and "Player" in shootout_ice_data.columns:
+                away_ice = shootout_ice_data[shootout_ice_data["Team"] == "Away"].copy()
+                away_ice["Player"] = away_ice["Player"].astype(str)
+    
+                goalie_ice_data = away_ice[
+                    away_ice["Player"].str.contains(last_name, case=False, na=False)
                 ]
-                
-                if goalie_ice_data.empty:
-                    goalie_ice_data = away_ice_data[
-                        away_ice_data["Player"].str.lower() == player_name.lower()
-                    ]
-                
-                if goalie_ice_data.empty:
-                    goalie_ice_data = away_ice_data[
-                        away_ice_data["Player"].str.lower().str.contains(last_name.lower(), na=False)
-                    ]
-                
-                if goalie_ice_data.empty:
-                    goalie_ice_data = away_ice_data[
-                        away_ice_data["Player"].str.lower().str.contains(first_name.lower(), na=False)
-                    ]
-                
-                logging.info(f"Found {len(goalie_ice_data)} ice location records for goalie {player_name}")
-            
-            # Match goalie in net location data
-            if has_net_data:
-                away_net_data = shootout_net_data[shootout_net_data["Team"] == "Away"].copy()
-                
-                goalie_net_data = away_net_data[
-                    away_net_data["Player"].str.lower() == last_name.lower()
+    
+            # --- Net data ---
+            if has_net_data and "Player" in shootout_net_data.columns:
+                away_net = shootout_net_data[shootout_net_data["Team"] == "Away"].copy()
+                away_net["Player"] = away_net["Player"].astype(str)
+    
+                goalie_net_data = away_net[
+                    away_net["Player"].str.contains(last_name, case=False, na=False)
                 ]
-                
-                if goalie_net_data.empty:
-                    goalie_net_data = away_net_data[
-                        away_net_data["Player"].str.lower().str.contains(last_name.lower(), na=False)
-                    ]
-                
-                logging.info(f"Found {len(goalie_net_data)} net location records for goalie {player_name}")
-            
-            # Check if we found any data for this goalie
+    
             found_goalie_data = (
-                not goalie_ice_data.empty or 
-                not goalie_net_data.empty or 
+                not goalie_ice_data.empty or
+                not goalie_net_data.empty or
                 not goalie_scouting_data.empty
             )
-            
+    
             if found_goalie_data:
-                # Calculate stats from Shootout_Scouting data (most reliable source)
+                # --- Stats ---
                 if not goalie_scouting_data.empty:
                     attempts = len(goalie_scouting_data)
-                    # Goals are when goal column = "Yes"
-                    goals_against = (goalie_scouting_data["goal"].str.lower() == "yes").sum()
+                    goals_against = (goalie_scouting_data["goal"].astype(str).str.lower() == "yes").sum()
                     saves = attempts - goals_against
                     save_pct = (saves / attempts * 100) if attempts > 0 else 0
                 elif not goalie_ice_data.empty:
-                    # Fallback to ice data if scouting data not available
                     attempts = len(goalie_ice_data)
                     goals_against = (goalie_ice_data["Type"] == "Goal").sum()
                     saves = attempts - goals_against
                     save_pct = (saves / attempts * 100) if attempts > 0 else 0
                 else:
-                    attempts = 0
-                    goals_against = 0
-                    saves = 0
-                    save_pct = 0
-                
-                # Metrics row - GOALIE STATS
+                    attempts = goals_against = saves = save_pct = 0
+    
                 col1, col2, col3, col4 = st.columns(4)
                 col1.metric("Shootout Attempts", attempts)
                 col2.metric("Goals Against", goals_against)
                 col3.metric("Saves", saves)
                 col4.metric("Save %", f"{save_pct:.1f}%")
-                
+    
                 st.markdown("---")
-                
-                # Create visualization layout if we have coordinate data
+    
+                # --- Visuals ---
                 if not goalie_ice_data.empty or not goalie_net_data.empty:
                     col1, col2 = st.columns(2)
-                    
+    
                     with col1:
-                        st.subheader("🏒 Shooter Locations on Ice")
-                        
+                        st.subheader("🏒 Shooter Locations (Ice)")
+    
                         if not goalie_ice_data.empty:
-                            # Create rink
                             fig_rink = create_nhl_rink_shootout()
-                            
-                            # Separate by result (Goal = goal against, Shot/Miss = save)
-                            goals_against_df = goalie_ice_data[goalie_ice_data["Type"] == "Goal"]
+    
+                            goals_df = goalie_ice_data[goalie_ice_data["Type"] == "Goal"]
                             saves_df = goalie_ice_data[goalie_ice_data["Type"].isin(["Shot", "Miss"])]
-                            
-                            # Plot saves (shots that didn't go in)
+    
                             if not saves_df.empty:
                                 fig_rink.add_trace(go.Scatter(
                                     x=saves_df["X"],
                                     y=saves_df["Y"],
-                                    mode='markers',
-                                    marker=dict(
-                                        size=12,
-                                        color='lightgreen',
-                                        symbol='circle',
-                                        line=dict(width=2, color='green')
-                                    ),
-                                    name='Save',
-                                    text=saves_df["Type"],
-                                    hovertemplate='<b>SAVE</b><br>Location: (%{x:.1f}, %{y:.1f})<extra></extra>'
+                                    mode="markers",
+                                    name="Save"
                                 ))
-                            
-                            # Plot goals against
-                            if not goals_against_df.empty:
+    
+                            if not goals_df.empty:
                                 fig_rink.add_trace(go.Scatter(
-                                    x=goals_against_df["X"],
-                                    y=goals_against_df["Y"],
-                                    mode='markers',
-                                    marker=dict(
-                                        size=16,
-                                        color='red',
-                                        symbol='x',
-                                        line=dict(width=2, color='darkred')
-                                    ),
-                                    name='Goal Against',
-                                    text=goals_against_df["Player"],
-                                    hovertemplate='<b>GOAL AGAINST</b><br>Location: (%{x:.1f}, %{y:.1f})<extra></extra>'
+                                    x=goals_df["X"],
+                                    y=goals_df["Y"],
+                                    mode="markers",
+                                    name="Goal Against"
                                 ))
-                            
-                            fig_rink.update_layout(title=f"{player_name} - Where Shooters Shot From")
+    
+                            fig_rink.update_layout(title=f"{goalie_name} — Shootout Ice Map")
                             st.plotly_chart(fig_rink, use_container_width=True)
                         else:
-                            st.info("Ice location data not available")
-                    
+                            st.info("No ice data available")
+    
                     with col2:
-                        st.subheader("🥅 Shot Locations on Net")
-                        
+                        st.subheader("🥅 Shot Locations (Net)")
+    
                         if not goalie_net_data.empty:
-                            # Create net
                             fig_net = create_nhl_goal_net()
-                            
-                            # Log the data we have
-                            logging.info(f"Net data columns: {goalie_net_data.columns.tolist()}")
-                            logging.info(f"Net data Type values: {goalie_net_data['Type'].unique() if 'Type' in goalie_net_data.columns else 'No Type column'}")
-                            
-                            # Separate goals against and saves
-                            if 'Type' in goalie_net_data.columns:
-                                net_goals_against = goalie_net_data[goalie_net_data["Type"].str.lower().isin(['goal', 'goals'])]
-                                net_saves = goalie_net_data[goalie_net_data["Type"].str.lower().isin(['save', 'saves', 'saved'])]
-                            else:
-                                # Try to infer from Y position (saves are typically higher/wider)
-                                net_goals_against = goalie_net_data[goalie_net_data["Y"].abs() < 20]
-                                net_saves = goalie_net_data[goalie_net_data["Y"].abs() >= 20]
-                            
-                            # Plot saves
-                            if not net_saves.empty:
+    
+                            goals_df = goalie_net_data[goalie_net_data["Type"].str.lower() == "goal"]
+                            saves_df = goalie_net_data[goalie_net_data["Type"].str.lower() == "save"]
+    
+                            if not saves_df.empty:
                                 fig_net.add_trace(go.Scatter(
-                                    x=net_saves["X"],
-                                    y=net_saves["Y"],
-                                    mode='markers',
-                                    marker=dict(
-                                        size=12,
-                                        color='lightgreen',
-                                        symbol='circle',
-                                        line=dict(width=2, color='green')
-                                    ),
-                                    name='Save',
-                                    hovertemplate='<b>SAVE</b><br>Location: (%{x:.1f}, %{y:.1f})<extra></extra>'
+                                    x=saves_df["X"],
+                                    y=saves_df["Y"],
+                                    mode="markers",
+                                    name="Save"
                                 ))
-                            
-                            # Plot goals against
-                            if not net_goals_against.empty:
+    
+                            if not goals_df.empty:
                                 fig_net.add_trace(go.Scatter(
-                                    x=net_goals_against["X"],
-                                    y=net_goals_against["Y"],
-                                    mode='markers',
-                                    marker=dict(
-                                        size=16,
-                                        color='red',
-                                        symbol='x',
-                                        line=dict(width=2, color='darkred')
-                                    ),
-                                    name='Goal Against',
-                                    hovertemplate='<b>GOAL AGAINST</b><br>Location: (%{x:.1f}, %{y:.1f})<extra></extra>'
+                                    x=goals_df["X"],
+                                    y=goals_df["Y"],
+                                    mode="markers",
+                                    name="Goal Against"
                                 ))
-                            
-                            fig_net.update_layout(title=f"{player_name} - Where Pucks Went on Net")
+    
+                            fig_net.update_layout(title=f"{goalie_name} — Shootout Net Map")
                             st.plotly_chart(fig_net, use_container_width=True)
-                            
-                            # Net zone breakdown for goals against
-                            if not net_goals_against.empty:
-                                st.markdown("**Goals Against by Net Zone:**")
-                                net_goals_copy = net_goals_against.copy()
-                                net_goals_copy["Zone"] = net_goals_copy.apply(
-                                    lambda row: get_net_zone(row["X"], row["Y"]), axis=1
-                                )
-                                zone_counts = net_goals_copy["Zone"].value_counts().reset_index()
-                                zone_counts.columns = ["Zone", "Goals Against"]
-                                st.dataframe(zone_counts, hide_index=True, use_container_width=True)
-                            
-                            # Show saves count
-                            if not net_saves.empty:
-                                st.caption(f"✅ {len(net_saves)} save(s) made")
-                            
-                            # Debug info
-                            if net_goals_against.empty and net_saves.empty:
-                                st.info("No shot locations found on net")
-                                st.caption(f"Data available: {len(goalie_net_data)} row(s)")
                         else:
-                            st.info("Net location data not available")
-                
-                # Display detailed scouting information if available
+                            st.info("No net data available")
+
+                # --- Detailed Shootout Descriptions ---
                 if not goalie_scouting_data.empty:
                     st.markdown("---")
-                    st.subheader("📋 Shootout Details - Shots Faced")
-                    
-                    # Show who shot, result, and details
-                    display_cols = ['player', 'goal', 'where_player_shot_from_on_ice', 
-                                   'where_the_shot_went_on_goal', 'what_move_they_made', 'date']
-                    available_cols = [col for col in display_cols if col in goalie_scouting_data.columns]
-                    
-                    if available_cols:
-                        st.dataframe(
-                            goalie_scouting_data[available_cols].head(15),
-                            hide_index=True,
-                            use_container_width=True,
-                        )
-                    else:
-                        st.dataframe(
-                            goalie_scouting_data.head(15),
-                            hide_index=True,
-                            use_container_width=True,
-                        )
-                    
-                    # Additional breakdown by shooter if we have the data
-                    if 'player' in goalie_scouting_data.columns:
-                        st.markdown("---")
-                        col1, col2 = st.columns(2)
-                        
-                        with col1:
-                            st.markdown("**Most Faced Shooters:**")
-                            shooter_counts = goalie_scouting_data['player'].value_counts().head(5)
-                            st.dataframe(shooter_counts, use_container_width=True)
-                        
-                        with col2:
-                            st.markdown("**Shooters Who Scored:**")
-                            scorers = goalie_scouting_data[goalie_scouting_data['goal'].str.lower() == 'yes']
-                            if not scorers.empty:
-                                scorer_counts = scorers['player'].value_counts().head(5)
-                                st.dataframe(scorer_counts, use_container_width=True)
-                            else:
-                                st.info("No goals allowed!")
-                
+                    st.subheader("📋 Shootout Details — Shots Faced")
+
+                    scouting = goalie_scouting_data.copy()
+
+                    text_cols = [
+                        "player",
+                        "where_player_shot_from_on_ice",
+                        "where_the_shot_went_on_goal",
+                        "what_move_they_made",
+                        "goal",
+                        "date",
+                    ]
+
+                    for col in text_cols:
+                        if col in scouting.columns:
+                            scouting[col] = scouting[col].astype(str)
+
+                    scouting["Description"] = scouting.apply(
+                        lambda row: (
+                            f"{row['player']} shot from {row['where_player_shot_from_on_ice']} "
+                            f"to {row['where_the_shot_went_on_goal']} using "
+                            f"{row['what_move_they_made']} — "
+                            f"{'GOAL' if row['goal'].lower() == 'yes' else 'SAVE'}"
+                        ),
+                        axis=1
+                    )
+
+                    if "date" in scouting.columns:
+                        scouting["date"] = pd.to_datetime(scouting["date"], errors="coerce")
+                        scouting = scouting.sort_values("date", ascending=False)
+
+                    st.dataframe(
+                        scouting[["date", "player", "Description", "goal"]].head(15),
+                        hide_index=True,
+                        use_container_width=True,
+                    )
+
+    
             else:
-                st.info(f"No shootout data available for goalie {player_name}")
-                st.caption("Goalie must have faced shootout attempts to appear in the data")
+                st.info(f"No shootout data available for goalie {goalie_name}")
+
+
 
 
 # ============================================================================
