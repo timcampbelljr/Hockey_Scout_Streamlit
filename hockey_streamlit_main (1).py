@@ -2327,6 +2327,7 @@ def main():
         if 'selected_goalie' not in st.session_state or (st.session_state.selected_goalie not in goalie_list and goalie_list):
             st.session_state.selected_goalie = goalie_list[0] if goalie_list else None
         
+        
         # Find current index
         try:
             current_idx = goalie_list.index(st.session_state.selected_goalie)
@@ -2334,29 +2335,54 @@ def main():
             current_idx = 0
             st.session_state.selected_goalie = goalie_list[0] if goalie_list else None
         
-        if st.session_state.selected_goalie:
+        # If there are no goalies to show, bail gracefully
+        if not goalie_list or not goalie_options:
+            st.info("No active goalies available")
+        else:
+            # Make sure index is valid (Streamlit will error if index >= len(options))
+            if current_idx < 0 or current_idx >= len(goalie_options):
+                current_idx = 0
+        
             selected_option = st.selectbox(
                 "Select Goalie:",
                 options=goalie_options,
                 index=current_idx,
                 key="goalie_select"
             )
-            
-            # Extract goalie name from selection
-            selected_goalie = goalie_list[goalie_options.index(selected_option)]
+        
+            # Extract goalie name from selection safely
+            try:
+                option_idx = goalie_options.index(selected_option)
+            except ValueError:
+                option_idx = 0  # fallback if label mismatch occurs
+        
+            selected_goalie = goalie_list[option_idx] if goalie_list else None
             st.session_state.selected_goalie = selected_goalie
-            
-            # Get selected goalie stats
-            goalie_row = goalie_stats[goalie_stats["skater"] == selected_goalie].iloc[0]
-            
-            # Get goalie-specific data
-            goalie_shots = st.session_state.shots_df_goalies[
-                st.session_state.shots_df_goalies["goalie"] == selected_goalie
-            ].copy() if not st.session_state.shots_df_goalies.empty else pd.DataFrame()
-            
-            # Render card
-            render_goalie_card(selected_goalie, goalie_row, goalie_shots, 
-                             st.session_state.shootout_df, st.session_state.games_df)
+        
+            if selected_goalie:
+                # Get selected goalie stats
+                goalie_row = goalie_stats[goalie_stats["skater"] == selected_goalie].iloc[0]
+        
+                # Get goalie-specific data
+                goalie_shots = (
+                    st.session_state.shots_df_goalies[
+                        st.session_state.shots_df_goalies["goalie"] == selected_goalie
+                    ].copy()
+                    if not st.session_state.shots_df_goalies.empty
+                    else pd.DataFrame()
+                )
+        
+                # Render card
+                render_goalie_card(
+                    selected_goalie,
+                    goalie_row,
+                    goalie_shots,
+                    st.session_state.shootout_df,
+                    st.session_state.games_df
+                )
+            else:
+                st.info("No goalie selected.")
+
 
 if __name__ == "__main__":
-    main()  # edit my syntax but keep my code the same. having problems with syntax. do not delete anything just fix the syntax as Im confused as to why the app is crashing
+    main()
