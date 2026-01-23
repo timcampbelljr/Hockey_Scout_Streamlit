@@ -1391,7 +1391,7 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
             '<div class="section-header">🥅 Shootout Performance</div>',
             unsafe_allow_html=True
         )
-    
+
         # Try to load all three shootout data files
         shootout_ice_data = pd.DataFrame()
         shootout_net_data = pd.DataFrame()
@@ -1419,7 +1419,7 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
                 logging.warning(f"Net file not found: {net_file}")
         except Exception as e:
             logging.warning(f"Could not load shootout net location data: {e}")
-    
+
         # Use the shootout_data from session state (Shootout_Scouting)
         player_scouting_data = pd.DataFrame()
         if not shootout_data.empty:
@@ -1668,7 +1668,6 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
                         hide_index=True,
                         use_container_width=True,
                     )
-            
             else:
                 st.info(f"No shootout data available for {player_name}")
                 st.caption("Player must be on the Syracuse Crunch to appear in shootout data")
@@ -1704,7 +1703,6 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
                 hide_index=True,
                 use_container_width=True,
             )
-
     with tab4:
         st.markdown(
             '<div class="section-header">Faceoff Statistics</div>',
