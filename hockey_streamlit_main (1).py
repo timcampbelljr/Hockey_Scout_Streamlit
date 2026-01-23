@@ -2288,58 +2288,58 @@ def main():
    # ========================================================================
     # GOALIES VIEW
     # ========================================================================
-    else:
-        if goalie_stats.empty:
-            st.info("No active goalies available")
-            return
-        
-        # Sort goalies by save percentage
-        goalie_stats = goalie_stats.sort_values("save_percentage", ascending=False)
-        goalie_list = goalie_stats["skater"].tolist()
-        
-        # Dropdown for goalie selection
-        goalie_options = [f"{row['skater']} - SV% {row['save_percentage']:.3f}" 
-                         for _, row in goalie_stats.iterrows()]
-        
-        # Initialize selected goalie
-        if 'selected_goalie' not in st.session_state or st.session_state.selected_goalie not in goalie_list:
-            st.session_state.selected_goalie = goalie_list[0] if goalie_list else None
-        
-        # Find current index
-        try:
-            current_idx = goalie_list.index(st.session_state.selected_goalie)
-        except (ValueError, AttributeError):
-            current_idx = 0
-            st.session_state.selected_goalie = goalie_list[0] if goalie_list else None
-        
-        if st.session_state.selected_goalie:
-            selected_option = st.selectbox(
-                "Select Goalie:",
-                options=goalie_options,
-                index=current_idx,
-                key="goalie_select"
-            )
-            
-            # Extract goalie name from selection
-            selected_goalie = goalie_list[goalie_options.index(selected_option)]
-            st.session_state.selected_goalie = selected_goalie
-            
-            # Get selected goalie stats
-            goalie_row = goalie_stats[goalie_stats["skater"] == selected_goalie].iloc[0]
-            
-            # Get goalie-specific data
-            goalie_shots = st.session_state.shots_df_goalies[
-                st.session_state.shots_df_goalies["goalie"] == selected_goalie
-            ].copy() if not st.session_state.shots_df_goalies.empty else pd.DataFrame()
-            
-            # Render card
-            render_goalie_card(
-                selected_goalie,
-                goalie_row,
-                goalie_shots,
-                st.session_state.shootout_df,
-                st.session_state.games_df
-            )
+            else:
+                if goalie_stats.empty:
+                    st.info("No active goalies available")
+                    return
+                
+                # Sort goalies by save percentage
+                goalie_stats = goalie_stats.sort_values("save_percentage", ascending=False)
+                goalie_list = goalie_stats["skater"].tolist()
+                
+                # Dropdown for goalie selection
+                goalie_options = [f"{row['skater']} - SV% {row['save_percentage']:.3f}" 
+                                 for _, row in goalie_stats.iterrows()]
+                
+                # Initialize selected goalie
+                if 'selected_goalie' not in st.session_state or st.session_state.selected_goalie not in goalie_list:
+                    st.session_state.selected_goalie = goalie_list[0] if goalie_list else None
+                
+                # Find current index
+                try:
+                    current_idx = goalie_list.index(st.session_state.selected_goalie)
+                except (ValueError, AttributeError):
+                    current_idx = 0
+                    st.session_state.selected_goalie = goalie_list[0] if goalie_list else None
+                
+                if st.session_state.selected_goalie:
+                    selected_option = st.selectbox(
+                        "Select Goalie:",
+                        options=goalie_options,
+                        index=current_idx,
+                        key="goalie_select"
+                    )
+                    
+                    # Extract goalie name from selection
+                    selected_goalie = goalie_list[goalie_options.index(selected_option)]
+                    st.session_state.selected_goalie = selected_goalie
+                    
+                    # Get selected goalie stats
+                    goalie_row = goalie_stats[goalie_stats["skater"] == selected_goalie].iloc[0]
+                    
+                    # Get goalie-specific data
+                    goalie_shots = st.session_state.shots_df_goalies[
+                        st.session_state.shots_df_goalies["goalie"] == selected_goalie
+                    ].copy() if not st.session_state.shots_df_goalies.empty else pd.DataFrame()
+                    
+                    # Render card
+                    render_goalie_card(
+                        selected_goalie,
+                        goalie_row,
+                        goalie_shots,
+                        st.session_state.shootout_df,
+                        st.session_state.games_df
+                    )
 
-if __name__ == "__main__":
-    main()
+    if __name__ == "__main__":
+        main()
