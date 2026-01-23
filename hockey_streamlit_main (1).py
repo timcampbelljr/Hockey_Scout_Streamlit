@@ -2233,12 +2233,12 @@ def main():
                     current_idx = 0
                     st.session_state.selected_forward = forward_names[0]
                 
-                selected_option = st.selectbox(
-                    "Select Forward:",
-                    options=forward_options,
-                    index=current_idx,
-                    key="forward_select"
-                )
+                    selected_option = st.selectbox(
+                        "Select Forward:",
+                        options=forward_options,
+                        index=current_idx,
+                        key="forward_select"
+                    )
                 
                 # Extract player name from selection
                 selected_forward = forward_names[forward_options.index(selected_option)]
