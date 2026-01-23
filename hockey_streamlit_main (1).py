@@ -2045,9 +2045,9 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                 # Create Description safely
                 scouting["Description"] = scouting.apply(
                     lambda row: (
-                        f"{row.get('player','Unknown')} shot from {row.get('where_player_shot_from_on_ice','Unknown')} "
-                        f"to {row.get('where_the_shot_went_on_goal','Unknown')} using "
-                        f"{row.get('what_move_they_made','Unknown')} — "
+                        f"{row.get('player','Unknown')} shot from {row.get('Where Player Shot From on Ice','Unknown')} "
+                        f"to {row.get('Where the shot went on goal','Unknown')} using "
+                        f"{row.get('What move they made','Unknown')} — "
                         f"{'GOAL' if str(row.get('goal','')).lower()=='yes' else 'SAVE'}"
                     ),
                     axis=1
