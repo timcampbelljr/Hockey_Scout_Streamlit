@@ -528,7 +528,7 @@ def load_faceoff_data():
         return pd.DataFrame()
 
 @st.cache_data
-def load_shootout_scouting_data():
+def load_shootout_data():
     """Load the specific Shootout_Scouting(Crunch SO).csv file."""
     try:
         # Search for the specific file
