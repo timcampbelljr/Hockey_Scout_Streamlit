@@ -2235,6 +2235,59 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
 
 
 # ============================================================================
+# ADD THIS BEFORE THE render_roster_management() FUNCTION
+# (Insert this around line 2200 or wherever is appropriate before main())
+# ============================================================================
+
+def initialize_session_state():
+    """Initialize all session state variables with defaults."""
+    
+    # Data storage
+    if 'data_loaded' not in st.session_state:
+        st.session_state.data_loaded = False
+    
+    if 'players_df' not in st.session_state:
+        st.session_state.players_df = pd.DataFrame()
+    
+    if 'goalies_df' not in st.session_state:
+        st.session_state.goalies_df = pd.DataFrame()
+    
+    if 'games_df' not in st.session_state:
+        st.session_state.games_df = pd.DataFrame()
+    
+    if 'shots_df' not in st.session_state:
+        st.session_state.shots_df = pd.DataFrame()
+    
+    if 'shots_df_goalies' not in st.session_state:
+        st.session_state.shots_df_goalies = pd.DataFrame()
+    
+    if 'faceoff_df' not in st.session_state:
+        st.session_state.faceoff_df = pd.DataFrame()
+    
+    if 'shootout_df' not in st.session_state:
+        st.session_state.shootout_df = pd.DataFrame()
+    
+    # Roster management
+    if 'excluded_players' not in st.session_state:
+        st.session_state.excluded_players = load_excluded_players()
+    
+    if 'current_roster' not in st.session_state:
+        st.session_state.current_roster = load_current_roster()
+        if st.session_state.current_roster:
+            logging.info(f"Current roster loaded: {len(st.session_state.current_roster)} players")
+    
+    # UI state
+    if 'selected_forward' not in st.session_state:
+        st.session_state.selected_forward = None
+    
+    if 'selected_defenseman' not in st.session_state:
+        st.session_state.selected_defenseman = None
+    
+    if 'selected_goalie' not in st.session_state:
+        st.session_state.selected_goalie = None
+
+
+# ============================================================================
 # ROSTER MANAGEMENT UI
 # ============================================================================
 
@@ -2340,11 +2393,14 @@ def render_roster_management(player_stats, goalie_stats, excluded_players, curre
         
         return set(newly_excluded)
 
+
 # ============================================================================
 # MAIN APP
 # ============================================================================
 
 def main():
+    """Main application entry point."""
+    
     # Initialize session state FIRST
     initialize_session_state()
     
@@ -2366,18 +2422,8 @@ def main():
             st.session_state.clear()
             st.rerun()
     
-    # Load excluded players
-    if 'excluded_players' not in st.session_state:
-        st.session_state.excluded_players = load_excluded_players()
-    
-    # Load current roster
-    if 'current_roster' not in st.session_state:
-        st.session_state.current_roster = load_current_roster()
-        if st.session_state.current_roster:
-            logging.info(f"Current roster loaded: {len(st.session_state.current_roster)} players")
-    
     # Load data with progress
-    if 'data_loaded' not in st.session_state:
+    if 'data_loaded' not in st.session_state or not st.session_state.data_loaded:
         status_placeholder = st.empty()
         progress_bar = st.progress(0)
         
@@ -2645,6 +2691,7 @@ def main():
                 st.session_state.shootout_df,
                 st.session_state.games_df
             )
+
 
 if __name__ == "__main__":
     main()
