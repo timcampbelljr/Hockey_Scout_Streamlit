@@ -1307,8 +1307,8 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
         shootout_net_data = pd.DataFrame()
         
         try:
-            # Load ice location data (Crunch2526SO.csv)
-            ice_file = CRUNCH_DATA_DIR / "Crunch2526SO.csv"
+            # Load ice location data (Crunch25-26SO.csv)
+            ice_file = CRUNCH_DATA_DIR / "Crunch25-26SO.csv"
             if ice_file.exists():
                 shootout_ice_data = pd.read_csv(ice_file)
                 shootout_ice_data.columns = shootout_ice_data.columns.str.strip()
