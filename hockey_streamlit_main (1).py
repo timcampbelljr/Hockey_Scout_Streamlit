@@ -2022,6 +2022,47 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                     else:
                         st.info("No net data available")
     
+            # --- Detailed Shootout Descriptions ---
+            if not goalie_scouting_data.empty:
+                st.markdown("---")
+                st.subheader("📋 Shootout Details — Shots Faced")
+    
+                scouting = goalie_scouting_data.copy()
+    
+                # Ensure relevant columns are strings
+                text_cols = [
+                    "player",
+                    "where_player_shot_from_on_ice",
+                    "where_the_shot_went_on_goal",
+                    "what_move_they_made",
+                    "goal",
+                    "date",
+                ]
+                for col in text_cols:
+                    if col in scouting.columns:
+                        scouting[col] = scouting[col].astype(str)
+    
+                # Create Description safely
+                scouting["Description"] = scouting.apply(
+                    lambda row: (
+                        f"{row.get('player','Unknown')} shot from {row.get('where_player_shot_from_on_ice','Unknown')} "
+                        f"to {row.get('where_the_shot_went_on_goal','Unknown')} using "
+                        f"{row.get('what_move_they_made','Unknown')} — "
+                        f"{'GOAL' if str(row.get('goal','')).lower()=='yes' else 'SAVE'}"
+                    ),
+                    axis=1
+                )
+    
+                # Convert date and sort
+                if "date" in scouting.columns:
+                    scouting["date"] = pd.to_datetime(scouting["date"], errors="coerce")
+    
+                # Display table without goalie column
+                st.dataframe(
+                    scouting.head(15),
+                    hide_index=True,
+                    use_container_width=True
+                )
             else:
                 st.info(f"No shootout data available for goalie {goalie_name}")
 
