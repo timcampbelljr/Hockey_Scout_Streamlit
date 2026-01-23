@@ -1993,17 +1993,18 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                                     y=saves_df["Y"],
                                     mode="markers",
                                     name="Save",
-                                    marker=dict(color="green", size=10)
+                                    marker=dict(color="blue", size=10)
                                 ))
+
     
-                            if not goals_df.empty:
-                                fig_rink.add_trace(go.Scatter(
-                                    x=goals_df["X"],
-                                    y=goals_df["Y"],
-                                    mode="markers",
-                                    name="Goal Against",
-                                    marker=dict(color="red", size=10)
-                                ))
+                            fig_rink.add_trace(go.Scatter(
+                                x=goals_df["X"],
+                                y=goals_df["Y"],
+                                mode="markers",
+                                name="Goal Against",
+                                marker=dict(color="red", size=10)
+                            ))
+
     
                             fig_rink.update_layout(title=f"{goalie_name} — Shootout Ice Map")
                             st.plotly_chart(fig_rink, use_container_width=True)
@@ -2024,7 +2025,8 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                                     x=saves_df["X"],
                                     y=saves_df["Y"],
                                     mode="markers",
-                                    name="Save"
+                                    name="Save",
+                                    marker=dict(color="blue", size=10)
                                 ))
     
                             if not goals_df.empty:
@@ -2033,6 +2035,7 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                                     y=goals_df["Y"],
                                     mode="markers",
                                     name="Goal Against"
+                                    marker=dict(color="red", size=10)
                                 ))
     
                             fig_net.update_layout(title=f"{goalie_name} — Shootout Net Map")
