@@ -2,7 +2,7 @@
 Syracuse Crunch Scouting Dashboard - Single Page with Player Cards
 Complete player profiles with box scores, shot charts, shootout, and faceoffs
 
-Run with: streamlit run syracuse_crunch_dashboard.pydef
+Run with: streamlit run syracuse_crunch_dashboard.py
 """
 
 import streamlit as st
@@ -529,7 +529,7 @@ def load_faceoff_data():
 
 @st.cache_data
 def load_shootout_data():
-    """Load shootout data."""
+    """Load shootout data with improved error handling."""
     try:
         # Check all possible directories for shootout data
         shootout_files = []
@@ -551,6 +551,90 @@ def load_shootout_data():
         if not shootout_files:
             logging.warning("No shootout files found")
             return pd.DataFrame()
+        
+        shootout_file = shootout_files[0]
+        logging.info(f"Loading shootout file: {shootout_file}")
+        
+        # Try multiple encodings with modern pandas
+        df = None
+        for encoding in ['utf-8', 'cp1252', 'latin-1']:
+            try:
+                df = pd.read_csv(
+                    shootout_file, 
+                    encoding=encoding,
+                    on_bad_lines='skip'  # Modern pandas syntax
+                )
+                logging.info(f"✅ Loaded with {encoding} encoding")
+                break
+            except Exception as e:
+                logging.info(f"Failed with {encoding}: {e}")
+                continue
+        
+        if df is None or df.empty:
+            logging.error("Could not load shootout data")
+            return pd.DataFrame()
+        
+        logging.info(f"Loaded {len(df)} rows")
+        logging.info(f"Columns: {df.columns.tolist()}")
+        
+        # Normalize column names
+        df.columns = df.columns.str.strip().str.lower()
+        
+        # Rename columns - handle both possible quote styles
+        column_mapping = {
+            'where player shot from on ice': 'shot_location_ice',
+            'where the shot went on goal': 'shot_location_goal',
+            'what move they made': 'move_type',
+            'goalie (don\'t worry about this)': 'goalie',
+            "goalie (don't worry about this)": 'goalie',
+        }
+        
+        df = df.rename(columns=column_mapping)
+        
+        # Clean up data with better validation
+        if 'player' not in df.columns:
+            logging.error("No 'player' column found!")
+            return pd.DataFrame()
+        
+        df["player"] = df["player"].fillna("").astype(str).str.strip()
+        df["team"] = df["team"].fillna("").astype(str).str.strip() if 'team' in df.columns else ""
+        df["goalie"] = df["goalie"].fillna("").astype(str).str.strip() if 'goalie' in df.columns else ""
+        
+        # Remove empty/idle players
+        df = df[
+            df["player"].notna() & 
+            (df["player"] != "") & 
+            (df["player"].str.lower() != "idle")
+        ].copy()
+        
+        # Clean goal column with better validation
+        if 'goal' not in df.columns:
+            logging.error("No 'goal' column found!")
+            return pd.DataFrame()
+        
+        df["goal"] = df["goal"].fillna("No")
+        df["goal"] = df["goal"].apply(
+            lambda x: "Yes" if str(x).strip().lower() in ["yes", "y", "goal", "1", "true"] else "No"
+        )
+        
+        # Add Crunch shooter flag
+        df["is_crunch_shooter"] = df["team"].str.contains(
+            "Syracuse Crunch|Crunch", 
+            case=False, 
+            na=False
+        )
+        
+        logging.info(
+            f"Final: {len(df)} rows "
+            f"({df['is_crunch_shooter'].sum()} Crunch, "
+            f"{(~df['is_crunch_shooter']).sum()} opponent)"
+        )
+        
+        return df
+        
+    except Exception as e:
+        logging.exception(f"Error loading shootout data: {e}")
+        return pd.DataFrame()
         
         shootout_file = shootout_files[0]
         logging.info(f"Loading shootout file: {shootout_file}")
@@ -648,51 +732,79 @@ def load_shootout_data():
 # VISUALIZATION FUNCTIONS
 # ============================================================================
 def create_shot_chart(df, player_name, view_type="player"):
-    """Create interactive shot chart."""
+    """Create interactive shot chart with coordinate validation."""
     if df.empty:
+        return None
+    
+    # Validate coordinates exist and are numeric
+    if 'x' not in df.columns or 'y' not in df.columns:
+        logging.warning(f"Missing x/y coordinates for {player_name}")
+        return None
+    
+    # Remove invalid coordinates
+    df = df.dropna(subset=['x', 'y'])
+    df = df[(df['x'] >= 0) & (df['x'] <= 848) & (df['y'] >= 0) & (df['y'] <= 400)]
+    
+    if df.empty:
+        logging.warning(f"No valid coordinates for {player_name}")
         return None
     
     fig = go.Figure()
     
     # Rink outline
-    fig.add_shape(type="rect", x0=0, y0=0, x1=848, y1=400,
-                  line=dict(color="#000000", width=3), fillcolor="rgba(0,0,0,0)")
+    fig.add_shape(
+        type="rect", x0=0, y0=0, x1=848, y1=400,
+        line=dict(color="#000000", width=3), 
+        fillcolor="rgba(0,0,0,0)"
+    )
     
     # Goal lines (red)
-    fig.add_shape(type="line", x0=50, y0=0, x1=50, y1=400, 
-                  line=dict(color="red", width=3))
-    fig.add_shape(type="line", x0=798, y0=0, x1=798, y1=400, 
-                  line=dict(color="red", width=3))
+    fig.add_shape(
+        type="line", x0=50, y0=0, x1=50, y1=400, 
+        line=dict(color="red", width=3)
+    )
+    fig.add_shape(
+        type="line", x0=798, y0=0, x1=798, y1=400, 
+        line=dict(color="red", width=3)
+    )
     
     # Blue lines
-    fig.add_shape(type="line", x0=274, y0=0, x1=274, y1=400, 
-                  line=dict(color="blue", width=2))
-    fig.add_shape(type="line", x0=574, y0=0, x1=574, y1=400, 
-                  line=dict(color="blue", width=2))
+    fig.add_shape(
+        type="line", x0=274, y0=0, x1=274, y1=400, 
+        line=dict(color="blue", width=2)
+    )
+    fig.add_shape(
+        type="line", x0=574, y0=0, x1=574, y1=400, 
+        line=dict(color="blue", width=2)
+    )
     
     # Center red line
-    fig.add_shape(type="line", x0=424, y0=0, x1=424, y1=400, 
-                  line=dict(color="red", width=3))
+    fig.add_shape(
+        type="line", x0=424, y0=0, x1=424, y1=400, 
+        line=dict(color="red", width=3)
+    )
     
-    # Goal nets (left and right)
+    # Goal nets
     goal_width = 60
     goal_height = 15
     
-    # Left goal net
-    left_goal_x = 50
-    left_goal_y_center = 200
-    fig.add_shape(type="rect", 
-                  x0=left_goal_x - goal_height, y0=left_goal_y_center - goal_width/2,
-                  x1=left_goal_x, y1=left_goal_y_center + goal_width/2,
-                  line=dict(color="red", width=2), fillcolor="rgba(255,0,0,0.1)")
+    # Left goal
+    fig.add_shape(
+        type="rect", 
+        x0=50 - goal_height, y0=200 - goal_width/2,
+        x1=50, y1=200 + goal_width/2,
+        line=dict(color="red", width=2), 
+        fillcolor="rgba(255,0,0,0.1)"
+    )
     
-    # Right goal net
-    right_goal_x = 798
-    right_goal_y_center = 200
-    fig.add_shape(type="rect",
-                  x0=right_goal_x, y0=right_goal_y_center - goal_width/2,
-                  x1=right_goal_x + goal_height, y1=right_goal_y_center + goal_width/2,
-                  line=dict(color="red", width=2), fillcolor="rgba(255,0,0,0.1)")
+    # Right goal
+    fig.add_shape(
+        type="rect",
+        x0=798, y0=200 - goal_width/2,
+        x1=798 + goal_height, y1=200 + goal_width/2,
+        line=dict(color="red", width=2), 
+        fillcolor="rgba(255,0,0,0.1)"
+    )
     
     if view_type == "player":
         # Saves (shots)
@@ -701,10 +813,12 @@ def create_shot_chart(df, player_name, view_type="player"):
             fig.add_trace(go.Scatter(
                 x=saves["x"], y=saves["y"],
                 mode='markers',
-                marker=dict(size=8, color='#3b82f6', symbol='circle', 
-                           line=dict(width=1, color='#1e3a8a')),
+                marker=dict(
+                    size=8, color='#3b82f6', symbol='circle', 
+                    line=dict(width=1, color='#1e3a8a')
+                ),
                 name='Shot',
-                text=saves.apply(lambda r: f"{r.get('shot_type', 'Shot')}", axis=1),
+                text=saves.get('shot_type', 'Shot'),
                 hovertemplate='<b>Shot</b><br>xG: %{customdata:.2%}<extra></extra>',
                 customdata=saves.get('xg', 0)
             ))
@@ -715,10 +829,11 @@ def create_shot_chart(df, player_name, view_type="player"):
             fig.add_trace(go.Scatter(
                 x=goals["x"], y=goals["y"],
                 mode='markers',
-                marker=dict(size=14, color='#10b981', symbol='star', 
-                           line=dict(width=2, color='#065f46')),
+                marker=dict(
+                    size=14, color='#10b981', symbol='star', 
+                    line=dict(width=2, color='#065f46')
+                ),
                 name='Goal',
-                text=goals.apply(lambda r: f"⚽ GOAL", axis=1),
                 hovertemplate='<b>GOAL</b><br>xG: %{customdata:.2%}<extra></extra>',
                 customdata=goals.get('xg', 0)
             ))
@@ -727,19 +842,32 @@ def create_shot_chart(df, player_name, view_type="player"):
             fig.add_trace(go.Scatter(
                 x=df["x"], y=df["y"],
                 mode='markers',
-                marker=dict(size=10, color='#ef4444', symbol='x', 
-                           line=dict(width=2, color='#991b1b')),
+                marker=dict(
+                    size=10, color='#ef4444', symbol='x', 
+                    line=dict(width=2, color='#991b1b')
+                ),
                 name='Goal Against',
-                text=df.apply(lambda r: f"Goal by {r.get('shooter', 'Unknown')}", axis=1),
+                text=df.get('shooter', 'Unknown'),
                 hovertemplate='<b>Goal Against</b><br>%{text}<br>xG: %{customdata:.2%}<extra></extra>',
                 customdata=df.get('xg', 0)
             ))
     
     fig.update_layout(
         title=f"{player_name} - Shot Chart",
-        xaxis=dict(range=[0, 848], showgrid=False, zeroline=False, showticklabels=False),
-        yaxis=dict(range=[0, 400], showgrid=False, zeroline=False, showticklabels=False, 
-                  scaleanchor="x", scaleratio=1),
+        xaxis=dict(
+            range=[0, 848], 
+            showgrid=False, 
+            zeroline=False, 
+            showticklabels=False
+        ),
+        yaxis=dict(
+            range=[0, 400], 
+            showgrid=False, 
+            zeroline=False, 
+            showticklabels=False, 
+            scaleanchor="x", 
+            scaleratio=1
+        ),
         plot_bgcolor='#f8f9fa',
         height=400,
         hovermode='closest',
@@ -2217,12 +2345,20 @@ def render_roster_management(player_stats, goalie_stats, excluded_players, curre
 # ============================================================================
 
 def main():
+    # Initialize session state FIRST
+    initialize_session_state()
+    
     # Title
-    st.markdown('<div class="main-title">🏒 Syracuse Crunch</div>', unsafe_allow_html=True)
-    st.markdown('<div class="subtitle">Player Scouting Dashboard</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="main-title">🏒 Syracuse Crunch</div>', 
+        unsafe_allow_html=True
+    )
+    st.markdown(
+        '<div class="subtitle">Player Scouting Dashboard</div>', 
+        unsafe_allow_html=True
+    )
     
-    
-    # Add reload button in top right
+    # Add reload button
     col1, col2 = st.columns([4, 1])
     with col2:
         if st.button("🔄 Reload Data", use_container_width=True):
