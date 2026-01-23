@@ -2331,7 +2331,38 @@ def main():
             goalie_shots = st.session_state.shots_df_goalies[
                 st.session_state.shots_df_goalies["goalie"] == selected_goalie
             ].copy() if not st.session_state.shots_df_goalies.empty else pd.DataFrame()
+
+            # Debug check - add this RIGHT BEFORE render_goalie_card() call
+if 'selected_goalie' not in locals():
+    st.error("Error: selected_goalie is not defined")
+    st.stop()
+
+if 'goalie_stats' not in locals():
+    st.error("Error: goalie_stats is not defined")
+    st.stop()
+
+if 'goalie_shots' not in locals():
+    st.error("Error: goalie_shots is not defined")
+    st.stop()
+
+if 'shootout_data' not in locals():
+    st.error("Error: shootout_data is not defined")
+    st.stop()
+
+if 'games_df' not in st.session_state:
+    st.error("Error: games_df is not in session state")
+    st.stop()
+
+# Now call the function
+render_goalie_card(
+    selected_goalie,
+    goalie_stats,
+    goalie_shots,
+    shootout_data,
+    st.session_state.games_df
+)
             
+
             # Render card
             render_goalie_card(
                 selected_goalie,
