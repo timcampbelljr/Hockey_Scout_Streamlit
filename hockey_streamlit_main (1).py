@@ -2034,7 +2034,7 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                                     x=goals_df["X"],
                                     y=goals_df["Y"],
                                     mode="markers",
-                                    name="Goal Against"
+                                    name="Goal Against",
                                     marker=dict(color="red", size=10)
                                 ))
     
