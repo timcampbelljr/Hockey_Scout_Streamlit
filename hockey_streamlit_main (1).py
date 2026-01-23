@@ -2069,11 +2069,11 @@ def render_roster_management(player_stats, goalie_stats, excluded_players, curre
 # MAIN APP
 # ============================================================================
 
+
 def main():
     # Title
     st.markdown('<div class="main-title">🏒 Syracuse Crunch</div>', unsafe_allow_html=True)
     st.markdown('<div class="subtitle">Player Scouting Dashboard</div>', unsafe_allow_html=True)
-    
     
     # Add reload button in top right
     col1, col2 = st.columns([4, 1])
@@ -2219,7 +2219,7 @@ def main():
             else:
                 # Dropdown for forward selection
                 forward_options = [f"{row['skater']} ({row['pos']}) - {row['points']} PTS" 
-                                 for _, row in forwards.iterrows()]
+                                   for _, row in forwards.iterrows()]
                 forward_names = forwards['skater'].tolist()
                 
                 # Initialize selected forward
@@ -2233,12 +2233,13 @@ def main():
                     current_idx = 0
                     st.session_state.selected_forward = forward_names[0]
                 
-                    selected_option = st.selectbox(
-                        "Select Forward:",
-                        options=forward_options,
-                        index=current_idx,
-                        key="forward_select"
-                    )
+                # Always show selectbox (fix: not inside the except block)
+                selected_option = st.selectbox(
+                    "Select Forward:",
+                    options=forward_options,
+                    index=current_idx,
+                    key="forward_select"
+                )
                 
                 # Extract player name from selection
                 selected_forward = forward_names[forward_options.index(selected_option)]
@@ -2266,7 +2267,7 @@ def main():
             else:
                 # Dropdown for defenseman selection
                 defense_options = [f"{row['skater']} - {row['points']} PTS" 
-                                 for _, row in defensemen.iterrows()]
+                                   for _, row in defensemen.iterrows()]
                 defense_names = defensemen['skater'].tolist()
                 
                 # Initialize selected defenseman
@@ -2321,12 +2322,11 @@ def main():
         
         # Dropdown for goalie selection
         goalie_options = [f"{row['skater']} - SV% {row['save_percentage']:.3f}" 
-                         for _, row in goalie_stats.iterrows()]
+                          for _, row in goalie_stats.iterrows()]
         
         # Initialize selected goalie
         if 'selected_goalie' not in st.session_state or (st.session_state.selected_goalie not in goalie_list and goalie_list):
             st.session_state.selected_goalie = goalie_list[0] if goalie_list else None
-        
         
         # Find current index
         try:
