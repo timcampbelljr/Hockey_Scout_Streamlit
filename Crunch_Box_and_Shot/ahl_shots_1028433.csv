@@ -1,0 +1,59 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028433,shot,1,1:54,8689,Nate,Clurman,415,6535,Brandon,Halverson,False,Non quality on net,Default,411,77
+1028433,shot,1,2:12,10367,Owen,Beck,415,6535,Brandon,Halverson,False,Quality on net,Default,513,168
+1028433,shot,1,4:15,6337,Josh,Jacobs,415,6535,Brandon,Halverson,True,Non quality goal,Default,450,251
+1028433,goal,1,4:15,6337,Josh,Jacobs,,,,,,,,450,251
+1028433,shot,1,5:09,10437,Adam,Engström,415,6535,Brandon,Halverson,False,Non quality on net,Default,452,191
+1028433,shot,1,5:19,8717,Marc,Del Gaizo,415,6535,Brandon,Halverson,False,Non quality on net,Default,440,105
+1028433,shot,1,6:44,8884,Matteo,Pietroniro,324,10585,Jacob,Fowler,False,Non quality on net,Default,92,243
+1028433,shot,1,7:30,8744,Jakob,Pelletier,324,10585,Jacob,Fowler,False,Quality on net,Default,119,81
+1028433,shot,1,7:41,8553,Mitchell,Chaffee,324,10585,Jacob,Fowler,False,Non quality on net,Default,76,217
+1028433,shot,1,9:38,8717,Marc,Del Gaizo,415,6535,Brandon,Halverson,False,Non quality on net,Default,421,152
+1028433,shot,1,10:53,8689,Nate,Clurman,415,6535,Brandon,Halverson,False,Non quality on net,Default,499,264
+1028433,shot,1,10:57,8689,Nate,Clurman,415,6535,Brandon,Halverson,False,Quality on net,Default,538,185
+1028433,shot,1,11:41,4819,Alex,Belzile,415,6535,Brandon,Halverson,False,Non quality on net,Default,525,243
+1028433,shot,1,13:08,8717,Marc,Del Gaizo,415,6535,Brandon,Halverson,False,Non quality on net,Default,397,114
+1028433,shot,1,14:01,9182,Joshua,Roy,415,6535,Brandon,Halverson,False,Non quality on net,Default,449,87
+1028433,shot,1,14:08,10437,Adam,Engström,415,6535,Brandon,Halverson,False,Non quality on net,Default,442,141
+1028433,shot,1,15:35,9202,Conor,Geekie,324,10585,Jacob,Fowler,False,Quality on net,Default,105,74
+1028433,shot,1,15:36,8553,Mitchell,Chaffee,324,10585,Jacob,Fowler,True,Quality goal,Default,75,162
+1028433,goal,1,15:36,8553,Mitchell,Chaffee,,,,,,,,75,162
+1028433,shot,2,1:54,4819,Alex,Belzile,415,6535,Brandon,Halverson,False,Non quality on net,Default,550,70
+1028433,shot,2,2:13,4666,Jarred,Tinordi,324,10585,Jacob,Fowler,False,Non quality on net,Default,147,195
+1028433,shot,2,2:13,8922,Simon,Lundmark,324,10585,Jacob,Fowler,False,Quality on net,Default,117,142
+1028433,shot,2,3:44,10149,Luke,Tuch,415,6535,Brandon,Halverson,False,Non quality on net,Default,441,153
+1028433,shot,2,5:30,10149,Luke,Tuch,415,6535,Brandon,Halverson,False,Non quality on net,Default,438,129
+1028433,shot,2,6:02,10601,Tyler,Thorpe,415,6535,Brandon,Halverson,False,Non quality on net,Default,424,114
+1028433,shot,2,8:42,4910,Scott,Sabourin,324,10585,Jacob,Fowler,False,Non quality on net,Default,95,51
+1028433,shot,2,10:32,9823,Ethan,Samson,324,10585,Jacob,Fowler,False,Non quality on net,Default,154,231
+1028433,shot,2,14:56,10139,Florian,Xhekaj,415,6535,Brandon,Halverson,False,Quality on net,Default,495,155
+1028433,shot,2,15:14,9202,Conor,Geekie,324,10585,Jacob,Fowler,False,Non quality on net,Default,182,188
+1028433,shot,2,17:09,5889,Josiah,Didier,415,6535,Brandon,Halverson,False,Non quality on net,Default,407,117
+1028433,shot,2,18:07,10139,Florian,Xhekaj,415,6535,Brandon,Halverson,False,Quality on net,Default,504,171
+1028433,shot,3,1:19,4910,Scott,Sabourin,324,10585,Jacob,Fowler,False,Quality on net,Default,97,147
+1028433,shot,3,2:22,9520,William,Trudeau,415,6535,Brandon,Halverson,False,Quality on net,Default,467,165
+1028433,shot,3,4:31,9182,Joshua,Roy,415,6535,Brandon,Halverson,False,Non quality on net,Default,448,46
+1028433,shot,3,6:21,9796,Jared,Davidson,415,6535,Brandon,Halverson,False,Non quality on net,Default,343,137
+1028433,shot,3,6:26,9693,Brendan,Furry,324,10585,Jacob,Fowler,False,Non quality on net,Default,185,118
+1028433,shot,3,6:57,5889,Josiah,Didier,415,6535,Brandon,Halverson,False,Non quality on net,Default,441,203
+1028433,shot,3,10:05,5927,Laurent,Dauphin,415,6535,Brandon,Halverson,False,Quality on net,Default,479,93
+1028433,shot,3,10:56,9520,William,Trudeau,415,6535,Brandon,Halverson,False,Quality on net,Default,499,162
+1028433,shot,3,10:56,9791,Sean,Farrell,415,6535,Brandon,Halverson,False,Quality on net,Default,541,122
+1028433,shot,3,13:03,9754,Tristan,Allard,324,10585,Jacob,Fowler,False,Quality on net,Default,90,188
+1028433,shot,3,13:29,9520,William,Trudeau,415,6535,Brandon,Halverson,False,Quality on net,Default,469,97
+1028433,shot,3,15:30,10566,Lucas,Mercuri,324,10585,Jacob,Fowler,False,Quality on net,Default,134,84
+1028433,shot,3,16:22,9693,Brendan,Furry,324,10585,Jacob,Fowler,False,Non quality on net,Default,60,236
+1028433,shot,3,17:41,10148,Dylan,Duke,324,10585,Jacob,Fowler,False,Quality on net,Default,105,155
+1028433,shot,3,17:43,10148,Dylan,Duke,324,10585,Jacob,Fowler,False,Quality on net,Default,96,122
+1028433,shot,3,18:38,8922,Simon,Lundmark,324,10585,Jacob,Fowler,False,Non quality on net,Default,171,66
+1028433,shot,3,19:37,9796,Jared,Davidson,415,6535,Brandon,Halverson,False,Non quality on net,Default,452,105
+1028433,shot,3,19:42,10437,Adam,Engström,415,6535,Brandon,Halverson,False,Quality on net,Default,480,216
+1028433,shot,3,19:58,4819,Alex,Belzile,415,6535,Brandon,Halverson,False,Quality on net,Default,529,123
+1028433,shot,3,19:58,4819,Alex,Belzile,415,6535,Brandon,Halverson,False,Quality on net,Default,479,99
+1028433,shot,OT,0:10,10367,Owen,Beck,415,6535,Brandon,Halverson,False,Quality on net,Default,503,115
+1028433,shot,OT,1:03,5927,Laurent,Dauphin,415,6535,Brandon,Halverson,False,Quality on net,Default,471,109
+1028433,shot,OT,1:19,9202,Conor,Geekie,324,10585,Jacob,Fowler,False,Quality on net,Default,82,124
+1028433,shot,OT,1:24,8922,Simon,Lundmark,324,10585,Jacob,Fowler,False,Non quality on net,Default,63,100
+1028433,shot,OT,1:47,10835,Wojciech,Stachowiak,324,10585,Jacob,Fowler,False,Quality on net,Default,99,101
+1028433,shot,OT,4:18,10437,Adam,Engström,415,6535,Brandon,Halverson,True,Quality goal,Default,508,120
+1028433,goal,OT,4:18,10437,Adam,Engström,,,,,,,,508,120

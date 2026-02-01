@@ -1,0 +1,51 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028450,shot,1,4:57,10165,Milo,Roelens,324,10327,Sergei,Murashov,False,Non quality on net,Slap,504,50
+1028450,shot,1,5:37,6865,Bokondji,Imama,316,9096,Ryan,Fanti,False,Quality on net,Slap,132,136
+1028450,shot,1,5:58,4933,Matt,Dumba,316,9096,Ryan,Fanti,False,Non quality on net,Wrist,180,99
+1028450,shot,1,7:09,9816,Avery,Hayes,316,9096,Ryan,Fanti,True,Quality goal,Backhand,69,132
+1028450,goal,1,7:09,9816,Avery,Hayes,,,,,,,,69,132
+1028450,shot,1,8:36,9223,Gabe,Klassen,316,9096,Ryan,Fanti,False,Quality on net,Snap,83,145
+1028450,shot,1,8:37,7802,Rafaël,Harvey-Pinard,316,9096,Ryan,Fanti,True,Quality goal,Tip,60,165
+1028450,goal,1,8:37,7802,Rafaël,Harvey-Pinard,,,,,,,,60,165
+1028450,shot,1,9:38,10566,Lucas,Mercuri,324,10327,Sergei,Murashov,False,Non quality on net,Wrist,432,33
+1028450,shot,1,12:22,8664,Phil,Kemp,316,9096,Ryan,Fanti,False,Non quality on net,Slap,195,27
+1028450,shot,1,12:33,9347,Michael,Milne,324,10327,Sergei,Murashov,False,Non quality on net,Backhand,553,253
+1028450,shot,1,13:08,8664,Phil,Kemp,316,9096,Ryan,Fanti,False,Quality on net,Wrist,88,106
+1028450,shot,1,14:57,8584,Wyatt,Newpower,324,10327,Sergei,Murashov,False,Non quality on net,Slap,417,60
+1028450,shot,1,17:27,6522,Steven,Santini,324,10327,Sergei,Murashov,False,Non quality on net,Slap,405,232
+1028450,shot,1,18:58,9202,Conor,Geekie,324,10327,Sergei,Murashov,False,Quality on net,Wrist,476,187
+1028450,shot,2,1:51,4666,Jarred,Tinordi,324,10327,Sergei,Murashov,False,Non quality on net,Wrist,426,159
+1028450,shot,2,3:54,4933,Matt,Dumba,316,9096,Ryan,Fanti,False,Non quality on net,Wrist,69,227
+1028450,shot,2,6:01,9202,Conor,Geekie,324,10327,Sergei,Murashov,False,Quality on net,Wrist,537,164
+1028450,shot,2,8:32,9693,Brendan,Furry,324,10327,Sergei,Murashov,False,Quality on net,Tip,513,146
+1028450,shot,2,13:20,8664,Phil,Kemp,316,9096,Ryan,Fanti,False,Quality on net,Wrist,111,177
+1028450,shot,2,13:38,4666,Jarred,Tinordi,324,10327,Sergei,Murashov,False,Non quality on net,Wrist,476,63
+1028450,shot,2,14:56,6865,Bokondji,Imama,316,9096,Ryan,Fanti,False,Non quality on net,Wrist,120,271
+1028450,shot,2,16:59,4666,Jarred,Tinordi,324,10327,Sergei,Murashov,False,Quality on net,Snap,482,159
+1028450,shot,2,18:00,10835,Wojciech,Stachowiak,324,10327,Sergei,Murashov,False,Non quality on net,Wrist,453,176
+1028450,shot,2,18:09,8922,Simon,Lundmark,324,10327,Sergei,Murashov,False,Non quality on net,Wrist,436,239
+1028450,shot,2,18:47,4933,Matt,Dumba,316,9096,Ryan,Fanti,True,Non quality goal,Wrist,174,52
+1028450,goal,2,18:47,4933,Matt,Dumba,,,,,,,,174,52
+1028450,shot,3,1:00,9816,Avery,Hayes,316,9096,Ryan,Fanti,False,Non quality on net,Wrist,65,213
+1028450,shot,3,1:05,4933,Matt,Dumba,316,9096,Ryan,Fanti,False,Quality on net,Snap,87,93
+1028450,shot,3,2:35,10607,Ethan,Gauthier,324,10327,Sergei,Murashov,False,Quality on net,Slap,495,189
+1028450,shot,3,2:40,10148,Dylan,Duke,324,10327,Sergei,Murashov,False,Non quality on net,Tip,557,199
+1028450,shot,3,3:40,10148,Dylan,Duke,324,10327,Sergei,Murashov,False,Quality on net,Tip,558,133
+1028450,shot,3,3:46,9202,Conor,Geekie,324,10327,Sergei,Murashov,True,Non quality goal,Slap,417,225
+1028450,goal,3,3:46,9202,Conor,Geekie,,,,,,,,417,225
+1028450,shot,3,4:32,9202,Conor,Geekie,324,10327,Sergei,Murashov,False,Non quality on net,Snap,540,33
+1028450,shot,3,5:16,9223,Gabe,Klassen,316,9096,Ryan,Fanti,True,Non quality goal,Wrist,252,195
+1028450,goal,3,5:16,9223,Gabe,Klassen,,,,,,,,252,195
+1028450,shot,3,6:37,10148,Dylan,Duke,324,10327,Sergei,Murashov,False,Non quality on net,Slap,462,281
+1028450,shot,3,10:32,10848,Finn,Harding,316,9096,Ryan,Fanti,False,Quality on net,Snap,69,170
+1028450,shot,3,10:56,8744,Jakob,Pelletier,324,10327,Sergei,Murashov,False,Quality on net,Wrist,521,162
+1028450,shot,3,14:20,9202,Conor,Geekie,324,10327,Sergei,Murashov,False,Non quality on net,Wrist,34,229
+1028450,shot,3,14:32,7802,Rafaël,Harvey-Pinard,316,9096,Ryan,Fanti,False,Quality on net,Tip,58,147
+1028450,shot,3,14:59,7802,Rafaël,Harvey-Pinard,316,9096,Ryan,Fanti,False,Quality on net,Tip,45,130
+1028450,shot,3,15:13,6865,Bokondji,Imama,316,9096,Ryan,Fanti,False,Quality on net,Snap,120,151
+1028450,shot,3,18:29,10566,Lucas,Mercuri,324,10327,Sergei,Murashov,False,Non quality on net,Wrist,548,209
+1028450,shot,3,18:44,9202,Conor,Geekie,324,10327,Sergei,Murashov,False,Non quality on net,Wrist,501,255
+1028450,shot,3,18:55,10148,Dylan,Duke,324,10327,Sergei,Murashov,False,Non quality on net,Tip,551,177
+1028450,shot,3,19:26,8884,Matteo,Pietroniro,324,10327,Sergei,Murashov,False,Non quality on net,Wrist,515,87
+1028450,shot,3,19:45,8744,Jakob,Pelletier,324,10327,Sergei,Murashov,False,Quality on net,Tip,530,177
+1028450,shot,3,19:45,8884,Matteo,Pietroniro,324,10327,Sergei,Murashov,False,Non quality on net,Wrist,485,53
