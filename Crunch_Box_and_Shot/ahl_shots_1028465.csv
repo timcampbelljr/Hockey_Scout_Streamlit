@@ -1,0 +1,56 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028465,shot,1,5:00,9202,Conor,Geekie,324,9399,Vadim,Zherenko,False,Quality on net,Default,105,158
+1028465,shot,1,5:20,4622,Chris,Wagner,411,6535,Brandon,Halverson,False,Non quality on net,Default,526,221
+1028465,shot,1,6:59,10843,Quinton,Burns,411,6535,Brandon,Halverson,False,Non quality on net,Default,428,263
+1028465,shot,1,8:44,9737,Michael,Buchinger,411,6535,Brandon,Halverson,False,Quality on net,Default,513,127
+1028465,shot,1,8:46,4622,Chris,Wagner,411,6535,Brandon,Halverson,True,Non quality goal,Default,531,103
+1028465,goal,1,8:46,4622,Chris,Wagner,,,,,,,,531,103
+1028465,shot,1,9:46,10839,Juraj,Pekarcik,411,6535,Brandon,Halverson,False,Quality on net,Default,534,182
+1028465,shot,1,10:21,6522,Steven,Santini,324,9399,Vadim,Zherenko,False,Non quality on net,Default,106,62
+1028465,shot,1,15:56,9754,Tristan,Allard,324,9399,Vadim,Zherenko,True,Quality goal,Default,58,117
+1028465,goal,1,15:56,9754,Tristan,Allard,,,,,,,,58,117
+1028465,shot,1,16:16,9737,Michael,Buchinger,411,6535,Brandon,Halverson,False,Quality on net,Default,512,187
+1028465,shot,1,17:10,8922,Simon,Lundmark,324,9399,Vadim,Zherenko,False,Quality on net,Default,85,190
+1028465,shot,1,18:32,10148,Dylan,Duke,324,9399,Vadim,Zherenko,False,Quality on net,Default,99,88
+1028465,shot,1,19:43,10148,Dylan,Duke,324,9399,Vadim,Zherenko,True,Quality goal,Default,89,99
+1028465,goal,1,19:43,10148,Dylan,Duke,,,,,,,,89,99
+1028465,shot,1,19:59,8584,Wyatt,Newpower,324,9399,Vadim,Zherenko,True,Quality goal,Default,81,117
+1028465,goal,1,19:59,8584,Wyatt,Newpower,,,,,,,,81,117
+1028465,shot,2,1:32,8553,Mitchell,Chaffee,324,9399,Vadim,Zherenko,False,Quality on net,Default,96,159
+1028465,shot,2,2:17,8884,Matteo,Pietroniro,324,9399,Vadim,Zherenko,False,Quality on net,Default,116,214
+1028465,shot,2,2:26,10607,Ethan,Gauthier,324,9399,Vadim,Zherenko,False,Quality on net,Default,73,185
+1028465,shot,2,3:01,4622,Chris,Wagner,411,6535,Brandon,Halverson,False,Quality on net,Default,541,126
+1028465,shot,2,5:22,9896,Maxim,Groshev,324,9399,Vadim,Zherenko,True,Quality goal,Default,102,202
+1028465,goal,2,5:22,9896,Maxim,Groshev,,,,,,,,102,202
+1028465,shot,2,5:57,10607,Ethan,Gauthier,324,9399,Vadim,Zherenko,False,Non quality on net,Default,165,221
+1028465,shot,2,6:29,4666,Jarred,Tinordi,324,9399,Vadim,Zherenko,False,Non quality on net,Default,173,158
+1028465,shot,2,9:37,10143,Dylan,Peterson,411,6535,Brandon,Halverson,False,Non quality on net,Default,543,111
+1028465,shot,2,14:25,8461,Hugh,McGing,411,6535,Brandon,Halverson,False,Quality on net,Default,533,160
+1028465,shot,2,15:10,9896,Maxim,Groshev,324,9399,Vadim,Zherenko,False,Quality on net,Default,136,210
+1028465,shot,2,15:35,9754,Tristan,Allard,324,9399,Vadim,Zherenko,False,Non quality on net,Default,155,180
+1028465,shot,2,16:48,10566,Lucas,Mercuri,324,9399,Vadim,Zherenko,False,Quality on net,Default,103,137
+1028465,shot,2,17:42,9868,Marc-André,Gaudet,411,6535,Brandon,Halverson,False,Quality on net,Default,477,108
+1028465,shot,2,18:10,10532,Jakub,Stancl,411,6535,Brandon,Halverson,False,Non quality on net,Default,445,183
+1028465,shot,2,18:17,6917,Calle,Rosén,411,6535,Brandon,Halverson,False,Non quality on net,Default,436,113
+1028465,shot,3,0:13,10920,Theo,Lindstein,411,6535,Brandon,Halverson,False,Non quality on net,Default,421,179
+1028465,shot,3,1:08,6917,Calle,Rosén,411,6535,Brandon,Halverson,False,Non quality on net,Default,445,117
+1028465,shot,3,1:20,6733,Matt,Luff,411,6535,Brandon,Halverson,False,Non quality on net,Default,530,214
+1028465,shot,3,1:20,6917,Calle,Rosén,411,6535,Brandon,Halverson,False,Quality on net,Default,507,142
+1028465,shot,3,1:23,6733,Matt,Luff,411,6535,Brandon,Halverson,False,Quality on net,Default,525,142
+1028465,shot,3,1:23,6917,Calle,Rosén,411,6535,Brandon,Halverson,False,Quality on net,Default,533,155
+1028465,shot,3,1:27,4622,Chris,Wagner,411,6535,Brandon,Halverson,False,Quality on net,Default,525,159
+1028465,shot,3,1:29,10328,Aleksanteri,Kaskimäki,411,6535,Brandon,Halverson,True,Quality goal,Default,520,121
+1028465,goal,3,1:29,10328,Aleksanteri,Kaskimäki,,,,,,,,520,121
+1028465,shot,3,2:48,9868,Marc-André,Gaudet,411,6535,Brandon,Halverson,False,Non quality on net,Default,420,89
+1028465,shot,3,3:33,9693,Brendan,Furry,324,9399,Vadim,Zherenko,False,Quality on net,Default,75,135
+1028465,shot,3,3:45,6733,Matt,Luff,411,6535,Brandon,Halverson,False,Non quality on net,Default,458,239
+1028465,shot,3,4:05,6917,Calle,Rosén,411,6535,Brandon,Halverson,False,Quality on net,Default,472,211
+1028465,shot,3,8:38,10143,Dylan,Peterson,411,6535,Brandon,Halverson,False,Quality on net,Default,461,183
+1028465,shot,3,8:58,8630,Hunter,Skinner,411,6535,Brandon,Halverson,False,Non quality on net,Default,240,229
+1028465,shot,3,9:52,10566,Lucas,Mercuri,324,9399,Vadim,Zherenko,False,Quality on net,Default,101,138
+1028465,shot,3,11:25,9693,Brendan,Furry,324,9399,Vadim,Zherenko,False,Quality on net,Default,115,88
+1028465,shot,3,11:34,4666,Jarred,Tinordi,324,9399,Vadim,Zherenko,False,Quality on net,Default,117,87
+1028465,shot,3,11:52,10843,Quinton,Burns,411,6535,Brandon,Halverson,False,Quality on net,Default,507,154
+1028465,shot,3,15:22,9737,Michael,Buchinger,411,6535,Brandon,Halverson,False,Non quality on net,Default,440,120
+1028465,shot,3,16:48,10143,Dylan,Peterson,411,6535,Brandon,Halverson,False,Non quality on net,Default,498,237
+1028465,shot,3,16:58,8630,Hunter,Skinner,411,6535,Brandon,Halverson,False,Non quality on net,Default,486,242
