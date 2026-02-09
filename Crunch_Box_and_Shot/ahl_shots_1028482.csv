@@ -1,0 +1,54 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028482,shot,1,1:37,9202,Conor,Geekie,324,8647,Hunter,Shepard,True,Non quality goal,Default,495,252
+1028482,goal,1,1:37,9202,Conor,Geekie,,,,,,,,495,252
+1028482,shot,1,3:04,6522,Steven,Santini,324,8647,Hunter,Shepard,False,Non quality on net,Default,398,219
+1028482,shot,1,3:10,10165,Milo,Roelens,324,8647,Hunter,Shepard,False,Non quality on net,Default,504,229
+1028482,shot,1,3:30,4666,Jarred,Tinordi,324,8647,Hunter,Shepard,False,Non quality on net,Default,450,27
+1028482,shot,1,4:36,8922,Simon,Lundmark,324,8647,Hunter,Shepard,False,Non quality on net,Default,417,235
+1028482,shot,1,4:58,9448,Xavier,Bourgault,413,6535,Brandon,Halverson,False,Quality on net,Default,71,138
+1028482,shot,1,6:35,8553,Mitchell,Chaffee,324,8647,Hunter,Shepard,False,Quality on net,Default,508,166
+1028482,shot,1,6:41,8553,Mitchell,Chaffee,324,8647,Hunter,Shepard,False,Quality on net,Default,501,167
+1028482,shot,1,8:20,8590,Lassi,Thomson,413,6535,Brandon,Halverson,True,Quality goal,Default,65,122
+1028482,goal,1,8:20,8590,Lassi,Thomson,,,,,,,,65,122
+1028482,shot,1,8:34,8744,Jakob,Pelletier,324,8647,Hunter,Shepard,False,Quality on net,Default,543,147
+1028482,shot,1,9:14,7677,Arthur,Kaliyev,413,6535,Brandon,Halverson,False,Quality on net,Default,89,154
+1028482,shot,1,12:51,9202,Conor,Geekie,324,8647,Hunter,Shepard,False,Non quality on net,Default,410,229
+1028482,shot,1,15:30,9693,Brendan,Furry,324,8647,Hunter,Shepard,False,Quality on net,Default,507,219
+1028482,shot,1,15:42,8744,Jakob,Pelletier,324,8647,Hunter,Shepard,True,Quality goal,Default,520,174
+1028482,goal,1,15:42,8744,Jakob,Pelletier,,,,,,,,520,174
+1028482,shot,1,16:24,10922,Carter,Yakemchuk,413,6535,Brandon,Halverson,True,Non quality goal,Default,39,177
+1028482,goal,1,16:24,10922,Carter,Yakemchuk,,,,,,,,39,177
+1028482,shot,1,17:07,8720,Keean,Washkurak,413,6535,Brandon,Halverson,False,Quality on net,Default,113,182
+1028482,shot,2,0:57,8861,Philippe,Daoust,413,6535,Brandon,Halverson,False,Quality on net,Default,62,130
+1028482,shot,2,1:39,9485,Olle,Lycksell,413,6535,Brandon,Halverson,False,Quality on net,Default,78,174
+1028482,shot,2,2:25,9896,Maxim,Groshev,324,8647,Hunter,Shepard,False,Non quality on net,Default,444,30
+1028482,shot,2,2:41,10607,Ethan,Gauthier,324,8647,Hunter,Shepard,False,Quality on net,Default,502,81
+1028482,shot,2,2:44,10607,Ethan,Gauthier,324,8647,Hunter,Shepard,False,Quality on net,Default,516,133
+1028482,shot,2,3:39,8720,Keean,Washkurak,413,6535,Brandon,Halverson,False,Quality on net,Default,82,101
+1028482,shot,2,6:18,10016,Oskar,Pettersson,413,6535,Brandon,Halverson,False,Non quality on net,Default,41,171
+1028482,shot,2,9:58,10048,Stephen,Halliday,413,6535,Brandon,Halverson,False,Non quality on net,Default,168,111
+1028482,shot,2,11:24,9142,Wyatt,Bongiovanni,413,6535,Brandon,Halverson,False,Non quality on net,Default,114,264
+1028482,shot,2,13:46,9448,Xavier,Bourgault,413,6535,Brandon,Halverson,False,Non quality on net,Default,132,48
+1028482,shot,2,15:57,9901,Gabriel,Szturc,324,8647,Hunter,Shepard,True,Quality goal,Default,472,92
+1028482,goal,2,15:57,9901,Gabriel,Szturc,,,,,,,,472,92
+1028482,shot,2,17:12,9448,Xavier,Bourgault,413,6535,Brandon,Halverson,False,Quality on net,Default,49,124
+1028482,shot,2,17:15,8861,Philippe,Daoust,413,6535,Brandon,Halverson,False,Quality on net,Default,65,142
+1028482,shot,2,18:20,9906,Djibril,Touré,413,6535,Brandon,Halverson,False,Non quality on net,Default,153,110
+1028482,shot,2,18:30,10016,Oskar,Pettersson,413,6535,Brandon,Halverson,False,Quality on net,Default,101,133
+1028482,shot,2,18:33,9485,Olle,Lycksell,413,6535,Brandon,Halverson,False,Non quality on net,Default,87,222
+1028482,shot,3,0:43,8987,Tyler,Boucher,413,6535,Brandon,Halverson,False,Quality on net,Default,134,108
+1028482,shot,3,0:47,10048,Stephen,Halliday,413,6535,Brandon,Halverson,False,Quality on net,Default,121,182
+1028482,shot,3,0:51,9142,Wyatt,Bongiovanni,413,6535,Brandon,Halverson,False,Quality on net,Default,53,172
+1028482,shot,3,1:06,8861,Philippe,Daoust,413,6535,Brandon,Halverson,False,Quality on net,Default,84,189
+1028482,shot,3,2:10,10016,Oskar,Pettersson,413,6535,Brandon,Halverson,False,Non quality on net,Default,243,135
+1028482,shot,3,4:03,8584,Wyatt,Newpower,324,8647,Hunter,Shepard,False,Non quality on net,Default,400,194
+1028482,shot,3,6:38,10148,Dylan,Duke,324,8647,Hunter,Shepard,False,Non quality on net,Default,549,255
+1028482,shot,3,7:08,10566,Lucas,Mercuri,324,8647,Hunter,Shepard,False,Non quality on net,Default,399,31
+1028482,shot,3,8:39,10566,Lucas,Mercuri,324,8647,Hunter,Shepard,False,Non quality on net,Default,482,231
+1028482,shot,3,12:46,8884,Matteo,Pietroniro,324,8647,Hunter,Shepard,False,Non quality on net,Default,411,81
+1028482,shot,3,16:09,8553,Mitchell,Chaffee,324,8647,Hunter,Shepard,True,Quality goal,Default,474,209
+1028482,goal,3,16:09,8553,Mitchell,Chaffee,,,,,,,,474,209
+1028482,shot,3,17:42,9448,Xavier,Bourgault,413,6535,Brandon,Halverson,False,Non quality on net,Default,47,179
+1028482,shot,3,17:54,8553,Mitchell,Chaffee,324,8647,Hunter,Shepard,True,Non quality goal,Default,160,166
+1028482,goal,3,17:54,8553,Mitchell,Chaffee,,,,,,,,160,166
+1028482,shot,3,19:31,9901,Gabriel,Szturc,324,8647,Hunter,Shepard,False,Quality on net,Default,512,86
