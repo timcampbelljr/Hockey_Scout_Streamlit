@@ -1,0 +1,55 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028519,shot,1,0:31,9896,Maxim,Groshev,324,10092,Aleksei,Kolosov,False,Non quality on net,Default,371,86
+1028519,shot,1,2:29,10717,Devin,Kaplan,313,9096,Ryan,Fanti,False,Non quality on net,Default,169,135
+1028519,shot,1,3:46,8922,Simon,Lundmark,324,10092,Aleksei,Kolosov,False,Non quality on net,Default,412,118
+1028519,shot,1,4:06,9202,Conor,Geekie,324,10092,Aleksei,Kolosov,False,Quality on net,Default,458,93
+1028519,shot,1,4:56,9901,Gabriel,Szturc,324,10092,Aleksei,Kolosov,False,Non quality on net,Default,411,49
+1028519,shot,1,5:17,10718,Karsen,Dorwart,313,9096,Ryan,Fanti,False,Non quality on net,Default,208,120
+1028519,shot,1,5:36,10165,Milo,Roelens,324,10092,Aleksei,Kolosov,False,Quality on net,Default,491,118
+1028519,shot,1,5:59,8553,Mitchell,Chaffee,324,10092,Aleksei,Kolosov,False,Quality on net,Default,471,122
+1028519,shot,1,7:23,9823,Ethan,Samson,324,10092,Aleksei,Kolosov,False,Quality on net,Default,471,207
+1028519,shot,1,7:57,9823,Ethan,Samson,324,10092,Aleksei,Kolosov,False,Non quality on net,Default,279,183
+1028519,shot,1,13:30,9347,Michael,Milne,324,10092,Aleksei,Kolosov,False,Quality on net,Default,498,195
+1028519,shot,1,13:48,8584,Wyatt,Newpower,324,10092,Aleksei,Kolosov,False,Non quality on net,Default,479,42
+1028519,shot,1,14:49,9202,Conor,Geekie,324,10092,Aleksei,Kolosov,False,Non quality on net,Default,375,133
+1028519,shot,1,15:43,9202,Conor,Geekie,324,10092,Aleksei,Kolosov,False,Quality on net,Default,512,121
+1028519,shot,1,16:08,10148,Dylan,Duke,324,10092,Aleksei,Kolosov,True,Quality goal,Default,531,135
+1028519,goal,1,16:08,10148,Dylan,Duke,,,,,,,,531,135
+1028519,shot,2,0:34,8451,Zayde,Wisdom,313,9096,Ryan,Fanti,False,Non quality on net,Default,180,198
+1028519,shot,2,2:34,10722,Oliver,Bonk,313,9096,Ryan,Fanti,False,Non quality on net,Default,267,129
+1028519,shot,2,3:39,8744,Jakob,Pelletier,324,10092,Aleksei,Kolosov,False,Non quality on net,Default,398,146
+1028519,shot,2,3:55,7788,Maxence,Guenette,313,9096,Ryan,Fanti,False,Non quality on net,Default,551,77
+1028519,shot,2,6:56,6342,Anthony,Richard,313,9096,Ryan,Fanti,False,Quality on net,Default,99,181
+1028519,shot,2,9:40,6522,Steven,Santini,324,10092,Aleksei,Kolosov,False,Non quality on net,Default,417,129
+1028519,shot,2,10:47,9693,Brendan,Furry,324,10092,Aleksei,Kolosov,True,Quality goal,Default,525,168
+1028519,goal,2,10:47,9693,Brendan,Furry,,,,,,,,525,168
+1028519,shot,2,11:58,9202,Conor,Geekie,324,10092,Aleksei,Kolosov,False,Quality on net,Default,497,173
+1028519,shot,2,12:34,8559,Phil,Tomasino,313,9096,Ryan,Fanti,False,Non quality on net,Default,67,202
+1028519,shot,2,15:28,7788,Maxence,Guenette,313,9096,Ryan,Fanti,False,Quality on net,Default,66,138
+1028519,shot,2,16:35,8805,Helge,Grans,313,9096,Ryan,Fanti,False,Non quality on net,Default,203,146
+1028519,shot,2,16:43,6872,Lane,Pederson,313,9096,Ryan,Fanti,False,Quality on net,Default,107,149
+1028519,shot,2,16:44,10633,Alex,Bump,313,9096,Ryan,Fanti,False,Quality on net,Default,58,171
+1028519,shot,2,18:42,6522,Steven,Santini,324,10092,Aleksei,Kolosov,False,Non quality on net,Default,449,99
+1028519,shot,3,0:01,10717,Devin,Kaplan,313,9096,Ryan,Fanti,False,Non quality on net,Default,181,121
+1028519,shot,3,0:43,8884,Matteo,Pietroniro,324,10092,Aleksei,Kolosov,False,Non quality on net,Default,454,96
+1028519,shot,3,1:03,8584,Wyatt,Newpower,324,10092,Aleksei,Kolosov,False,Non quality on net,Default,393,57
+1028519,shot,3,1:59,9901,Gabriel,Szturc,324,10092,Aleksei,Kolosov,False,Quality on net,Default,489,116
+1028519,shot,3,2:06,10607,Ethan,Gauthier,324,10092,Aleksei,Kolosov,False,Quality on net,Default,540,181
+1028519,shot,3,4:15,9754,Tristan,Allard,324,10092,Aleksei,Kolosov,False,Quality on net,Default,488,139
+1028519,shot,3,4:51,9202,Conor,Geekie,324,10092,Aleksei,Kolosov,False,Quality on net,Default,516,170
+1028519,shot,3,6:07,9378,Jacob,Gaucher,313,9096,Ryan,Fanti,False,Non quality on net,Default,165,147
+1028519,shot,3,7:21,9901,Gabriel,Szturc,324,10092,Aleksei,Kolosov,False,Non quality on net,Default,549,192
+1028519,shot,3,8:56,6342,Anthony,Richard,313,9096,Ryan,Fanti,False,Quality on net,Default,117,84
+1028519,shot,3,9:24,8884,Matteo,Pietroniro,324,10092,Aleksei,Kolosov,False,Non quality on net,Default,78,74
+1028519,shot,3,10:19,9901,Gabriel,Szturc,324,10092,Aleksei,Kolosov,False,Quality on net,Default,461,138
+1028519,shot,3,12:38,9202,Conor,Geekie,324,10092,Aleksei,Kolosov,False,Non quality on net,Default,425,92
+1028519,shot,3,13:14,9768,Tucker,Robertson,313,9096,Ryan,Fanti,False,Quality on net,Default,93,130
+1028519,shot,3,13:15,9768,Tucker,Robertson,313,9096,Ryan,Fanti,True,Quality goal,Default,73,168
+1028519,goal,3,13:15,9768,Tucker,Robertson,,,,,,,,73,168
+1028519,shot,3,14:33,10566,Lucas,Mercuri,324,10092,Aleksei,Kolosov,False,Quality on net,Default,510,111
+1028519,shot,3,16:00,10722,Oliver,Bonk,313,9096,Ryan,Fanti,False,Non quality on net,Default,193,207
+1028519,shot,3,17:03,9484,Adam,Ginning,313,9096,Ryan,Fanti,False,Quality on net,Default,126,123
+1028519,shot,3,18:45,8553,Mitchell,Chaffee,324,10092,Aleksei,Kolosov,True,Non quality goal,Default,446,117
+1028519,goal,3,18:45,8553,Mitchell,Chaffee,,,,,,,,446,117
+1028519,shot,3,19:41,8884,Matteo,Pietroniro,324,10092,Aleksei,Kolosov,False,Non quality on net,Default,313,105
+1028519,shot,3,19:50,8451,Zayde,Wisdom,313,9096,Ryan,Fanti,False,Non quality on net,Default,47,176

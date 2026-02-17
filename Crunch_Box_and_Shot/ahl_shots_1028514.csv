@@ -1,0 +1,51 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028514,shot,1,4:13,9202,Conor,Geekie,324,10327,Sergei,Murashov,False,Non quality on net,Default,537,201
+1028514,shot,1,4:23,10607,Ethan,Gauthier,324,10327,Sergei,Murashov,False,Non quality on net,Default,404,80
+1028514,shot,1,5:40,9901,Gabriel,Szturc,324,10327,Sergei,Murashov,False,Non quality on net,Default,455,182
+1028514,shot,1,7:03,9693,Brendan,Furry,324,10327,Sergei,Murashov,False,Quality on net,Default,537,144
+1028514,shot,1,7:16,10164,Tristan,Broz,316,6535,Brandon,Halverson,False,Non quality on net,Default,125,53
+1028514,shot,1,7:27,10164,Tristan,Broz,316,6535,Brandon,Halverson,False,Quality on net,Default,61,126
+1028514,shot,1,7:42,4933,Matt,Dumba,316,6535,Brandon,Halverson,False,Non quality on net,Default,182,35
+1028514,shot,1,8:10,10526,Cooper,Flinton,324,10327,Sergei,Murashov,True,Quality goal,Default,512,161
+1028514,goal,1,8:10,10526,Cooper,Flinton,,,,,,,,512,161
+1028514,shot,1,8:51,10566,Lucas,Mercuri,324,10327,Sergei,Murashov,False,Quality on net,Default,522,168
+1028514,shot,1,8:56,8884,Matteo,Pietroniro,324,10327,Sergei,Murashov,False,Non quality on net,Default,440,27
+1028514,shot,1,10:23,10172,Emil,Pieniniemi,316,6535,Brandon,Halverson,False,Non quality on net,Default,205,190
+1028514,shot,1,10:56,4933,Matt,Dumba,316,6535,Brandon,Halverson,False,Quality on net,Default,64,156
+1028514,shot,1,11:01,10164,Tristan,Broz,316,6535,Brandon,Halverson,False,Quality on net,Default,70,132
+1028514,shot,1,11:03,10959,Melvin,Fernström,316,6535,Brandon,Halverson,False,Quality on net,Default,67,132
+1028514,shot,1,11:18,10472,Rutger,McGroarty,316,6535,Brandon,Halverson,False,Quality on net,Default,66,165
+1028514,shot,1,11:28,8744,Jakob,Pelletier,324,10327,Sergei,Murashov,False,Non quality on net,Default,441,64
+1028514,shot,1,16:56,10962,Tanner,Howe,316,6535,Brandon,Halverson,False,Quality on net,Default,110,146
+1028514,shot,1,17:44,9754,Tristan,Allard,324,10327,Sergei,Murashov,False,Quality on net,Default,511,133
+1028514,shot,1,19:05,9693,Brendan,Furry,324,10327,Sergei,Murashov,False,Non quality on net,Default,515,72
+1028514,shot,1,19:50,8884,Matteo,Pietroniro,324,10327,Sergei,Murashov,False,Non quality on net,Default,441,118
+1028514,shot,1,19:51,8884,Matteo,Pietroniro,324,10327,Sergei,Murashov,True,Quality goal,Default,544,135
+1028514,goal,1,19:51,8884,Matteo,Pietroniro,,,,,,,,544,135
+1028514,shot,2,0:13,10566,Lucas,Mercuri,324,10327,Sergei,Murashov,False,Quality on net,Default,143,204
+1028514,shot,2,2:04,10164,Tristan,Broz,316,6535,Brandon,Halverson,False,Quality on net,Default,461,97
+1028514,shot,2,4:40,9202,Conor,Geekie,324,10327,Sergei,Murashov,False,Quality on net,Default,91,106
+1028514,shot,2,6:32,10504,Chase,Pietila,316,6535,Brandon,Halverson,False,Non quality on net,Default,462,39
+1028514,shot,2,7:47,10164,Tristan,Broz,316,6535,Brandon,Halverson,False,Non quality on net,Default,470,268
+1028514,shot,2,8:31,10148,Dylan,Duke,324,10327,Sergei,Murashov,True,Quality goal,Tip,55,149
+1028514,goal,2,8:31,10148,Dylan,Duke,,,,,,,,55,149
+1028514,shot,2,12:04,8922,Simon,Lundmark,324,10327,Sergei,Murashov,False,Non quality on net,Default,54,79
+1028514,shot,2,12:32,9754,Tristan,Allard,324,10327,Sergei,Murashov,False,Non quality on net,Default,83,76
+1028514,shot,2,17:02,10148,Dylan,Duke,324,10327,Sergei,Murashov,False,Quality on net,Default,75,131
+1028514,shot,3,1:09,8553,Mitchell,Chaffee,324,10327,Sergei,Murashov,False,Non quality on net,Default,469,60
+1028514,shot,3,1:56,9202,Conor,Geekie,324,10327,Sergei,Murashov,False,Non quality on net,Default,501,237
+1028514,shot,3,1:59,8553,Mitchell,Chaffee,324,10327,Sergei,Murashov,True,Quality goal,Default,525,109
+1028514,goal,3,1:59,8553,Mitchell,Chaffee,,,,,,,,525,109
+1028514,shot,3,2:48,4933,Matt,Dumba,316,6535,Brandon,Halverson,False,Non quality on net,Default,201,160
+1028514,shot,3,4:56,9754,Tristan,Allard,324,10327,Sergei,Murashov,False,Non quality on net,Default,416,205
+1028514,shot,3,5:07,8884,Matteo,Pietroniro,324,10327,Sergei,Murashov,False,Quality on net,Default,509,85
+1028514,shot,3,5:59,10526,Cooper,Flinton,324,10327,Sergei,Murashov,True,Quality goal,Default,482,138
+1028514,goal,3,5:59,10526,Cooper,Flinton,,,,,,,,482,138
+1028514,shot,3,6:43,8584,Wyatt,Newpower,324,10327,Sergei,Murashov,False,Non quality on net,Default,439,258
+1028514,shot,3,9:57,8884,Matteo,Pietroniro,324,10327,Sergei,Murashov,False,Non quality on net,Default,422,132
+1028514,shot,3,10:21,9649,Ville,Koivunen,316,6535,Brandon,Halverson,False,Non quality on net,Default,79,88
+1028514,shot,3,10:25,4933,Matt,Dumba,316,6535,Brandon,Halverson,False,Non quality on net,Default,184,45
+1028514,shot,3,11:12,9347,Michael,Milne,324,10327,Sergei,Murashov,False,Non quality on net,Default,485,37
+1028514,shot,3,14:57,10164,Tristan,Broz,316,6535,Brandon,Halverson,False,Non quality on net,Default,151,67
+1028514,shot,3,17:03,9693,Brendan,Furry,324,10327,Sergei,Murashov,False,Non quality on net,Default,559,104
+1028514,shot,3,18:33,10566,Lucas,Mercuri,324,10327,Sergei,Murashov,False,Non quality on net,Default,557,127
