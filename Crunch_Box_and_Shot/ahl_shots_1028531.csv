@@ -1,0 +1,49 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028531,shot,1,1:03,9448,Xavier,Bourgault,413,6535,Brandon,Halverson,False,Quality on net,Default,109,190
+1028531,shot,1,1:13,8553,Mitchell,Chaffee,324,9647,Leevi,Meriläinen,True,Quality goal,Default,525,128
+1028531,goal,1,1:13,8553,Mitchell,Chaffee,,,,,,,,525,128
+1028531,shot,1,1:49,9693,Brendan,Furry,324,9647,Leevi,Meriläinen,False,Non quality on net,Default,519,242
+1028531,shot,1,5:15,6522,Steven,Santini,324,9647,Leevi,Meriläinen,False,Non quality on net,Default,382,240
+1028531,shot,1,5:39,10048,Stephen,Halliday,413,6535,Brandon,Halverson,False,Non quality on net,Default,164,218
+1028531,shot,1,5:39,9448,Xavier,Bourgault,413,6535,Brandon,Halverson,False,Quality on net,Default,51,160
+1028531,shot,1,9:12,8553,Mitchell,Chaffee,324,9647,Leevi,Meriläinen,False,Quality on net,Default,470,198
+1028531,shot,1,9:33,8744,Jakob,Pelletier,324,9647,Leevi,Meriläinen,False,Quality on net,Default,470,96
+1028531,shot,1,10:23,10566,Lucas,Mercuri,324,9647,Leevi,Meriläinen,False,Non quality on net,Default,509,254
+1028531,shot,1,10:55,9901,Gabriel,Szturc,324,9647,Leevi,Meriläinen,False,Quality on net,Default,540,119
+1028531,shot,1,12:35,9448,Xavier,Bourgault,413,6535,Brandon,Halverson,False,Quality on net,Default,69,123
+1028531,shot,1,12:51,9448,Xavier,Bourgault,413,6535,Brandon,Halverson,False,Non quality on net,Default,97,75
+1028531,shot,1,13:24,8861,Philippe,Daoust,413,6535,Brandon,Halverson,False,Non quality on net,Default,158,106
+1028531,shot,1,14:54,10048,Stephen,Halliday,413,6535,Brandon,Halverson,False,Non quality on net,Default,186,93
+1028531,shot,1,17:25,4666,Jarred,Tinordi,324,9647,Leevi,Meriläinen,False,Non quality on net,Default,115,59
+1028531,shot,1,17:37,10148,Dylan,Duke,324,9647,Leevi,Meriläinen,False,Quality on net,Default,507,193
+1028531,shot,1,18:08,4955,Scott,Harrington,413,6535,Brandon,Halverson,True,Non quality goal,Default,67,95
+1028531,goal,1,18:08,4955,Scott,Harrington,,,,,,,,67,95
+1028531,shot,2,2:21,4955,Scott,Harrington,413,6535,Brandon,Halverson,False,Quality on net,Default,122,153
+1028531,shot,2,4:08,10148,Dylan,Duke,324,9647,Leevi,Meriläinen,False,Quality on net,Default,541,179
+1028531,shot,2,5:48,8744,Jakob,Pelletier,324,9647,Leevi,Meriläinen,False,Quality on net,Default,525,134
+1028531,shot,2,8:13,9901,Gabriel,Szturc,324,9647,Leevi,Meriläinen,False,Quality on net,Default,546,162
+1028531,shot,2,11:14,9901,Gabriel,Szturc,324,9647,Leevi,Meriläinen,False,Quality on net,Default,530,184
+1028531,shot,2,12:11,9202,Conor,Geekie,324,9647,Leevi,Meriläinen,False,Quality on net,Default,489,102
+1028531,shot,2,15:41,9754,Tristan,Allard,324,9647,Leevi,Meriläinen,False,Quality on net,Default,525,139
+1028531,shot,2,17:42,7145,Dennis,Gilbert,413,6535,Brandon,Halverson,False,Non quality on net,Default,76,206
+1028531,shot,2,17:50,9448,Xavier,Bourgault,413,6535,Brandon,Halverson,False,Quality on net,Default,99,189
+1028531,shot,2,19:50,10148,Dylan,Duke,324,9647,Leevi,Meriläinen,True,Quality goal,Default,525,143
+1028531,goal,2,19:50,10148,Dylan,Duke,,,,,,,,525,143
+1028531,shot,3,1:07,9202,Conor,Geekie,324,9647,Leevi,Meriläinen,False,Quality on net,Default,518,173
+1028531,shot,3,2:39,9684,Mark,Duarte,413,6535,Brandon,Halverson,False,Quality on net,Default,87,117
+1028531,shot,3,4:32,8744,Jakob,Pelletier,324,9647,Leevi,Meriläinen,False,Quality on net,Default,532,137
+1028531,shot,3,4:57,8553,Mitchell,Chaffee,324,9647,Leevi,Meriläinen,False,Quality on net,Default,502,187
+1028531,shot,3,5:08,10922,Carter,Yakemchuk,413,6535,Brandon,Halverson,False,Non quality on net,Default,355,98
+1028531,shot,3,6:20,9347,Michael,Milne,324,9647,Leevi,Meriläinen,False,Quality on net,Default,503,114
+1028531,shot,3,6:25,10148,Dylan,Duke,324,9647,Leevi,Meriläinen,False,Non quality on net,Default,545,105
+1028531,shot,3,7:59,7677,Arthur,Kaliyev,413,6535,Brandon,Halverson,False,Quality on net,Default,89,98
+1028531,shot,3,8:37,8553,Mitchell,Chaffee,324,9647,Leevi,Meriläinen,False,Quality on net,Default,519,106
+1028531,shot,3,8:57,7145,Dennis,Gilbert,413,6535,Brandon,Halverson,False,Quality on net,Default,67,126
+1028531,shot,3,11:51,7677,Arthur,Kaliyev,413,6535,Brandon,Halverson,False,Non quality on net,Default,73,97
+1028531,shot,3,14:11,9448,Xavier,Bourgault,413,6535,Brandon,Halverson,False,Non quality on net,Default,61,108
+1028531,shot,3,15:11,8861,Philippe,Daoust,413,6535,Brandon,Halverson,False,Quality on net,Default,78,150
+1028531,shot,3,15:56,10922,Carter,Yakemchuk,413,6535,Brandon,Halverson,False,Quality on net,Default,125,80
+1028531,shot,3,16:47,8744,Jakob,Pelletier,324,9647,Leevi,Meriläinen,False,Quality on net,Default,534,135
+1028531,shot,3,18:31,7677,Arthur,Kaliyev,413,6535,Brandon,Halverson,False,Non quality on net,Default,231,66
+1028531,shot,3,19:20,9485,Olle,Lycksell,413,6535,Brandon,Halverson,False,Non quality on net,Default,155,98
+1028531,shot,3,19:59,9448,Xavier,Bourgault,413,6535,Brandon,Halverson,False,Quality on net,Default,93,121
