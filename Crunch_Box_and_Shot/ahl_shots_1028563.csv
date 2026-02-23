@@ -1,0 +1,72 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028563,shot,1,1:30,9202,Conor,Geekie,324,10912,Kirill,Gerasimyuk,False,Non quality on net,Default,201,174
+1028563,shot,1,1:58,8405,Nolan,Foote,384,9096,Ryan,Fanti,False,Non quality on net,Default,118,57
+1028563,shot,1,2:05,10607,Ethan,Gauthier,324,10912,Kirill,Gerasimyuk,False,Non quality on net,Default,67,101
+1028563,shot,1,4:55,4666,Jarred,Tinordi,324,10912,Kirill,Gerasimyuk,False,Non quality on net,Default,39,196
+1028563,shot,1,6:47,9693,Brendan,Furry,324,10912,Kirill,Gerasimyuk,False,Quality on net,Default,76,129
+1028563,shot,1,7:41,10148,Dylan,Duke,324,10912,Kirill,Gerasimyuk,False,Quality on net,Default,89,166
+1028563,shot,1,9:32,8405,Nolan,Foote,384,9096,Ryan,Fanti,False,Quality on net,Default,551,128
+1028563,shot,1,9:49,7337,Brian,Pinho,384,9096,Ryan,Fanti,False,Non quality on net,Default,541,77
+1028563,shot,1,10:54,10056,Ben,Steeves,384,9096,Ryan,Fanti,False,Non quality on net,Default,441,153
+1028563,shot,1,11:12,8553,Mitchell,Chaffee,324,10912,Kirill,Gerasimyuk,False,Quality on net,Default,49,172
+1028563,shot,1,12:07,9220,Nate,Smith,384,9096,Ryan,Fanti,True,Quality goal,Default,508,111
+1028563,goal,1,12:07,9220,Nate,Smith,,,,,,,,508,111
+1028563,shot,1,12:35,8553,Mitchell,Chaffee,324,10912,Kirill,Gerasimyuk,False,Quality on net,Default,134,142
+1028563,shot,1,14:35,10459,Mikulas,Hovorka,384,9096,Ryan,Fanti,False,Quality on net,Default,472,211
+1028563,shot,1,15:58,10056,Ben,Steeves,384,9096,Ryan,Fanti,False,Quality on net,Default,546,178
+1028563,shot,1,19:17,10148,Dylan,Duke,324,10912,Kirill,Gerasimyuk,False,Non quality on net,Default,58,85
+1028563,shot,1,19:58,7149,Noah,Gregor,384,9096,Ryan,Fanti,False,Quality on net,Default,524,114
+1028563,shot,2,0:42,9202,Conor,Geekie,324,10912,Kirill,Gerasimyuk,False,Quality on net,Default,69,128
+1028563,shot,2,1:32,4666,Jarred,Tinordi,324,10912,Kirill,Gerasimyuk,False,Quality on net,Default,126,109
+1028563,shot,2,2:03,7149,Noah,Gregor,384,9096,Ryan,Fanti,False,Non quality on net,Default,477,20
+1028563,shot,2,2:34,8922,Simon,Lundmark,324,10912,Kirill,Gerasimyuk,False,Non quality on net,Default,195,52
+1028563,shot,2,3:14,10459,Mikulas,Hovorka,384,9096,Ryan,Fanti,False,Quality on net,Default,458,199
+1028563,shot,2,4:02,9079,Tommy,Miller,324,10912,Kirill,Gerasimyuk,False,Quality on net,Default,117,137
+1028563,shot,2,4:05,4666,Jarred,Tinordi,324,10912,Kirill,Gerasimyuk,False,Non quality on net,Default,159,228
+1028563,shot,2,4:50,9347,Michael,Milne,324,10912,Kirill,Gerasimyuk,False,Non quality on net,Default,42,86
+1028563,shot,2,6:52,8405,Nolan,Foote,384,9096,Ryan,Fanti,False,Non quality on net,Default,501,57
+1028563,shot,2,8:00,8884,Matteo,Pietroniro,324,10912,Kirill,Gerasimyuk,True,Quality goal,Default,93,192
+1028563,goal,2,8:00,8884,Matteo,Pietroniro,,,,,,,,93,192
+1028563,shot,2,9:08,9988,Michael,Benning,384,9096,Ryan,Fanti,False,Non quality on net,Default,399,199
+1028563,shot,2,9:11,9220,Nate,Smith,384,9096,Ryan,Fanti,False,Non quality on net,Default,555,99
+1028563,shot,2,9:13,7106,Jack,Studnicka,384,9096,Ryan,Fanti,False,Non quality on net,Default,554,117
+1028563,shot,2,9:42,9990,Wilmer,Skoog,384,9096,Ryan,Fanti,False,Quality on net,Default,528,147
+1028563,shot,2,10:19,10607,Ethan,Gauthier,324,10912,Kirill,Gerasimyuk,False,Quality on net,Default,90,132
+1028563,shot,2,11:37,9880,Jake,Livingstone,384,9096,Ryan,Fanti,False,Non quality on net,Default,413,250
+1028563,shot,2,12:26,10566,Lucas,Mercuri,324,10912,Kirill,Gerasimyuk,False,Quality on net,Default,71,160
+1028563,shot,2,12:30,9990,Wilmer,Skoog,384,9096,Ryan,Fanti,False,Non quality on net,Default,120,25
+1028563,shot,2,13:02,9914,Robert,Mastrosimone,384,9096,Ryan,Fanti,False,Non quality on net,Default,472,242
+1028563,shot,2,15:36,10148,Dylan,Duke,324,10912,Kirill,Gerasimyuk,False,Quality on net,Default,86,134
+1028563,shot,2,16:34,9988,Michael,Benning,384,9096,Ryan,Fanti,False,Non quality on net,Default,418,165
+1028563,shot,2,17:46,10566,Lucas,Mercuri,324,10912,Kirill,Gerasimyuk,False,Non quality on net,Default,94,15
+1028563,shot,2,18:36,8553,Mitchell,Chaffee,324,10912,Kirill,Gerasimyuk,False,Quality on net,Default,70,119
+1028563,shot,3,0:18,10459,Mikulas,Hovorka,384,9096,Ryan,Fanti,False,Non quality on net,Default,435,99
+1028563,shot,3,1:40,9693,Brendan,Furry,324,10912,Kirill,Gerasimyuk,False,Non quality on net,Default,94,263
+1028563,shot,3,1:55,10607,Ethan,Gauthier,324,10912,Kirill,Gerasimyuk,False,Quality on net,Default,82,102
+1028563,shot,3,2:37,9990,Wilmer,Skoog,384,9096,Ryan,Fanti,False,Quality on net,Default,457,138
+1028563,shot,3,2:58,9880,Jake,Livingstone,384,9096,Ryan,Fanti,False,Quality on net,Default,457,200
+1028563,shot,3,4:08,8011,MacKenzie,Entwistle,384,9096,Ryan,Fanti,False,Non quality on net,Default,451,208
+1028563,shot,3,4:26,9880,Jake,Livingstone,384,9096,Ryan,Fanti,False,Non quality on net,Default,420,237
+1028563,shot,3,4:29,10915,Hunter,St. Martin,384,9096,Ryan,Fanti,False,Non quality on net,Default,554,184
+1028563,shot,3,5:05,9220,Nate,Smith,384,9096,Ryan,Fanti,False,Non quality on net,Default,506,279
+1028563,shot,3,6:11,8011,MacKenzie,Entwistle,384,9096,Ryan,Fanti,True,Quality goal,Default,507,133
+1028563,goal,3,6:11,8011,MacKenzie,Entwistle,,,,,,,,507,133
+1028563,shot,3,7:07,7106,Jack,Studnicka,384,9096,Ryan,Fanti,False,Non quality on net,Default,527,245
+1028563,shot,3,8:42,8553,Mitchell,Chaffee,324,10912,Kirill,Gerasimyuk,False,Quality on net,Default,64,151
+1028563,shot,3,8:48,9202,Conor,Geekie,324,10912,Kirill,Gerasimyuk,False,Non quality on net,Default,144,261
+1028563,shot,3,9:58,7149,Noah,Gregor,384,9096,Ryan,Fanti,False,Non quality on net,Default,531,63
+1028563,shot,3,11:07,9914,Robert,Mastrosimone,384,9096,Ryan,Fanti,False,Non quality on net,Default,529,85
+1028563,shot,3,11:31,10915,Hunter,St. Martin,384,9096,Ryan,Fanti,False,Quality on net,Default,478,105
+1028563,shot,3,12:57,9914,Robert,Mastrosimone,384,9096,Ryan,Fanti,True,Quality goal,Default,490,135
+1028563,goal,3,12:57,9914,Robert,Mastrosimone,,,,,,,,490,135
+1028563,shot,3,13:13,9988,Michael,Benning,384,9096,Ryan,Fanti,False,Non quality on net,Default,334,79
+1028563,shot,3,14:29,9202,Conor,Geekie,324,10912,Kirill,Gerasimyuk,False,Quality on net,Default,139,153
+1028563,shot,3,14:31,10148,Dylan,Duke,324,10912,Kirill,Gerasimyuk,True,Quality goal,Default,69,159
+1028563,goal,3,14:31,10148,Dylan,Duke,,,,,,,,69,159
+1028563,shot,3,15:18,8744,Jakob,Pelletier,324,10912,Kirill,Gerasimyuk,False,Non quality on net,Default,97,21
+1028563,shot,3,15:53,9202,Conor,Geekie,324,10912,Kirill,Gerasimyuk,False,Non quality on net,Default,145,85
+1028563,shot,3,18:18,9220,Nate,Smith,384,9096,Ryan,Fanti,True,Quality goal,Default,111,113
+1028563,goal,3,18:18,9220,Nate,Smith,,,,,,,,111,113
+1028563,shot,3,19:20,10566,Lucas,Mercuri,324,10912,Kirill,Gerasimyuk,True,Quality goal,Default,58,149
+1028563,goal,3,19:20,10566,Lucas,Mercuri,,,,,,,,58,149
+1028563,shot,3,19:51,10566,Lucas,Mercuri,324,10912,Kirill,Gerasimyuk,False,Non quality on net,Default,159,119
