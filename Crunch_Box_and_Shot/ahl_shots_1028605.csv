@@ -1,0 +1,65 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028605,shot,1,2:28,9347,Michael,Milne,324,8556,Hunter,Jones,False,Quality on net,Default,89,213
+1028605,shot,1,2:55,4830,Vincent,Arseneau,415,6535,Brandon,Halverson,False,Quality on net,Default,525,145
+1028605,shot,1,3:07,10036,David,Reinbacher,415,6535,Brandon,Halverson,False,Non quality on net,Default,425,231
+1028605,shot,1,3:25,10148,Dylan,Duke,324,8556,Hunter,Jones,True,Non quality goal,Default,153,61
+1028605,goal,1,3:25,10148,Dylan,Duke,,,,,,,,153,61
+1028605,shot,1,3:54,4666,Jarred,Tinordi,324,8556,Hunter,Jones,False,Non quality on net,Default,62,243
+1028605,shot,1,5:52,4819,Alex,Belzile,415,6535,Brandon,Halverson,True,Non quality goal,Default,512,251
+1028605,goal,1,5:52,4819,Alex,Belzile,,,,,,,,512,251
+1028605,shot,1,10:55,10607,Ethan,Gauthier,324,8556,Hunter,Jones,False,Non quality on net,Default,47,188
+1028605,shot,1,11:49,10148,Dylan,Duke,324,8556,Hunter,Jones,True,Quality goal,Default,135,151
+1028605,goal,1,11:49,10148,Dylan,Duke,,,,,,,,135,151
+1028605,shot,1,16:20,5889,Josiah,Didier,415,6535,Brandon,Halverson,False,Non quality on net,Default,477,249
+1028605,shot,1,17:21,9522,Filip,Mešár,415,6535,Brandon,Halverson,False,Non quality on net,Default,522,234
+1028605,shot,1,18:07,10036,David,Reinbacher,415,6535,Brandon,Halverson,False,Quality on net,Default,522,190
+1028605,shot,1,19:11,8553,Mitchell,Chaffee,324,8556,Hunter,Jones,True,Quality goal,Default,106,199
+1028605,goal,1,19:11,8553,Mitchell,Chaffee,,,,,,,,106,199
+1028605,shot,1,19:31,4830,Vincent,Arseneau,415,6535,Brandon,Halverson,False,Quality on net,Default,527,140
+1028605,shot,1,19:36,10149,Luke,Tuch,415,6535,Brandon,Halverson,False,Quality on net,Default,536,153
+1028605,shot,2,1:08,5970,Samuel,Blais,415,6535,Brandon,Halverson,True,Quality goal,Default,504,188
+1028605,goal,2,1:08,5970,Samuel,Blais,,,,,,,,504,188
+1028605,shot,2,1:57,9522,Filip,Mešár,415,6535,Brandon,Halverson,False,Quality on net,Default,474,177
+1028605,shot,2,3:46,9182,Joshua,Roy,415,6535,Brandon,Halverson,False,Quality on net,Default,462,158
+1028605,shot,2,4:22,9182,Joshua,Roy,415,6535,Brandon,Halverson,False,Non quality on net,Default,447,174
+1028605,shot,2,4:27,4819,Alex,Belzile,415,6535,Brandon,Halverson,False,Quality on net,Default,511,141
+1028605,shot,2,4:50,10601,Tyler,Thorpe,415,6535,Brandon,Halverson,False,Quality on net,Default,474,213
+1028605,shot,2,4:59,9522,Filip,Mešár,415,6535,Brandon,Halverson,False,Non quality on net,Default,551,93
+1028605,shot,2,5:37,8884,Matteo,Pietroniro,324,8556,Hunter,Jones,False,Quality on net,Default,132,165
+1028605,shot,2,6:43,9693,Brendan,Furry,324,8556,Hunter,Jones,True,Quality goal,Default,65,131
+1028605,goal,2,6:43,9693,Brendan,Furry,,,,,,,,65,131
+1028605,shot,2,8:05,5970,Samuel,Blais,415,6535,Brandon,Halverson,False,Quality on net,Default,513,175
+1028605,shot,2,10:54,9182,Joshua,Roy,415,6535,Brandon,Halverson,False,Quality on net,Default,505,190
+1028605,shot,2,11:08,8553,Mitchell,Chaffee,324,8556,Hunter,Jones,False,Quality on net,Default,72,173
+1028605,shot,2,11:10,9823,Ethan,Samson,324,8556,Hunter,Jones,True,Quality goal,Default,71,174
+1028605,goal,2,11:10,9823,Ethan,Samson,,,,,,,,71,174
+1028605,shot,2,12:04,9693,Brendan,Furry,324,8556,Hunter,Jones,False,Quality on net,Default,82,189
+1028605,shot,2,12:04,10607,Ethan,Gauthier,324,8556,Hunter,Jones,False,Non quality on net,Default,63,109
+1028605,shot,2,12:04,9693,Brendan,Furry,324,8556,Hunter,Jones,False,Quality on net,Default,93,105
+1028605,shot,2,13:15,9202,Conor,Geekie,324,8556,Hunter,Jones,False,Non quality on net,Default,146,198
+1028605,shot,2,13:44,9823,Ethan,Samson,324,8556,Hunter,Jones,False,Quality on net,Default,130,91
+1028605,shot,2,14:28,9754,Tristan,Allard,324,8556,Hunter,Jones,False,Quality on net,Default,75,199
+1028605,shot,2,18:14,9520,William,Trudeau,415,6535,Brandon,Halverson,False,Non quality on net,Default,410,217
+1028605,shot,3,0:32,9791,Sean,Farrell,415,6535,Brandon,Halverson,False,Non quality on net,Default,423,180
+1028605,shot,3,2:45,10148,Dylan,Duke,324,8556,Hunter,Jones,False,Quality on net,Default,58,183
+1028605,shot,3,5:00,10367,Owen,Beck,415,6535,Brandon,Halverson,True,Non quality goal,Default,455,56
+1028605,goal,3,5:00,10367,Owen,Beck,,,,,,,,455,56
+1028605,shot,3,6:31,10607,Ethan,Gauthier,324,8556,Hunter,Jones,True,Quality goal,Default,102,124
+1028605,goal,3,6:31,10607,Ethan,Gauthier,,,,,,,,102,124
+1028605,shot,3,6:52,9791,Sean,Farrell,415,6535,Brandon,Halverson,False,Non quality on net,Default,551,255
+1028605,shot,3,8:14,5889,Josiah,Didier,415,6535,Brandon,Halverson,False,Non quality on net,Default,440,184
+1028605,shot,3,9:19,5889,Josiah,Didier,415,6535,Brandon,Halverson,False,Non quality on net,Default,502,239
+1028605,shot,3,9:19,9796,Jared,Davidson,415,6535,Brandon,Halverson,False,Quality on net,Default,539,177
+1028605,shot,3,10:51,4819,Alex,Belzile,415,6535,Brandon,Halverson,False,Non quality on net,Default,433,96
+1028605,shot,3,11:25,9182,Joshua,Roy,415,6535,Brandon,Halverson,False,Quality on net,Default,501,189
+1028605,shot,3,11:35,8553,Mitchell,Chaffee,324,8556,Hunter,Jones,False,Quality on net,Default,95,159
+1028605,shot,3,11:39,9182,Joshua,Roy,415,6535,Brandon,Halverson,True,Quality goal,Default,467,80
+1028605,goal,3,11:39,9182,Joshua,Roy,,,,,,,,467,80
+1028605,shot,3,13:27,8689,Nate,Clurman,415,6535,Brandon,Halverson,False,Quality on net,Default,488,116
+1028605,shot,3,14:13,4830,Vincent,Arseneau,415,6535,Brandon,Halverson,False,Quality on net,Default,474,110
+1028605,shot,3,14:25,9520,William,Trudeau,415,6535,Brandon,Halverson,False,Quality on net,Default,492,141
+1028605,shot,3,17:31,9182,Joshua,Roy,415,6535,Brandon,Halverson,False,Non quality on net,Default,423,166
+1028605,shot,3,17:55,5970,Samuel,Blais,415,6535,Brandon,Halverson,False,Non quality on net,Default,526,79
+1028605,shot,3,18:42,10149,Luke,Tuch,415,6535,Brandon,Halverson,False,Non quality on net,Default,453,218
+1028605,shot,3,19:21,8689,Nate,Clurman,415,6535,Brandon,Halverson,False,Non quality on net,Default,426,245
+1028605,shot,3,19:40,9796,Jared,Davidson,415,6535,Brandon,Halverson,False,Non quality on net,Default,546,233
