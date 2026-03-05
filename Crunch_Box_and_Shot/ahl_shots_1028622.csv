@@ -1,0 +1,41 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028622,shot,1,0:26,10566,Lucas,Mercuri,324,7179,Kaapo,Kähkönen,False,Non quality on net,Snap,309,280
+1028622,shot,1,1:02,9693,Brendan,Furry,324,7179,Kaapo,Kähkönen,False,Quality on net,Wrist,534,112
+1028622,shot,1,1:16,10148,Dylan,Duke,324,7179,Kaapo,Kähkönen,False,Non quality on net,Wrist,466,29
+1028622,shot,1,1:17,8553,Mitchell,Chaffee,324,7179,Kaapo,Kähkönen,False,Quality on net,Wrist,540,158
+1028622,shot,1,2:43,10505,Will,Dineen,415,6535,Brandon,Halverson,False,Non quality on net,Snap,213,109
+1028622,shot,1,4:27,5927,Laurent,Dauphin,415,6535,Brandon,Halverson,False,Non quality on net,Wrist,153,291
+1028622,shot,1,5:16,10526,Cooper,Flinton,324,7179,Kaapo,Kähkönen,False,Non quality on net,Snap,421,142
+1028622,shot,1,5:19,8884,Matteo,Pietroniro,324,7179,Kaapo,Kähkönen,False,Non quality on net,Wrist,390,30
+1028622,shot,2,0:11,9754,Tristan,Allard,324,7179,Kaapo,Kähkönen,False,Non quality on net,Snap,394,255
+1028622,shot,2,0:28,10148,Dylan,Duke,324,7179,Kaapo,Kähkönen,False,Non quality on net,Snap,565,175
+1028622,shot,2,0:47,5927,Laurent,Dauphin,415,6535,Brandon,Halverson,False,Quality on net,Wrist,74,156
+1028622,shot,2,1:38,10036,David,Reinbacher,415,6535,Brandon,Halverson,False,Non quality on net,Wrist,196,81
+1028622,shot,2,4:28,8553,Mitchell,Chaffee,324,7179,Kaapo,Kähkönen,False,Non quality on net,Slap,387,112
+1028622,shot,2,5:12,10566,Lucas,Mercuri,324,7179,Kaapo,Kähkönen,False,Quality on net,Snap,469,187
+1028622,shot,2,7:03,8717,Marc,Del Gaizo,415,6535,Brandon,Halverson,False,Non quality on net,Wrist,218,169
+1028622,shot,2,7:08,10036,David,Reinbacher,415,6535,Brandon,Halverson,False,Non quality on net,Wrist,214,21
+1028622,shot,2,7:55,6337,Josh,Jacobs,415,6535,Brandon,Halverson,False,Non quality on net,Wrist,146,66
+1028622,shot,2,8:31,9182,Joshua,Roy,415,6535,Brandon,Halverson,False,Quality on net,Snap,97,218
+1028622,shot,2,8:50,9693,Brendan,Furry,324,7179,Kaapo,Kähkönen,False,Quality on net,Snap,536,115
+1028622,shot,2,11:41,10036,David,Reinbacher,415,6535,Brandon,Halverson,False,Non quality on net,Wrist,214,139
+1028622,shot,2,12:19,8717,Marc,Del Gaizo,415,6535,Brandon,Halverson,False,Non quality on net,Wrist,220,157
+1028622,shot,2,13:28,10566,Lucas,Mercuri,324,7179,Kaapo,Kähkönen,False,Non quality on net,Tip,366,105
+1028622,shot,2,15:04,8744,Jakob,Pelletier,324,7179,Kaapo,Kähkönen,False,Non quality on net,Slap,383,183
+1028622,shot,2,16:26,4819,Alex,Belzile,415,6535,Brandon,Halverson,False,Quality on net,Wrist,124,175
+1028622,shot,2,18:30,10367,Owen,Beck,415,6535,Brandon,Halverson,False,Quality on net,Wrist,111,102
+1028622,shot,2,18:42,8584,Wyatt,Newpower,324,7179,Kaapo,Kähkönen,False,Non quality on net,Backhand,547,87
+1028622,shot,3,1:01,9693,Brendan,Furry,324,7179,Kaapo,Kähkönen,False,Non quality on net,Wrist,560,116
+1028622,shot,3,2:38,9520,William,Trudeau,415,6535,Brandon,Halverson,False,Non quality on net,Wrist,216,82
+1028622,shot,3,3:07,8553,Mitchell,Chaffee,324,7179,Kaapo,Kähkönen,False,Quality on net,Snap,517,159
+1028622,shot,3,5:03,4819,Alex,Belzile,415,6535,Brandon,Halverson,False,Non quality on net,Backhand,49,117
+1028622,shot,3,14:00,8584,Wyatt,Newpower,324,7179,Kaapo,Kähkönen,True,Quality goal,Snap,531,111
+1028622,goal,3,14:00,8584,Wyatt,Newpower,,,,,,,,531,111
+1028622,shot,3,14:16,7821,Reece,Newkirk,324,7179,Kaapo,Kähkönen,False,Non quality on net,Wrist,549,112
+1028622,shot,3,14:18,10526,Cooper,Flinton,324,7179,Kaapo,Kähkönen,False,Quality on net,Backhand,501,158
+1028622,shot,3,14:27,9693,Brendan,Furry,324,7179,Kaapo,Kähkönen,False,Non quality on net,Wrist,420,251
+1028622,shot,3,16:48,8744,Jakob,Pelletier,324,7179,Kaapo,Kähkönen,False,Non quality on net,Wrist,410,222
+1028622,shot,3,17:48,8689,Nate,Clurman,415,6535,Brandon,Halverson,False,Quality on net,Wrist,104,115
+1028622,shot,3,18:07,8744,Jakob,Pelletier,324,7179,Kaapo,Kähkönen,True,Non quality goal,Wrist,315,35
+1028622,goal,3,18:07,8744,Jakob,Pelletier,,,,,,,,315,35
+1028622,shot,3,19:18,10036,David,Reinbacher,415,6535,Brandon,Halverson,False,Non quality on net,Wrist,213,127
