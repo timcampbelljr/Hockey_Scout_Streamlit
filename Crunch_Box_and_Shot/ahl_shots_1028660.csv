@@ -1,0 +1,58 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028660,shot,1,2:28,6362,Colton,White,390,9096,Ryan,Fanti,False,Non quality on net,Default,206,206
+1028660,shot,1,4:00,8648,Angus,Crookshank,390,9096,Ryan,Fanti,False,Quality on net,Default,111,106
+1028660,shot,1,4:48,9563,Nick,Abruzzese,324,8860,Nico,Daws,True,Non quality goal,Default,542,92
+1028660,goal,1,4:48,9563,Nick,Abruzzese,,,,,,,,542,92
+1028660,shot,1,7:31,9516,Xavier,Parent,390,9096,Ryan,Fanti,False,Non quality on net,Default,150,246
+1028660,shot,1,8:45,6262,Kyle,Criscuolo,390,9096,Ryan,Fanti,False,Non quality on net,Default,83,238
+1028660,shot,1,9:04,9516,Xavier,Parent,390,9096,Ryan,Fanti,False,Non quality on net,Default,62,232
+1028660,shot,1,9:40,8884,Matteo,Pietroniro,324,8860,Nico,Daws,False,Non quality on net,Default,441,44
+1028660,shot,1,10:00,9036,Marc,McLaughlin,390,9096,Ryan,Fanti,False,Quality on net,Default,113,208
+1028660,shot,1,10:31,8648,Angus,Crookshank,390,9096,Ryan,Fanti,False,Quality on net,Default,89,99
+1028660,shot,1,11:52,9563,Nick,Abruzzese,324,8860,Nico,Daws,False,Quality on net,Default,523,183
+1028660,shot,1,12:05,9896,Maxim,Groshev,324,8860,Nico,Daws,False,Non quality on net,Default,398,58
+1028660,shot,1,12:49,9516,Xavier,Parent,390,9096,Ryan,Fanti,False,Non quality on net,Default,155,153
+1028660,shot,1,14:34,4666,Jarred,Tinordi,324,8860,Nico,Daws,False,Quality on net,Default,457,81
+1028660,shot,1,15:29,6879,Dmitry,Osipov,390,9096,Ryan,Fanti,False,Non quality on net,Default,189,45
+1028660,shot,1,17:50,10148,Dylan,Duke,324,8860,Nico,Daws,False,Non quality on net,Default,562,165
+1028660,shot,1,17:56,9079,Tommy,Miller,324,8860,Nico,Daws,False,Non quality on net,Default,448,254
+1028660,shot,1,17:56,10148,Dylan,Duke,324,8860,Nico,Daws,False,Non quality on net,Default,546,76
+1028660,shot,1,18:24,6262,Kyle,Criscuolo,390,9096,Ryan,Fanti,False,Non quality on net,Default,197,24
+1028660,shot,1,18:44,8648,Angus,Crookshank,390,9096,Ryan,Fanti,False,Non quality on net,Default,127,67
+1028660,shot,2,1:33,6262,Kyle,Criscuolo,390,9096,Ryan,Fanti,False,Non quality on net,Default,88,65
+1028660,shot,2,1:47,9758,Topias,Vilen,390,9096,Ryan,Fanti,False,Non quality on net,Default,192,51
+1028660,shot,2,2:01,9347,Michael,Milne,324,8860,Nico,Daws,False,Non quality on net,Default,453,194
+1028660,shot,2,2:48,10526,Cooper,Flinton,324,8860,Nico,Daws,False,Quality on net,Default,549,146
+1028660,shot,2,2:55,10607,Ethan,Gauthier,324,8860,Nico,Daws,False,Quality on net,Default,515,113
+1028660,shot,2,3:23,8648,Angus,Crookshank,390,9096,Ryan,Fanti,False,Quality on net,Default,80,133
+1028660,shot,2,4:09,6522,Steven,Santini,324,8860,Nico,Daws,False,Non quality on net,Default,455,201
+1028660,shot,2,5:09,9758,Topias,Vilen,390,9096,Ryan,Fanti,False,Non quality on net,Default,191,131
+1028660,shot,2,5:32,7608,Jonathan,Gruden,390,9096,Ryan,Fanti,False,Quality on net,Default,69,111
+1028660,shot,2,6:32,9516,Xavier,Parent,390,9096,Ryan,Fanti,False,Non quality on net,Default,177,200
+1028660,shot,2,9:00,9036,Marc,McLaughlin,390,9096,Ryan,Fanti,False,Quality on net,Default,60,138
+1028660,shot,2,9:57,9896,Maxim,Groshev,324,8860,Nico,Daws,False,Non quality on net,Default,448,81
+1028660,shot,2,12:46,10566,Lucas,Mercuri,324,8860,Nico,Daws,False,Non quality on net,Default,545,204
+1028660,shot,2,13:12,9516,Xavier,Parent,390,9096,Ryan,Fanti,False,Quality on net,Default,81,94
+1028660,shot,2,13:31,6879,Dmitry,Osipov,390,9096,Ryan,Fanti,False,Non quality on net,Default,205,145
+1028660,shot,2,14:31,10526,Cooper,Flinton,324,8860,Nico,Daws,False,Non quality on net,Default,405,45
+1028660,shot,2,15:50,10148,Dylan,Duke,324,8860,Nico,Daws,True,Quality goal,Default,513,183
+1028660,goal,2,15:50,10148,Dylan,Duke,,,,,,,,513,183
+1028660,shot,2,17:08,6879,Dmitry,Osipov,390,9096,Ryan,Fanti,False,Non quality on net,Default,119,38
+1028660,shot,2,18:44,8744,Jakob,Pelletier,324,8860,Nico,Daws,False,Non quality on net,Default,560,173
+1028660,shot,3,2:22,10158,Jack,Malone,390,9096,Ryan,Fanti,False,Quality on net,Default,67,128
+1028660,shot,3,4:24,6522,Steven,Santini,324,8860,Nico,Daws,False,Non quality on net,Default,411,220
+1028660,shot,3,4:28,4666,Jarred,Tinordi,324,8860,Nico,Daws,False,Quality on net,Default,466,118
+1028660,shot,3,4:45,10158,Jack,Malone,390,9096,Ryan,Fanti,False,Quality on net,Default,119,200
+1028660,shot,3,5:08,10529,Ethan,Edwards,390,9096,Ryan,Fanti,False,Quality on net,Default,141,208
+1028660,shot,3,5:53,9896,Maxim,Groshev,324,8860,Nico,Daws,False,Non quality on net,Default,399,212
+1028660,shot,3,6:49,7821,Reece,Newkirk,324,8860,Nico,Daws,False,Non quality on net,Default,543,85
+1028660,shot,3,7:46,9896,Maxim,Groshev,324,8860,Nico,Daws,False,Non quality on net,Default,487,23
+1028660,shot,3,9:14,10632,Shane,Lachance,390,9096,Ryan,Fanti,False,Quality on net,Default,94,84
+1028660,shot,3,11:35,7624,Calen,Addison,390,9096,Ryan,Fanti,False,Non quality on net,Default,195,142
+1028660,shot,3,12:54,10442,Mikaël,Diotte,390,9096,Ryan,Fanti,False,Non quality on net,Default,180,62
+1028660,shot,3,14:30,9693,Brendan,Furry,324,8860,Nico,Daws,True,Quality goal,Default,526,147
+1028660,goal,3,14:30,9693,Brendan,Furry,,,,,,,,526,147
+1028660,shot,3,16:15,9516,Xavier,Parent,390,9096,Ryan,Fanti,True,Quality goal,Default,68,177
+1028660,goal,3,16:15,9516,Xavier,Parent,,,,,,,,68,177
+1028660,shot,3,19:01,10148,Dylan,Duke,324,8860,Nico,Daws,True,Non quality goal,Default,429,212
+1028660,goal,3,19:01,10148,Dylan,Duke,,,,,,,,429,212
