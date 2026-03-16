@@ -577,9 +577,13 @@ def find_shootout_video(team: str, shooter_last: str, goalie_full: str, date_str
     Locate an MP4 in 'Screen Recordings/' matching:
     Team.ShooterLastName_On_GoalieLastName.MM-DD-YYYY.mp4
 
-    Falls back to case-insensitive match if exact match fails.
+    Handles:
+    - Leading zero variants (03-14-2026 vs 3-14-2026)
+    - Special characters in goalie names (Kähkönen vs Kahkonen)
     Returns Path if found, None otherwise.
     """
+    import unicodedata
+
     if not SCREEN_RECORDINGS_DIR.exists():
         return None
 
@@ -587,27 +591,43 @@ def find_shootout_video(team: str, shooter_last: str, goalie_full: str, date_str
     if not date_slug:
         return None
 
-    team_slug = team.strip().replace(" ", "")
+    # Also build a no-leading-zero variant: 03-14-2026 → 3-14-2026
+    date_slug_nozero = date_slug.lstrip("0").replace("-0", "-")
+
+    team_slug    = team.strip().replace(" ", "")
     shooter_slug = shooter_last.strip().split()[-1]
-    goalie_slug = goalie_full.strip().split()[-1]  # last name only
+    goalie_slug  = goalie_full.strip().split()[-1]
 
-    expected_stem = f"{team_slug}.{shooter_slug}_On_{goalie_slug}.{date_slug}"
-    expected_file = SCREEN_RECORDINGS_DIR / f"{expected_stem}.mp4"
+    # Build both stem variants
+    stems_to_try = set()
+    for d in [date_slug, date_slug_nozero]:
+        stems_to_try.add(f"{team_slug}.{shooter_slug}_On_{goalie_slug}.{d}")
 
-    # Exact match
-    if expected_file.exists():
-        return expected_file
+    # Exact match first (covers all stem variants)
+    for stem in stems_to_try:
+        candidate = SCREEN_RECORDINGS_DIR / f"{stem}.mp4"
+        if candidate.exists():
+            return candidate
 
-    # Case-insensitive fallback
+    # Normalize a string to ASCII for fuzzy comparison
+    def to_ascii(s):
+        return unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode("ascii").lower()
+
+    # Build ASCII versions of all stems we're looking for
+    ascii_stems = {to_ascii(s) for s in stems_to_try}
+
+    # Walk the folder — case-insensitive + unicode-normalized fallback
     try:
         for f in SCREEN_RECORDINGS_DIR.iterdir():
-            if f.suffix.lower() == ".mp4" and f.stem.lower() == expected_stem.lower():
-                return f
+            if f.suffix.lower() == ".mp4":
+                if f.stem.lower() in {s.lower() for s in stems_to_try}:
+                    return f
+                if to_ascii(f.stem) in ascii_stems:
+                    return f
     except Exception:
         pass
 
     return None
-
 
 def get_videos_for_shooter(team: str, shooter_last: str, scouting_df: pd.DataFrame) -> list:
     """
