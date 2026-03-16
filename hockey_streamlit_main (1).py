@@ -260,6 +260,14 @@ def predict_xg_batch(df: pd.DataFrame) -> pd.Series:
         axis=1,
     )
 
+
+
+#Adding Screen Recordings
+SCREEN_RECORDINGS_DIR = Path("Screen Recordings")
+SCREEN_RECORDINGS_DIR.mkdir(exist_ok=True)
+
+
+
 # ============================================================================
 # DATA LOADING
 # ============================================================================
@@ -689,6 +697,151 @@ def load_shootout_data():
         logging.exception(f"Error loading shootout data: {e}")
         return pd.DataFrame()
 
+
+# ============================================================================
+# VIDEO LOOKUP FUNCTIONS
+# ============================================================================
+
+def normalize_date_to_slug(date_str: str) -> str | None:
+    """Convert any date string to MM-DD-YYYY for filename matching."""
+    try:
+        parsed = pd.to_datetime(date_str, errors="coerce")
+        if pd.isna(parsed):
+            return None
+        return parsed.strftime("%m-%d-%Y")
+    except Exception:
+        return None
+
+
+def find_shootout_video(team: str, shooter_last: str, goalie_full: str, date_str: str) -> Path | None:
+    """
+    Locate an MP4 in 'Screen Recordings/' matching:
+    Team.ShooterLastName_On_GoalieLastName.MM-DD-YYYY.mp4
+
+    Falls back to case-insensitive match if exact match fails.
+    Returns Path if found, None otherwise.
+    """
+    if not SCREEN_RECORDINGS_DIR.exists():
+        return None
+
+    date_slug = normalize_date_to_slug(date_str)
+    if not date_slug:
+        return None
+
+    team_slug    = team.strip().replace(" ", "")
+    shooter_slug = shooter_last.strip().split()[-1]
+    goalie_slug  = goalie_full.strip().split()[-1]   # last name only
+
+    expected_stem = f"{team_slug}.{shooter_slug}_On_{goalie_slug}.{date_slug}"
+    expected_file = SCREEN_RECORDINGS_DIR / f"{expected_stem}.mp4"
+
+    # Exact match
+    if expected_file.exists():
+        return expected_file
+
+    # Case-insensitive fallback
+    try:
+        for f in SCREEN_RECORDINGS_DIR.iterdir():
+            if f.suffix.lower() == ".mp4" and f.stem.lower() == expected_stem.lower():
+                return f
+    except Exception:
+        pass
+
+    return None
+
+
+def get_videos_for_shooter(team: str, shooter_last: str, scouting_df: pd.DataFrame) -> list:
+    """
+    Scan scouting CSV rows for a shooter and return all attempts that
+    have a matching video file, as a list of dicts sorted newest-first:
+      { label, path, date_raw, outcome, goalie }
+    """
+    results = []
+    if scouting_df.empty:
+        return results
+
+    player_rows = scouting_df[
+        scouting_df["player"].str.strip().str.lower() == shooter_last.strip().lower()
+    ]
+
+    for _, row in player_rows.iterrows():
+        goalie_raw = str(row.get("goalie", "")).strip()
+        date_raw   = str(row.get("date",   "")).strip()
+        goal_val   = str(row.get("goal",   "No")).strip()
+        team_val   = str(row.get("team",   team)).strip()
+
+        # Skip rows with no goalie or no date — can't build a filename
+        if goalie_raw in ("", "nan") or date_raw in ("", "nan"):
+            continue
+
+        video_path = find_shootout_video(team_val, shooter_last, goalie_raw, date_raw)
+        if video_path is None:
+            continue
+
+        outcome     = "✅ GOAL" if goal_val.lower() == "yes" else "❌ No Goal"
+        goalie_last = goalie_raw.split()[-1]
+
+        try:
+            label_date = pd.to_datetime(date_raw).strftime("%b %d, %Y")
+        except Exception:
+            label_date = date_raw
+
+        results.append({
+            "label":    f"{label_date} — vs {goalie_last} — {outcome}",
+            "path":     video_path,
+            "date_raw": date_raw,
+            "outcome":  outcome,
+            "goalie":   goalie_raw,
+        })
+
+    # Newest attempt first in dropdown
+    results.sort(
+        key=lambda x: pd.to_datetime(x["date_raw"], errors="coerce"),
+        reverse=True
+    )
+    return results
+
+
+def render_video_section(
+    team: str,
+    player_last: str,
+    scouting_df: pd.DataFrame,
+    key_suffix: str = ""
+):
+    """
+    Renders the 📹 Video Clips block below shootout charts.
+    Shows a date-based dropdown when multiple clips exist for the player.
+    """
+    st.markdown("---")
+    st.markdown("### 📹 Video Clips")
+
+    videos = get_videos_for_shooter(team, player_last, scouting_df)
+
+    if not videos:
+        st.info(
+            f"No MP4 clips found for **{player_last}**. "
+            f"Add files to `Screen Recordings/` using the format:  \n"
+            f"`{team}.{player_last}_On_GoalieName.MM-DD-YYYY.mp4`"
+        )
+        return
+
+    # Single clip — no dropdown needed
+    if len(videos) == 1:
+        v = videos[0]
+        st.caption(v["label"])
+        st.video(str(v["path"]))
+        return
+
+    # Multiple clips — dropdown sorted newest first
+    options = [v["label"] for v in videos]
+    selected_label = st.selectbox(
+        f"Select attempt ({len(videos)} clips available):",
+        options=options,
+        index=0,   # default = most recent
+        key=f"vid_sel_{player_last}_{key_suffix}"
+    )
+    chosen = next(v for v in videos if v["label"] == selected_label)
+    st.video(str(chosen["path"]))
 
 # ============================================================================
 # VISUALIZATION FUNCTIONS
@@ -1668,6 +1821,13 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
                         hide_index=True,
                         use_container_width=True,
                     )
+                    # ── VIDEO CLIPS ──────────────────────────────────────────
+                render_video_section(
+                    team="Crunch",
+                    player_last=player_name.split()[-1],
+                    scouting_df=shootout_data,
+                    key_suffix=player_name,
+                )
             else:
                 st.info(f"No shootout data available for {player_name}")
                 st.caption("Player must be on the Syracuse Crunch to appear in shootout data")
@@ -2063,6 +2223,36 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                     hide_index=True,
                     use_container_width=True
                 )
+                # ── VIDEO CLIPS: pick an opponent shooter to review ───────
+                st.markdown("---")
+                st.markdown("### 📹 Opponent Shooter Clips")
+
+                if "player" in goalie_scouting_data.columns:
+                    opponent_shooters = sorted(
+                        goalie_scouting_data["player"].dropna().unique().tolist()
+                    )
+                    if opponent_shooters:
+                        selected_shooter = st.selectbox(
+                            "Select opponent shooter:",
+                            options=opponent_shooters,
+                            key=f"goalie_vid_shooter_{goalie_name}",
+                        )
+                        # Resolve that shooter's team from the master scouting table
+                        shooter_team_rows = shootout_data[
+                            shootout_data["player"].str.strip().str.lower()
+                            == selected_shooter.lower()
+                        ]
+                        shooter_team = (
+                            shooter_team_rows["team"].iloc[0]
+                            if not shooter_team_rows.empty
+                            else "Unknown"
+                        )
+                        render_video_section(
+                            team=shooter_team,
+                            player_last=selected_shooter.split()[-1],
+                            scouting_df=shootout_data,
+                            key_suffix=f"{goalie_name}_{selected_shooter}",
+                        )
             else:
                 st.info(f"No shootout data available for goalie {goalie_name}")
 
