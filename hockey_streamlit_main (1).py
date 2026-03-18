@@ -680,6 +680,66 @@ def get_videos_for_shooter(team: str, shooter_last: str, scouting_df: pd.DataFra
     )
     return results
 
+def get_videos_for_goalie(goalie_last: str, scouting_df: pd.DataFrame) -> list:
+    """
+    Scan scouting CSV for all rows where this goalie faced a shot,
+    and return every attempt that has a matching video file.
+    Works by flipping the lookup — iterates over opponent shooter rows
+    where the goalie column matches, then builds the filename from
+    the shooter's team/name and the goalie's last name.
+    Sorted newest-first.
+    """
+    results = []
+    if scouting_df.empty or "goalie" not in scouting_df.columns:
+        return results
+
+    # Find all rows where this goalie was in net
+    goalie_rows = scouting_df[
+        scouting_df["goalie"].astype(str).str.strip().str.lower().str.contains(
+            goalie_last.strip().lower(), na=False
+        )
+    ]
+
+    for _, row in goalie_rows.iterrows():
+        shooter_raw = str(row.get("player", "")).strip()
+        goalie_raw  = str(row.get("goalie", "")).strip()
+        date_raw    = str(row.get("date",   "")).strip()
+        goal_val    = str(row.get("goal",   "No")).strip()
+        team_val    = str(row.get("team",   "")).strip()
+
+        if shooter_raw in ("", "nan") or goalie_raw in ("", "nan") or date_raw in ("", "nan"):
+            continue
+
+        # Shooter's last name for filename
+        shooter_last_name = shooter_raw.strip().split()[-1]
+
+        video_path = find_shootout_video(team_val, shooter_last_name, goalie_raw, date_raw)
+        if video_path is None:
+            continue
+
+        outcome      = "✅ GOAL against" if goal_val.lower() == "yes" else "❌ Save"
+        shooter_last_label = shooter_last_name
+
+        try:
+            label_date = pd.to_datetime(date_raw).strftime("%b %d, %Y")
+        except Exception:
+            label_date = date_raw
+
+        results.append({
+            "label":    f"{label_date} — {team_val} {shooter_last_label} — {outcome}",
+            "path":     video_path,
+            "date_raw": date_raw,
+            "outcome":  outcome,
+            "shooter":  shooter_raw,
+            "team":     team_val,
+        })
+
+    results.sort(
+        key=lambda x: pd.to_datetime(x["date_raw"], errors="coerce"),
+        reverse=True
+    )
+    return results
+
 
 def render_video_section(team: str, player_last: str, scouting_df: pd.DataFrame, key_suffix: str = ""):
     """
@@ -713,6 +773,42 @@ def render_video_section(team: str, player_last: str, scouting_df: pd.DataFrame,
         options=options,
         index=0,  # default = most recent
         key=f"vid_sel_{player_last}_{key_suffix}"
+    )
+    chosen = next(v for v in videos if v["label"] == selected_label)
+    st.video(str(chosen["path"]))
+
+def render_goalie_video_section(goalie_name: str, scouting_df: pd.DataFrame, key_suffix: str = ""):
+    """
+    Renders the video clips block for a goalie —
+    shows all opponent shooter clips where this goalie was in net,
+    with a dropdown to pick by date/shooter.
+    """
+    st.markdown("---")
+    st.markdown("### 📹 Shootout Film")
+
+    goalie_last = goalie_name.strip().split()[-1]
+    videos = get_videos_for_goalie(goalie_last, scouting_df)
+
+    if not videos:
+        st.info(
+            f"No MP4 clips found for **{goalie_name}**. "
+            f"Add files to `Screen Recordings/` using the format:  \n"
+            f"`OpponentTeam.ShooterLastName_On_{goalie_last}.MM-DD-YYYY.mp4`"
+        )
+        return
+
+    if len(videos) == 1:
+        v = videos[0]
+        st.caption(v["label"])
+        st.video(str(v["path"]))
+        return
+
+    options = [v["label"] for v in videos]
+    selected_label = st.selectbox(
+        f"Select clip ({len(videos)} available):",
+        options=options,
+        index=0,
+        key=f"goalie_film_sel_{goalie_last}_{key_suffix}"
     )
     chosen = next(v for v in videos if v["label"] == selected_label)
     st.video(str(chosen["path"]))
@@ -1605,27 +1701,34 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
         except Exception as e:
             st.warning(f"Could not load shootout net data: {e}")
 
-        # Filter scouting data for this goalie
-        # Keep a copy of the full shootout_data for video lookups BEFORE we drop the goalie column
+        # ── Keep full_shootout_data INTACT (goalie column preserved) ─────
+        # Never drop the goalie column from this — get_videos_for_goalie
+        # and get_videos_for_shooter both read it directly from each row.
         full_shootout_data = shootout_data.copy() if not shootout_data.empty else pd.DataFrame()
 
+        # Rows where this goalie faced shots (opponent shooters)
         goalie_scouting_data = pd.DataFrame()
-        if not shootout_data.empty and "goalie" in shootout_data.columns and goalie_name:
-            sd = shootout_data.copy()
+        if not full_shootout_data.empty and "goalie" in full_shootout_data.columns and goalie_name:
+            sd = full_shootout_data.copy()
             sd["goalie"] = sd["goalie"].astype(str)
 
-            goalie_scouting_data = sd[sd["goalie"].str.contains(goalie_name, case=False, na=False)]
-
+            # Match full name first
+            goalie_scouting_data = sd[
+                sd["goalie"].str.contains(goalie_name, case=False, na=False)
+            ]
+            # Fallback: last name only
             if goalie_scouting_data.empty and " " in goalie_name:
                 last_name_g = goalie_name.split()[-1]
-                goalie_scouting_data = sd[sd["goalie"].str.contains(last_name_g, case=False, na=False)]
+                goalie_scouting_data = sd[
+                    sd["goalie"].str.contains(last_name_g, case=False, na=False)
+                ]
 
-            # Drop the goalie column for display purposes only (keep a pre-drop copy for video)
-            goalie_scouting_display = goalie_scouting_data.drop(columns=["goalie"], errors="ignore")
-        else:
-            goalie_scouting_display = pd.DataFrame()
+        # Separate display copy — goalie column dropped only for the table
+        goalie_scouting_display = goalie_scouting_data.drop(
+            columns=["goalie"], errors="ignore"
+        ).copy() if not goalie_scouting_data.empty else pd.DataFrame()
 
-        # Filter ice/net data for this goalie
+        # Filter ice/net CSVs for this goalie (Away = opponent shooters)
         goalie_ice_data = pd.DataFrame()
         goalie_net_data = pd.DataFrame()
         last_name = goalie_name.split()[-1] if " " in goalie_name else goalie_name
@@ -1633,12 +1736,16 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
         if not shootout_ice_data.empty and "Player" in shootout_ice_data.columns:
             away_ice = shootout_ice_data[shootout_ice_data["Team"] == "Away"].copy()
             away_ice["Player"] = away_ice["Player"].astype(str)
-            goalie_ice_data = away_ice[away_ice["Player"].str.contains(last_name, case=False, na=False)]
+            goalie_ice_data = away_ice[
+                away_ice["Player"].str.contains(last_name, case=False, na=False)
+            ]
 
         if not shootout_net_data.empty and "Player" in shootout_net_data.columns:
             away_net = shootout_net_data[shootout_net_data["Team"] == "Away"].copy()
             away_net["Player"] = away_net["Player"].astype(str)
-            goalie_net_data = away_net[away_net["Player"].str.contains(last_name, case=False, na=False)]
+            goalie_net_data = away_net[
+                away_net["Player"].str.contains(last_name, case=False, na=False)
+            ]
 
         found_goalie_data = (
             not goalie_scouting_data.empty or
@@ -1651,15 +1758,15 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
         else:
             # Stats
             if not goalie_scouting_data.empty and "goal" in goalie_scouting_data.columns:
-                attempts = len(goalie_scouting_data)
+                attempts      = len(goalie_scouting_data)
                 goals_against = (goalie_scouting_data["goal"].astype(str).str.lower() == "yes").sum()
-                saves = attempts - goals_against
-                save_pct = (saves / attempts * 100) if attempts > 0 else 0
+                saves         = attempts - goals_against
+                save_pct      = (saves / attempts * 100) if attempts > 0 else 0
             elif not goalie_ice_data.empty and "Type" in goalie_ice_data.columns:
-                attempts = len(goalie_ice_data)
+                attempts      = len(goalie_ice_data)
                 goals_against = (goalie_ice_data["Type"].str.lower() == "goal").sum()
-                saves = attempts - goals_against
-                save_pct = (saves / attempts * 100) if attempts > 0 else 0
+                saves         = attempts - goals_against
+                save_pct      = (saves / attempts * 100) if attempts > 0 else 0
             else:
                 attempts = goals_against = saves = save_pct = 0
 
@@ -1680,8 +1787,9 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                     if not goalie_ice_data.empty:
                         fig_rink = create_nhl_rink_shootout()
                         goals_df = goalie_ice_data[goalie_ice_data["Type"].str.lower() == "goal"]
-                        saves_df = goalie_ice_data[goalie_ice_data["Type"].str.lower().isin(["shot", "save", "miss"])]
-
+                        saves_df = goalie_ice_data[
+                            goalie_ice_data["Type"].str.lower().isin(["shot", "save", "miss"])
+                        ]
                         if not saves_df.empty:
                             fig_rink.add_trace(go.Scatter(
                                 x=saves_df["X"], y=saves_df["Y"],
@@ -1694,7 +1802,6 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                                 mode="markers", name="Goal Against",
                                 marker=dict(color="blue", size=10)
                             ))
-
                         fig_rink.update_layout(title=f"{goalie_name} — Shootout Ice Map")
                         st.plotly_chart(fig_rink, use_container_width=True)
                     else:
@@ -1706,7 +1813,6 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                         fig_net = create_nhl_goal_net()
                         goals_df = goalie_net_data[goalie_net_data["Type"].str.lower() == "goal"]
                         saves_df = goalie_net_data[goalie_net_data["Type"].str.lower() == "save"]
-
                         if not saves_df.empty:
                             fig_net.add_trace(go.Scatter(
                                 x=saves_df["X"], y=saves_df["Y"],
@@ -1719,30 +1825,30 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                                 mode="markers", name="Goal Against",
                                 marker=dict(color="blue", size=10)
                             ))
-
                         fig_net.update_layout(title=f"{goalie_name} — Shootout Net Map")
                         st.plotly_chart(fig_net, use_container_width=True)
                     else:
                         st.info("No net data available")
 
-            # Detailed scouting table
+            # Scouting details table — uses display copy (no goalie column)
             if not goalie_scouting_display.empty:
                 st.markdown("---")
                 st.subheader("📋 Shootout Details — Shots Faced")
 
                 scouting = goalie_scouting_display.copy()
-
-                text_cols = ["player", "shot_location_ice", "shot_location_goal", "move_type", "goal", "date"]
+                text_cols = ["player", "shot_location_ice", "shot_location_goal",
+                             "move_type", "goal", "date"]
                 for col in text_cols:
                     if col in scouting.columns:
                         scouting[col] = scouting[col].astype(str)
-
                 if "date" in scouting.columns:
                     scouting["date"] = pd.to_datetime(scouting["date"], errors="coerce")
 
                 st.dataframe(scouting.head(15), hide_index=True, use_container_width=True)
 
-            # ── VIDEO CLIPS: opponent shooters vs this goalie ─────────────
+            # ── OPPONENT SHOOTER CLIPS (pick one shooter at a time) ───────
+            # goalie_scouting_data still has goalie column intact here —
+            # render_video_section → get_videos_for_shooter reads it per row
             st.markdown("---")
             st.markdown("### 📹 Opponent Shooter Clips")
 
@@ -1756,7 +1862,7 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                         options=opponent_shooters,
                         key=f"goalie_vid_shooter_{goalie_name}",
                     )
-                    # Resolve shooter's team from the full (unmodified) scouting table
+                    # Resolve shooter's team from the full scouting table
                     shooter_team_rows = full_shootout_data[
                         full_shootout_data["player"].str.strip().str.lower()
                         == selected_shooter.lower()
@@ -1776,6 +1882,17 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                     st.caption("No opponent shooters found in scouting data.")
             else:
                 st.caption("No opponent scouting data available to match clips against.")
+
+        # ── GOALIE'S OWN FILM — all clips where this goalie was in net ───
+        # Sits OUTSIDE the if/else above so it always renders even when
+        # no scouting CSV rows exist but video files are present.
+        st.markdown("---")
+        st.markdown("### 📹 All Shootout Film — This Goalie's Perspective")
+        render_goalie_video_section(
+            goalie_name=goalie_name,
+            scouting_df=full_shootout_data,
+            key_suffix=goalie_name,
+        )
 
 
 # ============================================================================
