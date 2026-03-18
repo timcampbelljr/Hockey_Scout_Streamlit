@@ -620,11 +620,16 @@ def render_video_section(team: str, player_last: str, scouting_df: pd.DataFrame,
         st.video(str(videos[0]["path"]))
         return
 
+    # Use a fully unique key combining player last name AND the full key_suffix
+    widget_key = f"vid_sel_{player_last}_{key_suffix}".replace(" ", "_")
     options = [v["label"] for v in videos]
-    chosen  = next(v for v in videos if v["label"] == st.selectbox(
+    selected_label = st.selectbox(
         f"Select attempt ({len(videos)} clips available):",
-        options=options, index=0, key=f"vid_sel_{player_last}_{key_suffix}"
-    ))
+        options=options,
+        index=0,
+        key=widget_key
+    )
+    chosen = next(v for v in videos if v["label"] == selected_label)
     st.video(str(chosen["path"]))
 
 
@@ -648,11 +653,15 @@ def render_goalie_video_section(goalie_name: str, scouting_df: pd.DataFrame, key
         st.video(str(videos[0]["path"]))
         return
 
+    widget_key = f"goalie_film_sel_{goalie_last}_{key_suffix}".replace(" ", "_")
     options = [v["label"] for v in videos]
-    chosen  = next(v for v in videos if v["label"] == st.selectbox(
+    selected_label = st.selectbox(
         f"Select clip ({len(videos)} available):",
-        options=options, index=0, key=f"goalie_film_sel_{goalie_last}_{key_suffix}"
-    ))
+        options=options,
+        index=0,
+        key=widget_key
+    )
+    chosen = next(v for v in videos if v["label"] == selected_label)
     st.video(str(chosen["path"]))
 
 
@@ -1088,12 +1097,13 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
                     st.dataframe(psd.head(10), hide_index=True, use_container_width=True)
 
                 # ── VIDEO CLIPS ──────────────────────────────────────
+
                 render_video_section(
-                    team="Crunch",
-                    player_last=player_name.split()[-1],
-                    scouting_df=shootout_data,
-                    key_suffix=player_name,
-                )
+                        team=team,
+                        player_last=sel.split()[-1],
+                        scouting_df=full_sd,
+                        key_suffix=f"{goalie_name}_{sel}".replace(" ", "_"),
+                    )
             else:
                 st.info(f"No shootout data available for {player_name}")
                 st.caption("Player must be on the Syracuse Crunch to appear in shootout data")
@@ -1360,10 +1370,10 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
 
         # ── ALL GOALIE FILM — always renders outside the if/else ──────
         render_goalie_video_section(
-            goalie_name=goalie_name,
-            scouting_df=full_sd,
-            key_suffix=goalie_name,
-        )
+    goalie_name=goalie_name,
+    scouting_df=full_sd,
+    key_suffix=goalie_name.replace(" ", "_"),
+)
 
 
 # ============================================================================
