@@ -571,6 +571,19 @@ def normalize_date_to_slug(date_str: str):
     except Exception:
         return None
 
+def find_shootout_video(team: str, shooter_last: str, goalie_full: str, date_str: str):
+    import unicodedata
+
+    # ── TEMP DEBUG — remove once working ──────────────────────────────
+    logging.info(f"[VIDEO SEARCH] team='{team}' shooter='{shooter_last}' goalie='{goalie_full}' date='{date_str}'")
+    if SCREEN_RECORDINGS_DIR.exists():
+        all_files = [f.name for f in SCREEN_RECORDINGS_DIR.iterdir() if f.suffix.lower() == ".mp4"]
+        logging.info(f"[VIDEO SEARCH] Files in folder: {all_files}")
+    # ── END DEBUG ──────────────────────────────────────────────────────
+
+    if not SCREEN_RECORDINGS_DIR.exists():
+        return None
+    # ... rest of function unchanged
 
 def find_shootout_video(team: str, shooter_last: str, goalie_full: str, date_str: str):
     """
