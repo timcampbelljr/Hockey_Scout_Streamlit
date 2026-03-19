@@ -1099,7 +1099,7 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
                 # ── VIDEO CLIPS ──────────────────────────────────────
 
                 render_video_section(
-                        team=team,
+                        team="Syracuse Crunch",
                         player_last=sel.split()[-1],
                         scouting_df=full_sd,
                         key_suffix=f"{goalie_name}_{sel}".replace(" ", "_"),
