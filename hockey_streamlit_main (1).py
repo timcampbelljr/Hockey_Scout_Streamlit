@@ -1100,9 +1100,9 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
 
                 render_video_section(
                         team="Syracuse Crunch",
-                        player_last=sel.split()[-1],
-                        scouting_df=full_sd,
-                        key_suffix=f"{goalie_name}_{sel}".replace(" ", "_"),
+                        player_last=player_name.split()[-1],
+                        scouting_df=shootout_data,
+                        key_suffix=player_name.replace(" ", "_"),
                     )
             else:
                 st.info(f"No shootout data available for {player_name}")
