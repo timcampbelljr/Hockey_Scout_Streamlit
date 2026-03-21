@@ -1,0 +1,62 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028726,shot,1,0:25,8667,Ian,Mitchell,324,10066,Scott,Ratzlaff,False,Non quality on net,Default,417,238
+1028726,shot,1,4:06,9202,Conor,Geekie,324,10066,Scott,Ratzlaff,False,Non quality on net,Default,527,24
+1028726,shot,1,4:16,9896,Maxim,Groshev,324,10066,Scott,Ratzlaff,False,Non quality on net,Default,196,41
+1028726,shot,1,4:41,5896,Matthew,Peca,324,10066,Scott,Ratzlaff,False,Non quality on net,Default,335,38
+1028726,shot,1,6:02,9078,Graham,Slaggert,323,6535,Brandon,Halverson,False,Quality on net,Default,53,167
+1028726,shot,1,6:16,9245,Kaleb,Lawrence,323,6535,Brandon,Halverson,False,Quality on net,Default,45,145
+1028726,shot,1,8:14,10436,Vsevolod,Komarov,323,6535,Brandon,Halverson,False,Non quality on net,Default,158,57
+1028726,shot,1,9:42,9761,Olivier,Nadeau,323,6535,Brandon,Halverson,False,Quality on net,Default,75,177
+1028726,shot,1,11:11,10436,Vsevolod,Komarov,323,6535,Brandon,Halverson,False,Quality on net,Default,109,118
+1028726,shot,1,11:24,10436,Vsevolod,Komarov,323,6535,Brandon,Halverson,False,Non quality on net,Default,187,217
+1028726,shot,1,11:50,10444,Konsta,Helenius,323,6535,Brandon,Halverson,False,Quality on net,Default,138,73
+1028726,shot,1,12:45,4666,Jarred,Tinordi,324,10066,Scott,Ratzlaff,False,Non quality on net,Default,471,37
+1028726,shot,1,13:19,4666,Jarred,Tinordi,324,10066,Scott,Ratzlaff,False,Non quality on net,Default,417,68
+1028726,shot,1,13:47,8553,Mitchell,Chaffee,324,10066,Scott,Ratzlaff,False,Non quality on net,Default,444,40
+1028726,shot,1,15:05,8667,Ian,Mitchell,324,10066,Scott,Ratzlaff,False,Non quality on net,Default,404,249
+1028726,shot,1,15:45,8864,Zac,Jones,323,6535,Brandon,Halverson,True,Quality goal,Wrist,63,160
+1028726,goal,1,15:45,8864,Zac,Jones,,,,,,,,63,160
+1028726,shot,1,17:06,8744,Jakob,Pelletier,324,10066,Scott,Ratzlaff,False,Quality on net,Default,506,186
+1028726,shot,1,19:54,8864,Zac,Jones,323,6535,Brandon,Halverson,False,Non quality on net,Default,197,125
+1028726,shot,1,19:59,10444,Konsta,Helenius,323,6535,Brandon,Halverson,False,Quality on net,Default,98,201
+1028726,shot,2,2:13,8553,Mitchell,Chaffee,324,10066,Scott,Ratzlaff,False,Non quality on net,Default,528,56
+1028726,shot,2,5:11,9202,Conor,Geekie,324,10066,Scott,Ratzlaff,True,Non quality goal,Default,454,264
+1028726,goal,2,5:11,9202,Conor,Geekie,,,,,,,,454,264
+1028726,shot,2,5:52,9643,Jagger,Joshua,323,6535,Brandon,Halverson,False,Non quality on net,Default,125,45
+1028726,shot,2,6:50,8553,Mitchell,Chaffee,324,10066,Scott,Ratzlaff,False,Quality on net,Default,553,129
+1028726,shot,2,7:50,8553,Mitchell,Chaffee,324,10066,Scott,Ratzlaff,True,Quality goal,Default,524,190
+1028726,goal,2,7:50,8553,Mitchell,Chaffee,,,,,,,,524,190
+1028726,shot,2,8:17,9079,Tommy,Miller,324,10066,Scott,Ratzlaff,False,Non quality on net,Default,398,257
+1028726,shot,2,11:18,8553,Mitchell,Chaffee,324,10066,Scott,Ratzlaff,False,Non quality on net,Default,433,59
+1028726,shot,2,11:44,8667,Ian,Mitchell,324,10066,Scott,Ratzlaff,False,Non quality on net,Default,428,238
+1028726,shot,2,11:47,9563,Nick,Abruzzese,324,10066,Scott,Ratzlaff,True,Quality goal,Default,549,167
+1028726,goal,2,11:47,9563,Nick,Abruzzese,,,,,,,,549,167
+1028726,shot,2,12:17,8864,Zac,Jones,323,6535,Brandon,Halverson,False,Non quality on net,Default,171,90
+1028726,shot,2,12:24,9700,Trevor,Kuntar,323,6535,Brandon,Halverson,False,Non quality on net,Default,152,165
+1028726,shot,2,14:20,7622,Jake,Leschyshyn,323,6535,Brandon,Halverson,False,Quality on net,Default,49,144
+1028726,shot,2,14:22,9761,Olivier,Nadeau,323,6535,Brandon,Halverson,False,Quality on net,Default,47,135
+1028726,shot,2,14:26,9761,Olivier,Nadeau,323,6535,Brandon,Halverson,False,Non quality on net,Default,165,230
+1028726,shot,2,14:45,9245,Kaleb,Lawrence,323,6535,Brandon,Halverson,False,Non quality on net,Default,150,267
+1028726,shot,2,14:48,10436,Vsevolod,Komarov,323,6535,Brandon,Halverson,False,Non quality on net,Default,203,244
+1028726,shot,2,16:00,9215,Noah,Laaouan,323,6535,Brandon,Halverson,False,Non quality on net,Default,195,57
+1028726,shot,2,16:02,9761,Olivier,Nadeau,323,6535,Brandon,Halverson,False,Quality on net,Default,57,125
+1028726,shot,2,16:48,8580,Carson,Meyer,323,6535,Brandon,Halverson,False,Quality on net,Default,141,84
+1028726,shot,2,17:06,8864,Zac,Jones,323,6535,Brandon,Halverson,False,Non quality on net,Default,196,181
+1028726,shot,2,18:08,9923,Riley,Fiddler-Schultz,323,6535,Brandon,Halverson,False,Non quality on net,Default,105,22
+1028726,shot,3,0:54,9767,Ryan,Johnson,323,6535,Brandon,Halverson,False,Non quality on net,Default,193,157
+1028726,shot,3,0:56,9767,Ryan,Johnson,323,6535,Brandon,Halverson,False,Quality on net,Default,112,198
+1028726,shot,3,3:15,10526,Cooper,Flinton,324,10066,Scott,Ratzlaff,False,Quality on net,Default,516,201
+1028726,shot,3,3:24,4666,Jarred,Tinordi,324,10066,Scott,Ratzlaff,False,Non quality on net,Default,448,32
+1028726,shot,3,4:08,9202,Conor,Geekie,324,10066,Scott,Ratzlaff,True,Non quality goal,Default,559,178
+1028726,goal,3,4:08,9202,Conor,Geekie,,,,,,,,559,178
+1028726,shot,3,5:03,9563,Nick,Abruzzese,324,10066,Scott,Ratzlaff,True,Quality goal,Default,549,141
+1028726,goal,3,5:03,9563,Nick,Abruzzese,,,,,,,,549,141
+1028726,shot,3,9:49,6633,Gavin,Bayreuther,323,6535,Brandon,Halverson,False,Non quality on net,Default,189,47
+1028726,shot,3,13:08,9923,Riley,Fiddler-Schultz,323,6535,Brandon,Halverson,True,Quality goal,Default,112,142
+1028726,goal,3,13:08,9923,Riley,Fiddler-Schultz,,,,,,,,112,142
+1028726,shot,3,13:31,10436,Vsevolod,Komarov,323,6535,Brandon,Halverson,False,Non quality on net,Default,107,256
+1028726,shot,3,16:04,9923,Riley,Fiddler-Schultz,323,6535,Brandon,Halverson,False,Non quality on net,Default,181,72
+1028726,shot,3,16:56,8580,Carson,Meyer,323,6535,Brandon,Halverson,True,Non quality goal,Default,102,245
+1028726,goal,3,16:56,8580,Carson,Meyer,,,,,,,,102,245
+1028726,shot,3,17:33,9700,Trevor,Kuntar,323,6535,Brandon,Halverson,False,Non quality on net,Default,147,253
+1028726,shot,3,19:58,7622,Jake,Leschyshyn,323,6535,Brandon,Halverson,False,Quality on net,Default,66,150
