@@ -122,6 +122,16 @@ st.markdown("""
         margin-bottom: 2rem;
         border: 2px solid #e5e7eb;
     }
+    .fo-zone-header {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #1e3a8a;
+        margin: 1rem 0 0.5rem 0;
+        padding: 0.4rem 0.75rem;
+        border-left: 4px solid #3b82f6;
+        background: #f0f4ff;
+        border-radius: 0 0.25rem 0.25rem 0;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -376,18 +386,74 @@ def load_all_data():
 
 @st.cache_data
 def load_faceoff_data():
+    """
+    Load faceoff CSV. Accepts the new verbose column names and normalises them
+    to short internal keys used throughout the faceoff render function.
+    """
+    COL_MAP = {
+        # New verbose names → internal short keys
+        "player name":                                      "player",
+        "total face off wins":                              "fo_wins",
+        "total face off taken":                             "fo_taken",
+        "total face off win percentage":                    "overall",
+        "total oz strong side win percentage":              "oz_strong",
+        "total oz strong side win percentage vs lefties":   "oz_strong_l",
+        "total oz strong side win percentage vs righties":  "oz_strong_r",
+        "total oz weak side win percentage":                "oz_weak",
+        "total oz weak side win percentage vs lefties":     "oz_weak_l",
+        "total oz weak side win percentage vs righties":    "oz_weak_r",
+        "nz face off win percentage":                       "nz",
+        "total dz strong side win percentage":              "dz_strong",
+        "total dz strong side win percentage vs lefties":   "dz_strong_l",
+        "total dz strong side win percentage vs righties":  "dz_strong_r",
+        "total dz weak side win percentage":                "dz_weak",
+        "total dz weak side win percentage vs lefties":     "dz_weak_l",
+        "total dz weak side win percentage vs righties":    "dz_weak_r",
+        # Legacy / old names kept for backward compat
+        "name":        "player",
+        "overall":     "overall",
+        "offensive":   "oz_strong",
+        "defensive":   "dz_strong",
+        "neutral":     "nz",
+        "total_faceoffs": "fo_taken",
+    }
     try:
-        files = list(ASSETS_DIR.glob("Faceoffs*.csv")) + list(CRUNCH_DATA_DIR.glob("Faceoffs*.csv"))
+        files = (
+            list(CRUNCH_DATA_DIR.glob("syracuse_crunch_faceoffs.csv")) +
+            list(ASSETS_DIR.glob("Faceoffs*.csv")) +
+            list(CRUNCH_DATA_DIR.glob("Faceoffs*.csv"))
+        )
         if not files:
             return pd.DataFrame()
         df = pd.read_csv(files[0])
-        df.columns = df.columns.str.lower()
-        df = df.rename(columns={"name": "player"}).dropna(subset=["player"])
-        for col in ["overall", "offensive", "defensive", "neutral"]:
+        # Normalise column names: strip whitespace + lowercase
+        df.columns = df.columns.str.strip().str.lower()
+        df = df.rename(columns=COL_MAP)
+        df = df.dropna(subset=["player"])
+        df["player"] = df["player"].astype(str).str.strip()
+
+        # Convert percentage columns (handle both 0-1 and 0-100 ranges)
+        pct_cols = [
+            "overall", "oz_strong", "oz_strong_l", "oz_strong_r",
+            "oz_weak",  "oz_weak_l",  "oz_weak_r",
+            "nz",
+            "dz_strong", "dz_strong_l", "dz_strong_r",
+            "dz_weak",   "dz_weak_l",   "dz_weak_r",
+        ]
+        for col in pct_cols:
             if col in df.columns:
-                df[col] = (df[col] * 100).round(1)
-        if "total_faceoffs" in df.columns:
-            df["total_faceoffs"] = df["total_faceoffs"].fillna(0).astype(int)
+                df[col] = pd.to_numeric(df[col], errors="coerce")
+                # If values look like decimals (0–1), multiply to get %
+                if df[col].dropna().between(0, 1).all():
+                    df[col] = (df[col] * 100).round(1)
+                else:
+                    df[col] = df[col].round(1)
+
+        if "fo_taken" in df.columns:
+            df["fo_taken"] = pd.to_numeric(df["fo_taken"], errors="coerce").fillna(0).astype(int)
+        if "fo_wins" in df.columns:
+            df["fo_wins"] = pd.to_numeric(df["fo_wins"], errors="coerce").fillna(0).astype(int)
+
         return df
     except Exception as e:
         logging.exception(f"Error loading faceoff data: {e}")
@@ -450,15 +516,6 @@ def normalize_date_to_slug(date_str: str):
 
 
 def find_shootout_video(team: str, shooter_last: str, goalie_full: str, date_str: str):
-    """
-    Locate an MP4 in 'Screen Recordings/' using the primary simplified format:
-        Team_ShooterLastName_GoalieLastName_M-DD-YYYY.mp4
-
-    Also handles legacy dot/On formats and fuzzy matching for:
-      - Leading zero variants  (03-14-2026 vs 3-14-2026)
-      - Special characters     (Kähkönen → Kahkonen)
-      - Separator variations   (dots, _On_, double underscores)
-    """
     import unicodedata
 
     if not SCREEN_RECORDINGS_DIR.exists():
@@ -477,22 +534,16 @@ def find_shootout_video(team: str, shooter_last: str, goalie_full: str, date_str
 
     stems_to_try = set()
     for d in [date_slug, date_nozero]:
-        # PRIMARY — simple underscores, no "On":
         stems_to_try.add(f"{team_slug}_{shooter_slug}_{goalie_slug}_{d}")
-        # Legacy A — dots with On:
         stems_to_try.add(f"{team_slug}.{shooter_slug}_On_{goalie_slug}.{d}")
-        # Legacy B — double underscore:
         stems_to_try.add(f"{team_slug}_{shooter_slug}_On__{goalie_slug}_{d}")
-        # Legacy D — single underscore with On:
         stems_to_try.add(f"{team_slug}_{shooter_slug}_On_{goalie_slug}_{d}")
 
-    # Exact match first
     for stem in stems_to_try:
         candidate = SCREEN_RECORDINGS_DIR / f"{stem}.mp4"
         if candidate.exists():
             return candidate
 
-    # Fuzzy: ASCII + lowercase + collapse all separator variants
     def normalize_stem(s):
         s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode("ascii").lower()
         s = s.replace("__", "_").replace(".", "_").replace("_on_", "_")
@@ -515,7 +566,6 @@ def find_shootout_video(team: str, shooter_last: str, goalie_full: str, date_str
 
 
 def get_videos_for_shooter(team: str, shooter_last: str, scouting_df: pd.DataFrame) -> list:
-    """Return all video-matched attempts for a shooter, sorted newest-first."""
     results = []
     if scouting_df.empty:
         return results
@@ -557,7 +607,6 @@ def get_videos_for_shooter(team: str, shooter_last: str, scouting_df: pd.DataFra
 
 
 def get_videos_for_goalie(goalie_last: str, scouting_df: pd.DataFrame) -> list:
-    """Return all video-matched attempts faced by this goalie, sorted newest-first."""
     results = []
     if scouting_df.empty or "goalie" not in scouting_df.columns:
         return results
@@ -602,7 +651,6 @@ def get_videos_for_goalie(goalie_last: str, scouting_df: pd.DataFrame) -> list:
 
 
 def render_video_section(team: str, player_last: str, scouting_df: pd.DataFrame, key_suffix: str = ""):
-    """Render video clips for a shooter with dropdown by date."""
     st.markdown("---")
     st.markdown("### 📹 Video Clips")
     videos = get_videos_for_shooter(team, player_last, scouting_df)
@@ -620,7 +668,6 @@ def render_video_section(team: str, player_last: str, scouting_df: pd.DataFrame,
         st.video(str(videos[0]["path"]))
         return
 
-    # Use a fully unique key combining player last name AND the full key_suffix
     widget_key = f"vid_sel_{player_last}_{key_suffix}".replace(" ", "_")
     options = [v["label"] for v in videos]
     selected_label = st.selectbox(
@@ -634,7 +681,6 @@ def render_video_section(team: str, player_last: str, scouting_df: pd.DataFrame,
 
 
 def render_goalie_video_section(goalie_name: str, scouting_df: pd.DataFrame, key_suffix: str = ""):
-    """Render all shootout clips where this goalie was in net."""
     st.markdown("---")
     st.markdown("### 📹 Shootout Film")
     goalie_last = goalie_name.strip().split()[-1]
@@ -868,6 +914,120 @@ def aggregate_goalie_stats(goalies_df, season="2024-25"):
 
 
 # ============================================================================
+# FACEOFF RENDER HELPER
+# ============================================================================
+
+def _pct(row, col) -> str:
+    """Format a percentage column safely."""
+    val = row.get(col)
+    if val is None or (isinstance(val, float) and pd.isna(val)):
+        return "N/A"
+    return f"{val:.1f}%"
+
+
+def render_faceoff_tab(player_name: str, faceoff_data: pd.DataFrame):
+    """
+    Renders the Faceoffs tab content for a given player.
+
+    Layout
+    ------
+    1. Top-line summary metrics  (Wins | Taken | Overall %)
+    2. Zone summary row          (OZ % | NZ % | DZ %)
+    3. Detailed breakdown table  (Strong/Weak side per zone, no handedness splits)
+    """
+    st.markdown('<div class="section-header">⚔️ Faceoff Statistics</div>', unsafe_allow_html=True)
+
+    if faceoff_data.empty:
+        st.info("No faceoff data loaded. Add a `Faceoffs*.csv` file to the `Crunch_Box_and_Shot` folder.")
+        return
+
+    # Match player — try exact first, then last-name fallback
+    pf = faceoff_data[faceoff_data["player"] == player_name]
+    if pf.empty and " " in player_name:
+        ln = player_name.split()[-1]
+        pf = faceoff_data[faceoff_data["player"].str.lower() == ln.lower()]
+    if pf.empty:
+        st.info(f"No faceoff data found for **{player_name}**.")
+        return
+
+    row = pf.iloc[0]
+
+    # ── 1. TOP-LINE SUMMARY ─────────────────────────────────────────
+    st.markdown("##### Overall")
+    c1, c2, c3 = st.columns(3)
+    with c1:
+        wins = int(row["fo_wins"]) if "fo_wins" in row and not pd.isna(row.get("fo_wins")) else "N/A"
+        st.metric("FO Wins", wins)
+    with c2:
+        taken = int(row["fo_taken"]) if "fo_taken" in row and not pd.isna(row.get("fo_taken")) else "N/A"
+        st.metric("FO Taken", taken)
+    with c3:
+        st.metric("Win %", _pct(row, "overall"))
+
+    st.markdown("---")
+
+    # ── 2. ZONE SUMMARY ROW ─────────────────────────────────────────
+    st.markdown("##### By Zone")
+    z1, z2, z3 = st.columns(3)
+    with z1:
+        # OZ: average of strong + weak if both available, else show individually
+        oz_s = row.get("oz_strong")
+        oz_w = row.get("oz_weak")
+        if oz_s is not None and oz_w is not None and not pd.isna(oz_s) and not pd.isna(oz_w):
+            oz_avg = round((oz_s + oz_w) / 2, 1)
+            st.metric("🟦 Offensive Zone", f"{oz_avg:.1f}%",
+                      help="Average of Strong Side and Weak Side OZ win %")
+        elif oz_s is not None and not pd.isna(oz_s):
+            st.metric("🟦 Offensive Zone", f"{oz_s:.1f}%")
+        else:
+            st.metric("🟦 Offensive Zone", "N/A")
+    with z2:
+        st.metric("⬜ Neutral Zone", _pct(row, "nz"))
+    with z3:
+        dz_s = row.get("dz_strong")
+        dz_w = row.get("dz_weak")
+        if dz_s is not None and dz_w is not None and not pd.isna(dz_s) and not pd.isna(dz_w):
+            dz_avg = round((dz_s + dz_w) / 2, 1)
+            st.metric("🟥 Defensive Zone", f"{dz_avg:.1f}%",
+                      help="Average of Strong Side and Weak Side DZ win %")
+        elif dz_s is not None and not pd.isna(dz_s):
+            st.metric("🟥 Defensive Zone", f"{dz_s:.1f}%")
+        else:
+            st.metric("🟥 Defensive Zone", "N/A")
+
+    st.markdown("---")
+
+    # ── 3. DETAILED BREAKDOWN TABLE ─────────────────────────────────
+    st.markdown("##### Detailed Zone Breakdown")
+
+    rows = []
+    zone_cfg = [
+        ("🟦 Offensive Zone — Strong Side", "oz_strong"),
+        ("🟦 Offensive Zone — Weak Side",   "oz_weak"),
+        ("⬜ Neutral Zone",                  "nz"),
+        ("🟥 Defensive Zone — Strong Side", "dz_strong"),
+        ("🟥 Defensive Zone — Weak Side",   "dz_weak"),
+    ]
+    for label, col in zone_cfg:
+        val = row.get(col)
+        if val is not None and not (isinstance(val, float) and pd.isna(val)):
+            rows.append({"Zone / Side": label, "Win %": f"{val:.1f}%"})
+        else:
+            rows.append({"Zone / Side": label, "Win %": "N/A"})
+
+    table_df = pd.DataFrame(rows)
+    st.dataframe(
+        table_df,
+        hide_index=True,
+        use_container_width=True,
+        column_config={
+            "Zone / Side": st.column_config.TextColumn("Zone / Side", width="large"),
+            "Win %":       st.column_config.TextColumn("Win %",       width="small"),
+        },
+    )
+
+
+# ============================================================================
 # PLAYER CARD
 # ============================================================================
 
@@ -1096,35 +1256,19 @@ def render_player_card(player_name, player_stats, player_shots, faceoff_data, sh
                     st.subheader("📋 Shootout Details")
                     st.dataframe(psd.head(10), hide_index=True, use_container_width=True)
 
-                # ── VIDEO CLIPS ──────────────────────────────────────
-
                 render_video_section(
-                        team="Syracuse Crunch",
-                        player_last=player_name.split()[-1],
-                        scouting_df=shootout_data,
-                        key_suffix=player_name.replace(" ", "_"),
-                    )
+                    team=TARGET_TEAM,
+                    player_last=player_name.split()[-1],
+                    scouting_df=shootout_data,
+                    key_suffix=f"{player_name}".replace(" ", "_"),
+                )
             else:
                 st.info(f"No shootout data available for {player_name}")
                 st.caption("Player must be on the Syracuse Crunch to appear in shootout data")
 
     # ── TAB 4: FACEOFFS ───────────────────────────────────────────────
     with tab4:
-        st.markdown('<div class="section-header">Faceoff Statistics</div>', unsafe_allow_html=True)
-        if not faceoff_data.empty:
-            pf = faceoff_data[faceoff_data["player"] == player_name]
-            if not pf.empty:
-                row = pf.iloc[0]
-                c1,c2,c3,c4,c5 = st.columns(5)
-                c1.metric("Total",     row.get("total_faceoffs", 0))
-                c2.metric("Overall",   f"{row.get('overall',   0):.1f}%")
-                c3.metric("Offensive", f"{row.get('offensive', 0):.1f}%")
-                c4.metric("Defensive", f"{row.get('defensive', 0):.1f}%")
-                c5.metric("Neutral",   f"{row.get('neutral',   0):.1f}%")
-            else:
-                st.info("No faceoff data available for this player")
-        else:
-            st.info("No faceoff data loaded")
+        render_faceoff_tab(player_name, faceoff_data)
 
 
 # ============================================================================
@@ -1246,7 +1390,6 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
         except Exception as e:
             st.warning(f"Could not load shootout net data: {e}")
 
-        # Preserve full scouting data with goalie column intact for video lookups
         full_sd = shootout_data.copy() if not shootout_data.empty else pd.DataFrame()
 
         gsd = pd.DataFrame()
@@ -1257,7 +1400,6 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
             if gsd.empty and " " in goalie_name:
                 gsd = sd[sd["goalie"].str.contains(goalie_name.split()[-1], case=False, na=False)]
 
-        # Display copy — goalie column dropped only for the table
         gsd_display = gsd.drop(columns=["goalie"], errors="ignore").copy() if not gsd.empty else pd.DataFrame()
 
         last_name = goalie_name.split()[-1] if " " in goalie_name else goalie_name
@@ -1346,7 +1488,6 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
                     sc["date"] = pd.to_datetime(sc["date"], errors="coerce")
                 st.dataframe(sc.head(15), hide_index=True, use_container_width=True)
 
-            # ── OPPONENT SHOOTER CLIPS ────────────────────────────────
             st.markdown("---")
             st.markdown("### 📹 Opponent Shooter Clips")
             if not gsd.empty and "player" in gsd.columns:
@@ -1368,12 +1509,11 @@ def render_goalie_card(goalie_name, goalie_stats, goalie_shots, shootout_data, g
             else:
                 st.caption("No opponent scouting data available to match clips against.")
 
-        # ── ALL GOALIE FILM — always renders outside the if/else ──────
         render_goalie_video_section(
-    goalie_name=goalie_name,
-    scouting_df=full_sd,
-    key_suffix=goalie_name.replace(" ", "_"),
-)
+            goalie_name=goalie_name,
+            scouting_df=full_sd,
+            key_suffix=goalie_name.replace(" ", "_"),
+        )
 
 
 # ============================================================================
@@ -1534,7 +1674,7 @@ def main():
                       len(st.session_state.shots_df)
                       if not st.session_state.shots_df.empty else 0)
             if st.session_state.excluded_players:
-                st.caption(f"ℹ️ {len(st.session_state.excluded_players)} player(s) excluded")
+                st.caption(f"ℹ️ {st.session_state.excluded_players} player(s) excluded")
 
     current_season = (st.session_state.games_df["season"].max()
                       if not st.session_state.games_df.empty else "2024-25")
