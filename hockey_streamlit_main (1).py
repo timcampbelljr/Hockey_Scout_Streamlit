@@ -418,12 +418,27 @@ def load_faceoff_data():
         "total_faceoffs": "fo_taken",
     }
     try:
-        files = (
-            list(CRUNCH_DATA_DIR.glob("syracuse_crunch_faceoffs.csv")) +
-            list(ASSETS_DIR.glob("Faceoffs*.csv")) +
-            list(CRUNCH_DATA_DIR.glob("Faceoffs*.csv"))
-        )
+        _here = Path(__file__).resolve().parent
+        _search_dirs = list({
+            CRUNCH_DATA_DIR.resolve(),
+            (_here / "Crunch_Box_and_Shot").resolve(),
+            ASSETS_DIR.resolve(),
+            (_here / "assets").resolve(),
+        })
+        files = []
+        _seen = set()
+        for _d in _search_dirs:
+            if not _d.exists():
+                continue
+            for _pattern in ["syracuse_crunch_faceoffs.csv", "Faceoffs*.csv"]:
+                for _f in _d.glob(_pattern):
+                    _rp = _f.resolve()
+                    if _rp not in _seen:
+                        _seen.add(_rp)
+                        files.append(_f)
+        logging.info(f"Faceoff files found: {[str(f) for f in files]}")
         if not files:
+            logging.warning("No faceoff CSV found. Check 'syracuse_crunch_faceoffs.csv' is in 'Crunch_Box_and_Shot'.")
             return pd.DataFrame()
         df = pd.read_csv(files[0])
         # Normalise column names: strip whitespace + lowercase
