@@ -1,0 +1,67 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028772,shot,1,0:05,7545,Corey,Schueneman,319,6535,Brandon,Halverson,False,Non quality on net,Default,328,108
+1028772,shot,1,0:43,8553,Mitchell,Chaffee,324,9709,Mitch,Gibson,False,Quality on net,Default,66,138
+1028772,shot,1,1:19,8553,Mitchell,Chaffee,324,9709,Mitch,Gibson,False,Quality on net,Default,105,123
+1028772,shot,1,3:13,9563,Nick,Abruzzese,324,9709,Mitch,Gibson,False,Non quality on net,Default,63,107
+1028772,shot,1,5:01,9698,Grant,Cruikshank,319,6535,Brandon,Halverson,False,Quality on net,Default,538,153
+1028772,shot,1,6:04,8667,Ian,Mitchell,324,9709,Mitch,Gibson,False,Non quality on net,Default,192,95
+1028772,shot,1,6:53,4666,Jarred,Tinordi,324,9709,Mitch,Gibson,False,Quality on net,Default,61,163
+1028772,shot,1,8:51,7821,Reece,Newkirk,324,9709,Mitch,Gibson,False,Non quality on net,Default,214,137
+1028772,shot,1,11:50,9698,Grant,Cruikshank,319,6535,Brandon,Halverson,False,Quality on net,Default,479,74
+1028772,shot,1,14:33,10573,David,Gucciardi,319,6535,Brandon,Halverson,False,Non quality on net,Default,427,61
+1028772,shot,1,15:36,8744,Jakob,Pelletier,324,9709,Mitch,Gibson,False,Non quality on net,Default,40,184
+1028772,shot,1,15:40,8553,Mitchell,Chaffee,324,9709,Mitch,Gibson,False,Quality on net,Default,141,111
+1028772,shot,1,16:25,8884,Matteo,Pietroniro,324,9709,Mitch,Gibson,False,Non quality on net,Default,196,241
+1028772,shot,1,16:57,10572,Ryan,Chesley,319,6535,Brandon,Halverson,False,Non quality on net,Default,392,157
+1028772,shot,1,17:02,9698,Grant,Cruikshank,319,6535,Brandon,Halverson,False,Non quality on net,Default,399,90
+1028772,shot,1,18:35,5896,Matthew,Peca,324,9709,Mitch,Gibson,False,Quality on net,Default,116,152
+1028772,shot,1,19:57,8884,Matteo,Pietroniro,324,9709,Mitch,Gibson,False,Non quality on net,Default,333,35
+1028772,shot,2,0:06,10572,Ryan,Chesley,319,6535,Brandon,Halverson,False,Non quality on net,Default,224,255
+1028772,shot,2,0:12,10644,Ilya,Protas,319,6535,Brandon,Halverson,False,Quality on net,Default,555,166
+1028772,shot,2,1:10,8884,Matteo,Pietroniro,324,9709,Mitch,Gibson,False,Non quality on net,Default,202,147
+1028772,shot,2,2:28,7921,Brett,Leason,319,6535,Brandon,Halverson,False,Quality on net,Default,470,203
+1028772,shot,2,3:40,7545,Corey,Schueneman,319,6535,Brandon,Halverson,False,Non quality on net,Default,407,100
+1028772,shot,2,4:37,8884,Matteo,Pietroniro,324,9709,Mitch,Gibson,False,Quality on net,Default,95,219
+1028772,shot,2,4:54,9202,Conor,Geekie,324,9709,Mitch,Gibson,False,Quality on net,Default,126,209
+1028772,shot,2,5:35,5856,Sonny,Milano,319,6535,Brandon,Halverson,False,Non quality on net,Default,534,214
+1028772,shot,2,7:16,9142,Wyatt,Bongiovanni,319,6535,Brandon,Halverson,True,Quality goal,Default,522,149
+1028772,goal,2,7:16,9142,Wyatt,Bongiovanni,,,,,,,,522,149
+1028772,shot,2,7:35,9881,Sam,Bitten,319,6535,Brandon,Halverson,False,Non quality on net,Default,482,69
+1028772,shot,2,9:16,8884,Matteo,Pietroniro,324,9709,Mitch,Gibson,False,Non quality on net,Default,186,262
+1028772,shot,2,9:25,7921,Brett,Leason,319,6535,Brandon,Halverson,False,Non quality on net,Default,367,261
+1028772,shot,2,9:33,10174,Andrew,Cristall,319,6535,Brandon,Halverson,True,Quality goal,Default,549,130
+1028772,goal,2,9:33,10174,Andrew,Cristall,,,,,,,,549,130
+1028772,shot,2,10:45,7921,Brett,Leason,319,6535,Brandon,Halverson,True,Quality goal,Default,486,165
+1028772,goal,2,10:45,7921,Brett,Leason,,,,,,,,486,165
+1028772,shot,2,11:59,7584,Matt,Strome,319,6535,Brandon,Halverson,False,Non quality on net,Default,542,247
+1028772,shot,2,12:29,9734,Alex,Suzdalev,319,6535,Brandon,Halverson,False,Quality on net,Default,490,118
+1028772,shot,2,14:14,10592,Leon,Muggli,319,6535,Brandon,Halverson,False,Non quality on net,Default,399,44
+1028772,shot,2,14:46,8553,Mitchell,Chaffee,324,9709,Mitch,Gibson,False,Quality on net,Default,59,150
+1028772,shot,2,14:49,10148,Dylan,Duke,324,9709,Mitch,Gibson,False,Non quality on net,Default,46,124
+1028772,shot,2,14:55,8553,Mitchell,Chaffee,324,9709,Mitch,Gibson,False,Non quality on net,Default,184,156
+1028772,shot,2,15:02,10148,Dylan,Duke,324,9709,Mitch,Gibson,True,Non quality goal,Default,49,123
+1028772,goal,2,15:02,10148,Dylan,Duke,,,,,,,,49,123
+1028772,shot,2,16:03,9202,Conor,Geekie,324,9709,Mitch,Gibson,True,Non quality goal,Default,51,182
+1028772,goal,2,16:03,9202,Conor,Geekie,,,,,,,,51,182
+1028772,shot,2,18:27,10572,Ryan,Chesley,319,6535,Brandon,Halverson,False,Non quality on net,Default,333,266
+1028772,shot,3,1:59,9820,Jon,McDonald,319,6535,Brandon,Halverson,False,Quality on net,Default,542,172
+1028772,shot,3,5:08,8744,Jakob,Pelletier,324,9709,Mitch,Gibson,False,Non quality on net,Default,123,64
+1028772,shot,3,6:35,9734,Alex,Suzdalev,319,6535,Brandon,Halverson,True,Non quality goal,Default,546,112
+1028772,goal,3,6:35,9734,Alex,Suzdalev,,,,,,,,546,112
+1028772,shot,3,7:58,10592,Leon,Muggli,319,6535,Brandon,Halverson,False,Quality on net,Default,519,109
+1028772,shot,3,8:07,9896,Maxim,Groshev,324,9709,Mitch,Gibson,False,Quality on net,Default,59,148
+1028772,shot,3,9:46,8553,Mitchell,Chaffee,324,9709,Mitch,Gibson,False,Non quality on net,Default,161,77
+1028772,shot,3,10:17,10174,Andrew,Cristall,319,6535,Brandon,Halverson,False,Quality on net,Default,530,136
+1028772,shot,3,10:45,9901,Gabriel,Szturc,324,9709,Mitch,Gibson,False,Non quality on net,Default,195,185
+1028772,shot,3,11:43,9202,Conor,Geekie,324,9709,Mitch,Gibson,False,Quality on net,Default,101,135
+1028772,shot,3,12:22,9754,Tristan,Allard,324,9709,Mitch,Gibson,False,Quality on net,Default,85,99
+1028772,shot,3,12:47,8667,Ian,Mitchell,324,9709,Mitch,Gibson,False,Non quality on net,Default,165,177
+1028772,shot,3,13:01,8667,Ian,Mitchell,324,9709,Mitch,Gibson,False,Non quality on net,Default,195,83
+1028772,shot,3,13:04,9563,Nick,Abruzzese,324,9709,Mitch,Gibson,False,Quality on net,Default,65,158
+1028772,shot,3,15:37,9563,Nick,Abruzzese,324,9709,Mitch,Gibson,False,Quality on net,Default,82,155
+1028772,shot,3,15:57,5896,Matthew,Peca,324,9709,Mitch,Gibson,True,Quality goal,Default,102,141
+1028772,goal,3,15:57,5896,Matthew,Peca,,,,,,,,102,141
+1028772,shot,3,18:56,8744,Jakob,Pelletier,324,9709,Mitch,Gibson,False,Non quality on net,Default,184,190
+1028772,shot,3,19:03,9202,Conor,Geekie,324,9709,Mitch,Gibson,False,Non quality on net,Default,181,32
+1028772,shot,3,19:49,8553,Mitchell,Chaffee,324,9709,Mitch,Gibson,False,Non quality on net,Default,176,113
+1028772,shot,3,19:53,8744,Jakob,Pelletier,324,9709,Mitch,Gibson,False,Quality on net,Default,119,208
