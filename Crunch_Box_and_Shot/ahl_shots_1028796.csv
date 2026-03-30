@@ -1,0 +1,60 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028796,shot,1,0:56,9896,Maxim,Groshev,324,10002,Devon,Levi,False,Non quality on net,Default,471,36
+1028796,shot,1,3:08,9803,Isaac,Belliveau,323,6535,Brandon,Halverson,False,Non quality on net,Default,196,253
+1028796,shot,1,3:42,8864,Zac,Jones,323,6535,Brandon,Halverson,False,Non quality on net,Default,196,237
+1028796,shot,1,4:10,8580,Carson,Meyer,323,6535,Brandon,Halverson,False,Quality on net,Default,123,141
+1028796,shot,1,6:26,10436,Vsevolod,Komarov,323,6535,Brandon,Halverson,False,Non quality on net,Default,525,29
+1028796,shot,1,8:06,9743,Zach,Metsa,323,6535,Brandon,Halverson,False,Non quality on net,Default,548,180
+1028796,shot,1,8:27,10607,Ethan,Gauthier,324,10002,Devon,Levi,False,Quality on net,Default,466,159
+1028796,shot,1,9:47,10148,Dylan,Duke,324,10002,Devon,Levi,False,Quality on net,Default,546,141
+1028796,shot,1,10:00,9202,Conor,Geekie,324,10002,Devon,Levi,False,Non quality on net,Default,474,256
+1028796,shot,1,10:34,7622,Jake,Leschyshyn,323,6535,Brandon,Halverson,False,Quality on net,Default,494,149
+1028796,shot,1,11:06,9901,Gabriel,Szturc,324,10002,Devon,Levi,False,Quality on net,Default,527,119
+1028796,shot,1,11:47,10566,Lucas,Mercuri,324,10002,Devon,Levi,False,Quality on net,Default,546,155
+1028796,shot,1,12:52,10930,Matteo,Costantini,323,6535,Brandon,Halverson,True,Quality goal,Default,51,146
+1028796,goal,1,12:52,10930,Matteo,Costantini,,,,,,,,51,146
+1028796,shot,1,15:16,10052,Anton,Wahlberg,323,6535,Brandon,Halverson,False,Non quality on net,Default,159,72
+1028796,shot,1,16:00,8580,Carson,Meyer,323,6535,Brandon,Halverson,False,Non quality on net,Default,161,206
+1028796,shot,1,16:57,8922,Simon,Lundmark,324,10002,Devon,Levi,False,Non quality on net,Default,439,245
+1028796,shot,1,19:07,9896,Maxim,Groshev,324,10002,Devon,Levi,False,Non quality on net,Default,285,21
+1028796,shot,2,0:26,9743,Zach,Metsa,323,6535,Brandon,Halverson,False,Quality on net,Default,63,123
+1028796,shot,2,2:45,9743,Zach,Metsa,323,6535,Brandon,Halverson,False,Non quality on net,Default,531,45
+1028796,shot,2,4:11,9563,Nick,Abruzzese,324,10002,Devon,Levi,True,Quality goal,Default,508,176
+1028796,goal,2,4:11,9563,Nick,Abruzzese,,,,,,,,508,176
+1028796,shot,2,6:10,8744,Jakob,Pelletier,324,10002,Devon,Levi,False,Non quality on net,Default,400,238
+1028796,shot,2,6:19,9202,Conor,Geekie,324,10002,Devon,Levi,False,Non quality on net,Default,392,271
+1028796,shot,2,6:47,9202,Conor,Geekie,324,10002,Devon,Levi,False,Non quality on net,Default,420,111
+1028796,shot,2,7:33,8864,Zac,Jones,323,6535,Brandon,Halverson,False,Non quality on net,Default,167,267
+1028796,shot,2,9:24,5896,Matthew,Peca,324,10002,Devon,Levi,False,Quality on net,Default,537,159
+1028796,shot,2,11:26,8884,Matteo,Pietroniro,324,10002,Devon,Levi,False,Non quality on net,Default,459,51
+1028796,shot,2,12:41,9803,Isaac,Belliveau,323,6535,Brandon,Halverson,False,Non quality on net,Default,171,62
+1028796,shot,2,12:42,10052,Anton,Wahlberg,323,6535,Brandon,Halverson,False,Non quality on net,Default,39,170
+1028796,shot,2,14:46,8922,Simon,Lundmark,324,10002,Devon,Levi,False,Non quality on net,Default,423,235
+1028796,shot,2,18:23,4666,Jarred,Tinordi,324,10002,Devon,Levi,False,Non quality on net,Default,407,32
+1028796,shot,2,19:06,10986,Max,Grondin,324,10002,Devon,Levi,False,Quality on net,Default,529,162
+1028796,shot,2,19:33,9901,Gabriel,Szturc,324,10002,Devon,Levi,False,Non quality on net,Default,432,95
+1028796,shot,2,19:49,9761,Olivier,Nadeau,323,6535,Brandon,Halverson,False,Quality on net,Default,42,159
+1028796,shot,3,0:43,9700,Trevor,Kuntar,323,6535,Brandon,Halverson,True,Quality goal,Default,63,143
+1028796,goal,3,0:43,9700,Trevor,Kuntar,,,,,,,,63,143
+1028796,shot,3,2:40,10148,Dylan,Duke,324,10002,Devon,Levi,False,Quality on net,Default,544,154
+1028796,shot,3,2:54,10148,Dylan,Duke,324,10002,Devon,Levi,False,Quality on net,Default,549,166
+1028796,shot,3,3:10,8667,Ian,Mitchell,324,10002,Devon,Levi,False,Non quality on net,Default,403,105
+1028796,shot,3,4:46,9761,Olivier,Nadeau,323,6535,Brandon,Halverson,False,Non quality on net,Default,117,51
+1028796,shot,3,4:50,10987,Gavin,McCarthy,323,6535,Brandon,Halverson,False,Non quality on net,Default,86,32
+1028796,shot,3,6:04,9079,Tommy,Miller,324,10002,Devon,Levi,False,Non quality on net,Default,456,258
+1028796,shot,3,6:24,10607,Ethan,Gauthier,324,10002,Devon,Levi,True,Quality goal,Default,483,83
+1028796,goal,3,6:24,10607,Ethan,Gauthier,,,,,,,,483,83
+1028796,shot,3,7:05,10052,Anton,Wahlberg,323,6535,Brandon,Halverson,False,Non quality on net,Default,74,94
+1028796,shot,3,8:03,10526,Cooper,Flinton,324,10002,Devon,Levi,False,Non quality on net,Default,453,152
+1028796,shot,3,9:30,10986,Max,Grondin,324,10002,Devon,Levi,False,Non quality on net,Default,365,256
+1028796,shot,3,12:04,9896,Maxim,Groshev,324,10002,Devon,Levi,False,Non quality on net,Default,423,52
+1028796,shot,3,12:54,10444,Konsta,Helenius,323,6535,Brandon,Halverson,False,Non quality on net,Default,127,263
+1028796,shot,3,15:15,10436,Vsevolod,Komarov,323,6535,Brandon,Halverson,False,Non quality on net,Default,193,36
+1028796,shot,3,16:11,10444,Konsta,Helenius,323,6535,Brandon,Halverson,False,Non quality on net,Default,122,61
+1028796,shot,3,17:46,8580,Carson,Meyer,323,6535,Brandon,Halverson,False,Quality on net,Default,51,143
+1028796,shot,OT,1:02,10930,Matteo,Costantini,323,6535,Brandon,Halverson,False,Quality on net,Default,129,90
+1028796,shot,OT,1:27,5896,Matthew,Peca,324,10002,Devon,Levi,False,Non quality on net,Default,499,232
+1028796,shot,OT,1:48,7622,Jake,Leschyshyn,323,6535,Brandon,Halverson,False,Quality on net,Default,57,123
+1028796,shot,OT,2:59,9896,Maxim,Groshev,324,10002,Devon,Levi,False,Non quality on net,Default,435,65
+1028796,shot,OT,4:26,10148,Dylan,Duke,324,10002,Devon,Levi,False,Quality on net,Default,460,140
+1028796,shot,OT,4:59,9743,Zach,Metsa,323,6535,Brandon,Halverson,False,Non quality on net,Default,59,73
