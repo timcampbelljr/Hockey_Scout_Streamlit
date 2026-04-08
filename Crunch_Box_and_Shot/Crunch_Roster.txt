@@ -1,3 +1,4 @@
+9 - Ethan Czata
 11 – Lucas Mercuri
 13 – Brendan Furry
 14 – Tristan Allard
@@ -7,6 +8,7 @@
 22 – Jakob Pelletier
 25 – Dylan Duke
 41 - Spencer Kersten
+44 - Noah Steen
 63 - Matthew Peca
 79 – Ethan Gauthier
 80 – Nick Abruzzese
@@ -14,16 +16,17 @@
 94 - Conor Geekie
 95 – Gabriel Szturc
 
-
-5 - Ian Miller
+4 - Everett Baldwin
+5 - Ian Mitchell
 7 - Simon Lundmark
 8 – Tommy Miller
 16 – Steven Santini
 23 – Maxim Groshev
 28 – Jarred Tinordi
 42 – Ethan Samson
+48 - Grant Spada
 75 – Matteo Pietroniro
-96 - Chris Harpur
+
 
 
 31 – Brandon Halverson
