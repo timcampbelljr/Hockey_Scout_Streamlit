@@ -1,0 +1,43 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028846,shot,1,1:38,10986,Max,Grondin,324,10002,Devon,Levi,False,Quality on net,Default,96,191
+1028846,shot,1,3:32,10148,Dylan,Duke,324,10002,Devon,Levi,False,Quality on net,Default,117,151
+1028846,shot,1,3:54,5896,Matthew,Peca,324,10002,Devon,Levi,True,Non quality goal,Default,154,123
+1028846,goal,1,3:54,5896,Matthew,Peca,,,,,,,,154,123
+1028846,shot,1,6:54,8922,Simon,Lundmark,324,10002,Devon,Levi,False,Non quality on net,Default,218,80
+1028846,shot,1,8:21,10444,Konsta,Helenius,323,6535,Brandon,Halverson,False,Non quality on net,Default,431,137
+1028846,shot,1,9:03,9761,Olivier,Nadeau,323,6535,Brandon,Halverson,True,Quality goal,Default,477,189
+1028846,goal,1,9:03,9761,Olivier,Nadeau,,,,,,,,477,189
+1028846,shot,1,10:57,9215,Noah,Laaouan,323,6535,Brandon,Halverson,False,Non quality on net,Default,434,221
+1028846,shot,1,11:52,10436,Vsevolod,Komarov,323,6535,Brandon,Halverson,False,Quality on net,Default,458,225
+1028846,shot,1,13:41,8864,Zac,Jones,323,6535,Brandon,Halverson,False,Non quality on net,Default,390,20
+1028846,shot,1,19:21,10148,Dylan,Duke,324,10002,Devon,Levi,False,Quality on net,Default,133,110
+1028846,shot,2,0:44,10566,Lucas,Mercuri,324,10002,Devon,Levi,False,Non quality on net,Default,89,21
+1028846,shot,2,2:49,10977,Christopher,Douglas,323,6535,Brandon,Halverson,False,Non quality on net,Default,377,153
+1028846,shot,2,4:55,9754,Tristan,Allard,324,10002,Devon,Levi,False,Quality on net,Default,105,94
+1028846,shot,2,5:11,6633,Gavin,Bayreuther,323,6535,Brandon,Halverson,False,Quality on net,Default,550,129
+1028846,shot,2,5:12,6633,Gavin,Bayreuther,323,6535,Brandon,Halverson,False,Quality on net,Default,532,114
+1028846,shot,2,7:16,9896,Maxim,Groshev,324,10002,Devon,Levi,False,Non quality on net,Default,195,256
+1028846,shot,2,7:37,10148,Dylan,Duke,324,10002,Devon,Levi,False,Quality on net,Default,65,138
+1028846,shot,2,7:52,9761,Olivier,Nadeau,323,6535,Brandon,Halverson,True,Quality goal,Default,476,102
+1028846,goal,2,7:52,9761,Olivier,Nadeau,,,,,,,,476,102
+1028846,shot,2,11:03,4666,Jarred,Tinordi,324,10002,Devon,Levi,True,Non quality goal,Default,63,88
+1028846,goal,2,11:03,4666,Jarred,Tinordi,,,,,,,,63,88
+1028846,shot,2,11:56,9761,Olivier,Nadeau,323,6535,Brandon,Halverson,False,Quality on net,Default,462,158
+1028846,shot,2,12:41,8884,Matteo,Pietroniro,324,10002,Devon,Levi,False,Quality on net,Default,124,207
+1028846,shot,2,13:16,6633,Gavin,Bayreuther,323,6535,Brandon,Halverson,False,Non quality on net,Default,392,254
+1028846,shot,2,18:46,9803,Isaac,Belliveau,323,6535,Brandon,Halverson,False,Non quality on net,Default,386,105
+1028846,shot,2,19:24,9215,Noah,Laaouan,323,6535,Brandon,Halverson,False,Non quality on net,Default,441,184
+1028846,shot,2,19:46,9215,Noah,Laaouan,323,6535,Brandon,Halverson,False,Non quality on net,Default,399,210
+1028846,shot,3,4:05,6633,Gavin,Bayreuther,323,6535,Brandon,Halverson,False,Quality on net,Default,499,115
+1028846,shot,3,8:20,9823,Ethan,Samson,324,10002,Devon,Levi,False,Quality on net,Default,117,117
+1028846,shot,3,10:15,8667,Ian,Mitchell,324,10002,Devon,Levi,False,Non quality on net,Default,220,150
+1028846,shot,3,10:25,10566,Lucas,Mercuri,324,10002,Devon,Levi,False,Quality on net,Default,132,221
+1028846,shot,3,11:41,10977,Christopher,Douglas,323,6535,Brandon,Halverson,True,Quality goal,Default,483,196
+1028846,goal,3,11:41,10977,Christopher,Douglas,,,,,,,,483,196
+1028846,shot,3,12:11,9754,Tristan,Allard,324,10002,Devon,Levi,False,Quality on net,Default,79,137
+1028846,shot,3,13:18,10148,Dylan,Duke,324,10002,Devon,Levi,False,Quality on net,Default,134,124
+1028846,shot,3,14:08,10566,Lucas,Mercuri,324,10002,Devon,Levi,False,Non quality on net,Default,133,67
+1028846,shot,3,14:31,8667,Ian,Mitchell,324,10002,Devon,Levi,False,Non quality on net,Default,204,190
+1028846,shot,3,14:44,10566,Lucas,Mercuri,324,10002,Devon,Levi,False,Quality on net,Default,139,113
+1028846,shot,3,17:37,8580,Carson,Meyer,323,6535,Brandon,Halverson,False,Quality on net,Default,481,145
+1028846,shot,3,18:23,10436,Vsevolod,Komarov,323,6535,Brandon,Halverson,False,Quality on net,Default,461,185

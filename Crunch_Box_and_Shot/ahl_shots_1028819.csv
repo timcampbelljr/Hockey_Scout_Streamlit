@@ -1,0 +1,61 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028819,shot,1,1:17,8667,Ian,Mitchell,324,10871,Simon,Zajicek,False,Quality on net,Default,141,176
+1028819,shot,1,1:34,9533,Matěj,Blümel,309,6535,Brandon,Halverson,False,Quality on net,Default,507,182
+1028819,shot,1,2:52,9148,Colin,Felix,309,6535,Brandon,Halverson,False,Non quality on net,Default,401,223
+1028819,shot,1,2:52,7722,Navrin,Mutter,309,6535,Brandon,Halverson,True,Quality goal,Default,488,177
+1028819,goal,1,2:52,7722,Navrin,Mutter,,,,,,,,488,177
+1028819,shot,1,3:14,9148,Colin,Felix,309,6535,Brandon,Halverson,False,Non quality on net,Default,396,236
+1028819,shot,1,5:06,10986,Max,Grondin,324,10871,Simon,Zajicek,False,Non quality on net,Default,102,276
+1028819,shot,1,6:08,4666,Jarred,Tinordi,324,10871,Simon,Zajicek,False,Non quality on net,Default,129,277
+1028819,shot,1,6:58,5896,Matthew,Peca,324,10871,Simon,Zajicek,True,Quality goal,Default,102,135
+1028819,goal,1,6:58,5896,Matthew,Peca,,,,,,,,102,135
+1028819,shot,1,7:37,7704,Victor,Söderström,309,6535,Brandon,Halverson,False,Non quality on net,Default,418,49
+1028819,shot,1,11:28,9533,Matěj,Blümel,309,6535,Brandon,Halverson,False,Non quality on net,Default,542,227
+1028819,shot,1,12:31,11032,Ryan,Tattle,309,6535,Brandon,Halverson,False,Quality on net,Default,518,127
+1028819,shot,1,13:21,9435,Joey,Abate,309,6535,Brandon,Halverson,False,Quality on net,Default,544,159
+1028819,shot,1,13:21,10541,Jake,Schmaltz,309,6535,Brandon,Halverson,False,Quality on net,Default,551,165
+1028819,shot,1,14:53,9754,Tristan,Allard,324,10871,Simon,Zajicek,False,Quality on net,Default,137,132
+1028819,shot,1,15:06,5721,Patrick,Brown,309,6535,Brandon,Halverson,True,Non quality goal,Default,561,183
+1028819,goal,1,15:06,5721,Patrick,Brown,,,,,,,,561,183
+1028819,shot,1,17:25,7943,Riley,Tufte,309,6535,Brandon,Halverson,False,Non quality on net,Default,567,125
+1028819,shot,1,17:38,10607,Ethan,Gauthier,324,10871,Simon,Zajicek,False,Non quality on net,Default,101,38
+1028819,shot,1,18:19,9533,Matěj,Blümel,309,6535,Brandon,Halverson,False,Non quality on net,Default,491,253
+1028819,shot,1,18:41,10508,Ty,Gallagher,309,6535,Brandon,Halverson,False,Non quality on net,Default,431,51
+1028819,shot,1,18:53,5721,Patrick,Brown,309,6535,Brandon,Halverson,False,Quality on net,Default,554,149
+1028819,shot,1,19:58,10148,Dylan,Duke,324,10871,Simon,Zajicek,False,Non quality on net,Default,47,189
+1028819,shot,2,1:06,5721,Patrick,Brown,309,6535,Brandon,Halverson,False,Quality on net,Default,531,167
+1028819,shot,2,1:35,9563,Nick,Abruzzese,324,10871,Simon,Zajicek,True,Quality goal,Default,104,169
+1028819,goal,2,1:35,9563,Nick,Abruzzese,,,,,,,,104,169
+1028819,shot,2,2:56,9901,Gabriel,Szturc,324,10871,Simon,Zajicek,False,Quality on net,Default,79,159
+1028819,shot,2,3:56,9945,Max,Wanner,309,6535,Brandon,Halverson,True,Quality goal,Default,472,198
+1028819,goal,2,3:56,9945,Max,Wanner,,,,,,,,472,198
+1028819,shot,2,5:51,9563,Nick,Abruzzese,324,10871,Simon,Zajicek,False,Non quality on net,Default,81,210
+1028819,shot,2,7:01,8462,Billy,Sweezey,309,9096,Ryan,Fanti,False,Quality on net,Default,487,223
+1028819,shot,2,7:20,8667,Ian,Mitchell,324,10871,Simon,Zajicek,False,Non quality on net,Default,207,159
+1028819,shot,2,8:26,8922,Simon,Lundmark,324,10871,Simon,Zajicek,False,Non quality on net,Default,75,72
+1028819,shot,2,9:55,9032,Michael,Callahan,309,9096,Ryan,Fanti,False,Non quality on net,Default,409,38
+1028819,shot,2,11:26,9945,Max,Wanner,309,9096,Ryan,Fanti,False,Non quality on net,Default,407,278
+1028819,shot,2,11:33,7704,Victor,Söderström,309,9096,Ryan,Fanti,False,Non quality on net,Default,373,230
+1028819,shot,2,15:44,9754,Tristan,Allard,324,10871,Simon,Zajicek,False,Non quality on net,Default,45,23
+1028819,shot,2,15:55,9945,Max,Wanner,309,9096,Ryan,Fanti,False,Non quality on net,Default,529,285
+1028819,shot,2,17:46,11000,James,Hagens,309,9096,Ryan,Fanti,False,Quality on net,Default,498,179
+1028819,shot,2,17:57,9754,Tristan,Allard,324,10871,Simon,Zajicek,False,Non quality on net,Default,54,116
+1028819,shot,2,19:12,10055,Riley,Duran,309,9096,Ryan,Fanti,False,Non quality on net,Default,376,78
+1028819,shot,2,19:30,9896,Maxim,Groshev,324,10871,Simon,Zajicek,False,Non quality on net,Default,69,239
+1028819,shot,3,1:53,10607,Ethan,Gauthier,324,10871,Simon,Zajicek,False,Quality on net,Default,113,136
+1028819,shot,3,3:51,10566,Lucas,Mercuri,324,10871,Simon,Zajicek,False,Non quality on net,Default,166,141
+1028819,shot,3,5:10,10508,Ty,Gallagher,309,9096,Ryan,Fanti,False,Non quality on net,Default,406,41
+1028819,shot,3,8:37,9754,Tristan,Allard,324,10871,Simon,Zajicek,False,Quality on net,Default,55,141
+1028819,shot,3,9:03,10566,Lucas,Mercuri,324,10871,Simon,Zajicek,False,Non quality on net,Default,89,32
+1028819,shot,3,13:43,5896,Matthew,Peca,324,10871,Simon,Zajicek,False,Non quality on net,Default,45,123
+1028819,shot,3,13:57,11032,Ryan,Tattle,309,9096,Ryan,Fanti,False,Non quality on net,Default,432,185
+1028819,shot,3,15:25,7943,Riley,Tufte,309,9096,Ryan,Fanti,False,Quality on net,Default,555,148
+1028819,shot,3,16:25,10508,Ty,Gallagher,309,9096,Ryan,Fanti,False,Non quality on net,Default,418,71
+1028819,shot,3,17:22,4666,Jarred,Tinordi,324,10871,Simon,Zajicek,False,Quality on net,Default,71,117
+1028819,shot,3,17:30,9202,Conor,Geekie,324,10871,Simon,Zajicek,False,Non quality on net,Default,90,46
+1028819,shot,3,17:35,10148,Dylan,Duke,324,10871,Simon,Zajicek,False,Quality on net,Default,62,146
+1028819,shot,3,18:29,8667,Ian,Mitchell,324,10871,Simon,Zajicek,False,Non quality on net,Default,215,247
+1028819,shot,3,18:33,9202,Conor,Geekie,324,10871,Simon,Zajicek,False,Quality on net,Default,71,121
+1028819,shot,3,19:16,5721,Patrick,Brown,309,0,,,True,Quality goal,Default,467,81
+1028819,goal,3,19:16,5721,Patrick,Brown,,,,,,,,467,81
+1028819,shot,3,19:52,9754,Tristan,Allard,324,10871,Simon,Zajicek,False,Non quality on net,Default,178,162

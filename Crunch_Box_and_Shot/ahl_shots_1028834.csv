@@ -1,0 +1,64 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028834,shot,1,0:16,8667,Ian,Mitchell,324,8722,Will,Cranley,False,Non quality on net,Default,311,249
+1028834,shot,1,2:48,9202,Conor,Geekie,324,8722,Will,Cranley,False,Quality on net,Default,553,155
+1028834,shot,1,3:15,10143,Dylan,Peterson,411,6535,Brandon,Halverson,False,Non quality on net,Default,176,81
+1028834,shot,1,4:42,10532,Jakub,Stancl,411,6535,Brandon,Halverson,False,Non quality on net,Default,142,238
+1028834,shot,1,5:52,9114,Thomas,Bordeleau,411,6535,Brandon,Halverson,False,Non quality on net,Default,101,228
+1028834,shot,1,6:27,10843,Quinton,Burns,411,6535,Brandon,Halverson,False,Non quality on net,Default,294,236
+1028834,shot,1,7:51,10328,Aleksanteri,Kaskimäki,411,6535,Brandon,Halverson,False,Quality on net,Default,123,226
+1028834,shot,1,8:28,6786,Dillon,Dube,411,6535,Brandon,Halverson,False,Non quality on net,Default,177,272
+1028834,shot,1,8:59,11008,Felix,Trudeau,411,6535,Brandon,Halverson,False,Non quality on net,Default,135,64
+1028834,shot,1,9:04,8461,Hugh,McGing,411,6535,Brandon,Halverson,False,Non quality on net,Default,147,97
+1028834,shot,1,10:34,10328,Aleksanteri,Kaskimäki,411,6535,Brandon,Halverson,True,Non quality goal,Default,149,200
+1028834,goal,1,10:34,10328,Aleksanteri,Kaskimäki,,,,,,,,149,200
+1028834,shot,1,10:43,8744,Jakob,Pelletier,324,8722,Will,Cranley,False,Non quality on net,Default,307,120
+1028834,shot,1,12:44,6786,Dillon,Dube,411,6535,Brandon,Halverson,False,Non quality on net,Default,76,228
+1028834,shot,1,12:55,4622,Chris,Wagner,411,6535,Brandon,Halverson,False,Quality on net,Default,105,123
+1028834,shot,1,13:09,9754,Tristan,Allard,324,8722,Will,Cranley,False,Quality on net,Default,524,165
+1028834,shot,1,16:20,9868,Marc-André,Gaudet,411,6535,Brandon,Halverson,False,Quality on net,Default,134,125
+1028834,shot,1,19:21,9754,Tristan,Allard,324,8722,Will,Cranley,False,Quality on net,Default,534,160
+1028834,shot,1,19:33,9202,Conor,Geekie,324,8722,Will,Cranley,False,Quality on net,Default,530,127
+1028834,shot,2,2:34,11008,Felix,Trudeau,411,6535,Brandon,Halverson,False,Non quality on net,Default,182,51
+1028834,shot,2,3:24,10532,Jakub,Stancl,411,6535,Brandon,Halverson,False,Quality on net,Default,127,161
+1028834,shot,2,4:03,8630,Hunter,Skinner,411,6535,Brandon,Halverson,False,Non quality on net,Default,159,212
+1028834,shot,2,5:51,10526,Cooper,Flinton,324,8722,Will,Cranley,False,Quality on net,Default,529,158
+1028834,shot,2,6:49,8630,Hunter,Skinner,411,6535,Brandon,Halverson,False,Non quality on net,Default,158,69
+1028834,shot,2,8:07,9823,Ethan,Samson,324,8722,Will,Cranley,True,Non quality goal,Default,438,234
+1028834,goal,2,8:07,9823,Ethan,Samson,,,,,,,,438,234
+1028834,shot,2,10:47,9202,Conor,Geekie,324,8722,Will,Cranley,False,Quality on net,Default,459,171
+1028834,shot,2,10:50,8744,Jakob,Pelletier,324,8722,Will,Cranley,False,Non quality on net,Default,405,71
+1028834,shot,2,12:48,8744,Jakob,Pelletier,324,8722,Will,Cranley,False,Quality on net,Default,548,177
+1028834,shot,2,15:12,10328,Aleksanteri,Kaskimäki,411,6535,Brandon,Halverson,False,Quality on net,Default,99,153
+1028834,shot,2,17:37,6917,Calle,Rosén,411,6535,Brandon,Halverson,False,Non quality on net,Default,190,75
+1028834,shot,2,18:20,9114,Thomas,Bordeleau,411,6535,Brandon,Halverson,True,Quality goal,Default,129,98
+1028834,goal,2,18:20,9114,Thomas,Bordeleau,,,,,,,,129,98
+1028834,shot,2,18:43,4622,Chris,Wagner,411,6535,Brandon,Halverson,False,Non quality on net,Default,180,222
+1028834,shot,2,19:04,4622,Chris,Wagner,411,6535,Brandon,Halverson,False,Quality on net,Default,60,173
+1028834,shot,2,19:59,6917,Calle,Rosén,411,6535,Brandon,Halverson,False,Non quality on net,Default,192,237
+1028834,shot,3,0:57,10328,Aleksanteri,Kaskimäki,411,6535,Brandon,Halverson,False,Quality on net,Default,56,158
+1028834,shot,3,1:35,9868,Marc-André,Gaudet,411,6535,Brandon,Halverson,False,Non quality on net,Default,182,166
+1028834,shot,3,1:55,8744,Jakob,Pelletier,324,8722,Will,Cranley,True,Non quality goal,Default,432,105
+1028834,goal,3,1:55,8744,Jakob,Pelletier,,,,,,,,432,105
+1028834,shot,3,2:33,10328,Aleksanteri,Kaskimäki,411,6535,Brandon,Halverson,False,Quality on net,Default,89,181
+1028834,shot,3,2:34,6786,Dillon,Dube,411,6535,Brandon,Halverson,True,Quality goal,Default,46,147
+1028834,goal,3,2:34,6786,Dillon,Dube,,,,,,,,46,147
+1028834,shot,3,5:00,10532,Jakub,Stancl,411,6535,Brandon,Halverson,False,Quality on net,Default,68,107
+1028834,shot,3,5:55,5896,Matthew,Peca,324,8722,Will,Cranley,False,Quality on net,Default,506,78
+1028834,shot,3,8:08,10607,Ethan,Gauthier,324,8722,Will,Cranley,False,Quality on net,Default,469,99
+1028834,shot,3,8:14,9868,Marc-André,Gaudet,411,6535,Brandon,Halverson,False,Quality on net,Default,93,172
+1028834,shot,3,8:38,8884,Matteo,Pietroniro,324,8722,Will,Cranley,False,Quality on net,Default,506,144
+1028834,shot,3,8:38,9563,Nick,Abruzzese,324,8722,Will,Cranley,True,Quality goal,Default,548,158
+1028834,goal,3,8:38,9563,Nick,Abruzzese,,,,,,,,548,158
+1028834,shot,3,9:42,8461,Hugh,McGing,411,6535,Brandon,Halverson,False,Quality on net,Default,120,205
+1028834,shot,3,10:33,8667,Ian,Mitchell,324,8722,Will,Cranley,False,Quality on net,Default,554,133
+1028834,shot,3,10:40,10143,Dylan,Peterson,411,6535,Brandon,Halverson,False,Non quality on net,Default,69,197
+1028834,shot,3,11:29,4622,Chris,Wagner,411,6535,Brandon,Halverson,False,Quality on net,Default,79,152
+1028834,shot,3,12:39,7682,Akil,Thomas,411,6535,Brandon,Halverson,False,Quality on net,Default,114,155
+1028834,shot,3,13:43,9563,Nick,Abruzzese,324,8722,Will,Cranley,False,Non quality on net,Default,496,279
+1028834,shot,3,16:43,8630,Hunter,Skinner,411,6535,Brandon,Halverson,False,Quality on net,Default,122,74
+1028834,shot,3,18:59,9896,Maxim,Groshev,324,8722,Will,Cranley,False,Non quality on net,Default,400,74
+1028834,shot,3,19:48,10143,Dylan,Peterson,411,6535,Brandon,Halverson,False,Non quality on net,Default,68,207
+1028834,shot,OT,1:16,9563,Nick,Abruzzese,324,8722,Will,Cranley,False,Quality on net,Default,542,136
+1028834,shot,OT,2:20,8744,Jakob,Pelletier,324,8722,Will,Cranley,False,Non quality on net,Default,446,69
+1028834,shot,OT,2:42,6786,Dillon,Dube,411,6535,Brandon,Halverson,False,Quality on net,Default,131,174
+1028834,shot,OT,3:25,6917,Calle,Rosén,411,6535,Brandon,Halverson,False,Non quality on net,Default,160,152
