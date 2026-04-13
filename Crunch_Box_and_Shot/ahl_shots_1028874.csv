@@ -1,0 +1,69 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028874,shot,1,0:08,9896,Maxim,Groshev,324,10818,Jakub,Málek,False,Non quality on net,Default,216,242
+1028874,shot,1,1:43,9823,Ethan,Samson,324,10818,Jakub,Málek,False,Non quality on net,Default,209,29
+1028874,shot,1,2:22,7117,Austin,Strand,390,6535,Brandon,Halverson,False,Non quality on net,Default,330,222
+1028874,shot,1,3:35,8744,Jakob,Pelletier,324,10818,Jakub,Málek,False,Quality on net,Default,130,94
+1028874,shot,1,4:53,9516,Xavier,Parent,390,6535,Brandon,Halverson,True,Non quality goal,Default,438,207
+1028874,goal,1,4:53,9516,Xavier,Parent,,,,,,,,438,207
+1028874,shot,1,5:07,8891,Nathan,Légaré,390,6535,Brandon,Halverson,False,Non quality on net,Default,461,272
+1028874,shot,1,5:11,8778,Jackson,van de Leest,390,6535,Brandon,Halverson,False,Quality on net,Default,513,87
+1028874,shot,1,5:13,7117,Austin,Strand,390,6535,Brandon,Halverson,False,Quality on net,Default,483,130
+1028874,shot,1,5:46,10986,Max,Grondin,324,10818,Jakub,Málek,False,Non quality on net,Default,142,238
+1028874,shot,1,6:04,6362,Colton,White,390,6535,Brandon,Halverson,False,Non quality on net,Default,402,259
+1028874,shot,1,6:10,8910,Mike,Hardman,390,6535,Brandon,Halverson,False,Quality on net,Default,553,171
+1028874,shot,1,6:26,8910,Mike,Hardman,390,6535,Brandon,Halverson,False,Non quality on net,Default,559,99
+1028874,shot,1,6:26,10632,Shane,Lachance,390,6535,Brandon,Halverson,False,Quality on net,Default,552,129
+1028874,shot,1,9:58,7608,Jonathan,Gruden,390,6535,Brandon,Halverson,False,Quality on net,Default,516,124
+1028874,shot,1,11:13,7608,Jonathan,Gruden,390,6535,Brandon,Halverson,False,Quality on net,Default,498,77
+1028874,shot,1,12:16,10986,Max,Grondin,324,10818,Jakub,Málek,False,Quality on net,Default,87,126
+1028874,shot,1,14:29,9563,Nick,Abruzzese,324,10818,Jakub,Málek,False,Quality on net,Default,50,142
+1028874,shot,1,15:05,9563,Nick,Abruzzese,324,10818,Jakub,Málek,True,Quality goal,Default,43,159
+1028874,goal,1,15:05,9563,Nick,Abruzzese,,,,,,,,43,159
+1028874,shot,1,16:16,10399,Spencer,Kersten,324,10818,Jakub,Málek,False,Quality on net,Default,89,193
+1028874,shot,1,16:55,10442,Mikaël,Diotte,390,6535,Brandon,Halverson,False,Non quality on net,Default,522,207
+1028874,shot,1,17:12,9901,Gabriel,Szturc,324,10818,Jakub,Málek,False,Quality on net,Default,54,167
+1028874,shot,1,17:12,10986,Max,Grondin,324,10818,Jakub,Málek,False,Quality on net,Default,44,165
+1028874,shot,1,17:19,10566,Lucas,Mercuri,324,10818,Jakub,Málek,True,Quality goal,Default,83,152
+1028874,goal,1,17:19,10566,Lucas,Mercuri,,,,,,,,83,152
+1028874,shot,1,17:48,8884,Matteo,Pietroniro,324,10818,Jakub,Málek,False,Non quality on net,Default,165,262
+1028874,shot,1,19:12,9516,Xavier,Parent,390,6535,Brandon,Halverson,False,Non quality on net,Default,547,67
+1028874,shot,1,19:43,10632,Shane,Lachance,390,6535,Brandon,Halverson,False,Non quality on net,Default,516,35
+1028874,shot,1,19:59,10621,Cam,Squires,390,6535,Brandon,Halverson,False,Non quality on net,Default,477,52
+1028874,shot,2,2:45,10566,Lucas,Mercuri,324,10818,Jakub,Málek,True,Quality goal,Default,63,113
+1028874,goal,2,2:45,10566,Lucas,Mercuri,,,,,,,,63,113
+1028874,shot,2,8:49,9079,Tommy,Miller,324,10818,Jakub,Málek,False,Non quality on net,Default,169,92
+1028874,shot,2,9:06,8667,Ian,Mitchell,324,10818,Jakub,Málek,False,Non quality on net,Default,147,94
+1028874,shot,2,9:29,10566,Lucas,Mercuri,324,10818,Jakub,Málek,False,Quality on net,Default,121,111
+1028874,shot,2,10:06,8778,Jackson,van de Leest,390,6535,Brandon,Halverson,False,Quality on net,Default,67,153
+1028874,shot,2,10:26,8553,Mitchell,Chaffee,324,10818,Jakub,Málek,False,Quality on net,Default,102,115
+1028874,shot,2,12:19,9079,Tommy,Miller,324,10818,Jakub,Málek,False,Quality on net,Default,106,148
+1028874,shot,2,13:15,10986,Max,Grondin,324,10818,Jakub,Málek,False,Non quality on net,Default,93,250
+1028874,shot,2,13:25,10107,Dylan,Wendt,390,6535,Brandon,Halverson,False,Non quality on net,Default,419,183
+1028874,shot,2,13:40,10107,Dylan,Wendt,390,6535,Brandon,Halverson,False,Quality on net,Default,475,109
+1028874,shot,2,13:59,9896,Maxim,Groshev,324,10818,Jakub,Málek,False,Non quality on net,Default,179,231
+1028874,shot,2,15:34,10632,Shane,Lachance,390,6535,Brandon,Halverson,False,Quality on net,Default,540,177
+1028874,shot,2,16:09,9896,Maxim,Groshev,324,10818,Jakub,Málek,False,Non quality on net,Default,487,254
+1028874,shot,2,16:33,9754,Tristan,Allard,324,10818,Jakub,Málek,False,Quality on net,Default,76,150
+1028874,shot,2,17:44,9901,Gabriel,Szturc,324,10818,Jakub,Málek,True,Quality goal,Default,126,181
+1028874,goal,2,17:44,9901,Gabriel,Szturc,,,,,,,,126,181
+1028874,shot,2,18:54,10566,Lucas,Mercuri,324,10818,Jakub,Málek,False,Non quality on net,Default,116,270
+1028874,shot,2,19:42,9823,Ethan,Samson,324,10818,Jakub,Málek,False,Quality on net,Default,106,189
+1028874,shot,2,19:46,5896,Matthew,Peca,324,10818,Jakub,Málek,False,Quality on net,Default,81,104
+1028874,shot,3,0:29,9754,Tristan,Allard,324,10818,Jakub,Málek,False,Quality on net,Default,126,146
+1028874,shot,3,2:23,9681,Josh,Filmon,390,6535,Brandon,Halverson,False,Non quality on net,Default,532,95
+1028874,shot,3,4:09,8778,Jackson,van de Leest,390,6535,Brandon,Halverson,False,Non quality on net,Default,436,53
+1028874,shot,3,5:13,9563,Nick,Abruzzese,324,10818,Jakub,Málek,False,Non quality on net,Default,129,51
+1028874,shot,3,5:44,10529,Ethan,Edwards,390,6535,Brandon,Halverson,False,Non quality on net,Default,525,52
+1028874,shot,3,6:33,6262,Kyle,Criscuolo,390,6535,Brandon,Halverson,False,Quality on net,Default,524,141
+1028874,shot,3,6:37,6362,Colton,White,390,6535,Brandon,Halverson,False,Non quality on net,Default,433,225
+1028874,shot,3,7:38,6262,Kyle,Criscuolo,390,6535,Brandon,Halverson,False,Non quality on net,Default,551,182
+1028874,shot,3,8:31,9754,Tristan,Allard,324,10818,Jakub,Málek,False,Non quality on net,Default,196,195
+1028874,shot,3,9:31,11025,Noah,Steen,324,10818,Jakub,Málek,True,Quality goal,Default,71,116
+1028874,goal,3,9:31,11025,Noah,Steen,,,,,,,,71,116
+1028874,shot,3,9:51,4666,Jarred,Tinordi,324,10818,Jakub,Málek,False,Non quality on net,Default,203,249
+1028874,shot,3,11:09,6262,Kyle,Criscuolo,390,6535,Brandon,Halverson,False,Quality on net,Default,510,154
+1028874,shot,3,11:52,7251,Ryan,Schmelzer,390,6535,Brandon,Halverson,False,Quality on net,Default,493,171
+1028874,shot,3,12:08,7251,Ryan,Schmelzer,390,6535,Brandon,Halverson,False,Non quality on net,Default,540,192
+1028874,shot,3,13:18,10986,Max,Grondin,324,10818,Jakub,Málek,False,Quality on net,Default,63,119
+1028874,shot,3,16:34,10986,Max,Grondin,324,10818,Jakub,Málek,False,Quality on net,Default,94,143
+1028874,shot,3,18:32,10986,Max,Grondin,324,10818,Jakub,Málek,False,Quality on net,Default,101,79

@@ -1,0 +1,55 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028883,shot,1,1:46,8667,Ian,Mitchell,324,9679,Dennis,Hildeby,False,Non quality on net,Default,200,45
+1028883,shot,1,2:43,10148,Dylan,Duke,324,9679,Dennis,Hildeby,True,Quality goal,Default,52,128
+1028883,goal,1,2:43,10148,Dylan,Duke,,,,,,,,52,128
+1028883,shot,1,4:05,5896,Matthew,Peca,324,9679,Dennis,Hildeby,False,Quality on net,Default,70,118
+1028883,shot,1,4:35,8553,Mitchell,Chaffee,324,9679,Dennis,Hildeby,False,Non quality on net,Default,60,209
+1028883,shot,1,5:12,10144,Chas,Sharpe,335,6535,Brandon,Halverson,True,Quality goal,Default,510,104
+1028883,goal,1,5:12,10144,Chas,Sharpe,,,,,,,,510,104
+1028883,shot,1,5:31,7579,Reese,Johnson,335,6535,Brandon,Halverson,False,Quality on net,Default,488,182
+1028883,shot,1,6:00,10053,Matthew,Barbolini,335,6535,Brandon,Halverson,False,Quality on net,Default,530,133
+1028883,shot,1,6:18,9563,Nick,Abruzzese,324,9679,Dennis,Hildeby,False,Non quality on net,Default,168,138
+1028883,shot,1,6:50,10613,Borya,Valis,335,6535,Brandon,Halverson,False,Non quality on net,Default,434,94
+1028883,shot,1,7:18,7693,Benoit-Olivier,Groulx,335,6535,Brandon,Halverson,False,Non quality on net,Default,399,76
+1028883,shot,1,7:47,10566,Lucas,Mercuri,324,9679,Dennis,Hildeby,False,Non quality on net,Default,209,120
+1028883,shot,1,11:10,10991,Vinny,Borgesi,335,6535,Brandon,Halverson,False,Non quality on net,Default,453,201
+1028883,shot,1,12:18,8667,Ian,Mitchell,324,9679,Dennis,Hildeby,False,Non quality on net,Default,190,52
+1028883,shot,1,12:33,6489,Alex,Nylander,335,6535,Brandon,Halverson,True,Quality goal,Default,507,160
+1028883,goal,1,12:33,6489,Alex,Nylander,,,,,,,,507,160
+1028883,shot,1,15:16,9023,Marc,Johnstone,335,6535,Brandon,Halverson,False,Non quality on net,Default,493,56
+1028883,shot,1,15:52,10566,Lucas,Mercuri,324,9679,Dennis,Hildeby,False,Quality on net,Default,76,157
+1028883,shot,1,17:01,10148,Dylan,Duke,324,9679,Dennis,Hildeby,False,Quality on net,Default,81,126
+1028883,shot,1,18:13,10119,Noah,Chadwick,335,6535,Brandon,Halverson,False,Quality on net,Default,536,171
+1028883,shot,1,19:02,8553,Mitchell,Chaffee,324,9679,Dennis,Hildeby,False,Non quality on net,Default,149,153
+1028883,shot,2,1:30,8667,Ian,Mitchell,324,9679,Dennis,Hildeby,False,Non quality on net,Default,163,89
+1028883,shot,2,1:33,9901,Gabriel,Szturc,324,9679,Dennis,Hildeby,False,Quality on net,Default,142,215
+1028883,shot,2,1:37,9896,Maxim,Groshev,324,9679,Dennis,Hildeby,False,Non quality on net,Default,104,248
+1028883,shot,2,2:21,9754,Tristan,Allard,324,9679,Dennis,Hildeby,False,Quality on net,Default,70,159
+1028883,shot,2,4:21,10613,Borya,Valis,335,6535,Brandon,Halverson,False,Quality on net,Default,527,175
+1028883,shot,2,4:29,10613,Borya,Valis,335,6535,Brandon,Halverson,False,Quality on net,Default,507,160
+1028883,shot,2,5:24,7821,Reece,Newkirk,324,9679,Dennis,Hildeby,False,Non quality on net,Default,155,149
+1028883,shot,2,10:07,7821,Reece,Newkirk,324,9679,Dennis,Hildeby,False,Non quality on net,Default,145,141
+1028883,shot,2,11:00,9896,Maxim,Groshev,324,9679,Dennis,Hildeby,False,Non quality on net,Default,182,235
+1028883,shot,2,11:10,9896,Maxim,Groshev,324,9679,Dennis,Hildeby,False,Quality on net,Default,65,115
+1028883,shot,2,11:51,6681,Vinni,Lettieri,335,6535,Brandon,Halverson,False,Quality on net,Default,538,113
+1028883,shot,2,12:29,8922,Simon,Lundmark,324,9679,Dennis,Hildeby,False,Quality on net,Default,64,137
+1028883,shot,2,13:18,6489,Alex,Nylander,335,6535,Brandon,Halverson,False,Non quality on net,Default,453,173
+1028883,shot,2,17:55,11025,Noah,Steen,324,9679,Dennis,Hildeby,False,Quality on net,Default,56,145
+1028883,shot,2,19:03,6681,Vinni,Lettieri,335,6535,Brandon,Halverson,False,Quality on net,Default,527,182
+1028883,shot,3,2:57,10991,Vinny,Borgesi,335,6535,Brandon,Halverson,False,Quality on net,Default,478,98
+1028883,shot,3,5:19,10991,Vinny,Borgesi,335,6535,Brandon,Halverson,False,Non quality on net,Default,387,209
+1028883,shot,3,5:52,8744,Jakob,Pelletier,324,9679,Dennis,Hildeby,False,Quality on net,Default,122,135
+1028883,shot,3,7:12,6681,Vinni,Lettieri,335,6535,Brandon,Halverson,False,Quality on net,Default,518,166
+1028883,shot,3,8:21,10991,Vinny,Borgesi,335,6535,Brandon,Halverson,False,Non quality on net,Default,420,158
+1028883,shot,3,8:24,10119,Noah,Chadwick,335,6535,Brandon,Halverson,False,Quality on net,Default,515,119
+1028883,shot,3,8:24,10613,Borya,Valis,335,6535,Brandon,Halverson,True,Quality goal,Default,532,147
+1028883,goal,3,8:24,10613,Borya,Valis,,,,,,,,532,147
+1028883,shot,3,8:52,8553,Mitchell,Chaffee,324,9679,Dennis,Hildeby,False,Quality on net,Default,75,143
+1028883,shot,3,13:55,8553,Mitchell,Chaffee,324,9679,Dennis,Hildeby,False,Quality on net,Default,117,102
+1028883,shot,3,15:07,10148,Dylan,Duke,324,9679,Dennis,Hildeby,False,Quality on net,Default,78,139
+1028883,shot,3,15:38,11025,Noah,Steen,324,9679,Dennis,Hildeby,False,Quality on net,Default,74,153
+1028883,shot,3,16:53,8553,Mitchell,Chaffee,324,9679,Dennis,Hildeby,False,Quality on net,Default,123,104
+1028883,shot,3,18:20,10148,Dylan,Duke,324,9679,Dennis,Hildeby,False,Quality on net,Default,66,139
+1028883,shot,3,18:25,8667,Ian,Mitchell,324,9679,Dennis,Hildeby,False,Non quality on net,Default,173,199
+1028883,shot,3,19:41,6489,Alex,Nylander,335,6535,Brandon,Halverson,True,Non quality goal,Default,371,22
+1028883,goal,3,19:41,6489,Alex,Nylander,,,,,,,,371,22
