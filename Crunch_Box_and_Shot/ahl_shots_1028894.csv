@@ -1,0 +1,71 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028894,shot,1,0:38,10148,Dylan,Duke,324,11035,Kevin,Reidler,False,Quality on net,Default,543,137
+1028894,shot,1,2:11,9823,Ethan,Samson,324,11035,Kevin,Reidler,False,Non quality on net,Default,393,249
+1028894,shot,1,2:19,5896,Matthew,Peca,324,11035,Kevin,Reidler,False,Quality on net,Default,519,144
+1028894,shot,1,4:25,10566,Lucas,Mercuri,324,11035,Kevin,Reidler,False,Quality on net,Default,475,189
+1028894,shot,1,4:55,9823,Ethan,Samson,324,11035,Kevin,Reidler,False,Non quality on net,Default,412,243
+1028894,shot,1,6:06,10922,Carter,Yakemchuk,413,6535,Brandon,Halverson,False,Non quality on net,Default,174,88
+1028894,shot,1,6:22,9079,Tommy,Miller,324,11035,Kevin,Reidler,False,Quality on net,Default,495,186
+1028894,shot,1,7:17,8595,Riley,McCourt,413,6535,Brandon,Halverson,False,Non quality on net,Default,203,233
+1028894,shot,1,7:22,8554,Ryan,O’Rourke,413,6535,Brandon,Halverson,False,Non quality on net,Default,211,109
+1028894,shot,1,7:28,6715,Garrett,Pilon,413,6535,Brandon,Halverson,False,Non quality on net,Default,192,185
+1028894,shot,1,7:49,8667,Ian,Mitchell,324,11035,Kevin,Reidler,False,Non quality on net,Default,465,259
+1028894,shot,1,8:56,9079,Tommy,Miller,324,11035,Kevin,Reidler,False,Non quality on net,Default,404,228
+1028894,shot,1,9:52,9202,Conor,Geekie,324,11035,Kevin,Reidler,False,Non quality on net,Default,451,254
+1028894,shot,1,10:10,9202,Conor,Geekie,324,11035,Kevin,Reidler,False,Non quality on net,Default,491,253
+1028894,shot,1,13:32,9906,Djibril,Touré,413,6535,Brandon,Halverson,False,Non quality on net,Default,207,69
+1028894,shot,1,14:13,4955,Scott,Harrington,413,6535,Brandon,Halverson,False,Non quality on net,Default,57,189
+1028894,shot,1,14:51,6715,Garrett,Pilon,413,6535,Brandon,Halverson,False,Non quality on net,Default,148,235
+1028894,shot,1,16:38,8554,Ryan,O’Rourke,413,6535,Brandon,Halverson,False,Non quality on net,Default,211,273
+1028894,shot,1,18:23,7677,Arthur,Kaliyev,413,6535,Brandon,Halverson,False,Non quality on net,Default,166,69
+1028894,shot,1,19:10,7677,Arthur,Kaliyev,413,6535,Brandon,Halverson,False,Quality on net,Default,125,104
+1028894,shot,1,19:16,9896,Maxim,Groshev,324,11035,Kevin,Reidler,False,Non quality on net,Default,160,132
+1028894,shot,2,5:15,9448,Xavier,Bourgault,413,6535,Brandon,Halverson,False,Non quality on net,Default,49,120
+1028894,shot,2,6:06,11034,Hoyt,Stanley,413,6535,Brandon,Halverson,True,Quality goal,Default,92,155
+1028894,goal,2,6:06,11034,Hoyt,Stanley,,,,,,,,92,155
+1028894,shot,2,7:20,11087,Blake,Montgomery,413,6535,Brandon,Halverson,False,Quality on net,Default,77,176
+1028894,shot,2,8:44,8987,Tyler,Boucher,413,6535,Brandon,Halverson,False,Quality on net,Default,76,198
+1028894,shot,2,8:57,8598,Graeme,Clarke,413,6535,Brandon,Halverson,False,Non quality on net,Default,183,44
+1028894,shot,2,10:20,9202,Conor,Geekie,324,11035,Kevin,Reidler,False,Quality on net,Default,485,146
+1028894,shot,2,11:28,9901,Gabriel,Szturc,324,11035,Kevin,Reidler,False,Non quality on net,Default,455,109
+1028894,shot,2,12:00,8598,Graeme,Clarke,413,6535,Brandon,Halverson,False,Quality on net,Default,98,165
+1028894,shot,2,12:19,8598,Graeme,Clarke,413,6535,Brandon,Halverson,False,Quality on net,Default,45,165
+1028894,shot,2,12:41,8554,Ryan,O’Rourke,413,6535,Brandon,Halverson,False,Non quality on net,Default,307,248
+1028894,shot,2,15:25,5896,Matthew,Peca,324,11035,Kevin,Reidler,False,Quality on net,Default,530,146
+1028894,shot,2,16:44,7677,Arthur,Kaliyev,413,6535,Brandon,Halverson,False,Quality on net,Default,75,112
+1028894,shot,2,16:53,8554,Ryan,O’Rourke,413,6535,Brandon,Halverson,False,Quality on net,Default,115,201
+1028894,shot,2,17:43,10607,Ethan,Gauthier,324,11035,Kevin,Reidler,False,Quality on net,Default,506,165
+1028894,shot,2,17:48,9823,Ethan,Samson,324,11035,Kevin,Reidler,False,Non quality on net,Default,397,227
+1028894,shot,2,18:40,5896,Matthew,Peca,324,11035,Kevin,Reidler,False,Quality on net,Default,492,87
+1028894,shot,2,19:06,8554,Ryan,O’Rourke,413,6535,Brandon,Halverson,False,Non quality on net,Default,238,24
+1028894,shot,2,19:19,9901,Gabriel,Szturc,324,11035,Kevin,Reidler,False,Quality on net,Default,480,173
+1028894,shot,3,2:05,11087,Blake,Montgomery,413,6535,Brandon,Halverson,True,Quality goal,Default,106,154
+1028894,goal,3,2:05,11087,Blake,Montgomery,,,,,,,,106,154
+1028894,shot,3,2:49,8598,Graeme,Clarke,413,6535,Brandon,Halverson,False,Non quality on net,Default,195,153
+1028894,shot,3,3:16,8554,Ryan,O’Rourke,413,6535,Brandon,Halverson,False,Non quality on net,Default,198,235
+1028894,shot,3,4:34,10016,Oskar,Pettersson,413,6535,Brandon,Halverson,False,Non quality on net,Default,198,129
+1028894,shot,3,4:40,10922,Carter,Yakemchuk,413,6535,Brandon,Halverson,False,Non quality on net,Default,164,122
+1028894,shot,3,4:40,7677,Arthur,Kaliyev,413,6535,Brandon,Halverson,True,Quality goal,Default,78,185
+1028894,goal,3,4:40,7677,Arthur,Kaliyev,,,,,,,,78,185
+1028894,shot,3,5:46,10399,Spencer,Kersten,324,11035,Kevin,Reidler,False,Quality on net,Default,507,189
+1028894,shot,3,7:41,5896,Matthew,Peca,324,11035,Kevin,Reidler,False,Non quality on net,Default,498,230
+1028894,shot,3,8:38,9823,Ethan,Samson,324,11035,Kevin,Reidler,True,Non quality goal,Default,383,244
+1028894,goal,3,8:38,9823,Ethan,Samson,,,,,,,,383,244
+1028894,shot,3,9:03,9448,Xavier,Bourgault,413,10834,Harrison,Meneghin,True,Non quality goal,Default,148,171
+1028894,goal,3,9:03,9448,Xavier,Bourgault,,,,,,,,148,171
+1028894,shot,3,9:16,11087,Blake,Montgomery,413,10834,Harrison,Meneghin,False,Quality on net,Default,48,171
+1028894,shot,3,9:29,8884,Matteo,Pietroniro,324,11035,Kevin,Reidler,False,Non quality on net,Default,368,90
+1028894,shot,3,9:57,10566,Lucas,Mercuri,324,11035,Kevin,Reidler,False,Quality on net,Default,545,171
+1028894,shot,3,12:47,9901,Gabriel,Szturc,324,11035,Kevin,Reidler,True,Non quality goal,Default,453,190
+1028894,goal,3,12:47,9901,Gabriel,Szturc,,,,,,,,453,190
+1028894,shot,3,13:06,9823,Ethan,Samson,324,11035,Kevin,Reidler,True,Quality goal,Default,521,141
+1028894,goal,3,13:06,9823,Ethan,Samson,,,,,,,,521,141
+1028894,shot,3,14:01,9202,Conor,Geekie,324,11035,Kevin,Reidler,False,Quality on net,Default,549,126
+1028894,shot,3,14:11,9448,Xavier,Bourgault,413,10834,Harrison,Meneghin,True,Quality goal,Default,81,139
+1028894,goal,3,14:11,9448,Xavier,Bourgault,,,,,,,,81,139
+1028894,shot,3,16:32,9823,Ethan,Samson,324,11035,Kevin,Reidler,False,Non quality on net,Default,517,231
+1028894,shot,3,17:03,9901,Gabriel,Szturc,324,11035,Kevin,Reidler,True,Quality goal,Default,501,159
+1028894,goal,3,17:03,9901,Gabriel,Szturc,,,,,,,,501,159
+1028894,shot,3,18:40,8720,Keean,Washkurak,413,10834,Harrison,Meneghin,True,Non quality goal,Default,135,261
+1028894,goal,3,18:40,8720,Keean,Washkurak,,,,,,,,135,261
+1028894,shot,3,19:00,11087,Blake,Montgomery,413,10834,Harrison,Meneghin,False,Quality on net,Default,66,123
