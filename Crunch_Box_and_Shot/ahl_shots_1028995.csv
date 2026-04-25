@@ -1,0 +1,52 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028995,shot,1,0:25,5645,Brendan,Gaunce,373,6064,Jon,Gillies,False,Quality on net,Snap,143,87
+1028995,shot,1,2:52,9901,Gabriel,Szturc,324,7751,Zach,Sawchenko,False,Quality on net,Snap,493,143
+1028995,shot,1,4:35,9633,Justin,Pearson,373,6064,Jon,Gillies,True,Quality goal,Snap,72,147
+1028995,goal,1,4:35,9633,Justin,Pearson,,,,,,,,72,147
+1028995,shot,1,7:34,9634,Mikael,Pyyhtiä,373,6064,Jon,Gillies,False,Non quality on net,Slap,194,54
+1028995,shot,1,7:41,9058,Owen,Sillinger,373,6064,Jon,Gillies,False,Quality on net,Snap,48,140
+1028995,shot,1,9:18,4666,Jarred,Tinordi,324,7751,Zach,Sawchenko,False,Non quality on net,Slap,414,48
+1028995,shot,1,14:19,6522,Steven,Santini,324,7751,Zach,Sawchenko,False,Non quality on net,Slap,393,85
+1028995,shot,1,14:26,9532,Will,Butcher,373,6064,Jon,Gillies,True,Quality goal,Snap,129,198
+1028995,goal,1,14:26,9532,Will,Butcher,,,,,,,,129,198
+1028995,shot,1,18:20,9618,Corson,Ceulemans,373,6064,Jon,Gillies,True,Quality goal,Snap,111,123
+1028995,goal,1,18:20,9618,Corson,Ceulemans,,,,,,,,111,123
+1028995,shot,2,0:13,10894,Jack,Williams,373,6535,Brandon,Halverson,False,Non quality on net,Snap,146,27
+1028995,shot,2,1:21,8744,Jakob,Pelletier,324,7751,Zach,Sawchenko,False,Quality on net,Default,477,82
+1028995,shot,2,1:51,10148,Dylan,Duke,324,7751,Zach,Sawchenko,True,Quality goal,Snap,505,110
+1028995,goal,2,1:51,10148,Dylan,Duke,,,,,,,,505,110
+1028995,shot,2,3:01,9980,Hunter,McKown,373,6535,Brandon,Halverson,False,Non quality on net,Snap,291,70
+1028995,shot,2,3:34,4666,Jarred,Tinordi,324,7751,Zach,Sawchenko,False,Non quality on net,Snap,481,25
+1028995,shot,2,4:10,10556,Guillaume,Richard,373,6535,Brandon,Halverson,False,Non quality on net,Snap,465,280
+1028995,shot,2,6:45,6522,Steven,Santini,324,7751,Zach,Sawchenko,False,Non quality on net,Snap,402,247
+1028995,shot,2,7:37,10566,Lucas,Mercuri,324,7751,Zach,Sawchenko,False,Quality on net,Snap,536,117
+1028995,shot,2,9:44,5645,Brendan,Gaunce,373,6535,Brandon,Halverson,False,Quality on net,Snap,75,183
+1028995,shot,2,12:15,8667,Ian,Mitchell,324,7751,Zach,Sawchenko,False,Quality on net,Backhand,541,149
+1028995,shot,2,13:32,9896,Maxim,Groshev,324,7751,Zach,Sawchenko,False,Non quality on net,Snap,515,51
+1028995,shot,2,13:42,6522,Steven,Santini,324,7751,Zach,Sawchenko,False,Non quality on net,Snap,289,246
+1028995,shot,2,14:01,10894,Jack,Williams,373,6535,Brandon,Halverson,False,Quality on net,Snap,84,129
+1028995,shot,2,16:47,8884,Matteo,Pietroniro,324,7751,Zach,Sawchenko,False,Non quality on net,Snap,410,69
+1028995,shot,2,17:02,8667,Ian,Mitchell,324,7751,Zach,Sawchenko,False,Non quality on net,Default,405,223
+1028995,shot,2,19:13,8667,Ian,Mitchell,324,7751,Zach,Sawchenko,False,Non quality on net,Snap,451,264
+1028995,shot,3,0:21,8744,Jakob,Pelletier,324,7751,Zach,Sawchenko,False,Non quality on net,Snap,401,141
+1028995,shot,3,0:25,8553,Mitchell,Chaffee,324,7751,Zach,Sawchenko,False,Quality on net,Snap,483,144
+1028995,shot,3,0:27,9754,Tristan,Allard,324,7751,Zach,Sawchenko,False,Quality on net,Default,542,130
+1028995,shot,3,1:11,10148,Dylan,Duke,324,7751,Zach,Sawchenko,False,Quality on net,Snap,542,165
+1028995,shot,3,3:26,7821,Reece,Newkirk,324,7751,Zach,Sawchenko,False,Quality on net,Snap,548,135
+1028995,shot,3,4:02,8553,Mitchell,Chaffee,324,7751,Zach,Sawchenko,True,Quality goal,Snap,518,147
+1028995,goal,3,4:02,8553,Mitchell,Chaffee,,,,,,,,518,147
+1028995,shot,3,4:33,9618,Corson,Ceulemans,373,6535,Brandon,Halverson,False,Non quality on net,Slap,192,40
+1028995,shot,3,5:22,9618,Corson,Ceulemans,373,6535,Brandon,Halverson,False,Non quality on net,Snap,59,216
+1028995,shot,3,7:10,10148,Dylan,Duke,324,7751,Zach,Sawchenko,False,Non quality on net,Snap,393,149
+1028995,shot,3,8:18,6516,Hudson,Fasching,373,6535,Brandon,Halverson,False,Non quality on net,Snap,41,185
+1028995,shot,3,10:57,8884,Matteo,Pietroniro,324,7751,Zach,Sawchenko,False,Non quality on net,Snap,400,29
+1028995,shot,3,11:15,10556,Guillaume,Richard,373,6535,Brandon,Halverson,False,Non quality on net,Snap,179,240
+1028995,shot,3,12:57,5896,Matthew,Peca,324,7751,Zach,Sawchenko,False,Non quality on net,Snap,547,92
+1028995,shot,3,13:07,9754,Tristan,Allard,324,7751,Zach,Sawchenko,False,Quality on net,Snap,533,159
+1028995,shot,3,13:08,9754,Tristan,Allard,324,7751,Zach,Sawchenko,False,Quality on net,Tip,528,154
+1028995,shot,3,14:39,10566,Lucas,Mercuri,324,7751,Zach,Sawchenko,False,Non quality on net,Snap,533,275
+1028995,shot,3,15:15,5896,Matthew,Peca,324,7751,Zach,Sawchenko,False,Quality on net,Tip,476,147
+1028995,shot,3,16:22,6522,Steven,Santini,324,7751,Zach,Sawchenko,False,Non quality on net,Snap,447,273
+1028995,shot,3,19:20,9563,Nick,Abruzzese,324,7751,Zach,Sawchenko,False,Non quality on net,Snap,482,275
+1028995,shot,3,19:25,8553,Mitchell,Chaffee,324,7751,Zach,Sawchenko,False,Non quality on net,Default,531,61
+1028995,shot,3,19:36,5896,Matthew,Peca,324,7751,Zach,Sawchenko,False,Non quality on net,Snap,447,221
