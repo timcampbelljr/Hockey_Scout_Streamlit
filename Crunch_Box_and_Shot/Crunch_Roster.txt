@@ -7,6 +7,7 @@
 21 – Mitchell Chaffee
 22 – Jakob Pelletier
 25 – Dylan Duke
+26 - Marco Mignosa
 41 - Spencer Kersten
 44 - Noah Steen
 63 - Matthew Peca
@@ -16,7 +17,6 @@
 94 - Conor Geekie
 95 – Gabriel Szturc
 
-4 - Everett Baldwin
 5 - Ian Mitchell
 7 - Simon Lundmark
 8 – Tommy Miller
@@ -24,13 +24,14 @@
 23 – Maxim Groshev
 28 – Jarred Tinordi
 42 – Ethan Samson
-48 - Grant Spada
 75 – Matteo Pietroniro
+57 - Dylan Gill
+96 - Chirs Harpur
 
 
 
 31 – Brandon Halverson
-35 - Harrison Meneghin
+32 - Jon Gillies
 59 – Ryan Fanti
 
 
