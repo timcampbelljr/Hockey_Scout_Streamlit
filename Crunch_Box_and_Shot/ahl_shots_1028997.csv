@@ -1,0 +1,74 @@
+game_id,event,period,time,shooter_id,shooter_first,shooter_last,shooter_team_id,goalie_id,goalie_first,goalie_last,is_goal,shot_quality,shot_type,x,y
+1028997,shot,1,0:16,10526,Cooper,Flinton,324,7751,Zach,Sawchenko,False,Non quality on net,Default,171,123
+1028997,shot,1,1:29,6522,Steven,Santini,324,7751,Zach,Sawchenko,False,Non quality on net,Default,321,24
+1028997,shot,1,2:53,5645,Brendan,Gaunce,373,6535,Brandon,Halverson,False,Non quality on net,Default,431,83
+1028997,shot,1,3:20,8667,Ian,Mitchell,324,7751,Zach,Sawchenko,False,Non quality on net,Default,435,33
+1028997,shot,1,5:58,9901,Gabriel,Szturc,324,7751,Zach,Sawchenko,False,Non quality on net,Default,283,156
+1028997,shot,1,8:32,10607,Ethan,Gauthier,324,7751,Zach,Sawchenko,False,Quality on net,Default,65,180
+1028997,shot,1,8:53,10176,Luca,Pinelli,373,6535,Brandon,Halverson,False,Non quality on net,Default,411,136
+1028997,shot,1,10:08,10399,Spencer,Kersten,324,7751,Zach,Sawchenko,True,Non quality goal,Default,53,211
+1028997,goal,1,10:08,10399,Spencer,Kersten,,,,,,,,53,211
+1028997,shot,1,11:22,9981,Luca,Del Bel Belluz,373,6535,Brandon,Halverson,False,Non quality on net,Default,428,83
+1028997,shot,1,12:00,9563,Nick,Abruzzese,324,7751,Zach,Sawchenko,False,Quality on net,Default,68,158
+1028997,shot,1,16:44,8744,Jakob,Pelletier,324,7751,Zach,Sawchenko,False,Quality on net,Default,99,207
+1028997,shot,1,18:55,6522,Steven,Santini,324,7751,Zach,Sawchenko,False,Non quality on net,Default,174,46
+1028997,shot,1,19:14,9058,Owen,Sillinger,373,6535,Brandon,Halverson,False,Quality on net,Default,523,115
+1028997,shot,1,19:45,6322,Dysin,Mayo,373,6535,Brandon,Halverson,False,Non quality on net,Default,439,238
+1028997,shot,1,19:59,5645,Brendan,Gaunce,373,6535,Brandon,Halverson,False,Non quality on net,Default,265,98
+1028997,shot,2,0:08,9570,Riley,Bezeau,373,6535,Brandon,Halverson,True,Quality goal,Default,503,181
+1028997,goal,2,0:08,9570,Riley,Bezeau,,,,,,,,503,181
+1028997,shot,2,1:31,5896,Matthew,Peca,324,7751,Zach,Sawchenko,False,Quality on net,Default,106,162
+1028997,shot,2,1:38,8744,Jakob,Pelletier,324,7751,Zach,Sawchenko,False,Non quality on net,Default,201,200
+1028997,shot,2,1:53,9634,Mikael,Pyyhtiä,373,6535,Brandon,Halverson,False,Quality on net,Default,525,100
+1028997,shot,2,2:05,8744,Jakob,Pelletier,324,7751,Zach,Sawchenko,False,Quality on net,Default,128,138
+1028997,shot,2,2:08,10607,Ethan,Gauthier,324,7751,Zach,Sawchenko,False,Quality on net,Default,69,132
+1028997,shot,2,4:02,9025,Roman,Ahcan,373,6535,Brandon,Halverson,False,Quality on net,Default,514,167
+1028997,shot,2,4:54,10566,Lucas,Mercuri,324,7751,Zach,Sawchenko,False,Non quality on net,Default,51,178
+1028997,shot,2,5:46,5645,Brendan,Gaunce,373,6535,Brandon,Halverson,False,Non quality on net,Default,411,218
+1028997,shot,2,6:47,9980,Hunter,McKown,373,6535,Brandon,Halverson,False,Quality on net,Default,482,131
+1028997,shot,2,7:44,8744,Jakob,Pelletier,324,7751,Zach,Sawchenko,False,Non quality on net,Default,279,197
+1028997,shot,2,8:04,10556,Guillaume,Richard,373,6535,Brandon,Halverson,True,Non quality goal,Default,511,58
+1028997,goal,2,8:04,10556,Guillaume,Richard,,,,,,,,511,58
+1028997,shot,2,8:21,6522,Steven,Santini,324,7751,Zach,Sawchenko,False,Non quality on net,Default,124,41
+1028997,shot,2,8:29,6522,Steven,Santini,324,7751,Zach,Sawchenko,False,Non quality on net,Default,111,53
+1028997,shot,2,10:26,9901,Gabriel,Szturc,324,7751,Zach,Sawchenko,False,Quality on net,Default,95,175
+1028997,shot,2,12:19,10566,Lucas,Mercuri,324,7751,Zach,Sawchenko,False,Quality on net,Default,141,160
+1028997,shot,2,12:50,9618,Corson,Ceulemans,373,6535,Brandon,Halverson,False,Quality on net,Default,468,209
+1028997,shot,2,13:27,10556,Guillaume,Richard,373,6535,Brandon,Halverson,False,Non quality on net,Default,419,131
+1028997,shot,2,14:14,9563,Nick,Abruzzese,324,7751,Zach,Sawchenko,False,Quality on net,Default,120,188
+1028997,shot,2,14:15,9563,Nick,Abruzzese,324,7751,Zach,Sawchenko,True,Quality goal,Default,58,121
+1028997,goal,2,14:15,9563,Nick,Abruzzese,,,,,,,,58,121
+1028997,shot,2,15:42,9079,Tommy,Miller,324,7751,Zach,Sawchenko,False,Non quality on net,Default,175,87
+1028997,shot,2,17:14,10176,Luca,Pinelli,373,6535,Brandon,Halverson,False,Non quality on net,Default,398,126
+1028997,shot,2,17:19,9735,Stanislav,Svozil,373,6535,Brandon,Halverson,False,Non quality on net,Default,422,171
+1028997,shot,3,0:55,9981,Luca,Del Bel Belluz,373,6535,Brandon,Halverson,False,Quality on net,Default,483,101
+1028997,shot,3,1:37,10556,Guillaume,Richard,373,6535,Brandon,Halverson,False,Non quality on net,Default,449,71
+1028997,shot,3,3:06,10607,Ethan,Gauthier,324,7751,Zach,Sawchenko,True,Quality goal,Default,93,139
+1028997,goal,3,3:06,10607,Ethan,Gauthier,,,,,,,,93,139
+1028997,shot,3,4:31,10526,Cooper,Flinton,324,7751,Zach,Sawchenko,False,Quality on net,Default,117,125
+1028997,shot,3,4:35,9896,Maxim,Groshev,324,7751,Zach,Sawchenko,False,Quality on net,Default,105,185
+1028997,shot,3,6:37,6522,Steven,Santini,324,7751,Zach,Sawchenko,False,Non quality on net,Default,174,87
+1028997,shot,3,7:41,6644,Zach,Aston-Reese,373,6535,Brandon,Halverson,False,Quality on net,Default,478,146
+1028997,shot,3,7:45,10950,Luca,Marrelli,373,6535,Brandon,Halverson,False,Non quality on net,Default,543,202
+1028997,shot,3,8:05,9981,Luca,Del Bel Belluz,373,6535,Brandon,Halverson,False,Non quality on net,Default,453,81
+1028997,shot,3,8:50,10526,Cooper,Flinton,324,7751,Zach,Sawchenko,False,Quality on net,Default,108,117
+1028997,shot,3,9:04,10556,Guillaume,Richard,373,6535,Brandon,Halverson,True,Quality goal,Default,540,140
+1028997,goal,3,9:04,10556,Guillaume,Richard,,,,,,,,540,140
+1028997,shot,3,11:55,9901,Gabriel,Szturc,324,7751,Zach,Sawchenko,False,Non quality on net,Default,108,263
+1028997,shot,3,12:54,6522,Steven,Santini,324,7751,Zach,Sawchenko,False,Non quality on net,Default,169,189
+1028997,shot,3,12:55,6522,Steven,Santini,324,7751,Zach,Sawchenko,False,Non quality on net,Default,157,132
+1028997,shot,3,12:59,8884,Matteo,Pietroniro,324,7751,Zach,Sawchenko,False,Non quality on net,Default,119,240
+1028997,shot,3,14:34,10894,Jack,Williams,373,6535,Brandon,Halverson,False,Quality on net,Default,462,225
+1028997,shot,3,14:49,6516,Hudson,Fasching,373,6535,Brandon,Halverson,False,Quality on net,Default,493,94
+1028997,shot,3,18:34,10950,Luca,Marrelli,373,6535,Brandon,Halverson,False,Quality on net,Default,470,202
+1028997,shot,3,18:59,9634,Mikael,Pyyhtiä,373,6535,Brandon,Halverson,False,Quality on net,Default,532,184
+1028997,shot,3,19:38,5896,Matthew,Peca,324,7751,Zach,Sawchenko,False,Quality on net,Default,85,138
+1028997,shot,3,19:38,10607,Ethan,Gauthier,324,7751,Zach,Sawchenko,False,Quality on net,Default,101,167
+1028997,shot,OT,0:44,6322,Dysin,Mayo,373,6535,Brandon,Halverson,False,Non quality on net,Default,441,203
+1028997,shot,OT,1:01,10556,Guillaume,Richard,373,6535,Brandon,Halverson,False,Quality on net,Default,513,148
+1028997,shot,OT,5:39,5896,Matthew,Peca,324,7751,Zach,Sawchenko,False,Non quality on net,Default,89,68
+1028997,shot,OT,8:07,5645,Brendan,Gaunce,373,6535,Brandon,Halverson,False,Non quality on net,Default,511,79
+1028997,shot,OT,8:15,5645,Brendan,Gaunce,373,6535,Brandon,Halverson,False,Quality on net,Default,489,140
+1028997,shot,OT,9:59,9058,Owen,Sillinger,373,6535,Brandon,Halverson,False,Quality on net,Default,486,166
+1028997,shot,OT,10:05,6516,Hudson,Fasching,373,6535,Brandon,Halverson,True,Quality goal,Default,544,123
+1028997,goal,OT,10:05,6516,Hudson,Fasching,,,,,,,,544,123
